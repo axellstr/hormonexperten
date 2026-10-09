@@ -1,0 +1,39 @@
+---
+import type { Locale } from '../../config';
+import type { Faq, FaqItem as Item } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+import FaqContact from './FaqContact.astro';
+import FaqItem from './FaqItem.astro';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  contact: Faq['contact'];
+  /** Visible questions, in order; the first starts open. */
+  items: Item[];
+}
+
+const { lang, title, contact, items } = Astro.props;
+---
+
+{items.length > 0 && (
+  <Section id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="text-h2 text-ink">
+      {title}
+    </h2>
+
+    <div class="mt-10 grid gap-16 lg:mt-14 lg:grid-cols-12 lg:items-start">
+      <div class="flex flex-col gap-4 lg:col-span-7">
+        {items.map((item, index) => (
+          <FaqItem lang={lang} item={item} name="faq" open={index === 0} keepOpen />
+        ))}
+      </div>
+
+      <FaqContact id="contact" lang={lang} contact={contact} class="lg:col-span-5" />
+    </div>
+  </Section>
+)}
+
+<script>
+  import '../../scripts/accordion';
+</script>

@@ -1,0 +1,95 @@
+{
+  "skip_link": "Zum Hauptinhalt springen",
+  "nav": {
+    "label": "Hauptnavigation",
+    "home": "Hormonexperten, Dr. Wilden: Startseite",
+    "items": [
+      { "label": "Über uns" },
+      { "label": "Leistungen" },
+      { "label": "Unser Team" },
+      { "label": "Kontakt" }
+    ],
+    "menu": "Menü",
+    "close": "Schließen",
+    "book": "Termin buchen",
+    "all_services": "Alle Leistungen ansehen",
+    "language": "Sprache"
+  },
+  "services": [
+    {
+      "id": "menopause",
+      "title": "Wechseljahre & Perimenopause",
+      "summary": "TODO: Kurzbeschreibung für Wechseljahre & Perimenopause"
+    },
+    {
+      "id": "hormone-therapy",
+      "title": "Hormontherapie",
+      "summary": "TODO: Kurzbeschreibung für Hormontherapie"
+    },
+    {
+      "id": "rimkus",
+      "title": "Hormontherapie nach Rimkus®",
+      "summary": "TODO: Kurzbeschreibung für Hormontherapie nach Rimkus®"
+    },
+    {
+      "id": "check-up",
+      "title": "Hormon-Check-up",
+      "summary": "TODO: Kurzbeschreibung für Hormon-Check-up"
+    },
+    {
+      "id": "metabolic-reset",
+      "title": "Metabolic Reset",
+      "summary": "TODO: Kurzbeschreibung für Metabolic Reset"
+    },
+    {
+      "id": "chronic-disease",
+      "title": "Chronische Erkrankungen",
+      "summary": "TODO: Kurzbeschreibung für Chronische Erkrankungen"
+    }
+  ],
+  "footer": {
+    "blurb": "Spezialisierte Hormonmedizin bei Wechseljahren, Perimenopause und Stoffwechselthemen. Fachkundige ärztliche Betreuung bequem von zu Hause aus.",
+    "social_label": "Hormonexperten in den sozialen Medien",
+    "columns": [
+      {
+        "title": "Kontakt",
+        "items": [
+          {},
+          {},
+          { "label": "Mo–Fr, 9:00–17:00 Uhr (MEZ)" },
+          { "label": "100 % online · Kein Wartezimmer" }
+        ]
+      },
+      {
+        "title": "Leistungen",
+        "items": [
+          { "label": "Bioidentische Hormone" },
+          { "label": "Hormontherapie" },
+          { "label": "Metabolic Reset" },
+          { "label": "Rimkus-Methode®" },
+          { "label": "Chronische Erkrankungen" }
+        ]
+      },
+      {
+        "title": "Praxis",
+        "items": [
+          { "label": "Über uns" },
+          { "label": "Unser Team" },
+          { "label": "Kontakt" },
+          { "label": "Partner" }
+        ]
+      },
+      {
+        "title": "Rechtliches",
+        "items": [
+          { "label": "Datenschutz" },
+          { "label": "Nutzungsbedingungen" },
+          { "label": "Impressum" },
+          { "label": "Cookie-Einstellungen" }
+        ]
+      }
+    ],
+    "payments_label": "Akzeptierte Zahlungsarten",
+    "copyright": "© {year} Hormonexperten. Alle Rechte vorbehalten."
+  }
+}

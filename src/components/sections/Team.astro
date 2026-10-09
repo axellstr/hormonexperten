@@ -1,0 +1,49 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { visible } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
+import type { Home } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  team: Home['team'];
+}
+
+const { lang, team } = Astro.props;
+---
+
+<Section id="team" aria-labelledby="team-title">
+  <h2 id="team-title" class="max-w-3xl text-h2 text-ink">
+    {team.title}
+  </h2>
+
+  <ul class="mt-10 grid gap-14 md:grid-cols-2 lg:mt-16 lg:gap-16">
+    {visible(team.members).map((member) => (
+      <li class="flex flex-col">
+        {member.image ? (
+          <Picture
+            src={getImage(member.image)}
+            alt={member.image_alt ?? ''}
+            formats={['avif', 'webp']}
+            widths={[480, 720, 960, 1300]}
+            sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
+            class="aspect-3/2 w-full rounded-panel object-cover"
+          />
+        ) : (
+          <Placeholder class="aspect-3/2 w-full rounded-panel" />
+        )}
+        <h3 class="mt-6 text-h3 text-ink">{member.name}</h3>
+        <p class="mt-2 max-w-prose text-body text-ink/80">{member.role}</p>
+        <Button href={localizeHref(member.cta.href, lang)} class="mt-6 self-start">
+          {member.cta.label}
+          <span class="sr-only">: {member.name}</span>
+        </Button>
+      </li>
+    ))}
+  </ul>
+</Section>

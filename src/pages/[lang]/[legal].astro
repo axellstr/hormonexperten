@@ -1,0 +1,32 @@
+---
+import LegalPage from '../../components/sections/LegalPage.astro';
+import { LOCALES, type Locale } from '../../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLegal, getSite, legalPageLang } from '../../lib/content';
+import type { LegalPage as Page } from '../../lib/schemas';
+
+// /{lang}/impressum, /{lang}/datenschutz and /{lang}/cookie-settings. The footer links all
+// three from every page (CLAUDE.md, privacy).
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) =>
+    getLegal(lang).pages.map((page) => ({ params: { lang, legal: page.id }, props: { lang, page } })),
+  );
+}
+
+interface Props {
+  lang: Locale;
+  page: Page;
+}
+
+const { lang, page } = Astro.props;
+const site = getSite(lang);
+const legal = getLegal(lang);
+
+// Untranslated text falls back to English; say so for screen readers.
+const bodyLang = legalPageLang(lang, page.id);
+const contentLang = bodyLang === lang ? undefined : bodyLang;
+---
+
+<BaseLayout lang={lang} site={site} title={page.meta.title} description={page.meta.description}>
+  <LegalPage lang={lang} contentLang={contentLang} legal={legal} page={page} />
+</BaseLayout>

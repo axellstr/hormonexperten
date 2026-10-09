@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Leistungen | Hormonexperten"
+  },
+  "eyebrow": "Leistungen",
+  "title": "Hormongesundheit, abgestimmt auf Ihre persönlichen Bedürfnisse.",
+  "intro": "Spezialisierte Hormonmedizin bei Wechseljahren, Perimenopause und Stoffwechselthemen. Fachkundige ärztliche Betreuung bequem von zu Hause aus.",
+  "breadcrumb_label": "Brotkrümelnavigation",
+  "learn_more": "Mehr erfahren",
+  "cta": "Online-Sprechstunde buchen",
+  "others_title": "Weitere Leistungen",
+  "pages": [
+    {
+      "id": "menopause",
+      "meta": {
+        "title": "Wechseljahre & Perimenopause | Hormonexperten"
+      }
+    },
+    {
+      "id": "hormone-therapy",
+      "meta": {
+        "title": "Hormontherapie | Hormonexperten"
+      }
+    },
+    {
+      "id": "rimkus",
+      "meta": {
+        "title": "Hormontherapie nach Rimkus® | Hormonexperten"
+      }
+    },
+    {
+      "id": "check-up",
+      "meta": {
+        "title": "Hormon-Check-up | Hormonexperten"
+      }
+    },
+    {
+      "id": "metabolic-reset",
+      "meta": {
+        "title": "Metabolic Reset | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-disease",
+      "meta": {
+        "title": "Chronische Erkrankungen | Hormonexperten"
+      }
+    }
+  ]
+}

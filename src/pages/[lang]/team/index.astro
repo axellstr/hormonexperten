@@ -1,0 +1,24 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import TeamMembers from '../../../components/sections/TeamMembers.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHome, getSite, getTeam } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const team = getTeam(lang);
+---
+
+<BaseLayout lang={lang} site={site} title={team.meta.title} description={team.meta.description}>
+  <TeamMembers lang={lang} team={team} />
+  <ClosingCta closing={getHome(lang).closing} />
+</BaseLayout>

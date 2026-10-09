@@ -1,0 +1,6 @@
+---
+import { DEFAULT_LOCALE } from '../config';
+
+// A static build turns this into a meta-refresh page; let the host send a real redirect.
+return Astro.redirect(`/${DEFAULT_LOCALE}/`);
+---

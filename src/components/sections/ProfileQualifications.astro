@@ -1,0 +1,102 @@
+---
+import Award from '../../assets/icons/award.svg';
+import GraduationCap from '../../assets/icons/graduation-cap.svg';
+import Languages from '../../assets/icons/languages.svg';
+import MapPin from '../../assets/icons/map-pin.svg';
+import Microscope from '../../assets/icons/microscope.svg';
+import Stethoscope from '../../assets/icons/stethoscope.svg';
+import Users from '../../assets/icons/users.svg';
+import { visible } from '../../lib/content';
+import type { Profile } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  qualifications: Profile['qualifications'];
+}
+
+const { qualifications } = Astro.props;
+const groups = qualifications.groups.filter((group) => visible(group.items).length > 0);
+const tags = visible(qualifications.tags);
+
+const icons = {
+  stethoscope: Stethoscope,
+  microscope: Microscope,
+  award: Award,
+  users: Users,
+  'graduation-cap': GraduationCap,
+  'map-pin': MapPin,
+  languages: Languages,
+};
+// Cards alternate wide and narrow on desktop, so each row reads 7 + 5; a pair splits evenly.
+const spans = groups.length === 2 ? ['lg:col-span-6'] : ['lg:col-span-7', 'lg:col-span-5'];
+---
+
+<Section aria-labelledby="qualifications-title">
+  <h2 id="qualifications-title" class="max-w-3xl text-h2 text-ink">
+    {qualifications.title}
+  </h2>
+
+  <div class="mt-10 grid gap-4 lg:mt-16 lg:grid-cols-12 lg:gap-6">
+    {groups.map((group, index) => {
+      const Icon = icons[group.icon];
+      return (
+        <article
+          aria-labelledby={`${group.id}-title`}
+          class:list={[
+            'rounded-card bg-surface p-6 motion-safe:reveal md:p-8 xl:p-10',
+            spans[index % spans.length],
+          ]}
+        >
+          <div class="flex items-center gap-4">
+            <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
+              <Icon class="size-6" aria-hidden="true" />
+            </span>
+            <h3 id={`${group.id}-title`} class="text-h3 text-ink">
+              {group.title}
+            </h3>
+          </div>
+          <ul class="mt-6 divide-y divide-ink/10">
+            {visible(group.items).map((item) => (
+              <li class="flex flex-col gap-1 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <div>
+                  <p class="text-body font-medium text-ink">{item.title}</p>
+                  {item.detail && <p class="mt-1 text-base text-ink/70">{item.detail}</p>}
+                </div>
+                {item.date && (
+                  <p class="order-first text-sm font-medium whitespace-nowrap text-text-muted tabular-nums sm:order-none">
+                    {item.date}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </article>
+      );
+    })}
+  </div>
+
+  {tags.length > 0 && (
+    <div class:list={['mt-4 grid gap-4 lg:mt-6 lg:gap-6', tags.length > 1 && 'lg:grid-cols-2']}>
+      {tags.map((tag) => {
+        const Icon = icons[tag.icon];
+        return (
+          <div class="flex flex-col gap-5 rounded-card border border-ink/10 p-6 motion-safe:reveal md:p-8">
+            <div class="flex items-center gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
+                <Icon class="size-5" aria-hidden="true" />
+              </span>
+              <h3 class="text-h4 text-ink">{tag.title}</h3>
+            </div>
+            <ul class="flex flex-wrap gap-2">
+              {tag.items.map((item) => (
+                <li class="rounded-full bg-surface px-4 py-1.5 text-base font-medium text-ink">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  )}
+</Section>

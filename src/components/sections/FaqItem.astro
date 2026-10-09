@@ -1,0 +1,44 @@
+---
+import type { Locale } from '../../config';
+import { localizeHref } from '../../lib/i18n';
+import type { FaqItem } from '../../lib/schemas';
+import Accordion from '../ui/Accordion.astro';
+
+interface Props {
+  lang: Locale;
+  item: FaqItem;
+  name?: string;
+  open?: boolean;
+  keepOpen?: boolean;
+}
+
+const { lang, item, name, open, keepOpen } = Astro.props;
+---
+
+<Accordion title={item.question} name={name} open={open} keepOpen={keepOpen}>
+  {item.answer.split(/\n{2,}/).map((paragraph) => (
+    <p>{paragraph}</p>
+  ))}
+  {item.link && (
+    <p>
+      <a
+        href={localizeHref(item.link.href, lang)}
+        class="inline-flex items-center gap-2 rounded-sm font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+      >
+        {item.link.label}
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-5 shrink-0"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+    </p>
+  )}
+</Accordion>

@@ -1,0 +1,97 @@
+---
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
+import '../styles/global.css';
+import Footer from '../components/sections/Footer.astro';
+import Header from '../components/sections/Header.astro';
+import { DEFAULT_LOCALE, FONT_SUBSET, LOCALES, SITE_URL, type Locale } from '../config';
+import { ACTIVE_PALETTE, PALETTES } from '../config/palettes';
+import {
+  HERO_IMAGE_HEIGHT,
+  HERO_IMAGE_SIZES,
+  HERO_IMAGE_WIDTH,
+  HERO_IMAGE_WIDTHS,
+} from '../lib/assets';
+import { switchLocale } from '../lib/i18n';
+import type { Site } from '../lib/schemas';
+
+interface Props {
+  lang: Locale;
+  site: Site;
+  title: string;
+  description: string;
+  preloadImage?: ImageMetadata;
+}
+
+const { lang, site, title, description, preloadImage } = Astro.props;
+const path = Astro.url.pathname;
+const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
+const palette = PALETTES[ACTIVE_PALETTE];
+const paletteStyles = Object.entries(palette.colors)
+  .map(([property, value]) => `${property}: ${value}`)
+  .join('; ');
+const imagePreload = preloadImage
+  ? await getImage({
+      src: preloadImage,
+      format: 'avif',
+      widths: HERO_IMAGE_WIDTHS,
+      width: HERO_IMAGE_WIDTH,
+      height: HERO_IMAGE_HEIGHT,
+      fit: 'cover',
+      position: 'center',
+    })
+  : undefined;
+---
+
+<!doctype html>
+<html
+  lang={lang}
+  class="scroll-pt-28 motion-safe:scroll-smooth"
+  data-palette={ACTIVE_PALETTE}
+  style={paletteStyles}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={urlFor(lang)} />
+    {LOCALES.map((locale) => (
+      <link rel="alternate" hreflang={locale} href={urlFor(locale)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={urlFor(DEFAULT_LOCALE)} />
+    <link
+      rel="preload"
+      href={`/fonts/manrope-${FONT_SUBSET[lang]}-wght-normal.woff2`}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {imagePreload && (
+      <link
+        rel="preload"
+        as="image"
+        href={imagePreload.src}
+        imagesrcset={imagePreload.srcSet.attribute}
+        imagesizes={HERO_IMAGE_SIZES}
+        type="image/avif"
+        fetchpriority="high"
+      />
+    )}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content={palette.colors['--color-surface']} />
+  </head>
+  <body class="bg-bg font-sans text-ink antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-on-dark"
+    >
+      {site.skip_link}
+    </a>
+    <Header lang={lang} site={site} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} site={site} />
+  </body>
+</html>

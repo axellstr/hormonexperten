@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "title": "Frequently asked questions | Hormonexperten",
+    "description": "TODO: approved meta description for the FAQ page"
+  },
+  "title": "Frequently asked questions",
+  "nav_label": "Topics",
+  "contact": {
+    "title": "Still have questions?",
+    "image": "contact.jpg",
+    "image_alt": "",
+    "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
+    "cta": { "label": "Get in touch", "href": "mailto:info@hormonexperten.de" }
+  },
+  "categories": [
+    {
+      "id": "perimenopause-menopause",
+      "title": "Perimenopause & menopause",
+      "items": [
+        {
+          "id": "perimenopause-signs",
+          "featured": true,
+          "question": "How can I tell if I’m in perimenopause?",
+          "answer": "Often through changes in your cycle. Perimenopause usually starts gradually: your period comes earlier or later, becomes heavier, lighter or more irregular.\n\nOther symptoms often follow, such as poor sleep, mood swings, brain fog, difficulty concentrating, hot flushes, night sweats, exhaustion, joint pain or changes in weight and libido. How strong these symptoms are varies greatly from woman to woman."
+        },
+        {
+          "id": "therapy-in-perimenopause",
+          "question": "Does bioidentical hormone therapy make sense already in perimenopause?",
+          "answer": "It can, if your symptoms affect your quality of life and your personal benefit-risk assessment supports it. It is not necessary for every woman.\n\nWhat matters is not a single lab value, but the full picture: your symptoms, your cycle and your medical history."
+        },
+        {
+          "id": "contraception",
+          "question": "Do I still need contraception during perimenopause?",
+          "answer": "Yes, if you want to reliably prevent pregnancy. Ovulation can still happen, even when your periods are irregular.\n\nImportant: bioidentical hormone therapy does not protect against pregnancy. Contraception does not have to be hormonal, though."
+        },
+        {
+          "id": "late-start",
+          "question": "Can I still start several years after menopause, for example when I’m over 60?",
+          "answer": "In principle, yes. Age alone does not automatically rule out hormone therapy.\n\nThe later you start, the more important a careful, personal benefit-risk assessment becomes. We do this individually for every patient."
+        }
+      ]
+    },
+    {
+      "id": "bioidentical-hormones",
+      "title": "Bioidentical hormones: the basics",
+      "items": [
+        {
+          "id": "bioidentical-meaning",
+          "featured": true,
+          "question": "What does “bioidentical” mean, and when are individually prepared hormones an option?",
+          "answer": "“Bioidentical” (also called “body-identical”) means the hormone has exactly the same chemical structure as the hormone your body makes.\n\nFor almost all of our patients, we work with specialised compounding pharmacies. Which therapy you receive is always decided individually, based on your symptoms, your medical history, your personal risk factors and how well you tolerated previous treatments.",
+          "link": {
+            "label": "Conventional vs. bioidentical hormone therapy",
+            "href": "#TODO-conventional-vs-bioidentical-page"
+          }
+        },
+        {
+          "id": "switching",
+          "question": "I’m taking the pill or another hormone therapy. Can I switch to bioidentical hormone therapy?",
+          "answer": "In principle, yes. Whether and how a switch makes sense depends on why you are taking your current medication and whether you still need reliable contraception.\n\nImportant: bioidentical hormone therapy is not a method of contraception and cannot replace one."
+        },
+        {
+          "id": "testosterone",
+          "needs_check": true,
+          "check_note": "Dr. Wilden to confirm the sentence on sexual complaints and lack of energy.",
+          "question": "Can testosterone be used after menopause?",
+          "answer": "In certain cases, yes. Particularly for certain sexual complaints or lack of energy, testosterone therapy can be an option after a thorough medical assessment.\n\nWhether it makes sense for you is assessed individually, and the treatment is monitored by a doctor."
+        }
+      ]
+    },
+    {
+      "id": "symptoms-mood-mind",
+      "title": "Common symptoms, mood & mind",
+      "items": [
+        {
+          "id": "hot-flushes",
+          "featured": true,
+          "question": "Can hormone therapy help with hot flushes and night sweats?",
+          "answer": "Yes. Hot flushes and night sweats are among the most typical symptoms of perimenopause and menopause, and they can improve significantly with individually tailored hormone therapy.\n\nIf they persist, that is an important sign for us to adjust your dose."
+        },
+        {
+          "id": "sleep",
+          "question": "I’ve had trouble sleeping since menopause. Can bioidentical hormone therapy help?",
+          "answer": "Yes, if your sleep problems are linked to hormonal changes. In that case, personalised hormone therapy can have a positive effect on your sleep.\n\nProgesterone in particular, but also estradiol, can play an important role."
+        },
+        {
+          "id": "heavy-periods",
+          "needs_check": true,
+          "check_note": "Dr. Wilden to confirm the second paragraph (gynaecologist check first).",
+          "question": "Can my heavy periods improve with hormone therapy?",
+          "answer": "Yes, if your heavy periods are caused by a hormonal imbalance. In that case, hormone therapy can help regulate your bleeding. It usually takes about two to three months before you notice the full effect.\n\nHeavy or changed bleeding should always be checked by a gynaecologist first, to rule out other causes such as fibroids or polyps."
+        },
+        {
+          "id": "mood",
+          "question": "Can hormone therapy help with mood swings, anxiety or depressive symptoms?",
+          "answer": "It can be one part of the treatment if your symptoms are linked to hormonal changes. In perimenopause, fluctuating hormones often affect mood, sleep and resilience. If your symptoms match that timing, individually tailored hormone therapy can be part of your treatment.\n\nImportant: a diagnosed depression or anxiety disorder always needs its own treatment. Please do not change or stop any existing medication without medical supervision."
+        },
+        {
+          "id": "brain-fog",
+          "question": "Can brain fog, poor concentration and memory problems be linked to menopause?",
+          "answer": "Yes, this is common. Brain fog, difficulty finding words and poor concentration are often reported in perimenopause and menopause. Besides hormones, poor sleep, hot flushes, stress and mood swings can also contribute.\n\nIf your symptoms get worse, are unusually severe or there is a relevant family history, we also look for other causes."
+        }
+      ]
+    },
+    {
+      "id": "sexual-health",
+      "title": "Sexual & intimate health",
+      "items": [
+        {
+          "id": "libido",
+          "question": "Can hormone therapy improve my libido?",
+          "answer": "Yes, if hormonal changes are one of the causes. But desire is complex: pain during sex, lack of sleep, stress, medication, emotional wellbeing and your relationship can all play a role.\n\nThat’s why we always look at loss of libido in the full picture and treat what is actually behind it for you."
+        },
+        {
+          "id": "vaginal-dryness",
+          "question": "What can I do about vaginal dryness, pain during sex or needing to urinate often?",
+          "answer": "You don’t have to simply put up with these symptoms. They are often caused by falling oestrogen levels, which affect the vagina, bladder and urethra (medical term: genitourinary syndrome of menopause, GSM).\n\nDepending on your symptoms, local treatment, systemic hormone therapy or other supportive measures may be an option. Which therapy suits you is decided individually."
+        }
+      ]
+    },
+    {
+      "id": "hair-joints-body",
+      "title": "Hair, joints & body",
+      "items": [
+        {
+          "id": "hair-loss",
+          "question": "Is my hair loss caused by hormones?",
+          "answer": "It can be, but hair loss has many possible causes. Besides hormones, these include thyroid disorders, genetics, iron or nutrient deficiency, medication, illness or severe physical stress.\n\nThat’s why we first look for the cause and then recommend targeted treatment."
+        },
+        {
+          "id": "joint-pain",
+          "question": "Can joint and muscle pain be hormonal?",
+          "answer": "Yes, that’s possible. Joint and muscle pain becomes more common in perimenopause and menopause and, in some women, is linked to hormonal changes.\n\nBecause there are many other possible causes, we look at the full picture. If hormones play a role, your symptoms can improve with the right treatment."
+        }
+      ]
+    },
+    {
+      "id": "metabolism-weight",
+      "title": "Metabolism & weight",
+      "items": [
+        {
+          "id": "belly-fat",
+          "question": "What role do hormones play in a growing waistline, belly fat and weight gain?",
+          "answer": "Hormones influence where your body stores fat. With menopause, many women store more fat around the belly, often even when their weight barely changes. Age, muscle mass, insulin sensitivity, nutrition and exercise also play an important role.\n\nThat’s why, when your weight changes, we don’t only look at sex hormones but at your whole metabolism."
+        },
+        {
+          "id": "metabolism",
+          "question": "Can hormone therapy improve my metabolism?",
+          "answer": "It can have a positive effect on certain metabolic processes and on body composition. How much varies from person to person.\n\nFor us, hormones and metabolism belong together. Depending on your situation, we look at blood sugar and insulin sensitivity, thyroid, body composition, nutrition and exercise together."
+        },
+        {
+          "id": "weight-loss",
+          "question": "Can I lose weight during treatment?",
+          "answer": "Possible, yes. Guaranteed, no. Hormones are only one of several factors that affect weight and body composition.\n\nIf weight loss is one of your goals, we create an individual plan that takes hormonal and metabolic factors into account together.",
+          "link": { "label": "Weight management", "href": "#TODO-weight-management-page" }
+        }
+      ]
+    },
+    {
+      "id": "risks-long-term-health",
+      "title": "Risks & long-term health",
+      "items": [
+        {
+          "id": "risks",
+          "featured": true,
+          "question": "What are the risks and side effects of hormone therapy?",
+          "answer": "No hormone therapy is completely risk-free, but the risk varies greatly from woman to woman. It depends on factors such as age, when treatment starts, existing conditions, family history and the type, dose, form and duration of treatment.\n\nTemporary side effects such as breast tenderness, bleeding, headaches or water retention can occur. That’s why we weigh the benefits and risks for you personally and monitor your progress regularly."
+        },
+        {
+          "id": "cancer-risk",
+          "needs_check": true,
+          "check_note": "Dr. Wilden to confirm the third paragraph (why the uterus matters).",
+          "question": "How does hormone therapy affect my cancer risk?",
+          "answer": "There is no one-size-fits-all answer. It depends on which hormones are used, whether you still have a uterus, how long you are treated and your personal risk factors.\n\nBody weight, alcohol, exercise and family history also affect certain cancer risks. We include all of this in your personal benefit-risk assessment.\n\nWhy the uterus matters: oestrogen alone can build up the lining of the uterus. If you still have a uterus, progesterone is therefore always added to protect it."
+        },
+        {
+          "id": "risk-conditions",
+          "needs_check": true,
+          "check_note": "Dr. Wilden to confirm the added example “for example a gel instead of a tablet”.",
+          "question": "Can I have hormone therapy if breast cancer runs in my family, I’ve had a thrombosis or I have migraines?",
+          "answer": "Not automatically ruled out, but it requires a particularly careful assessment. A family history of breast cancer, a previous thrombosis and migraines are each assessed differently and can influence which hormones and which form of application are suitable for you, for example a gel instead of a tablet.\n\nIf your risk is higher, an additional specialist assessment may be needed."
+        },
+        {
+          "id": "osteoporosis-family",
+          "needs_check": true,
+          "check_note": "Dr. Wilden to confirm the added example “for example a bone density scan”.",
+          "question": "Osteoporosis runs in my family. Can hormone therapy lower my risk?",
+          "answer": "Yes, it can slow down bone loss. Oestrogen is important for maintaining bone density. Menopausal hormone therapy can reduce bone loss and lower the risk of osteoporotic fractures during treatment.\n\nIf osteoporosis runs in your family, we look at further risk factors and decide individually whether additional tests, for example a bone density scan, or specific measures for bone health make sense."
+        },
+        {
+          "id": "osteoporosis-prevention",
+          "question": "When should I start preventing osteoporosis?",
+          "answer": "Ideally, as soon as perimenopause begins. Bone loss speeds up in the years around the last period, and bone that has been lost is hard to rebuild completely. Treatment can slow further loss and partly improve bone density, but prevention is key.\n\nHow and when to start depends on your personal risk, including your body composition, muscle mass, exercise and family history."
+        },
+        {
+          "id": "alzheimers",
+          "question": "Is there a link between menopause, hormones and Alzheimer’s?",
+          "answer": "There is no evidence that hormones protect against Alzheimer’s. Hormonal changes can temporarily affect concentration and memory, but that is not the same as dementia.\n\nAlzheimer’s is a complex disease with many causes. Hormone therapy is currently not recommended to prevent dementia. For long-term brain health, metabolism, blood pressure, exercise, sleep and other cardiovascular risk factors all matter."
+        },
+        {
+          "id": "heart",
+          "question": "How do hormones affect my heart and blood vessels?",
+          "answer": "Sex hormones influence blood vessel function, blood fats and metabolism, among other things. At the same time, women’s cardiovascular risk rises with age.\n\nHowever, hormone therapy is not used solely to prevent cardiovascular disease. For your personal assessment, we also look at blood pressure, blood fats, blood sugar, weight, exercise and family risk factors."
+        }
+      ]
+    },
+    {
+      "id": "testing-treatment",
+      "title": "Testing, monitoring & treatment course",
+      "items": [
+        {
+          "id": "irregular-cycle-testing",
+          "question": "How are my hormones assessed if my cycle is very irregular?",
+          "answer": "Not from a single blood test. In perimenopause, hormone levels fluctuate strongly, so one value is only a snapshot.\n\nWe look at your cycle, symptoms, medical history and, where medically useful, selected lab values together. Which tests you actually need is decided individually."
+        },
+        {
+          "id": "blood-vs-saliva",
+          "question": "Why do you use blood tests rather than saliva tests?",
+          "answer": "Because blood testing is the established method for most medically relevant hormone and metabolic values. Saliva and urine tests can be useful for certain questions, but they are not generally better.\n\nSaliva tests are not routinely needed to guide menopausal hormone therapy. We always choose the tests that fit the specific medical question."
+        },
+        {
+          "id": "lab-checks",
+          "question": "How often do my lab values need to be checked?",
+          "answer": "That depends on your therapy and your situation. While your treatment is being adjusted, checks are usually more frequent; once it is stable, the intervals become longer.\n\nNot every hormone therapy needs regular measurement of all hormone levels. We check what adds real medical value to your treatment."
+        },
+        {
+          "id": "blood-draw",
+          "question": "Where do I have my blood taken, and can I use results I already have?",
+          "answer": "You can often use results you already have, if they are recent and suitable for the question. That’s why we review your existing results first before recommending new tests.\n\nIf further values are needed, you receive a targeted lab recommendation from us and have your blood taken at a lab near you. You pay the lab fees directly to the lab."
+        },
+        {
+          "id": "time-to-effect",
+          "featured": true,
+          "question": "How long does it take before I notice a difference?",
+          "answer": "That is very individual. Some women feel a difference within days or weeks. For others, it takes two to three months to find the right dose.\n\nWe adjust your treatment step by step until it fits you."
+        },
+        {
+          "id": "duration",
+          "question": "How long does hormone therapy last? Is there a fixed time to start or stop?",
+          "answer": "There is no fixed maximum duration and no fixed cut-off date. Whether treatment is started or continued depends on your symptoms, your personal risks and the benefit for you.\n\nWe reassess this regularly. If you want to stop, or if it makes medical sense, we discuss the right approach and possible alternatives together."
+        },
+        {
+          "id": "stopping",
+          "question": "Can my symptoms come back if I stop treatment?",
+          "answer": "They can. It depends on what we are treating and how: whether the treatment eases your symptoms while you take it, or addresses a cause that can be resolved.\n\nIf you want to stop, we plan the next steps carefully with you."
+        },
+        {
+          "id": "gynaecologist",
+          "question": "How often should I see my gynaecologist during treatment?",
+          "answer": "As a general rule, once a year for your routine check-ups, if nothing has changed.\n\nIf you notice any changes, such as unexpected bleeding or new symptoms, please let us know. We will advise you and refer you if needed."
+        }
+      ]
+    },
+    {
+      "id": "online-care",
+      "title": "Online care",
+      "items": [
+        {
+          "id": "video-consultation",
+          "question": "How does a video consultation work?",
+          "answer": "TODO: approved answer"
+        },
+        {
+          "id": "blood-tests",
+          "question": "Do I need blood tests before my first appointment?",
+          "answer": "TODO: approved answer"
+        },
+        {
+          "id": "outside-germany",
+          "question": "Can I book from outside Germany?",
+          "answer": "TODO: approved answer"
+        }
+      ]
+    },
+    {
+      "id": "costs-booking",
+      "title": "Costs & booking",
+      "items": [
+        {
+          "id": "insurance",
+          "featured": true,
+          "question": "Is treatment covered by my health insurance?",
+          "answer": "Our services are private medical care. While state or public health insurance policies generally do not cover our consultations, we recommend checking with your provider, as individual policies may vary. For patients insured in Germany, a GOÄ-compliant invoice is available upon request."
+        },
+        {
+          "id": "cancel",
+          "question": "What if I need to cancel or reschedule?",
+          "answer": "TODO: approved answer"
+        }
+      ]
+    }
+  ]
+}

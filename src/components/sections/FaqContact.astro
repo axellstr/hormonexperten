@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Picture } from 'astro:assets';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Faq } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Placeholder from '../ui/Placeholder.astro';
+
+type Props = HTMLAttributes<'div'> & {
+  lang: Locale;
+  contact: Faq['contact'];
+  /** Heading level that fits the page outline. */
+  heading?: 'h2' | 'h3';
+};
+
+const { lang, contact, heading: Heading = 'h3', class: className, ...rest } = Astro.props;
+---
+
+<div class:list={['flex flex-col items-start text-start', className]} {...rest}>
+  {contact.image ? (
+    <Picture
+      src={getImage(contact.image)}
+      alt={contact.image_alt}
+      formats={['avif', 'webp']}
+      widths={[360, 512, 720, 1024]}
+      sizes="(min-width: 1440px) 512px, (min-width: 1024px) 36vw, 90vw"
+      class="aspect-square w-full max-w-lg rounded-card object-cover"
+    />
+  ) : (
+    <Placeholder class="aspect-square w-full max-w-lg rounded-card" />
+  )}
+  <Heading class="mt-8 text-title text-ink">{contact.title}</Heading>
+  <p class="mt-3 max-w-sm text-body text-ink/80">{contact.body}</p>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <Button href={localizeHref(contact.cta.href, lang)}>{contact.cta.label}</Button>
+    {contact.more && (
+      <Button href={localizeHref(contact.more.href, lang)} variant="secondary">
+        {contact.more.label}
+      </Button>
+    )}
+  </div>
+</div>

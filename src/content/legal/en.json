@@ -1,0 +1,310 @@
+{
+  "updated_label": "Last updated:",
+  "contents_label": "On this page",
+  "draft_notice": "TODO: Draft. Have the practice or its legal or data protection adviser review this text before launch, then set “approved” to true in src/content/legal/.",
+  "pages": [
+    {
+      "id": "impressum",
+      "meta": {
+        "title": "Legal notice (Impressum) | Hormonexperten",
+        "description": "Legal notice for Hormonexperten: provider, contact details and professional information."
+      },
+      "title": "Legal notice (Impressum)",
+      "updated": "2026-10-09",
+      "sections": [
+        {
+          "id": "anbieter",
+          "title": "Information under Section 5 DDG",
+          "body": [
+            {
+              "lines": [
+                "TODO: name of the practice or company, with legal form",
+                "TODO: name and title of the owner or authorised representative",
+                "TODO: street and number",
+                "TODO: postcode and town",
+                "TODO: country"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kontakt",
+          "title": "Contact",
+          "body": [
+            {
+              "lines": [
+                [
+                  "Email: ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                ],
+                "Phone: TODO: confirmed phone number"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "berufsrecht",
+          "title": "Professional information",
+          "body": [
+            {
+              "lines": [
+                "Statutory professional title: TODO: e.g. physician or specialist in General Medicine",
+                "Awarded in: TODO: country of licence or specialist recognition",
+                "Responsible medical association: TODO: name and address"
+              ]
+            },
+            "Professional regulations: TODO: professional code of the responsible medical association and the state’s Heilberufe-Kammergesetz, each with a link."
+          ]
+        },
+        {
+          "id": "register",
+          "title": "Register and VAT",
+          "body": [
+            {
+              "lines": [
+                "Register court and number: TODO: only for a company, otherwise remove this line",
+                "VAT identification number under Section 27a UStG: TODO: if there is one, otherwise remove this line"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "versicherung",
+          "title": "Professional liability insurance",
+          "body": [
+            {
+              "lines": ["Insurer: TODO: name and address", "Territorial scope: TODO"]
+            }
+          ]
+        },
+        {
+          "id": "verantwortlich",
+          "title": "Responsible for content under Section 18 (2) MStV",
+          "body": [{ "lines": ["TODO: name", "TODO: address (as above, if the same)"] }]
+        },
+        {
+          "id": "streitbeilegung",
+          "title": "Consumer dispute resolution",
+          "body": [
+            "TODO: statement under Section 36 VSBG on whether the practice takes part in dispute resolution before a consumer arbitration board (required above ten employees), or remove this section."
+          ]
+        },
+        {
+          "id": "bildnachweise",
+          "title": "Image credits",
+          "body": ["TODO: sources of the photos and illustrations used."]
+        }
+      ]
+    },
+    {
+      "id": "datenschutz",
+      "meta": {
+        "title": "Privacy policy | Hormonexperten",
+        "description": "How Hormonexperten handles your data when you visit this website, and your rights."
+      },
+      "title": "Privacy policy",
+      "updated": "2026-10-09",
+      "intro": "This page explains which data is processed when you visit this website, why, and what rights you have.",
+      "sections": [
+        {
+          "id": "kurz",
+          "title": "In brief",
+          "body": [
+            {
+              "list": [
+                "This website sets no cookies.",
+                "It loads no content, fonts or scripts from third parties. Even the font comes from our own server.",
+                "There are no forms and no user accounts on the website.",
+                "You book appointments in an external booking system, which opens only when you click a booking link."
+              ]
+            }
+          ],
+          "check_note": "Only true once the colour palette tester in the header (stores the choice in localStorage) is removed before launch."
+        },
+        {
+          "id": "verantwortlich",
+          "title": "Controller",
+          "body": [
+            "The controller for data processing on this website under the General Data Protection Regulation (GDPR) is:",
+            {
+              "lines": [
+                "TODO: name of the practice or company",
+                "TODO: address",
+                [
+                  "Email: ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "datenschutzbeauftragte",
+          "title": "Data protection officer",
+          "body": [
+            "TODO: contact details of the data protection officer, or remove this section if none has to be appointed."
+          ]
+        },
+        {
+          "id": "hosting",
+          "title": "Hosting and server log files",
+          "body": [
+            "This website is hosted by TODO: name and location of the hosting provider. Each time a page is requested, the server automatically processes data that your browser sends:",
+            {
+              "list": [
+                "IP address",
+                "date and time of the request",
+                "the page requested and the amount of data transferred",
+                "the page you came from (referrer), if your browser sends it",
+                "browser type, browser version and operating system"
+              ]
+            },
+            "This data is technically necessary to deliver the website and keep it secure and stable. The legal basis is Art. 6(1)(f) GDPR; our legitimate interest is running the website securely and without errors. A data processing agreement under Art. 28 GDPR is in place with the hosting provider. Log files are deleted after TODO: number of days."
+          ],
+          "check_note": "Confirm the data processing agreement with the host; add where the data is stored (EU?)."
+        },
+        {
+          "id": "verschluesselung",
+          "title": "Encryption",
+          "body": [
+            "The connection to this website is encrypted with TLS. You can tell by the “https://” in your browser’s address bar."
+          ]
+        },
+        {
+          "id": "kontakt",
+          "title": "Contacting us by email or phone",
+          "body": [
+            "If you contact us by email or phone, we process your details to answer your enquiry. The legal basis is Art. 6(1)(b) GDPR if your enquiry concerns or prepares a treatment, otherwise Art. 6(1)(f) GDPR. We process health information under Art. 9(2)(h) GDPR. We delete your enquiry once it has been dealt with, unless statutory retention periods apply.",
+            "Emails are usually not end-to-end encrypted. Please don’t send us detailed health information by email."
+          ],
+          "check_note": "Agree the advice on health information by email with the practice."
+        },
+        {
+          "id": "buchung",
+          "title": "Booking and payment",
+          "body": [
+            "We use the practice management system Pabau (TODO: provider and address) for booking and payment. The booking page opens only when you click a booking link; no data is sent to Pabau before then. Pabau processes your data on our behalf under Art. 28 GDPR.",
+            "TODO: which data is collected when booking, legal basis, retention period and any transfer to a third country (United Kingdom) with its basis."
+          ],
+          "check_note": "Check the Pabau contract, server location and payment provider."
+        },
+        {
+          "id": "behandlung",
+          "title": "Data from your treatment",
+          "body": [
+            "This website does not collect data that arises during treatment, for example in video consultations or test results. We inform you about that separately in our patient privacy notice (TODO: link)."
+          ]
+        },
+        {
+          "id": "matomo",
+          "title": "Visitor statistics with Matomo",
+          "body": [
+            "We measure how this website is used with Matomo, running on TODO: server or provider. Matomo sets no cookies and stores nothing on your device. IP addresses are shortened before they are stored, so we cannot identify you. The data is not passed on to third parties and is deleted after TODO: retention period.",
+            "The legal basis is Art. 6(1)(f) GDPR; our legitimate interest is improving the website."
+          ],
+          "needs_check": true,
+          "check_note": "Show only once Matomo is live; confirm the cookieless setup, IP shortening and retention period."
+        },
+        {
+          "id": "links",
+          "title": "Links to other websites",
+          "body": [
+            "Links to social networks and other websites are plain links with no embedded content. Only when you click one do you leave our website; the other provider’s privacy policy then applies."
+          ]
+        },
+        {
+          "id": "rechte",
+          "title": "Your rights",
+          "body": [
+            "You have the right",
+            {
+              "list": [
+                "to access the data we hold about you (Art. 15 GDPR),",
+                "to have incorrect data corrected (Art. 16 GDPR),",
+                "to have your data erased (Art. 17 GDPR),",
+                "to restrict processing (Art. 18 GDPR),",
+                "to data portability (Art. 20 GDPR), and",
+                "to withdraw consent at any time, with effect for the future (Art. 7(3) GDPR)."
+              ]
+            },
+            "Where we process data under Art. 6(1)(f) GDPR, you can object at any time on grounds relating to your particular situation (Art. 21 GDPR).",
+            {
+              "lines": [
+                [
+                  "To do so, write to ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" },
+                  "."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "beschwerde",
+          "title": "Right to complain",
+          "body": [
+            "You can complain to a data protection supervisory authority (Art. 77 GDPR), in particular in the EU country where you live or work. The authority responsible for us is TODO: supervisory authority where the practice is based, with address."
+          ]
+        },
+        {
+          "id": "aenderungen",
+          "title": "Changes",
+          "body": [
+            "We update this privacy policy when the website or the law changes. The version published here applies."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cookie-settings",
+      "meta": {
+        "title": "Cookie settings | Hormonexperten",
+        "description": "This website sets no cookies and embeds no third-party content."
+      },
+      "title": "Cookie settings",
+      "updated": "2026-10-09",
+      "intro": "This website sets no cookies and embeds no third-party content. That’s why there is no cookie banner and nothing to set here.",
+      "sections": [
+        {
+          "id": "geraet",
+          "title": "What is stored on your device",
+          "body": [
+            "Nothing that would need your consent. There are no advertising, tracking or social media cookies, and no videos, maps, fonts or review widgets that send data to third parties when the page loads."
+          ],
+          "check_note": "Only true once the colour palette tester in the header (localStorage) is removed before launch."
+        },
+        {
+          "id": "matomo",
+          "title": "Statistics without cookies",
+          "body": [
+            "For visitor statistics we use Matomo without cookies and without storing anything on your device. The privacy policy has the details."
+          ],
+          "needs_check": true,
+          "check_note": "Show only once Matomo is live."
+        },
+        {
+          "id": "aenderungen",
+          "title": "If this changes",
+          "body": [
+            "If we ever add services that need your consent, we will ask you first. You will then be able to change your choice on this page at any time."
+          ]
+        },
+        {
+          "id": "mehr",
+          "title": "Find out more",
+          "body": [
+            {
+              "lines": [
+                [
+                  "To learn how we handle your data, read our ",
+                  { "label": "privacy policy", "href": "/datenschutz" },
+                  "."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

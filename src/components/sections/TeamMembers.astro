@@ -1,0 +1,81 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { isVisible, memberLang, visible } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
+import type { Team } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  team: Team;
+}
+
+const { lang, team } = Astro.props;
+const members = visible(team.members).map((member) => ({
+  ...member,
+  href:
+    member.profile && isVisible(member.profile)
+      ? localizeHref(`/team/${member.id}`, lang)
+      : undefined,
+  roleLang: memberLang(lang, member.id, 'role'),
+}));
+---
+
+<Section aria-labelledby="team-title">
+  <Eyebrow>{team.eyebrow}</Eyebrow>
+  <h1 id="team-title" class="mt-4 max-w-4xl text-display text-ink">
+    {team.title}
+  </h1>
+
+  <ul class="mt-10 grid gap-14 md:grid-cols-2 md:gap-8 lg:mt-16 xl:gap-12">
+    {members.map((member) => {
+      // The photo repeats the button's link for pointer users; keyboards and screen readers skip it.
+      const Frame = member.href ? 'a' : 'div';
+      return (
+        <li class="group flex flex-col">
+          <Frame
+            href={member.href}
+            tabindex={member.href ? -1 : undefined}
+            aria-hidden={member.href ? 'true' : undefined}
+            class="block overflow-hidden rounded-panel bg-surface"
+          >
+            {member.image ? (
+              <Picture
+                src={getImage(member.image)}
+                alt={member.image_alt ?? ''}
+                formats={['avif', 'webp']}
+                widths={[480, 720, 960, 1300]}
+                sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
+                class:list={[
+                  'aspect-7/6 w-full object-cover',
+                  member.href &&
+                    'group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out',
+                ]}
+              />
+            ) : (
+              <Placeholder class="aspect-7/6 w-full" />
+            )}
+          </Frame>
+          <h2 class="mt-8 text-h2 text-ink">{member.name}</h2>
+          <p
+            lang={member.roleLang === lang ? undefined : member.roleLang}
+            class="mt-3 text-lead text-ink/80"
+          >
+            {member.role}
+          </p>
+          {member.href && (
+            <Button href={member.href} class="mt-6 self-start">
+              {team.learn_more}
+              <span class="sr-only">: {member.name}</span>
+            </Button>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</Section>

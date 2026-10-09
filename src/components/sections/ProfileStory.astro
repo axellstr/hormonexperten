@@ -1,0 +1,67 @@
+---
+import Quote from '../../assets/icons/quote.svg';
+import { BOOKING_URL } from '../../config';
+import type { Profile } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  story: Profile['story'];
+  /** Booking button label; left out when a closing panel follows. */
+  cta?: string | undefined;
+}
+
+const { story, cta } = Astro.props;
+---
+
+<Section aria-labelledby="story-title">
+  <Panel class="px-6 py-14 md:p-12 xl:p-20">
+    <!-- Without a statement beside it, the story reads as one centred column. -->
+    <div class:list={[!story.statement && 'mx-auto max-w-3xl']}>
+      <Quote class="size-12 text-coral lg:size-16" aria-hidden="true" />
+      <h2 id="story-title" class="mt-6 max-w-5xl text-h2 text-ink">
+        {story.title}
+      </h2>
+
+      <div
+        class:list={[
+          'mt-12 border-t border-ink/10 pt-12 lg:mt-16 lg:pt-16',
+          story.statement && 'grid gap-10 lg:grid-cols-12 lg:gap-16',
+        ]}
+      >
+        {story.statement && (
+          <p class="text-h3 font-medium text-ink lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+            {story.statement}
+          </p>
+        )}
+
+        <div class:list={[story.statement && 'lg:col-span-7']}>
+          <div class="space-y-6 text-body text-ink/80">
+            {story.body.map((block) =>
+              typeof block === 'string' ? (
+                <p>{block}</p>
+              ) : (
+                <h3 class="pt-6 text-h3 text-ink">{block.heading}</h3>
+              ),
+            )}
+          </div>
+          {story.closing && (
+            <p class="mt-10 border-s-2 border-coral ps-6 text-h3 text-ink">
+              {story.closing}
+            </p>
+          )}
+          <p class="mt-6 text-body font-medium text-ink">
+            <span aria-hidden="true">— </span>
+            {story.signature}
+          </p>
+          {cta && (
+            <Button href={BOOKING_URL} class="mt-10">
+              {cta}
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  </Panel>
+</Section>

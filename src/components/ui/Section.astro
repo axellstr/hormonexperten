@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Container from './Container.astro';
+
+type Props = HTMLAttributes<'section'>;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<section class:list={['py-16 lg:py-28', className]} {...rest}>
+  <Container>
+    <slot />
+  </Container>
+</section>

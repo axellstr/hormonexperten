@@ -1,0 +1,70 @@
+---
+import { Picture } from 'astro:assets';
+import Info from '../../assets/icons/info.svg';
+import { getImage } from '../../lib/assets';
+import type { Home } from '../../lib/schemas';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Panel from '../ui/Panel.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  how: Home['how'];
+}
+
+const { how } = Astro.props;
+---
+
+<Section id="how-it-works" aria-labelledby="how-title">
+  <Eyebrow>{how.eyebrow}</Eyebrow>
+  <h2 id="how-title" class="mt-4 max-w-3xl text-h2 text-ink">
+    {how.title}
+  </h2>
+  <p class="mt-5 max-w-3xl text-lead text-ink/80">{how.intro}</p>
+
+  <Panel class="mt-10 p-6 md:p-12 lg:mt-16 xl:p-20">
+    <ol class="space-y-16 lg:space-y-24">
+      {how.steps.map((step, index) => (
+        <li class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          {/* Image first on mobile; on desktop it alternates sides, starting on the right. */}
+          <div class:list={[index % 2 === 0 && 'lg:order-last']}>
+            {step.image ? (
+              <Picture
+                src={getImage(step.image)}
+                alt={step.image_alt ?? ''}
+                formats={['avif', 'webp']}
+                widths={[480, 720, 1080]}
+                sizes="(min-width: 1440px) 600px, (min-width: 1024px) 40vw, 90vw"
+                class="aspect-5/2 w-full rounded-card object-cover"
+              />
+            ) : (
+              <Placeholder class="aspect-5/2 rounded-card" />
+            )}
+          </div>
+          <div>
+            <h3 class="text-h3 text-ink">
+              <span class="text-text-muted tabular-nums" aria-hidden="true">
+                {`${index + 1}.`}
+              </span>{' '}
+              {step.title}
+            </h3>
+            <p class="mt-4 max-w-prose text-body text-ink/80">{step.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div
+      role="note"
+      class="mt-16 flex flex-col gap-4 border-t border-ink/10 pt-10 sm:flex-row sm:gap-6 lg:mt-24"
+    >
+      <Info class="size-11 shrink-0 text-ink" aria-hidden="true" />
+      <div>
+        <h3 class="text-h4 text-ink">{how.note.title}</h3>
+        <p class="mt-3 max-w-prose text-body text-ink/80">
+          {how.note.body}
+        </p>
+      </div>
+    </div>
+  </Panel>
+</Section>

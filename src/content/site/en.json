@@ -1,0 +1,233 @@
+{
+  "skip_link": "Skip to main content",
+  "nav": {
+    "label": "Main",
+    "home": "Hormonexperten, Dr. Wilden: home",
+    "items": [
+      {
+        "label": "About Us",
+        "href": "/#approach"
+      },
+      {
+        "label": "Services",
+        "href": "/services",
+        "submenu": "services"
+      },
+      {
+        "label": "Our Team",
+        "href": "/team"
+      },
+      {
+        "label": "Contact",
+        "href": "/#contact"
+      }
+    ],
+    "menu": "Menu",
+    "close": "Close",
+    "book": "Book Now",
+    "all_services": "View all services",
+    "language": "Language"
+  },
+  "services": [
+    {
+      "id": "menopause",
+      "title": "Menopause & Perimenopause",
+      "summary": "TODO: short summary for Menopause & Perimenopause",
+      "image": "service-menopause.png",
+      "image_alt": ""
+    },
+    {
+      "id": "hormone-therapy",
+      "title": "Hormone Therapy",
+      "summary": "TODO: short summary for Hormone Therapy",
+      "image": "service-hormone-therapy.png",
+      "image_alt": ""
+    },
+    {
+      "id": "rimkus",
+      "title": "Hormone Therapy by Rimkus®",
+      "summary": "TODO: short summary for Hormone Therapy by Rimkus®",
+      "image": "service-rimkus.png",
+      "image_alt": "",
+      "needs_check": true
+    },
+    {
+      "id": "check-up",
+      "title": "Hormone Check-Up",
+      "summary": "TODO: short summary for Hormone Check-Up",
+      "image": "service-check-up.jpg",
+      "image_alt": ""
+    },
+    {
+      "id": "metabolic-reset",
+      "title": "Metabolic Reset",
+      "summary": "TODO: short summary for Metabolic Reset",
+      "image_alt": "",
+      "needs_check": true
+    },
+    {
+      "id": "chronic-disease",
+      "title": "Chronic Disease",
+      "summary": "TODO: short summary for Chronic Disease",
+      "image_alt": "",
+      "needs_check": true
+    }
+  ],
+  "footer": {
+    "blurb": "Specialised hormone care for menopause, perimenopause, and metabolic health. Expert medical supervision from the comfort of your home.",
+    "social_label": "Hormonexperten on social media",
+    "social": [
+      {
+        "name": "LinkedIn",
+        "icon": "linkedin",
+        "href": "TODO",
+        "needs_check": true
+      },
+      {
+        "name": "Instagram",
+        "icon": "instagram",
+        "href": "TODO",
+        "needs_check": true
+      },
+      {
+        "name": "WhatsApp",
+        "icon": "whatsapp",
+        "href": "TODO",
+        "needs_check": true
+      },
+      {
+        "name": "Facebook",
+        "icon": "facebook",
+        "href": "TODO",
+        "needs_check": true
+      },
+      {
+        "name": "Jameda",
+        "icon": "jameda",
+        "href": "TODO",
+        "needs_check": true
+      }
+    ],
+    "columns": [
+      {
+        "title": "Contact",
+        "items": [
+          {
+            "label": "info@hormonexperten.de",
+            "href": "mailto:info@hormonexperten.de"
+          },
+          {
+            "label": "+49 30 23125 456",
+            "href": "tel:+493023125456",
+            "needs_check": true
+          },
+          {
+            "label": "Mon–Fri, 9:00–17:00 (CET)"
+          },
+          {
+            "label": "100% online · No waiting room"
+          }
+        ]
+      },
+      {
+        "title": "Services",
+        "items": [
+          {
+            "label": "Bioidentical Hormones",
+            "href": "/services"
+          },
+          {
+            "label": "Hormone Therapy",
+            "href": "/services/hormone-therapy"
+          },
+          {
+            "label": "Metabolic Reset",
+            "href": "/services/metabolic-reset",
+            "needs_check": true
+          },
+          {
+            "label": "Rimkus-Method®",
+            "href": "/services/rimkus",
+            "needs_check": true
+          },
+          {
+            "label": "Chronic Disease",
+            "href": "/services/chronic-disease",
+            "needs_check": true
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "items": [
+          {
+            "label": "About Us",
+            "href": "/about-us"
+          },
+          {
+            "label": "Our Team",
+            "href": "/team"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          },
+          {
+            "label": "Partners",
+            "href": "/partners"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "items": [
+          {
+            "label": "Privacy Policy",
+            "href": "/datenschutz"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "/terms"
+          },
+          {
+            "label": "Impressum",
+            "href": "/impressum"
+          },
+          {
+            "label": "Cookie Settings",
+            "href": "/cookie-settings"
+          }
+        ]
+      }
+    ],
+    "payments_label": "Accepted payment methods",
+    "payments": [
+      {
+        "name": "Visa",
+        "logo": "visa",
+        "needs_check": true
+      },
+      {
+        "name": "Diners Club",
+        "logo": "diners",
+        "needs_check": true
+      },
+      {
+        "name": "SEPA",
+        "logo": "sepa",
+        "needs_check": true
+      },
+      {
+        "name": "Klarna",
+        "logo": "klarna",
+        "needs_check": true
+      },
+      {
+        "name": "Mastercard",
+        "logo": "mastercard",
+        "needs_check": true
+      }
+    ],
+    "copyright": "© {year} Hormonexperten. All rights reserved."
+  }
+}

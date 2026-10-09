@@ -1,0 +1,70 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Service, Services } from '../../lib/schemas';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  services: Services;
+  /** Visible services, in menu order. */
+  items: Service[];
+}
+
+const { lang, services, items } = Astro.props;
+---
+
+<Section aria-labelledby="services-title">
+  <Eyebrow>{services.eyebrow}</Eyebrow>
+  <h1 id="services-title" class="mt-4 max-w-3xl text-display text-ink">
+    {services.title}
+  </h1>
+  <p class="mt-6 max-w-prose text-lead text-ink/80">{services.intro}</p>
+
+  <ul class="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 xl:gap-x-8">
+    {items.map((service) => (
+      <li>
+        <a
+          href={localizeHref(service.href, lang)}
+          class="group flex h-full flex-col rounded-card focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+        >
+          <div class="overflow-hidden rounded-card bg-surface">
+            {service.image ? (
+              <Picture
+                src={getImage(service.image)}
+                alt={service.image_alt}
+                formats={['avif', 'webp']}
+                widths={[360, 480, 720, 960]}
+                sizes="(min-width: 1440px) 450px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, 92vw"
+                class="aspect-3/2 w-full object-cover group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out"
+              />
+            ) : (
+              <Placeholder class="aspect-3/2 w-full" />
+            )}
+          </div>
+          <h2 class="mt-6 text-h3 text-ink">{service.title}</h2>
+          <p class="mt-3 max-w-prose text-body text-ink/80">{service.summary}</p>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-base font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 group-hover:decoration-ink motion-safe:transition-colors">
+            {services.learn_more}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-5 shrink-0 group-hover:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Section>

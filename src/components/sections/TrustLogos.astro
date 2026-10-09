@@ -1,0 +1,76 @@
+---
+import { getLogo } from '../../lib/assets';
+import { visible } from '../../lib/content';
+import type { Home } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  trust: Home['trust'];
+}
+
+const { trust } = Astro.props;
+const logos = visible(trust.logos).map((logo) => ({ ...logo, image: getLogo(logo.logo) }));
+
+// One line: 3 slots on phones, 4 on tablets, 5 on desktop. The other logos wait in the template
+// and roll in a few seconds later (src/scripts/logo-cycler.ts).
+const slots = logos.slice(0, 5);
+const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
+---
+
+{logos.length > 0 && (
+  <Section aria-labelledby="trust-title" class="py-10! lg:py-16!">
+    <h2 id="trust-title" class="mx-auto text-center text-h3 text-ink">
+      {trust.title}
+    </h2>
+
+    <ul class="sr-only">
+      {logos.map((logo) => (
+        <li>{logo.name}</li>
+      ))}
+    </ul>
+
+    <div
+      data-logo-cycler
+      aria-hidden="true"
+      class="mx-auto mt-10 flex max-w-5xl justify-center gap-8 md:gap-12 lg:mt-14 lg:gap-16"
+    >
+      {slots.map((logo, index) => (
+        <div
+          data-slot
+          class:list={[
+            slotClass[index],
+            'h-10 min-w-0 flex-1 grid-cols-1 grid-rows-1 place-items-center perspective-near lg:h-12',
+          ]}
+        >
+          <img
+            src={logo.image.src}
+            width={logo.image.width}
+            height={logo.image.height}
+            alt=""
+            data-index={index}
+            loading="lazy"
+            decoding="async"
+            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+          />
+        </div>
+      ))}
+      <template data-pool>
+        {logos.map((logo, index) => (
+          <img
+            src={logo.image.src}
+            width={logo.image.width}
+            height={logo.image.height}
+            alt=""
+            data-index={index}
+            decoding="async"
+            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+          />
+        ))}
+      </template>
+    </div>
+  </Section>
+)}
+
+<script>
+  import '../../scripts/logo-cycler';
+</script>

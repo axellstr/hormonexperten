@@ -1,0 +1,71 @@
+---
+import FaqContact from '../../components/sections/FaqContact.astro';
+import FaqItem from '../../components/sections/FaqItem.astro';
+import Section from '../../components/ui/Section.astro';
+import { LOCALES, type Locale } from '../../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getFaq, getSite, visible } from '../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const faq = getFaq(lang);
+const categories = faq.categories
+  .map((category) => ({ ...category, items: visible(category.items) }))
+  .filter((category) => category.items.length > 0);
+---
+
+<BaseLayout lang={lang} site={site} title={faq.meta.title} description={faq.meta.description}>
+  <Section aria-labelledby="faq-title">
+    <h1 id="faq-title" class="text-display text-ink">
+      {faq.title}
+    </h1>
+
+    <nav aria-label={faq.nav_label} class="mt-8 lg:mt-10">
+      <ul class="flex flex-wrap gap-3">
+        {categories.map((category) => (
+          <li>
+            <a
+              href={`#${category.id}`}
+              class="inline-flex rounded-full border border-ink/20 px-4 py-2 text-base text-ink hover:border-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+            >
+              {category.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="mt-12 grid gap-16 lg:mt-16 lg:grid-cols-12 lg:items-start">
+      <div class="flex flex-col gap-14 lg:col-span-8 lg:gap-20">
+        {categories.map((category) => (
+          <section id={category.id} aria-labelledby={`${category.id}-title`}>
+            <h2 id={`${category.id}-title`} class="text-h3 text-ink">
+              {category.title}
+            </h2>
+            <div class="mt-6 flex flex-col gap-4">
+              {category.items.map((item) => (
+                <FaqItem lang={lang} item={item} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <FaqContact
+        id="contact"
+        lang={lang}
+        contact={faq.contact}
+        heading="h2"
+        class="lg:sticky lg:top-28 lg:col-span-4"
+      />
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import { Picture } from 'astro:assets';
+import ArrowUpRight from '../../assets/icons/arrow-up-right.svg';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Service } from '../../lib/schemas';
+import Placeholder from './Placeholder.astro';
+
+interface Props {
+  lang: Locale;
+  service: Service;
+  /** The `sizes` attribute for the image, matching the card's width in its menu. */
+  sizes: string;
+  class?: string;
+}
+
+const { lang, service, sizes, class: className } = Astro.props;
+---
+
+<!-- Image card with the title over a gradient, used by the header's service menus. -->
+<a
+  href={localizeHref(service.href, lang)}
+  class:list={[
+    'group/card relative block overflow-hidden rounded-card bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink',
+    className,
+  ]}
+>
+  {service.image ? (
+    <Picture
+      src={getImage(service.image)}
+      alt={service.image_alt}
+      formats={['avif', 'webp']}
+      widths={[320, 480, 720]}
+      sizes={sizes}
+      class="size-full object-cover group-hover/card:scale-105 motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out"
+    />
+  ) : (
+    <Placeholder class="size-full" />
+  )}
+  <span class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-footer/75"></span>
+  <span class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4 xl:p-5">
+    <span class="text-base leading-snug font-semibold text-balance whitespace-normal text-on-dark">
+      {service.title}
+    </span>
+    <span class="grid size-9 shrink-0 place-items-center rounded-full bg-bg text-ink group-hover/card:bg-coral motion-safe:transition-colors motion-safe:duration-300">
+      <ArrowUpRight
+        class="size-5 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 rtl:-scale-x-100"
+        aria-hidden="true"
+      />
+    </span>
+  </span>
+</a>

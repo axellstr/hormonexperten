@@ -1,0 +1,111 @@
+---
+import Facebook from '../../assets/icons/facebook.svg';
+import Instagram from '../../assets/icons/instagram.svg';
+import Jameda from '../../assets/icons/jameda.svg';
+import LinkedIn from '../../assets/icons/linkedin.svg';
+import WhatsApp from '../../assets/icons/whatsapp.svg';
+import type { Locale } from '../../config';
+import { getLogo } from '../../lib/assets';
+import { visible } from '../../lib/content';
+import { format, localizeHref } from '../../lib/i18n';
+import type { Site } from '../../lib/schemas';
+import Container from '../ui/Container.astro';
+import Logo from '../ui/Logo.astro';
+
+interface Props {
+  lang: Locale;
+  site: Site;
+}
+
+const { lang, site } = Astro.props;
+const { footer } = site;
+const social = visible(footer.social);
+const payments = visible(footer.payments);
+const socialIcons = {
+  linkedin: LinkedIn,
+  instagram: Instagram,
+  whatsapp: WhatsApp,
+  facebook: Facebook,
+  jameda: Jameda,
+};
+const link =
+  'inline-flex rounded-field text-on-dark/70 motion-safe:transition-colors hover:text-on-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-dark';
+---
+
+<footer>
+  <Container class="rounded-t-panel bg-footer pt-12 text-on-dark lg:pt-14">
+    <div class="grid gap-14 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
+      <div class="max-w-xl lg:col-span-5">
+        <Logo variant="footer" />
+        <p class="mt-6 max-w-md text-sm text-on-dark/70">{footer.blurb}</p>
+        {social.length > 0 && (
+          <ul aria-label={footer.social_label} class="mt-8 flex flex-wrap gap-3">
+            {social.map((item) => {
+              const Icon = socialIcons[item.icon];
+              return (
+                <li>
+                  <a
+                    href={item.href}
+                    class="flex size-11 items-center justify-center rounded-full border border-on-dark/20 text-on-dark/80 motion-safe:transition-colors hover:border-coral hover:text-coral focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-dark"
+                  >
+                    <Icon class="size-6" aria-hidden="true" />
+                    <span class="sr-only">{item.name}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+
+      <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-4">
+        {footer.columns.map((column, index) => (
+          <nav aria-labelledby={`footer-column-${index}`}>
+            <h2 id={`footer-column-${index}`} class="text-eyebrow uppercase text-on-dark">
+              {column.title}
+            </h2>
+            <ul class="mt-4 space-y-1 p-2 text-base lg:text-sm">
+              {visible(column.items).map((item) => (
+                <li class="flex min-h-7 items-center py-1 text-on-dark/70">
+                  {item.href ? (
+                    <a href={localizeHref(item.href, lang)} class={link}>
+                      {item.label}
+                    </a>
+                  ) : (
+                    item.label
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col-reverse gap-6 border-t border-on-dark/20 pt-8 pb-4 md:flex-row md:items-center md:justify-between lg:mt-14">
+      <p class="text-sm text-on-dark/70">
+        {format(footer.copyright, { year: new Date().getFullYear() })}
+      </p>
+      {payments.length > 0 && (
+        <ul aria-label={footer.payments_label} class="flex flex-wrap gap-3">
+          {payments.map((payment) => {
+            const logo = getLogo(payment.logo);
+            return (
+              <li class="flex h-8 w-12 items-center justify-center rounded-lg bg-on-dark px-1.5">
+                <img
+                  src={logo.src}
+                  width={logo.width}
+                  height={logo.height}
+                  alt={payment.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="max-h-5 w-auto"
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  </Container>
+</footer>

@@ -1,0 +1,35 @@
+---
+import Mark from '../../assets/brand/mark.svg';
+import Wordmark from '../../assets/brand/wordmark.svg';
+import { BRAND } from '../../config';
+
+interface Props {
+  variant?: 'header' | 'footer';
+  /** Link target; the footer logo isn't a link. */
+  href?: string;
+  /** Accessible name for the link. */
+  label?: string;
+  class?: string;
+}
+
+const { variant = 'header', href, label, class: className } = Astro.props;
+const Tag = href ? 'a' : 'div';
+// Mark and wordmark share one 43-unit-high artboard, so equal heights keep the lockup's proportions.
+const size =
+  variant === 'header' ? 'h-6 w-auto shrink-0 sm:h-7 lg:h-6 xl:h-7' : 'h-8 w-auto shrink-0 md:h-10';
+---
+
+<Tag
+  href={href}
+  aria-label={label}
+  class:list={[
+    'inline-flex items-center rounded-field',
+    href && 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink',
+    variant === 'header' ? 'text-ink' : 'text-on-dark',
+    className,
+  ]}
+>
+  <Mark class={size} aria-hidden="true" />
+  <Wordmark class={size} aria-hidden="true" />
+  <span class="sr-only">{BRAND.wordmark.join('')}</span>
+</Tag>

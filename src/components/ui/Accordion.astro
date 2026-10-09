@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  /** Items sharing a name close each other when one opens. */
+  name?: string;
+  open?: boolean;
+  /** Keep the open item expanded; another item in the named group can still replace it. */
+  keepOpen?: boolean;
+  class?: string | undefined;
+}
+
+const { title, name, open = false, keepOpen = false, class: className } = Astro.props;
+---
+
+<!--
+  The panel height animates through ::details-content (needs interpolate-size, set on :root).
+  Browsers without support simply open and close instantly.
+-->
+<details
+  name={name}
+  open={open}
+  data-keep-open={keepOpen || undefined}
+  class:list={[
+    'group rounded-field bg-surface details-content:h-0 details-content:overflow-clip open:details-content:h-auto',
+    'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-out',
+    className,
+  ]}
+>
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-6 rounded-field px-6 py-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:px-9">
+    <h3 class="text-h4 font-medium text-ink">{title}</h3>
+    <!-- Matches the Services nav chevron: both arms hinge at the tip and flatten into a minus. -->
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="size-6 shrink-0 text-ink opacity-80 group-open:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+      data-accordion-icon
+      aria-hidden="true"
+    >
+      <path
+        d="M4 7l6 6"
+        class="origin-bottom-right transform-fill group-open:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+      />
+      <path
+        d="m10 13 6-6"
+        class="origin-bottom-left transform-fill group-open:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+      />
+    </svg>
+  </summary>
+  <div class="space-y-4 px-6 pb-6 text-body text-ink/80 *:max-w-prose md:px-9 md:pb-8">
+    <slot />
+  </div>
+</details>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.accordion-wiggle) {
+      animation: accordion-wiggle 320ms ease-out;
+    }
+  }
+
+  @keyframes accordion-wiggle {
+    0%,
+    100% {
+      rotate: 0deg;
+    }
+    30% {
+      rotate: -5deg;
+    }
+    60% {
+      rotate: 4deg;
+    }
+    80% {
+      rotate: -2deg;
+    }
+  }
+</style>

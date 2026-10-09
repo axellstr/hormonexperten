@@ -1,0 +1,73 @@
+---
+import { Picture } from 'astro:assets';
+import { BOOKING_URL, type Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Service, ServicePage, Services } from '../../lib/schemas';
+import Breadcrumb from '../ui/Breadcrumb.astro';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Placeholder from '../ui/Placeholder.astro';
+
+interface Props {
+  lang: Locale;
+  /** Set when the page body falls back to another language than the page's. */
+  contentLang?: Locale | undefined;
+  services: Services;
+  service: Service;
+  page: ServicePage;
+}
+
+const { lang, contentLang, services, service, page } = Astro.props;
+const image = 'aspect-4/3 w-full rounded-panel object-cover lg:aspect-4/5';
+---
+
+<!-- Sits below the floating header pill, like the home and profile heroes. -->
+<div class="mt-4 lg:mt-6" data-hero>
+  <Container>
+    <section
+      aria-labelledby="service-title"
+      class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
+    >
+      <Breadcrumb
+        label={services.breadcrumb_label}
+        items={[
+          { label: services.eyebrow, href: localizeHref('/services', lang) },
+          { label: service.title },
+        ]}
+      />
+
+      <div class="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+        <!-- Image first on mobile, on the end side from lg up. -->
+        <div class="lg:order-last lg:col-span-5">
+          {service.image ? (
+            <Picture
+              src={getImage(service.image)}
+              alt={service.image_alt}
+              formats={['avif', 'webp']}
+              widths={[480, 720, 960, 1200]}
+              sizes="(min-width: 1440px) 520px, (min-width: 1024px) 38vw, 90vw"
+              loading="eager"
+              fetchpriority="high"
+              class={image}
+            />
+          ) : (
+            <Placeholder class={image} />
+          )}
+        </div>
+
+        <div class="lg:col-span-7">
+          <h1 id="service-title" class="text-display text-ink">
+            {service.title}
+          </h1>
+          <p lang={contentLang} class="mt-6 max-w-prose text-lead text-ink/80">
+            {page.intro}
+          </p>
+          <Button href={BOOKING_URL} class="mt-10">
+            {services.cta}
+          </Button>
+        </div>
+      </div>
+    </section>
+  </Container>
+</div>

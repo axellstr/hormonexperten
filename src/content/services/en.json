@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "title": "Services | Hormonexperten",
+    "description": "TODO: approved meta description for the services page"
+  },
+  "eyebrow": "Services",
+  "title": "Hormone health, tailored to your personal needs.",
+  "intro": "Specialised hormone care for menopause, perimenopause, and metabolic health. Expert medical supervision from the comfort of your home.",
+  "breadcrumb_label": "Breadcrumb",
+  "learn_more": "Learn more",
+  "cta": "Book Online Consultation",
+  "others_title": "Other services",
+  "pages": [
+    {
+      "id": "menopause",
+      "meta": {
+        "title": "Menopause & Perimenopause | Hormonexperten",
+        "description": "TODO: approved meta description for the Menopause & Perimenopause page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Menopause & Perimenopause",
+      "about": {
+        "title": "TODO: section heading for Menopause & Perimenopause",
+        "body": [
+          "TODO: approved text describing Menopause & Perimenopause: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "focus": {
+        "title": "Common symptoms",
+        "items": [
+          "Changes in your cycle",
+          "Poor sleep",
+          "Mood swings",
+          "Brain fog",
+          "Difficulty concentrating",
+          "Hot flushes",
+          "Night sweats",
+          "Exhaustion",
+          "Joint pain",
+          "Changes in weight and libido"
+        ],
+        "needs_check": true,
+        "check_note": "Items taken from the FAQ answer “How can I tell if I’m in perimenopause?”; heading proposed by Claude. Confirm both for this page."
+      },
+      "faq": [
+        "perimenopause-signs",
+        "therapy-in-perimenopause",
+        "hot-flushes",
+        "sleep",
+        "contraception",
+        "late-start"
+      ]
+    },
+    {
+      "id": "hormone-therapy",
+      "meta": {
+        "title": "Hormone Therapy | Hormonexperten",
+        "description": "TODO: approved meta description for the Hormone Therapy page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Hormone Therapy",
+      "about": {
+        "title": "TODO: section heading for Hormone Therapy",
+        "body": [
+          "TODO: approved text describing Hormone Therapy: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "focus": {
+        "title": "What your therapy is based on",
+        "items": [
+          "Your symptoms",
+          "Your medical history",
+          "Your personal risk factors",
+          "How well you tolerated previous treatments"
+        ],
+        "needs_check": true,
+        "check_note": "Items taken from the FAQ answer “What does ‘bioidentical’ mean…?”; heading proposed by Claude. Confirm both for this page."
+      },
+      "faq": [
+        "bioidentical-meaning",
+        "switching",
+        "risks",
+        "time-to-effect",
+        "duration",
+        "stopping"
+      ]
+    },
+    {
+      "id": "rimkus",
+      "meta": {
+        "title": "Hormone Therapy by Rimkus® | Hormonexperten",
+        "description": "TODO: approved meta description for the Hormone Therapy by Rimkus® page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Hormone Therapy by Rimkus®",
+      "about": {
+        "title": "TODO: section heading for Hormone Therapy by Rimkus®",
+        "body": [
+          "TODO: approved text describing Hormone Therapy by Rimkus®: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "faq": ["bioidentical-meaning", "time-to-effect", "risks"],
+      "needs_check": true,
+      "check_note": "Rimkus® name and certification to be confirmed by the practice (CLAUDE.md)."
+    },
+    {
+      "id": "check-up",
+      "meta": {
+        "title": "Hormone Check-Up | Hormonexperten",
+        "description": "TODO: approved meta description for the Hormone Check-Up page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Hormone Check-Up",
+      "about": {
+        "title": "TODO: section heading for Hormone Check-Up",
+        "body": [
+          "TODO: approved text describing Hormone Check-Up: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "focus": {
+        "title": "What we look at",
+        "items": [
+          "Your cycle",
+          "Your symptoms",
+          "Your medical history",
+          "Selected lab values, where medically useful"
+        ],
+        "needs_check": true,
+        "check_note": "Taken from the FAQ answer “How are my hormones assessed if my cycle is very irregular?”. Confirm for this page."
+      },
+      "faq": ["irregular-cycle-testing", "blood-vs-saliva", "blood-draw", "lab-checks"]
+    },
+    {
+      "id": "metabolic-reset",
+      "meta": {
+        "title": "Metabolic Reset | Hormonexperten",
+        "description": "TODO: approved meta description for the Metabolic Reset page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Metabolic Reset",
+      "about": {
+        "title": "TODO: section heading for Metabolic Reset",
+        "body": [
+          "TODO: approved text describing Metabolic Reset: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "focus": {
+        "title": "What we look at",
+        "items": [
+          "Blood sugar and insulin sensitivity",
+          "Thyroid",
+          "Body composition",
+          "Nutrition",
+          "Exercise"
+        ],
+        "needs_check": true,
+        "check_note": "Taken from the FAQ answer “Can hormone therapy improve my metabolism?”. Confirm for this page."
+      },
+      "faq": ["belly-fat", "metabolism", "weight-loss"],
+      "needs_check": true,
+      "check_note": "Service not confirmed yet (CLAUDE.md, open questions)."
+    },
+    {
+      "id": "chronic-disease",
+      "meta": {
+        "title": "Chronic Disease | Hormonexperten",
+        "description": "TODO: approved meta description for the Chronic Disease page"
+      },
+      "intro": "TODO: one- or two-sentence opener for Chronic Disease",
+      "about": {
+        "title": "TODO: section heading for Chronic Disease",
+        "body": [
+          "TODO: approved text describing Chronic Disease: who it is for, what it involves and what patients can expect."
+        ]
+      },
+      "faq": [],
+      "needs_check": true,
+      "check_note": "Service not confirmed yet (CLAUDE.md, open questions)."
+    }
+  ]
+}

@@ -1,0 +1,481 @@
+---
+import { Picture } from 'astro:assets';
+import ChevronDown from '../../assets/icons/chevron-down.svg';
+import ChevronEnd from '../../assets/icons/chevron-end.svg';
+import { BOOKING_URL, type Locale } from '../../config';
+import { ACTIVE_PALETTE, PALETTES } from '../../config/palettes';
+import { getImage } from '../../lib/assets';
+import { visible } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
+import type { Site } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import LanguageSwitcher from '../ui/LanguageSwitcher.astro';
+import Logo from '../ui/Logo.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import ServiceMenuCard from '../ui/ServiceMenuCard.astro';
+
+interface Props {
+  lang: Locale;
+  site: Site;
+}
+
+const { lang, site } = Astro.props;
+const { nav } = site;
+const services = visible(site.services);
+// The menus show the first four as image cards and list the rest as text links beside them.
+const featured = services.slice(0, 4);
+const more = services.slice(4);
+const moreLink =
+  'rounded-sm text-base font-medium text-ink/80 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
+const allLink =
+  'rounded-sm text-base font-semibold text-ink underline decoration-1 underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink';
+const paletteOptions = Object.entries(PALETTES).map(([name, palette]) => ({
+  name,
+  ...palette,
+}));
+
+/** The section a nav item points to, for the scroll-spy highlight. */
+const sectionOf = (href: string) => href.split('#')[1] ?? '';
+
+/** Whether a nav item is the current page (in-page section links never are). */
+const here = Astro.url.pathname.replace(/\/$/, '');
+const isCurrent = (href: string) =>
+  !href.includes('#') && localizeHref(href, lang).replace(/\/$/, '') === here;
+const servicesItem = nav.items.find((item) => item.submenu);
+
+// Without JS the hover background is on the link itself; with JS a sliding pill replaces it.
+const navLink =
+  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors xl:px-4';
+// Mobile menu sheet: large rows with a round icon button at the end, like the service cards.
+const sheetLink =
+  'group/link flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-field py-4 text-h2 font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:py-5';
+const sheetIcon =
+  'grid size-11 shrink-0 place-items-center rounded-full bg-bg text-ink ring-1 ring-ink/10 group-hover/link:bg-coral group-hover/link:ring-coral motion-safe:transition-colors motion-safe:duration-300';
+// Sheet contents rise in one after another once the sheet has started to grow.
+const sheetReveal =
+  'group-data-closed/mobile:translate-y-3 group-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/mobile:duration-150 motion-safe:group-not-data-closed/mobile:duration-500';
+const sheetDelay = [
+  'motion-safe:group-not-data-closed/mobile:delay-100',
+  'motion-safe:group-not-data-closed/mobile:delay-150',
+  'motion-safe:group-not-data-closed/mobile:delay-200',
+  'motion-safe:group-not-data-closed/mobile:delay-250',
+  'motion-safe:group-not-data-closed/mobile:delay-300',
+  'motion-safe:group-not-data-closed/mobile:delay-350',
+];
+// Service cards fade in one after another when the menu opens.
+const stagger = [
+  '',
+  'motion-safe:group-not-data-closed/mega:delay-50',
+  'motion-safe:group-not-data-closed/mega:delay-100',
+  'motion-safe:group-not-data-closed/mega:delay-150',
+];
+---
+
+<div data-header-sentinel aria-hidden="true" class="h-px -mb-px"></div>
+<header class="group/header sticky top-0 z-40 origin-top pt-2 lg:pt-4" data-header>
+  <Container class="max-w-header! xl:w-11/12">
+    <!-- A floating pill. The end padding equals the Book Now button's inset from the top and
+         bottom, so the button sits concentric in the pill's rounded end. -->
+    <div
+      class="relative flex h-18 items-center justify-between gap-2 rounded-full bg-bg ps-4 pe-3.5 ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/10 sm:gap-4 md:ps-6 lg:h-20 lg:pe-4.5 xl:ps-8 motion-safe:transition-shadow"
+      data-header-bar
+    >
+      <Logo href={localizeHref('/', lang)} label={nav.home} />
+
+      <nav aria-label={nav.label} class="hidden header-desktop:block">
+        <span
+          aria-hidden="true"
+          data-nav-indicator
+          class="pointer-events-none absolute start-0 top-0 rounded-full bg-coral-tint opacity-0 motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-out"
+        ></span>
+        <ul
+          class="group/track flex items-center gap-0.5 rounded-full bg-bg/70 p-1 text-base font-medium whitespace-nowrap ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/5 motion-safe:transition-shadow"
+          data-nav-track
+        >
+          {nav.items.map((item) =>
+            item.submenu ? (
+              <li>
+                <details class="group/mega" data-menu data-menu-hover>
+                  <summary
+                    class:list={[navLink, 'cursor-pointer list-none']}
+                    data-nav-item={sectionOf(item.href)}
+                  >
+                    {item.label}
+                    <!-- Each arm hinges at the chevron's tip, flattening into a single line. -->
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="size-4 shrink-0 group-open/mega:group-not-data-closed/mega:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 7l6 6"
+                        class="origin-bottom-right transform-fill group-open/mega:group-not-data-closed/mega:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                      />
+                      <path
+                        d="m10 13 6-6"
+                        class="origin-bottom-left transform-fill group-open/mega:group-not-data-closed/mega:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                      />
+                    </svg>
+                  </summary>
+
+                  <div
+                    class="absolute inset-x-0 top-full pt-2 group-data-closed/mega:-translate-y-1 group-data-closed/mega:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/mega:duration-200 motion-safe:group-not-data-closed/mega:duration-300"
+                    data-menu-panel
+                  >
+                    <div class="flex gap-3 rounded-panel bg-bg p-3">
+                      <ul class="grid grow auto-cols-fr grid-flow-col gap-3">
+                        {featured.map((service, index) => (
+                          <li
+                            class:list={[
+                              'group-data-closed/mega:translate-y-2 group-data-closed/mega:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/mega:duration-150 motion-safe:group-not-data-closed/mega:duration-500',
+                              stagger[index % stagger.length],
+                            ]}
+                          >
+                            <ServiceMenuCard
+                              lang={lang}
+                              service={service}
+                              sizes="300px"
+                              class="h-52 xl:h-60"
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                      <!-- The overview link is always there; any services past four are listed above it. -->
+                      <div
+                        class:list={[
+                          'flex w-64 shrink-0 flex-col gap-6 rounded-card bg-surface p-5 whitespace-normal group-data-closed/mega:translate-y-2 group-data-closed/mega:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/mega:duration-150 motion-safe:group-not-data-closed/mega:delay-200 motion-safe:group-not-data-closed/mega:duration-500',
+                          more.length > 0 ? 'justify-between' : 'justify-end',
+                        ]}
+                      >
+                        {more.length > 0 && (
+                          <ul class="space-y-3">
+                            {more.map((service) => (
+                              <li>
+                                <a href={localizeHref(service.href, lang)} class={moreLink}>
+                                  {service.title}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        <a
+                          href={localizeHref(item.href, lang)}
+                          class:list={[allLink, 'self-start']}
+                        >
+                          {nav.all_services}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={localizeHref(item.href, lang)}
+                  class={navLink}
+                  data-nav-item={sectionOf(item.href)}
+                  aria-current={isCurrent(item.href) ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ),
+          )}
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-2 md:gap-3">
+        {import.meta.env.DEV && (
+          <details
+            class="group/palette relative"
+            data-menu
+            data-palette-picker
+            data-active-palette={ACTIVE_PALETTE}
+            data-palettes={JSON.stringify(paletteOptions)}
+          >
+            <summary
+              class="grid size-11 cursor-pointer list-none place-items-center rounded-full border border-ink/20 bg-bg hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+              aria-label={`Choose colour palette. Current palette: ${PALETTES[ACTIVE_PALETTE].label}.`}
+              title={PALETTES[ACTIVE_PALETTE].label}
+              data-palette-toggle
+            >
+              <span
+                class="grid size-7 place-items-center rounded-full bg-surface ring-1 ring-ink/15"
+                aria-hidden="true"
+              >
+                <span class="size-3.5 rounded-full bg-coral ring-1 ring-ink/10" />
+              </span>
+            </summary>
+
+            <div
+              class="absolute end-0 top-full z-20 mt-2 w-72 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/palette:-translate-y-1 group-data-closed/palette:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/palette:duration-150 motion-safe:group-not-data-closed/palette:duration-200"
+              data-menu-panel
+            >
+              <div class="flex items-baseline justify-between gap-4 px-3 pt-2 pb-1.5">
+                <span class="text-sm font-semibold text-ink">Colour palette</span>
+                <span class="truncate text-sm text-text-muted" data-palette-current>
+                  {PALETTES[ACTIVE_PALETTE].label}
+                </span>
+              </div>
+              <ul class="scrollbar-none max-h-64 space-y-0.5 overflow-y-auto overscroll-contain sm:max-h-96">
+                {paletteOptions.map((palette) => (
+                  <li>
+                    <button
+                      type="button"
+                      class="flex w-full cursor-pointer items-center gap-3 rounded-field px-3 py-2.5 text-start hover:bg-coral-tint data-active:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+                      data-palette-option={palette.name}
+                      data-active={palette.name === ACTIVE_PALETTE ? '' : undefined}
+                      aria-pressed={palette.name === ACTIVE_PALETTE}
+                    >
+                      <span class="grid grid-cols-3 gap-0.5" aria-hidden="true">
+                        <span
+                          class="size-3 rounded-full ring-1 ring-ink/15"
+                          style={`background-color: ${palette.colors['--color-coral']}`}
+                        />
+                        <span
+                          class="size-3 rounded-full ring-1 ring-ink/15"
+                          style={`background-color: ${palette.colors['--color-surface']}`}
+                        />
+                        <span
+                          class="size-3 rounded-full ring-1 ring-ink/15"
+                          style={`background-color: ${palette.colors['--color-bg']}`}
+                        />
+                      </span>
+                      <span class="min-w-0 grow truncate text-sm font-medium text-ink">
+                        {palette.label}
+                      </span>
+                      <span
+                        class="grid size-4 shrink-0 place-items-center text-ink"
+                        hidden={palette.name !== ACTIVE_PALETTE}
+                        data-palette-check
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="size-4"
+                          aria-hidden="true"
+                        >
+                          <path d="m4.5 10 3.25 3.25 7.75-7.5" />
+                        </svg>
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        )}
+        <LanguageSwitcher lang={lang} label={nav.language} class="hidden header-desktop:block" />
+        <div class="hidden sm:block">
+          <Button href={BOOKING_URL} size="sm" class="whitespace-nowrap">
+            {nav.book}
+          </Button>
+        </div>
+
+        <!--
+          Mobile menu: a full-screen sheet that grows out of the header pill and slides back
+          into it. The pill stays on top, so the logo, Book Now and this toggle (now "Close")
+          never leave the screen. Without JS it is a plain <details> that opens instantly.
+        -->
+        <details class="group/mobile header-desktop:hidden" data-menu data-menu-sheet>
+          <summary class="flex size-11 cursor-pointer list-none items-center justify-center gap-2 rounded-full border border-ink font-semibold text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors sm:w-auto sm:ps-4 sm:pe-3">
+            <span class="sr-only">{nav.menu}</span>
+            <!-- Both labels share one grid cell, so the button keeps its width as they swap. -->
+            <span class="hidden sm:inline-grid" aria-hidden="true">
+              <span class="col-start-1 row-start-1 group-open/mobile:group-not-data-closed/mobile:-translate-y-1 group-open/mobile:group-not-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+                {nav.menu}
+              </span>
+              <span class="col-start-1 row-start-1 translate-y-1 opacity-0 group-open/mobile:group-not-data-closed/mobile:translate-y-0 group-open/mobile:group-not-data-closed/mobile:opacity-100 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+                {nav.close}
+              </span>
+            </span>
+            <!-- Two bars that meet in the middle and turn into a cross. -->
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              class="size-6 shrink-0"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 9h14"
+                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+              />
+              <path
+                d="M5 15h14"
+                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:-translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+              />
+            </svg>
+          </summary>
+
+          <!-- Sits behind the pill (-z-10 inside the header), covering the page. -->
+          <div
+            class="sheet fixed inset-0 -z-10 flex flex-col overflow-y-auto overscroll-contain bg-surface pt-24 group-data-closed/mobile:sheet-collapsed lg:pt-32"
+            data-menu-panel
+          >
+            <Container class="flex max-w-header! grow flex-col xl:w-11/12">
+              <!-- Inset like the pill's content, so the menu lines up under the logo. -->
+              <div class="flex grow flex-col px-4 pb-6 md:px-6 md:pb-10 lg:grid lg:grid-cols-12 lg:content-start lg:gap-x-16 xl:px-8">
+                <nav aria-label={nav.label} class="lg:col-span-5">
+                  <ul>
+                    {nav.items.map((item, index) => (
+                      <li
+                        class:list={[
+                          'border-b border-ink/10',
+                          sheetReveal,
+                          sheetDelay[index],
+                          // From md the services show as image cards instead.
+                          item.submenu && 'md:hidden',
+                        ]}
+                      >
+                        {item.submenu ? (
+                          <details class="group/sub details-content:h-0 details-content:overflow-clip open:details-content:h-auto motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-out">
+                            <summary class={sheetLink}>
+                              {item.label}
+                              <span class={sheetIcon}>
+                                <ChevronDown
+                                  class="size-5 group-open/sub:rotate-180 motion-safe:transition-transform motion-safe:duration-300"
+                                  aria-hidden="true"
+                                />
+                              </span>
+                            </summary>
+                            <ul
+                              class="grid gap-2 pb-5 sm:grid-cols-2"
+                              data-warm-media="(width < 48rem)"
+                            >
+                              {services.map((service) => (
+                                <li>
+                                  <a
+                                    href={localizeHref(service.href, lang)}
+                                    class="group/row flex items-center gap-4 rounded-card bg-bg p-2 pe-4 ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow"
+                                  >
+                                    <!-- 16px corners: concentric with the row's 24px at 8px padding. -->
+                                    {service.image ? (
+                                      <Picture
+                                        src={getImage(service.image)}
+                                        alt={service.image_alt}
+                                        formats={['avif', 'webp']}
+                                        widths={[112, 168]}
+                                        sizes="56px"
+                                        pictureAttributes={{ class: 'shrink-0' }}
+                                        class="size-14 rounded-2xl object-cover"
+                                      />
+                                    ) : (
+                                      <Placeholder class="size-14 shrink-0 overflow-hidden rounded-2xl text-center" />
+                                    )}
+                                    <span class="text-base leading-snug font-medium text-ink">
+                                      {service.title}
+                                    </span>
+                                    <ChevronEnd
+                                      class="ms-auto size-5 shrink-0 text-ink/70 group-hover/row:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100 rtl:group-hover/row:-translate-x-0.5"
+                                      aria-hidden="true"
+                                    />
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </details>
+                        ) : (
+                          <a
+                            href={localizeHref(item.href, lang)}
+                            class={sheetLink}
+                            aria-current={isCurrent(item.href) ? 'page' : undefined}
+                          >
+                            {item.label}
+                            <span
+                              class:list={[
+                                sheetIcon,
+                                isCurrent(item.href) && 'bg-coral ring-coral',
+                              ]}
+                            >
+                              <ChevronEnd
+                                class="size-5 group-hover/link:translate-x-0.5 motion-safe:transition-transform motion-safe:duration-300 rtl:-scale-x-100 rtl:group-hover/link:-translate-x-0.5"
+                                aria-hidden="true"
+                              />
+                            </span>
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+
+                {servicesItem && (
+                  <div
+                    class:list={[
+                      'hidden md:mt-12 md:block lg:col-span-7 lg:row-span-2 lg:mt-0 lg:pt-5',
+                      sheetReveal,
+                      sheetDelay[2],
+                    ]}
+                    data-warm-media="(width >= 48rem)"
+                  >
+                    <Eyebrow id="sheet-services">{servicesItem.label}</Eyebrow>
+                    <ul aria-labelledby="sheet-services" class="mt-4 grid grid-cols-2 gap-3">
+                      {featured.map((service) => (
+                        <li>
+                          <ServiceMenuCard
+                            lang={lang}
+                            service={service}
+                            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 28vw, 45vw"
+                            class="h-40 lg:h-44 xl:h-52"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                    <div class="mt-5 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
+                      {more.length > 0 && (
+                        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+                          {more.map((service) => (
+                            <li>
+                              <a href={localizeHref(service.href, lang)} class={moreLink}>
+                                {service.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      <a href={localizeHref(servicesItem.href, lang)} class={allLink}>
+                        {nav.all_services}
+                      </a>
+                    </div>
+                  </div>
+                )}
+
+                <div
+                  class:list={[
+                    'mt-auto space-y-6 pt-10 lg:col-span-5 lg:col-start-1 lg:mt-0',
+                    sheetReveal,
+                    sheetDelay[4],
+                  ]}
+                >
+                  <LanguageSwitcher lang={lang} label={nav.language} inline />
+                  <Button href={BOOKING_URL} class="w-full sm:hidden">
+                    {nav.book}
+                  </Button>
+                </div>
+              </div>
+            </Container>
+          </div>
+        </details>
+      </div>
+    </div>
+  </Container>
+</header>
+
+<script>
+  import '../../scripts/header';
+</script>

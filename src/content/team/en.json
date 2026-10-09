@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "title": "Our Team | Hormonexperten",
+    "description": "TODO: meta description for the Our Team page"
+  },
+  "eyebrow": "Our Team",
+  "title": "Experience, expertise and excellence at your service.",
+  "breadcrumb_label": "Breadcrumb",
+  "learn_more": "Learn More",
+  "members": [
+    {
+      "id": "isabella-wilden",
+      "name": "Dr. Isabella Wilden",
+      "role": "Specialist in General Medicine with a focus on bioidentical hormone therapy",
+      "image": "dr-wilden.png",
+      "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop",
+      "check_note": "CLAUDE.md role line kept on the card; the profile header uses the titles from her CV doc (Hormone Expert · Specialist in Orthomolecular Medicine).",
+      "profile": {
+        "meta": {
+          "title": "Dr. medic. Isabella Wilden | Hormonexperten",
+          "description": "Dr. Isabella Wilden has worked as a physician for more than 35 years. Her practice is dedicated entirely to bioidentical hormone therapy and orthomolecular medicine."
+        },
+        "eyebrow": "Meet your doctor",
+        "name": "Dr. medic. Isabella Wilden",
+        "titles": ["Hormone Expert", "Specialist in Orthomolecular Medicine"],
+        "bio": [
+          "Dr. Isabella Wilden has worked as a physician for more than 35 years. Her practice is dedicated entirely to bioidentical hormone therapy and orthomolecular medicine.",
+          "Licensed to practise medicine in four EU countries (Romania, Greece, Germany and Cyprus), she has cared for women from many cultures, backgrounds and stages of life. As a specialist in General Medicine and a certified Hormone Expert (Germany), she combines a broad medical view with deep expertise in women’s hormones. In 2023, she founded Hormonexperten to make this care available to women online, wherever they live."
+        ],
+        "cta": "Book your consultation",
+        "mission": {
+          "eyebrow": "My mission",
+          "title": "Helping women feel strong in their bodies again",
+          "body": "My mission is to help women take back control of their health and feel like themselves again. I listen closely. Having gone through these changes myself, I know how unsettling this new part of your life might feel. We work as a team: we look at your results, try, adjust and refine until your treatment truly fits you. And I stay by your side for as long as you need me.",
+          "values": [
+            {
+              "icon": "sprout",
+              "title": "Empowering women",
+              "body": "Understanding your body and taking charge of your health"
+            },
+            {
+              "icon": "message-circle",
+              "title": "Listening with empathy",
+              "body": "Your story matters as much as your lab results"
+            },
+            {
+              "icon": "book-open",
+              "title": "Speaking from experience",
+              "body": "I know many of these changes from many years of training added by my own life experiences"
+            },
+            {
+              "icon": "sliders",
+              "title": "Refining step by step",
+              "body": "We adjust your treatment until it truly fits you"
+            }
+          ]
+        },
+        "facts": {
+          "title": "Key facts",
+          "items": [
+            {
+              "value": "35+",
+              "label": "years as a physician"
+            },
+            {
+              "value": "2017",
+              "label": "Hormone Expert, certified in Germany"
+            },
+            {
+              "value": "17",
+              "label": "years in her own practice (since 2009)"
+            },
+            {
+              "value": "4",
+              "label": "EU countries licensed: Romania, Greece, Germany, Cyprus"
+            }
+          ]
+        },
+        "milestones": {
+          "title": "Milestones",
+          "items": [
+            {
+              "date": "1989",
+              "items": [
+                "Doctor of Medicine, Carol Davila University of Medicine and Pharmacy, Bucharest"
+              ]
+            },
+            {
+              "date": "1995",
+              "items": ["Specialist in General Medicine, Timișoara, Romania"]
+            },
+            {
+              "date": "1997–2000",
+              "items": ["Own fitness and integrative health centre, Romania"]
+            },
+            {
+              "date": "2009",
+              "items": [
+                "Specialist in General Medicine, Germany, and her own practice in Regensburg",
+                "Opening of first medical practice in Regensburg (Germany)"
+              ]
+            },
+            {
+              "date": "2017",
+              "items": [
+                "Certified Hormone Expert, Hormone Network (Germany)",
+                "Private practice dedicated to bioidentical hormone therapy and orthomolecular medicine in Regensburg (Germany)"
+              ]
+            },
+            {
+              "date": "2023",
+              "items": ["Founder of Hormonexperten, an online practice for women’s hormone health"]
+            },
+            {
+              "date": "2026",
+              "items": [
+                "Hormonexperten telemedicine clinic in Larnaca, Cyprus, co-founded with Dr. Yvonne Tuszing"
+              ]
+            }
+          ]
+        },
+        "qualifications": {
+          "title": "Qualifications, licences and languages",
+          "groups": [
+            {
+              "id": "titles",
+              "icon": "award",
+              "title": "Medical titles",
+              "items": [
+                {
+                  "title": "Specialist in General Medicine",
+                  "detail": "Romania 1995 · Germany 2009"
+                },
+                {
+                  "title": "Certified Hormone Expert",
+                  "detail": "Hormone Network, Germany",
+                  "date": "2018"
+                },
+                {
+                  "title": "Specialist in Orthomolecular Medicine",
+                  "detail": "Training in Salzburg, Austria",
+                  "date": "2012–2014"
+                },
+                {
+                  "title": "Specialist in Acupuncture",
+                  "detail": "German Medical Acupuncture Association",
+                  "date": "2015"
+                }
+              ]
+            },
+            {
+              "id": "training",
+              "icon": "graduation-cap",
+              "title": "Further training",
+              "items": [
+                {
+                  "title": "Research at the University of Athens",
+                  "date": "1991–1992"
+                },
+                {
+                  "title": "Psycho-oncology curriculum",
+                  "detail": "Department of Gynaecology and Obstetrics, Goethe University Frankfurt",
+                  "date": "2005–2007"
+                },
+                {
+                  "title": "M.A. in Complementary Medicine",
+                  "detail": "European University Viadrina, Frankfurt (Oder)",
+                  "date": "2008–2010"
+                },
+                {
+                  "title": "Postgraduate studies in Biological Regulation and Complementary Medicine",
+                  "detail": "Faculty of Medicine, University of Milan",
+                  "date": "2009–2011"
+                },
+                {
+                  "title": "Training in bioidentical hormone therapy, followed by her own protocols",
+                  "date": "From 2017",
+                  "check_note": "The CV says “(Rimkus method)”. Left out until the practice confirms the Rimkus certification is current (CLAUDE.md)."
+                }
+              ]
+            }
+          ],
+          "tags": [
+            {
+              "id": "licences",
+              "icon": "map-pin",
+              "title": "Licensed to practise medicine in",
+              "items": ["Romania", "Greece", "Germany", "Cyprus"]
+            },
+            {
+              "id": "languages",
+              "icon": "languages",
+              "title": "Consultations in",
+              "items": ["German", "English", "Greek", "Romanian"],
+              "needs_check": true,
+              "check_note": "CLAUDE.md: no consultation language list goes live until the practice confirms it. Yvonne’s list is still marked “(confirm)”."
+            }
+          ]
+        },
+        "story": {
+          "title": "From one woman to another",
+          "body": [
+            "My path as a woman, a doctor, a mother and a partner has taken me through different countries, languages and stages of life. Changing countries more than once and adapting to new environments has made me a curious listener and compassionate doctor. New beginnings are part of who I am. They have shaped the way I see people and the changes in their lives.",
+            "My path as a doctor has been just as varied. General medicine, research and psycho-oncology are part of it, as are functional medicine, micronutrient therapy and acupuncture. Each of these fields gave me another way to understand people: their symptoms, but also their story and what truly moves them.",
+            "At 40, my own body began to change.",
+            "I gained weight, and within a short time, I needed glasses. Then came the diagnosis of Hashimoto’s. My hair grew weaker, and eczema appeared around my eyes. Food intolerances, digestive problems, tiredness and sleepless nights became part of those years. And then there were lumps in my breasts. It wasn’t one single change. It was so much, all at once.",
+            "All of this was now happening to me. My body. My sleep. My everyday life.",
+            "I was a doctor, and at the same time the woman living through these changes. My medical knowledge was with me, but experiencing it myself gave so much of it a different meaning. Premenopause, perimenopause, menopause and postmenopause became chapters of my own life. I also came to know hormone therapy through my own body.",
+            "While I was walking my own path through these stages, I cared for thousands of women, especially with hormonal concerns. Each one brought her own story: questions, hopes, worries and the wish to feel well again. I learned something from every one of them. Even after all these years, a single conversation can still widen my view and show me something I had never seen before.",
+            "Some of what my patients told me felt deeply familiar. Other stories showed me how differently each of us can experience this time. And so, over the years, my personal story and my medical experience have grown together.",
+            "This, for me, is what makes my work special: I bring my knowledge, the experience of caring for thousands of women, and my own experience as a woman.",
+            {
+              "heading": "Behind every lab result: a woman with her own story."
+            },
+            "When you tell me today that your body has changed and you no longer feel like yourself, I want to understand what that means for you. What you are missing. What weighs on you. And what you long to have back in your life.",
+            "Because behind every lab result is a woman with her own story. I want to make room for yours."
+          ],
+          "signature": "Dr. Isabella Wilden"
+        },
+        "closing_cta": {
+          "title": "Get to know us in your first consultation"
+        },
+        "check_notes": [
+          "Approved for publishing by the user on 2026-10-09; the points below were left as they are.",
+          "Mission: the sentence “I listen closely, having gone though these changes in I know from my own life I know how unsettling…” was garbled. Repaired to “I listen closely. Having gone through these changes myself, I know how unsettling…”. Confirm the wording.",
+          "Story: “endocrinology” removed from “General medicine, research, psycho-oncology and endocrinology are part of it”. CLAUDE.md: she must never be presented as an endocrinologist, and the build check rejects the word.",
+          "Story headline “From a woman to another” changed to “From one woman to another”. Confirm.",
+          "Hormone Expert certification: 2017 in the key facts and milestones, 2018 under medical titles. Which is right?",
+          "2009 milestone lists her own practice in Regensburg twice (“…and her own practice in Regensburg” and “Opening of first medical practice in Regensburg”). Merge?",
+          "Titles: “Specialist in Orthomolecular Medicine” and “Specialist in Acupuncture” read as German specialist titles (Facharzt), which don’t exist for these fields. Legal check of the wording, and of “Dr. medic.”, before publishing.",
+          "Header titles (Hormone Expert · Specialist in Orthomolecular Medicine) differ from the CLAUDE.md title (Specialist in General Medicine with a focus on bioidentical hormone therapy), which the cards still use. Which one leads?",
+          "Claims (CLAUDE.md): “35+ years as a physician” and “cared for thousands of women” need a source before going live. The 1989 M.D. supports 35+ years.",
+          "HWG: the personal health story (Hashimoto’s, lumps in her breasts, hormone therapy “through my own body”) needs a legal read so it doesn’t read as a promised result.",
+          "Values strip: “I know many of these changes from many years of training added by my own life experiences” reads awkwardly. Reword?",
+          "Photo: the doc asks for a professional portrait; the existing landing-page photo (at a laptop) stands in.",
+          "Copy edits made: double spaces removed, “Private Practice” lower-cased, leading “·” dropped from the title line, mission heading split into eyebrow + title, CV lines split into title, detail and year."
+        ]
+      }
+    },
+    {
+      "id": "yvonne-tuszing",
+      "name": "Dr. Yvonne Tuszing",
+      "role": "Medical Doctor · Hormone & Metabolic Health · Certified in Bioidentical Hormone Therapy",
+      "needs_check": true,
+      "check_note": "CLAUDE.md: her credentials stay behind a flag until the practice confirms them. Copy is from her CV (About Us – Yvonne Tuszing, M.D. (EN), 8 Oct 2026). Remove needs_check once the profile is approved.",
+      "profile": {
+        "meta": {
+          "title": "Dr. Yvonne Tuszing, M.D. | Hormonexperten",
+          "description": "Dr. Yvonne Tuszing is a medical doctor focused on women’s hormonal and metabolic health, licensed in Germany, Switzerland and Cyprus."
+        },
+        "eyebrow": "Meet your doctor",
+        "name": "Dr. Yvonne Tuszing, M.D.",
+        "titles": [
+          "Medical Doctor",
+          "Hormone & Metabolic Health",
+          "Certified in Bioidentical Hormone Therapy"
+        ],
+        "bio": [
+          "Dr. Yvonne Tuszing is a medical doctor focused on women’s hormonal and metabolic health. She brings hospital training from obstetrics and gynaecology together with ongoing research on metabolism in women.",
+          "Alongside her clinical work, she is a PhD candidate at European University Cyprus, researching metabolism and glucose metabolism in women with PCOS. Certified in bioidentical hormone therapy and peptide therapy, and licensed in Germany, Switzerland and Cyprus, she has been part of Hormonexperten since 2026 and today co-leads the online clinic.",
+          "At Hormonexperten, she brings together modern diagnostics, bioidentical hormone therapy and human metabolism in a clear path that enhances your life."
+        ],
+        "cta": "Book your initial consultation",
+        "facts": {
+          "title": "Key facts",
+          "items": [
+            {
+              "value": "3",
+              "label": "countries licensed: Germany, Switzerland, Cyprus"
+            },
+            {
+              "value": "PhD",
+              "label": "research on glucose metabolism and PCOS/PMOS"
+            }
+          ]
+        },
+        "milestones": {
+          "title": "Milestones",
+          "items": [
+            {
+              "date": "2022",
+              "items": [
+                "Doctor of Medicine (M.D.), European University Cyprus",
+                "Thesis on endocrine disruptors and infertility"
+              ]
+            },
+            {
+              "date": "2023",
+              "items": [
+                "German medical licence",
+                "Joins Hormonexperten",
+                "Starts PhD in Medical Sciences"
+              ]
+            },
+            {
+              "date": "2024",
+              "items": [
+                "Cypriot medical licence",
+                "Certified in bioidentical hormone therapy",
+                "Emergency medicine in Cyprus"
+              ]
+            },
+            {
+              "date": "2025–2026",
+              "items": [
+                "Training in obstetrics and gynaecology in Germany, including gynaecologic oncology and urogynaecology",
+                "Research poster at the German Center for Diabetes Research (2025)"
+              ]
+            },
+            {
+              "date": "2026",
+              "items": [
+                "Swiss medical licence",
+                "Certified in peptide therapy (USA)",
+                "Co-owner and CEO of Hormonexperten"
+              ]
+            }
+          ]
+        },
+        "qualifications": {
+          "title": "Experience, research and qualifications",
+          "groups": [
+            {
+              "id": "research",
+              "icon": "microscope",
+              "title": "Research",
+              "items": [
+                {
+                  "title": "PhD candidate in Medical Sciences, European University Cyprus",
+                  "detail": "Continuous glucose monitoring and metabolic markers (adipokines) in women with PCOS",
+                  "date": "Since 2023"
+                },
+                {
+                  "title": "Poster presentation of the study protocol",
+                  "detail": "German Center for Diabetes Research",
+                  "date": "2025"
+                },
+                {
+                  "title": "M.D. thesis: “Endocrine Disruptors as Causes of Infertility — The Epigenetic Theory”",
+                  "date": "2022"
+                }
+              ]
+            },
+            {
+              "id": "clinical",
+              "icon": "stethoscope",
+              "title": "Clinical experience",
+              "items": [
+                {
+                  "title": "Obstetrics and gynaecology in Germany",
+                  "detail": "Including gynaecologic oncology and urogynaecology",
+                  "date": "2025–2026"
+                },
+                {
+                  "title": "Emergency medicine in Cyprus",
+                  "date": "2024"
+                }
+              ]
+            },
+            {
+              "id": "certifications",
+              "icon": "award",
+              "title": "Certifications",
+              "items": [
+                {
+                  "title": "Peptide therapy, Modules I and II (Physician)",
+                  "detail": "American Academy of Anti-Aging Medicine (A4M)",
+                  "date": "2026"
+                },
+                {
+                  "title": "Bioidentical hormone therapy, Courses I–IV",
+                  "date": "2024",
+                  "check_note": "The CV says “(Rimkus method)”. Left out until the practice confirms the Rimkus certification is current (CLAUDE.md) and Yvonne answers question 7."
+                },
+                {
+                  "title": "Advanced Life Support (ALS) and Advanced Trauma Life Support (ATLS)"
+                },
+                {
+                  "title": "Doppler ultrasound",
+                  "detail": "University Hospital Tübingen",
+                  "date": "2026"
+                }
+              ]
+            },
+            {
+              "id": "memberships",
+              "icon": "users",
+              "title": "Memberships",
+              "items": [
+                {
+                  "title": "German Society for Gynaecology and Obstetrics (DGGG)"
+                },
+                {
+                  "title": "German Diabetes Society (DDG)"
+                }
+              ]
+            }
+          ],
+          "tags": [
+            {
+              "id": "licences",
+              "icon": "map-pin",
+              "title": "Licensed to practise medicine in",
+              "items": ["Germany", "Switzerland", "Cyprus"]
+            },
+            {
+              "id": "languages",
+              "icon": "languages",
+              "title": "Consultations in",
+              "items": ["German", "English", "Romanian", "Greek"],
+              "needs_check": true,
+              "check_note": "Marked “(confirm)” in the doc. CLAUDE.md: no consultation language list goes live until the practice confirms it (question 5)."
+            }
+          ]
+        },
+        "story": {
+          "title": "Your cycle, your fertility and your metabolism speak the same language. I treat them as one.",
+          "statement": "My mission is to help women understand how closely their reproductive and metabolic health are connected, and to treat both together. I want women to make informed and long-lasting health decisions for a strong and healthy future.",
+          "body": [
+            "I know this connection from my own life. From a very young age, I struggled with painful, heavy periods and PMS (pre-menstrual syndrome). Over the years, I lost more than 20 kilograms and made my metabolic health a priority. Along the way, my cycle and my reproductive symptoms improved, and eventually resolved. Every woman’s path is different, but my own body showed me what medicine is only beginning to write into its guidelines.",
+            "During my clinical training, I met many women with PCOS/PMOS, PMS, ovarian cysts or endometriosis who had surgery after surgery, without anyone looking at their hormonal and metabolic health. While surgery might be necessary in certain cases, it should not be the only option for women. Research simply moves faster than guidelines, and the link between hormones and metabolism is still being uncovered.",
+            "That link is exactly what I research in my PhD. In my consultations, I bring research and clinical practice together: a careful look at your hormones and your metabolism, cycle tracking if you wish, and support alongside or before fertility treatment."
+          ],
+          "closing": "My role is to give you the knowledge to choose what is right for you.",
+          "signature": "Dr. Yvonne Tuszing"
+        },
+        "check_notes": [
+          "Bio says she has been part of Hormonexperten “since 2026”; the milestones say she joined in 2023. Which is right?",
+          "Only bio option A was supplied. Yvonne hasn’t picked A, B or C, or third vs first person, yet (question 1).",
+          "The 2026 milestone names her “co-owner and CEO”, but the doc says the CEO role was left out on purpose. Keep or drop?",
+          "HWG / professional conduct, needs a legal read before going live: “a clear path that enhances your life” (reads as a promised result), the personal story (lost 20 kg, symptoms resolved), “surgery after surgery, without anyone looking at…” and “research simply moves faster than guidelines”.",
+          "Title: “Dr. … M.D.” from a Cypriot degree, advertised to patients in Germany: check how the title may be used (Yvonne confirmed the wording, but not the legal side).",
+          "Bio: “researching metabolism and glucose metabolism” repeats itself. Yvonne to reword.",
+          "Portrait photo missing (the grey placeholder fails the build).",
+          "Copy edits made: British spelling (gynaecology), “bioidentical” without hyphen, stray space before a comma; CV lines split into title, detail and year."
+        ]
+      }
+    }
+  ]
+}

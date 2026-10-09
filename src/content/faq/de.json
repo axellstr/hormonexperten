@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "title": "Häufige Fragen | Hormonexperten"
+  },
+  "title": "Häufige Fragen",
+  "nav_label": "Themen",
+  "contact": {
+    "title": "Noch Fragen?",
+    "body": "Wir helfen Ihnen gern weiter. Schreiben Sie uns – wir melden uns innerhalb von 2 Werktagen bei Ihnen.",
+    "cta": {
+      "label": "Kontakt aufnehmen"
+    }
+  },
+  "categories": [
+    {
+      "id": "perimenopause-menopause",
+      "title": "Perimenopause & Wechseljahre",
+      "items": [
+        {
+          "id": "perimenopause-signs",
+          "question": "Woran erkenne ich, dass ich in der Perimenopause bin?",
+          "answer": "Oft an Veränderungen Ihres Zyklus. Die Perimenopause beginnt meist schleichend: Ihre Periode kommt früher oder später, wird stärker, schwächer oder unregelmäßiger.\n\nHäufig kommen weitere Beschwerden hinzu, etwa schlechter Schlaf, Stimmungsschwankungen, Brain Fog, Konzentrationsschwierigkeiten, Hitzewallungen, Nachtschweiß, Erschöpfung, Gelenkschmerzen oder Veränderungen bei Gewicht und Libido. Wie stark diese Beschwerden sind, ist von Frau zu Frau sehr unterschiedlich."
+        },
+        {
+          "id": "therapy-in-perimenopause",
+          "question": "Ist eine bioidentische Hormontherapie schon in der Perimenopause sinnvoll?",
+          "answer": "Das kann sie sein, wenn Ihre Beschwerden Ihre Lebensqualität beeinträchtigen und Ihre persönliche Nutzen-Risiko-Abwägung dafür spricht. Notwendig ist sie nicht für jede Frau.\n\nEntscheidend ist nicht ein einzelner Laborwert, sondern das Gesamtbild: Ihre Beschwerden, Ihr Zyklus und Ihre Krankengeschichte."
+        },
+        {
+          "id": "contraception",
+          "question": "Brauche ich in der Perimenopause noch eine Verhütung?",
+          "answer": "Ja, wenn Sie eine Schwangerschaft sicher verhindern möchten. Ein Eisprung ist weiterhin möglich, auch wenn Ihre Periode unregelmäßig kommt.\n\nWichtig: Eine bioidentische Hormontherapie schützt nicht vor einer Schwangerschaft. Die Verhütung muss aber nicht hormonell sein."
+        },
+        {
+          "id": "late-start",
+          "question": "Kann ich auch noch mehrere Jahre nach der Menopause beginnen, zum Beispiel mit über 60?",
+          "answer": "Grundsätzlich ja. Das Alter allein schließt eine Hormontherapie nicht automatisch aus.\n\nJe später Sie beginnen, desto wichtiger wird eine sorgfältige, persönliche Nutzen-Risiko-Abwägung. Diese nehmen wir für jede Patientin individuell vor."
+        }
+      ]
+    },
+    {
+      "id": "bioidentical-hormones",
+      "title": "Bioidentische Hormone: die Grundlagen",
+      "items": [
+        {
+          "id": "bioidentical-meaning",
+          "question": "Was bedeutet „bioidentisch“, und wann kommen individuell hergestellte Hormone infrage?",
+          "answer": "„Bioidentisch“ (auch „körperidentisch“) bedeutet, dass das Hormon genau dieselbe chemische Struktur hat wie das Hormon, das Ihr Körper selbst bildet.\n\nFür fast alle unsere Patientinnen und Patienten arbeiten wir mit spezialisierten Apotheken zusammen, die Hormone individuell herstellen. Welche Therapie Sie erhalten, wird immer individuell entschieden: anhand Ihrer Beschwerden, Ihrer Krankengeschichte, Ihrer persönlichen Risikofaktoren und der Frage, wie Sie frühere Behandlungen vertragen haben.",
+          "link": {
+            "label": "Konventionelle vs. bioidentische Hormontherapie"
+          }
+        },
+        {
+          "id": "switching",
+          "question": "Ich nehme die Pille oder eine andere Hormontherapie. Kann ich auf eine bioidentische Hormontherapie umsteigen?",
+          "answer": "Grundsätzlich ja. Ob und wie ein Wechsel sinnvoll ist, hängt davon ab, warum Sie Ihr aktuelles Medikament einnehmen und ob Sie weiterhin eine sichere Verhütung brauchen.\n\nWichtig: Eine bioidentische Hormontherapie ist keine Verhütungsmethode und kann diese nicht ersetzen."
+        },
+        {
+          "id": "testosterone",
+          "question": "Kann nach der Menopause Testosteron eingesetzt werden?",
+          "answer": "In bestimmten Fällen ja. Vor allem bei bestimmten sexuellen Beschwerden oder Energiemangel kann eine Testosterontherapie nach sorgfältiger ärztlicher Abklärung infrage kommen.\n\nOb sie für Sie sinnvoll ist, wird individuell beurteilt, und die Behandlung wird ärztlich begleitet."
+        }
+      ]
+    },
+    {
+      "id": "symptoms-mood-mind",
+      "title": "Häufige Beschwerden, Stimmung & Psyche",
+      "items": [
+        {
+          "id": "hot-flushes",
+          "question": "Kann eine Hormontherapie bei Hitzewallungen und Nachtschweiß helfen?",
+          "answer": "Ja. Hitzewallungen und Nachtschweiß gehören zu den typischsten Beschwerden der Perimenopause und der Wechseljahre und können sich mit einer individuell abgestimmten Hormontherapie deutlich bessern.\n\nBleiben sie bestehen, ist das für uns ein wichtiges Zeichen, Ihre Dosis anzupassen."
+        },
+        {
+          "id": "sleep",
+          "question": "Seit den Wechseljahren schlafe ich schlecht. Kann eine bioidentische Hormontherapie helfen?",
+          "answer": "Ja, wenn Ihre Schlafprobleme mit hormonellen Veränderungen zusammenhängen. Dann kann eine individuell abgestimmte Hormontherapie Ihren Schlaf positiv beeinflussen.\n\nVor allem Progesteron, aber auch Östradiol kann dabei eine wichtige Rolle spielen."
+        },
+        {
+          "id": "heavy-periods",
+          "question": "Können sich meine starken Blutungen durch eine Hormontherapie bessern?",
+          "answer": "Ja, wenn Ihre starken Blutungen durch ein hormonelles Ungleichgewicht verursacht werden. Dann kann eine Hormontherapie helfen, Ihre Blutungen zu regulieren. Bis Sie die volle Wirkung bemerken, dauert es meist etwa zwei bis drei Monate.\n\nStarke oder veränderte Blutungen sollten immer zuerst gynäkologisch abgeklärt werden, um andere Ursachen wie Myome oder Polypen auszuschließen."
+        },
+        {
+          "id": "mood",
+          "question": "Kann eine Hormontherapie bei Stimmungsschwankungen, Ängsten oder depressiven Verstimmungen helfen?",
+          "answer": "Sie kann ein Teil der Behandlung sein, wenn Ihre Beschwerden mit hormonellen Veränderungen zusammenhängen. In der Perimenopause beeinflussen schwankende Hormone oft Stimmung, Schlaf und Belastbarkeit. Passen Ihre Beschwerden zeitlich dazu, kann eine individuell abgestimmte Hormontherapie Teil Ihrer Behandlung sein.\n\nWichtig: Eine diagnostizierte Depression oder Angststörung braucht immer eine eigene Behandlung. Bitte ändern oder beenden Sie bestehende Medikamente nicht ohne ärztliche Begleitung."
+        },
+        {
+          "id": "brain-fog",
+          "question": "Können Brain Fog, Konzentrations- und Gedächtnisprobleme mit den Wechseljahren zusammenhängen?",
+          "answer": "Ja, das ist häufig. Brain Fog, Wortfindungsstörungen und Konzentrationsschwierigkeiten werden in der Perimenopause und den Wechseljahren oft beschrieben. Neben den Hormonen können auch schlechter Schlaf, Hitzewallungen, Stress und Stimmungsschwankungen dazu beitragen.\n\nWerden Ihre Beschwerden stärker, sind sie ungewöhnlich ausgeprägt oder gibt es eine relevante familiäre Vorbelastung, suchen wir auch nach anderen Ursachen."
+        }
+      ]
+    },
+    {
+      "id": "sexual-health",
+      "title": "Sexuelle & intime Gesundheit",
+      "items": [
+        {
+          "id": "libido",
+          "question": "Kann eine Hormontherapie meine Libido verbessern?",
+          "answer": "Ja, wenn hormonelle Veränderungen eine der Ursachen sind. Lust ist aber vielschichtig: Schmerzen beim Sex, Schlafmangel, Stress, Medikamente, Ihr seelisches Wohlbefinden und Ihre Partnerschaft können alle eine Rolle spielen.\n\nDeshalb betrachten wir einen Libidoverlust immer im Gesamtbild und behandeln das, was bei Ihnen tatsächlich dahintersteckt."
+        },
+        {
+          "id": "vaginal-dryness",
+          "question": "Was kann ich gegen Scheidentrockenheit, Schmerzen beim Sex oder häufigen Harndrang tun?",
+          "answer": "Sie müssen diese Beschwerden nicht einfach hinnehmen. Häufig werden sie durch einen sinkenden Östrogenspiegel verursacht, der sich auf Scheide, Blase und Harnröhre auswirkt (Fachbegriff: urogenitales Menopausensyndrom, GSM).\n\nJe nach Beschwerden kommen eine lokale Behandlung, eine systemische Hormontherapie oder andere unterstützende Maßnahmen infrage. Welche Therapie zu Ihnen passt, wird individuell entschieden."
+        }
+      ]
+    },
+    {
+      "id": "hair-joints-body",
+      "title": "Haare, Gelenke & Körper",
+      "items": [
+        {
+          "id": "hair-loss",
+          "question": "Ist mein Haarausfall hormonell bedingt?",
+          "answer": "Das kann sein, aber Haarausfall hat viele mögliche Ursachen. Neben Hormonen gehören dazu Schilddrüsenerkrankungen, Veranlagung, Eisen- oder Nährstoffmangel, Medikamente, Krankheiten oder starke körperliche Belastung.\n\nDeshalb suchen wir zuerst nach der Ursache und empfehlen dann eine gezielte Behandlung."
+        },
+        {
+          "id": "joint-pain",
+          "question": "Können Gelenk- und Muskelschmerzen hormonell bedingt sein?",
+          "answer": "Ja, das ist möglich. Gelenk- und Muskelschmerzen treten in der Perimenopause und den Wechseljahren häufiger auf und hängen bei manchen Frauen mit hormonellen Veränderungen zusammen.\n\nDa es viele andere mögliche Ursachen gibt, betrachten wir das Gesamtbild. Spielen Hormone eine Rolle, können sich Ihre Beschwerden mit der richtigen Behandlung bessern."
+        }
+      ]
+    },
+    {
+      "id": "metabolism-weight",
+      "title": "Stoffwechsel & Gewicht",
+      "items": [
+        {
+          "id": "belly-fat",
+          "question": "Welche Rolle spielen Hormone bei mehr Bauchumfang, Bauchfett und Gewichtszunahme?",
+          "answer": "Hormone beeinflussen, wo Ihr Körper Fett einlagert. Mit den Wechseljahren lagern viele Frauen mehr Fett am Bauch ein, oft sogar dann, wenn sich ihr Gewicht kaum verändert. Auch Alter, Muskelmasse, Insulinempfindlichkeit, Ernährung und Bewegung spielen eine wichtige Rolle.\n\nDeshalb schauen wir bei Gewichtsveränderungen nicht nur auf die Sexualhormone, sondern auf Ihren gesamten Stoffwechsel."
+        },
+        {
+          "id": "metabolism",
+          "question": "Kann eine Hormontherapie meinen Stoffwechsel verbessern?",
+          "answer": "Sie kann sich positiv auf bestimmte Stoffwechselprozesse und auf die Körperzusammensetzung auswirken. Wie stark, ist von Person zu Person unterschiedlich.\n\nFür uns gehören Hormone und Stoffwechsel zusammen. Je nach Ihrer Situation betrachten wir Blutzucker und Insulinempfindlichkeit, Schilddrüse, Körperzusammensetzung, Ernährung und Bewegung gemeinsam."
+        },
+        {
+          "id": "weight-loss",
+          "question": "Kann ich während der Behandlung abnehmen?",
+          "answer": "Möglich, ja. Garantiert, nein. Hormone sind nur einer von mehreren Faktoren, die Gewicht und Körperzusammensetzung beeinflussen.\n\nWenn Abnehmen eines Ihrer Ziele ist, erstellen wir einen individuellen Plan, der hormonelle und stoffwechselbedingte Faktoren gemeinsam berücksichtigt.",
+          "link": {
+            "label": "Gewichtsmanagement"
+          }
+        }
+      ]
+    },
+    {
+      "id": "risks-long-term-health",
+      "title": "Risiken & langfristige Gesundheit",
+      "items": [
+        {
+          "id": "risks",
+          "question": "Welche Risiken und Nebenwirkungen hat eine Hormontherapie?",
+          "answer": "Keine Hormontherapie ist völlig risikofrei, doch das Risiko ist von Frau zu Frau sehr unterschiedlich. Es hängt unter anderem vom Alter, vom Behandlungsbeginn, von Vorerkrankungen und der familiären Vorgeschichte ab, außerdem von Art, Dosis, Darreichungsform und Dauer der Behandlung.\n\nVorübergehende Nebenwirkungen wie Brustspannen, Blutungen, Kopfschmerzen oder Wassereinlagerungen können auftreten. Deshalb wägen wir Nutzen und Risiken für Sie persönlich ab und kontrollieren Ihren Verlauf regelmäßig."
+        },
+        {
+          "id": "cancer-risk",
+          "question": "Wie wirkt sich eine Hormontherapie auf mein Krebsrisiko aus?",
+          "answer": "Eine pauschale Antwort gibt es nicht. Es kommt darauf an, welche Hormone eingesetzt werden, ob Sie noch eine Gebärmutter haben, wie lange Sie behandelt werden und welche persönlichen Risikofaktoren Sie haben.\n\nAuch Körpergewicht, Alkohol, Bewegung und familiäre Vorbelastung beeinflussen bestimmte Krebsrisiken. All das beziehen wir in Ihre persönliche Nutzen-Risiko-Abwägung ein.\n\nWarum die Gebärmutter wichtig ist: Östrogen allein kann die Gebärmutterschleimhaut aufbauen. Wenn Sie noch eine Gebärmutter haben, wird deshalb immer Progesteron zu ihrem Schutz ergänzt."
+        },
+        {
+          "id": "risk-conditions",
+          "question": "Kann ich eine Hormontherapie machen, wenn Brustkrebs in meiner Familie vorkommt, ich eine Thrombose hatte oder Migräne habe?",
+          "answer": "Das ist nicht automatisch ausgeschlossen, erfordert aber eine besonders sorgfältige Abklärung. Brustkrebs in der Familie, eine frühere Thrombose und Migräne werden jeweils unterschiedlich bewertet und können beeinflussen, welche Hormone und welche Anwendungsform für Sie geeignet sind, zum Beispiel ein Gel statt einer Tablette.\n\nIst Ihr Risiko erhöht, kann eine zusätzliche fachärztliche Einschätzung nötig sein."
+        },
+        {
+          "id": "osteoporosis-family",
+          "question": "In meiner Familie gibt es Osteoporose. Kann eine Hormontherapie mein Risiko senken?",
+          "answer": "Ja, sie kann den Knochenabbau verlangsamen. Östrogen ist wichtig für den Erhalt der Knochendichte. Eine Hormontherapie in den Wechseljahren kann den Knochenabbau verringern und das Risiko osteoporotischer Knochenbrüche während der Behandlung senken.\n\nWenn Osteoporose in Ihrer Familie vorkommt, betrachten wir weitere Risikofaktoren und entscheiden individuell, ob zusätzliche Untersuchungen, zum Beispiel eine Knochendichtemessung, oder gezielte Maßnahmen für die Knochengesundheit sinnvoll sind."
+        },
+        {
+          "id": "osteoporosis-prevention",
+          "question": "Wann sollte ich mit der Osteoporose-Vorbeugung beginnen?",
+          "answer": "Idealerweise schon mit Beginn der Perimenopause. In den Jahren rund um die letzte Periode beschleunigt sich der Knochenabbau, und verlorene Knochensubstanz lässt sich nur schwer vollständig wieder aufbauen. Eine Behandlung kann den weiteren Abbau verlangsamen und die Knochendichte teilweise verbessern, entscheidend ist aber die Vorbeugung.\n\nWie und wann Sie beginnen, hängt von Ihrem persönlichen Risiko ab, unter anderem von Ihrer Körperzusammensetzung, Muskelmasse, Bewegung und familiären Vorgeschichte."
+        },
+        {
+          "id": "alzheimers",
+          "question": "Gibt es einen Zusammenhang zwischen Wechseljahren, Hormonen und Alzheimer?",
+          "answer": "Es gibt keinen Beleg dafür, dass Hormone vor Alzheimer schützen. Hormonelle Veränderungen können Konzentration und Gedächtnis vorübergehend beeinträchtigen, das ist aber nicht dasselbe wie eine Demenz.\n\nAlzheimer ist eine komplexe Erkrankung mit vielen Ursachen. Zur Vorbeugung einer Demenz wird eine Hormontherapie derzeit nicht empfohlen. Für die langfristige Gesundheit des Gehirns sind Stoffwechsel, Blutdruck, Bewegung, Schlaf und weitere Herz-Kreislauf-Risikofaktoren wichtig."
+        },
+        {
+          "id": "heart",
+          "question": "Wie wirken sich Hormone auf mein Herz und meine Blutgefäße aus?",
+          "answer": "Sexualhormone beeinflussen unter anderem die Funktion der Blutgefäße, die Blutfette und den Stoffwechsel. Gleichzeitig steigt das Herz-Kreislauf-Risiko von Frauen mit zunehmendem Alter.\n\nEine Hormontherapie wird jedoch nicht allein zur Vorbeugung von Herz-Kreislauf-Erkrankungen eingesetzt. Für Ihre persönliche Einschätzung betrachten wir auch Blutdruck, Blutfette, Blutzucker, Gewicht, Bewegung und familiäre Risikofaktoren."
+        }
+      ]
+    },
+    {
+      "id": "testing-treatment",
+      "title": "Diagnostik, Kontrollen & Behandlungsverlauf",
+      "items": [
+        {
+          "id": "irregular-cycle-testing",
+          "question": "Wie werden meine Hormone beurteilt, wenn mein Zyklus sehr unregelmäßig ist?",
+          "answer": "Nicht anhand einer einzelnen Blutuntersuchung. In der Perimenopause schwanken die Hormonspiegel stark, ein einzelner Wert ist daher nur eine Momentaufnahme.\n\nWir betrachten Ihren Zyklus, Ihre Beschwerden, Ihre Krankengeschichte und, wo medizinisch sinnvoll, ausgewählte Laborwerte gemeinsam. Welche Untersuchungen Sie tatsächlich brauchen, wird individuell entschieden."
+        },
+        {
+          "id": "blood-vs-saliva",
+          "question": "Warum nutzen Sie Blut- statt Speicheltests?",
+          "answer": "Weil die Blutuntersuchung für die meisten medizinisch relevanten Hormon- und Stoffwechselwerte die etablierte Methode ist. Speichel- und Urintests können bei bestimmten Fragestellungen nützlich sein, sind aber nicht grundsätzlich besser.\n\nUm eine Hormontherapie in den Wechseljahren zu steuern, sind Speicheltests nicht routinemäßig nötig. Wir wählen immer die Untersuchungen, die zur konkreten medizinischen Fragestellung passen."
+        },
+        {
+          "id": "lab-checks",
+          "question": "Wie oft müssen meine Laborwerte kontrolliert werden?",
+          "answer": "Das hängt von Ihrer Therapie und Ihrer Situation ab. Während Ihre Behandlung eingestellt wird, sind Kontrollen meist häufiger nötig; ist sie stabil, werden die Abstände größer.\n\nNicht jede Hormontherapie erfordert regelmäßige Messungen aller Hormonspiegel. Wir kontrollieren, was für Ihre Behandlung einen echten medizinischen Mehrwert hat."
+        },
+        {
+          "id": "blood-draw",
+          "question": "Wo lasse ich mir Blut abnehmen, und kann ich vorhandene Befunde nutzen?",
+          "answer": "Vorhandene Befunde können Sie oft nutzen, wenn sie aktuell sind und zur Fragestellung passen. Deshalb sehen wir uns zuerst Ihre bisherigen Ergebnisse an, bevor wir neue Untersuchungen empfehlen.\n\nSind weitere Werte nötig, erhalten Sie von uns eine gezielte Laborempfehlung und lassen sich das Blut in einem Labor in Ihrer Nähe abnehmen. Die Laborkosten bezahlen Sie direkt an das Labor."
+        },
+        {
+          "id": "time-to-effect",
+          "question": "Wie lange dauert es, bis ich einen Unterschied bemerke?",
+          "answer": "Das ist sehr individuell. Manche Frauen spüren schon nach Tagen oder Wochen einen Unterschied. Bei anderen dauert es zwei bis drei Monate, bis die passende Dosis gefunden ist.\n\nWir passen Ihre Behandlung Schritt für Schritt an, bis sie zu Ihnen passt."
+        },
+        {
+          "id": "duration",
+          "question": "Wie lange dauert eine Hormontherapie? Gibt es einen festen Zeitpunkt für Beginn oder Ende?",
+          "answer": "Es gibt keine feste Höchstdauer und kein festes Enddatum. Ob eine Behandlung begonnen oder fortgesetzt wird, hängt von Ihren Beschwerden, Ihren persönlichen Risiken und Ihrem Nutzen ab.\n\nDas überprüfen wir regelmäßig. Wenn Sie aufhören möchten oder es medizinisch sinnvoll ist, besprechen wir gemeinsam das passende Vorgehen und mögliche Alternativen."
+        },
+        {
+          "id": "stopping",
+          "question": "Können meine Beschwerden zurückkommen, wenn ich die Behandlung beende?",
+          "answer": "Das ist möglich. Es hängt davon ab, was wir behandeln und wie: ob die Behandlung Ihre Beschwerden lindert, solange Sie sie anwenden, oder eine Ursache angeht, die sich beheben lässt.\n\nWenn Sie aufhören möchten, planen wir die nächsten Schritte sorgfältig mit Ihnen."
+        },
+        {
+          "id": "gynaecologist",
+          "question": "Wie oft sollte ich während der Behandlung zu meiner Frauenärztin oder meinem Frauenarzt gehen?",
+          "answer": "In der Regel einmal im Jahr zu Ihren Vorsorgeuntersuchungen, wenn sich nichts verändert hat.\n\nWenn Sie Veränderungen bemerken, etwa unerwartete Blutungen oder neue Beschwerden, melden Sie sich bitte bei uns. Wir beraten Sie und verweisen Sie bei Bedarf weiter."
+        }
+      ]
+    },
+    {
+      "id": "online-care",
+      "title": "Online-Betreuung",
+      "items": [
+        {
+          "id": "video-consultation",
+          "question": "Wie läuft eine Video-Sprechstunde ab?",
+          "answer": "TODO: freigegebene Antwort"
+        },
+        {
+          "id": "blood-tests",
+          "question": "Brauche ich vor meinem ersten Termin eine Blutuntersuchung?",
+          "answer": "TODO: freigegebene Antwort"
+        },
+        {
+          "id": "outside-germany",
+          "question": "Kann ich auch von außerhalb Deutschlands buchen?",
+          "answer": "TODO: freigegebene Antwort"
+        }
+      ]
+    },
+    {
+      "id": "costs-booking",
+      "title": "Kosten & Buchung",
+      "items": [
+        {
+          "id": "insurance",
+          "question": "Übernimmt meine Krankenversicherung die Behandlung?",
+          "answer": "Unsere Leistungen sind privatärztliche Leistungen. Gesetzliche Krankenversicherungen übernehmen unsere Sprechstunden in der Regel nicht. Da sich einzelne Versicherungsverträge unterscheiden können, empfehlen wir Ihnen, bei Ihrer Versicherung nachzufragen. Für in Deutschland versicherte Patientinnen und Patienten stellen wir auf Wunsch eine Rechnung nach GOÄ aus."
+        },
+        {
+          "id": "cancel",
+          "question": "Was ist, wenn ich einen Termin absagen oder verschieben muss?",
+          "answer": "TODO: freigegebene Antwort"
+        }
+      ]
+    }
+  ]
+}

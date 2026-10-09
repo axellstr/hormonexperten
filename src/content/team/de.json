@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Unser Team | Hormonexperten"
+  },
+  "eyebrow": "Unser Team",
+  "title": "Erfahrung, Fachwissen und Exzellenz für Sie.",
+  "breadcrumb_label": "Brotkrümelnavigation",
+  "learn_more": "Mehr erfahren",
+  "members": [
+    {
+      "id": "isabella-wilden",
+      "role": "Fachärztin für Allgemeinmedizin mit Schwerpunkt bioidentische Hormontherapie",
+      "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend"
+    }
+  ]
+}

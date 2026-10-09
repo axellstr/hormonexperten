@@ -1,0 +1,122 @@
+---
+import type { Locale } from '../../config';
+import { isVisible } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
+import type { Legal, LegalBlock, LegalPage } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  /** Set when the page text falls back to another language than the route's. */
+  contentLang?: Locale;
+  legal: Legal;
+  page: LegalPage;
+}
+
+const { lang, contentLang, legal, page } = Astro.props;
+const sections = page.sections.filter(isVisible);
+// A table of contents only pays off on long pages.
+const showContents = sections.length > 4;
+
+const updated = new Intl.DateTimeFormat(contentLang ?? lang, { dateStyle: 'long' }).format(
+  new Date(`${page.updated}T12:00:00Z`),
+);
+
+const link =
+  'rounded-sm font-medium text-ink underline decoration-coral decoration-2 underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
+
+type Run = string | { label: string; href: string };
+const runs = (line: Run | Run[]): Run[] => (Array.isArray(line) ? line : [line]);
+const kind = (block: LegalBlock) =>
+  typeof block === 'string' ? 'paragraph' : 'lines' in block ? 'lines' : 'list';
+---
+
+<Section aria-labelledby="legal-title" lang={contentLang}>
+  <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+    <div class:list={[showContents ? 'lg:col-span-8' : 'lg:col-span-9']}>
+      <h1 id="legal-title" class="text-display text-ink">{page.title}</h1>
+      <p class="mt-4 text-sm text-ink/80">
+        {legal.updated_label}{' '}
+        <time datetime={page.updated} class="tabular-nums">{updated}</time>
+      </p>
+
+      {
+        !page.approved && (
+          <p role="note" class="mt-8 rounded-panel bg-coral-tint p-5 text-body text-ink md:p-6">
+            {legal.draft_notice}
+          </p>
+        )
+      }
+
+      {page.intro && <p class="mt-8 max-w-prose text-lead text-ink/80">{page.intro}</p>}
+
+      <div class="mt-12 flex flex-col gap-12 lg:mt-16 lg:gap-14">
+        {
+          sections.map((section) => (
+            <section id={section.id} aria-labelledby={`${section.id}-title`}>
+              <h2 id={`${section.id}-title`} class="text-h3 text-ink">
+                {section.title}
+              </h2>
+              <div class="mt-5 max-w-prose space-y-4 text-body text-ink/80">
+                {section.body.map((block) => {
+                  const type = kind(block);
+                  if (type === 'paragraph') return <p>{block as string}</p>;
+                  if (type === 'list')
+                    return (
+                      <ul class="list-disc space-y-2 ps-5 marker:text-coral">
+                        {(block as { list: string[] }).list.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  const lines = (block as { lines: (Run | Run[])[] }).lines;
+                  return (
+                    <p>
+                      {lines.map((line, index) => (
+                        <>
+                          {index > 0 && <br />}
+                          {runs(line).map((run) =>
+                            typeof run === 'string' ? (
+                              run
+                            ) : (
+                              <a href={localizeHref(run.href, lang)} class={link}>
+                                {run.label}
+                              </a>
+                            ),
+                          )}
+                        </>
+                      ))}
+                    </p>
+                  );
+                })}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+
+    {
+      showContents && (
+        <nav
+          aria-label={legal.contents_label}
+          class="hidden lg:col-span-4 lg:block lg:self-start lg:sticky lg:top-28"
+        >
+          <p class="text-eyebrow text-text-muted uppercase">{legal.contents_label}</p>
+          <ol class="mt-4 space-y-1">
+            {sections.map((section) => (
+              <li>
+                <a
+                  href={`#${section.id}`}
+                  class="-ms-3 inline-flex rounded-full px-3 py-1.5 text-base text-ink/80 hover:bg-coral-tint hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+                >
+                  {section.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+  </div>
+</Section>

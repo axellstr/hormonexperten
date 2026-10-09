@@ -1,0 +1,43 @@
+---
+import { isVisible } from '../../lib/content';
+import type { ServicePage } from '../../lib/schemas';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  about: ServicePage['about'];
+  focus?: ServicePage['focus'];
+}
+
+const { about, focus } = Astro.props;
+const chips = focus && isVisible(focus) ? focus : undefined;
+---
+
+<Section aria-labelledby="about-title">
+  <div class="grid gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+    <h2 id="about-title" class="text-h2 text-ink lg:col-span-5">
+      {about.title}
+    </h2>
+
+    <div class="lg:col-span-7">
+      <div class="max-w-prose space-y-4 text-body text-ink/80">
+        {about.body.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+
+      {chips && (
+        <Panel class="mt-10 p-6 md:p-8 lg:mt-12">
+          <h3 class="text-h4 text-ink">{chips.title}</h3>
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {chips.items.map((item) => (
+              <li class="rounded-full bg-bg px-4 py-2 text-base text-ink ring-1 ring-ink/10">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Panel>
+      )}
+    </div>
+  </div>
+</Section>

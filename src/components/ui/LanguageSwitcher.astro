@@ -1,0 +1,83 @@
+---
+import Globe from '../../assets/icons/globe.svg';
+import { LANGUAGE_NAMES, LOCALES, type Locale } from '../../config';
+import { switchLocale } from '../../lib/i18n';
+import Eyebrow from './Eyebrow.astro';
+
+interface Props {
+  lang: Locale;
+  label: string;
+  /** Labelled row of chips for the mobile menu instead of a dropdown. */
+  inline?: boolean;
+  class?: string;
+}
+
+const { lang, label, inline = false, class: className } = Astro.props;
+const path = Astro.url.pathname;
+
+const links = LOCALES.map((locale) => ({
+  locale,
+  href: switchLocale(path, locale),
+  name: LANGUAGE_NAMES[locale],
+  current: locale === lang,
+}));
+const linkClass =
+  'block rounded-field px-3 py-2 hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-ink';
+---
+
+{inline ? (
+  <div class={className}>
+    <Eyebrow id="language-menu-label">{label}</Eyebrow>
+    <nav aria-labelledby="language-menu-label" class="mt-3">
+      <!-- Segmented chips: two per row on phones and in the menu's narrow lg column. -->
+      <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              hreflang={link.locale}
+              lang={link.locale}
+              aria-current={link.current ? 'true' : undefined}
+              class:list={[
+                'flex min-h-12 items-center justify-center rounded-full px-4 text-base font-medium whitespace-nowrap hyphens-none ring-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow',
+                link.current
+                  ? 'bg-ink text-on-dark ring-ink'
+                  : 'bg-bg text-ink ring-ink/10 hover:ring-ink/30',
+              ]}
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+) : (
+  <details class:list={['group/lang relative', className]} data-menu>
+    <summary class="flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-full bg-surface px-3 text-base font-semibold text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-ink motion-safe:transition-colors">
+      <Globe class="size-5" aria-hidden="true" />
+      <span aria-hidden="true">{LANGUAGE_NAMES[lang]}</span>
+      <span class="sr-only">
+        {label}: {LANGUAGE_NAMES[lang]}
+      </span>
+    </summary>
+    <ul
+      class="absolute start-0 top-full z-10 mt-5.5 min-w-44 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/lang:-translate-y-1 group-data-closed/lang:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/lang:duration-150 motion-safe:group-not-data-closed/lang:duration-200 lg:mt-6.5"
+      data-menu-panel
+    >
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            hreflang={link.locale}
+            lang={link.locale}
+            aria-current={link.current ? 'true' : undefined}
+            class:list={[linkClass, link.current && 'font-semibold']}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+)}

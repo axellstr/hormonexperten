@@ -1,0 +1,87 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import Faq from '../../../components/sections/Faq.astro';
+import RelatedServices from '../../../components/sections/RelatedServices.astro';
+import ServiceAbout from '../../../components/sections/ServiceAbout.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import ServiceSteps from '../../../components/sections/ServiceSteps.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import {
+  getFaq,
+  getHome,
+  getServices,
+  getSite,
+  isVisible,
+  servicePageLang,
+  visible,
+} from '../../../lib/content';
+import type { Service, ServicePage } from '../../../lib/schemas';
+
+// One page per visible service whose page is visible too. Every service needs a page, since the
+// header, home row and footer all link to it.
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) => {
+    const pages = getServices(lang).pages;
+    return visible(getSite(lang).services).flatMap((service) => {
+      const page = pages.find((item) => item.id === service.id);
+      if (!page) throw new Error(`Service "${service.id}" has no page in src/content/services/`);
+      return isVisible(page)
+        ? [{ params: { lang, service: service.id }, props: { lang, service, page } }]
+        : [];
+    });
+  });
+}
+
+interface Props {
+  lang: Locale;
+  service: Service;
+  page: ServicePage;
+}
+
+const { lang, service, page } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const services = getServices(lang);
+
+const faqItems = new Map(
+  getFaq(lang)
+    .categories.flatMap((category) => category.items)
+    .map((item) => [item.id, item]),
+);
+const questions = visible(
+  page.faq.map((id) => {
+    const item = faqItems.get(id);
+    if (!item) throw new Error(`Service page "${page.id}" lists unknown FAQ item "${id}"`);
+    return item;
+  }),
+);
+
+// The other services that have a page of their own.
+const others = visible(site.services).filter(
+  (other) =>
+    other.id !== service.id &&
+    services.pages.some((item) => item.id === other.id && isVisible(item)),
+);
+
+// Untranslated page text falls back to English; say so for screen readers.
+const bodyLang = servicePageLang(lang, page.id);
+const contentLang = bodyLang === lang ? undefined : bodyLang;
+---
+
+<BaseLayout lang={lang} site={site} title={page.meta.title} description={page.meta.description}>
+  <ServiceHero
+    lang={lang}
+    contentLang={contentLang}
+    services={services}
+    service={service}
+    page={page}
+  />
+  <div lang={contentLang}>
+    <ServiceAbout about={page.about} focus={page.focus} />
+  </div>
+  <ServiceSteps how={home.how} />
+  <Faq lang={lang} title={home.faq.title} contact={home.faq.contact} items={questions} />
+  <RelatedServices lang={lang} title={services.others_title} items={others} />
+  <ClosingCta closing={home.closing} />
+</BaseLayout>

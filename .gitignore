@@ -1,0 +1,12 @@
+dist/
+.astro/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+.vercel/
+
+# Working files at the root (stock photos, logo drafts), not part of the site
+/*.jpg
+/new-logo.svg

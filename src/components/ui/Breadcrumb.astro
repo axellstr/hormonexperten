@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import ChevronEnd from '../../assets/icons/chevron-end.svg';
+
+type Props = HTMLAttributes<'nav'> & {
+  label: string;
+  /** Steps up to the current page; the last one is the page itself and isn't a link. */
+  items: { label: string; href?: string }[];
+};
+
+const { label, items, ...rest } = Astro.props;
+const steps = items.slice(0, -1);
+const current = items.at(-1);
+---
+
+<nav aria-label={label} {...rest}>
+  <ol class="flex flex-wrap items-center gap-1 text-sm text-ink/80">
+    {steps.map((step) => (
+      <li class="flex items-center gap-1">
+        <a
+          href={step.href}
+          class="-ms-2 rounded-full px-2 py-1 hover:bg-coral-tint hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+        >
+          {step.label}
+        </a>
+        <ChevronEnd class="size-4 shrink-0 rtl:-scale-x-100" aria-hidden="true" />
+      </li>
+    ))}
+    {current && (
+      <li>
+        <span aria-current="page" class="px-2 py-1">
+          {current.label}
+        </span>
+      </li>
+    )}
+  </ol>
+</nav>

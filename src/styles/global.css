@@ -1,0 +1,307 @@
+@import 'tailwindcss';
+
+/*
+ * Manrope, self-hosted (variable, 200–800). The Figma file uses Figtree, which has no Greek
+ * or Cyrillic, so Manrope stands in as the closest geometric sans with full coverage.
+ * Ranges follow Fontsource's subsets so each page only downloads the scripts it uses.
+ */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-wght-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-greek-wght-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-cyrillic-wght-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-cyrillic-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/*
+ * Arial (Liberation Sans on Linux) scaled to Manrope's width and line metrics, measured over the
+ * site's English and German copy. Text set in it while Manrope loads takes the same space, so the
+ * swap doesn't shift the layout.
+ */
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans');
+  size-adjust: 103%;
+  ascent-override: 103.4%;
+  descent-override: 29.1%;
+  line-gap-override: 0%;
+}
+
+@theme {
+  /* Brand colours only: Tailwind's palette is removed. */
+  --color-*: initial;
+  --color-coral: #ea8878;
+  --color-coral-tint: #fbe3de;
+  --color-ink: #100420;
+  --color-text-muted: #707070; /* Figma value; 4.9:1 on white, 4.6:1 on surface */
+  --color-surface: #fcf8f4;
+  --color-bg: #ffffff;
+  --color-placeholder: #eeeeee; /* image placeholders only; the build check rejects them */
+  --color-footer: #1a1a20;
+  --color-on-dark: #ffffff;
+
+  --font-sans: 'Manrope', 'Manrope Fallback', ui-sans-serif, system-ui, sans-serif;
+
+  /* Content width (gives max-w-content), gutters included. */
+  --container-content: 90rem; /* 1440px */
+  --container-header: 85rem; /* 1360px */
+  --breakpoint-header-desktop: 90rem; /* 1440px */
+  --spacing-hero-height: 70vh;
+
+  /* Figma uses 24px for panels, cards, buttons and FAQ items alike. */
+  --radius-panel: 1.5rem;
+  --radius-card: 1.5rem;
+  --radius-field: 1.5rem;
+
+  /*
+   * Type scale: one token per role (see CLAUDE.md, Typography), each carrying its size, leading,
+   * tracking and weight, so a role changes in one place. Sizes are fluid between 360px and 1728px
+   * viewports. The scale is clinical rather than editorial: reading text is the anchor (16 → 18px),
+   * headings step up from it in moderate ratios, and tracking stays close to the font's own.
+   */
+  --text-display: clamp(2.125rem, 1.829rem + 1.316vw, 3.25rem); /* 34 → 52px, the page's H1 */
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 600;
+  --text-h2: clamp(1.75rem, 1.586rem + 0.731vw, 2.375rem); /* 28 → 38px, section headings */
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h2--font-weight: 600;
+  --text-title: clamp(1.375rem, 1.243rem + 0.585vw, 1.875rem); /* 22 → 30px, side-card headings */
+  --text-title--line-height: 1.25;
+  --text-title--letter-spacing: -0.0125em;
+  --text-title--font-weight: 600;
+  --text-h3: clamp(1.25rem, 1.184rem + 0.292vw, 1.5rem); /* 20 → 24px, sub-headings, step titles */
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h3--font-weight: 600;
+  --text-h4: clamp(1.125rem, 1.092rem + 0.146vw, 1.25rem); /* 18 → 20px, card titles, questions */
+  --text-h4--line-height: 1.4;
+  --text-h4--letter-spacing: 0em;
+  --text-h4--font-weight: 600;
+  --text-eyebrow: 0.875rem; /* 14px, uppercase label: a label doesn't grow with the viewport */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.08em;
+  --text-eyebrow--font-weight: 600;
+  --text-lead: clamp(1.125rem, 1.092rem + 0.146vw, 1.25rem); /* 18 → 20px, intros and sublines */
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: 0em;
+  --text-lead--font-weight: 400;
+  --text-body: clamp(1rem, 0.967rem + 0.146vw, 1.125rem); /* 16 → 18px, running text */
+  --text-body--line-height: 1.65;
+  --text-body--font-weight: 400;
+  /* Fixed UI sizes (Tailwind's): text-base 16px for buttons/nav, text-sm 14px, the floor for any text. */
+
+  /*
+   * Trust logo cycler: the logos sit on the faces of a turning prism. The outgoing logo rolls up
+   * over the top edge while the next one rolls up from underneath, both at once. The pivot sits
+   * half a slot behind the face (translateZ), which gives the turn its depth; the slot supplies
+   * the perspective.
+   */
+  --animate-logo-out: logo-out 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-logo-in: logo-in 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-review-left: review-left 600s linear infinite;
+  --animate-review-right: review-right 600s linear infinite;
+
+  @keyframes logo-out {
+    from {
+      transform: translateZ(-1.25rem) rotateX(0deg) translateZ(1.25rem);
+    }
+    to {
+      opacity: 0;
+      transform: translateZ(-1.25rem) rotateX(90deg) translateZ(1.25rem);
+    }
+  }
+
+  @keyframes logo-in {
+    from {
+      opacity: 0;
+      transform: translateZ(-1.25rem) rotateX(-90deg) translateZ(1.25rem);
+    }
+    to {
+      transform: translateZ(-1.25rem) rotateX(0deg) translateZ(1.25rem);
+    }
+  }
+
+  @keyframes review-left {
+    to {
+      transform: translateX(calc(0px - var(--review-cycle)));
+    }
+  }
+
+  @keyframes review-right {
+    from {
+      transform: translateX(calc(0px - var(--review-cycle)));
+    }
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility pause-animation {
+  animation-play-state: paused;
+}
+
+/*
+ * Fades an element up as it scrolls into view, driven by scroll position rather than JS. Browsers
+ * without scroll-driven animations show it straight away. Use it as `motion-safe:reveal`.
+ */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+/*
+ * The mobile menu sheet grows out of the header pill and shrinks back into it. `sheet` is the
+ * open shape (the whole screen); `sheet-collapsed` clips it to the pill, whose box the header
+ * script writes to --pill-*. Reduced motion: it just appears.
+ */
+@utility sheet {
+  clip-path: inset(0 round 0);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: clip-path 550ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+}
+
+@utility sheet-collapsed {
+  clip-path: inset(
+    var(--pill-top, 0) var(--pill-right, 0) var(--pill-bottom, 0) var(--pill-left, 0) round
+      var(--pill-radius, 0)
+  );
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-duration: 400ms;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+}
+
+@layer base {
+  /* Lets height transition to and from `auto` (used by the FAQ accordion). */
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  /*
+   * Typesetting defaults. Manrope has no italic and one weight axis: never fake an italic or a
+   * bold the font doesn't have, and keep kerning and contextual alternates on.
+   */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Locking the scroll for the menu sheet mustn't make the page jump sideways. */
+    scrollbar-gutter: stable;
+  }
+
+  /* The page behind the open mobile menu sheet doesn't scroll (works without JS too). */
+  :root:has(details[data-menu-sheet][open]) {
+    @variant max-header-desktop {
+      overflow: hidden;
+      /* Fills the reserved scrollbar gutter beside the sheet. */
+      background-color: var(--color-surface);
+    }
+  }
+
+  body {
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures contextual;
+    font-synthesis: none;
+  }
+
+  /*
+   * Headings: balanced lines, and a long word may break rather than overflow at 360px
+   * (German compounds, Russian and Greek words run to 18+ letters at 36px).
+   */
+  :where(h1, h2, h3, h4, h5, h6) {
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
+  /* Running text: no single-word last lines. */
+  :where(p, li, dd, blockquote, figcaption) {
+    text-wrap: pretty;
+  }
+
+  /*
+   * Hyphenate German, Greek and Russian (long words, narrow columns); English stays unhyphenated.
+   * Headings only split words of 14+ letters (Специализированная, Wechseljahresbeschwerden), which
+   * can't fit a 360px line at display size; shorter ones wrap whole instead of being balanced apart.
+   */
+  :where(:lang(de), :lang(el), :lang(ru)) {
+    hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;
+  }
+
+  /* Spans inside a heading match :lang() themselves, so they need the heading limit too. */
+  :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6),
+  :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6) * {
+    hyphenate-limit-chars: 14 6 6;
+  }
+
+  /* Opening quotes hang in the margin so the text edge stays straight (Safari only for now). */
+  blockquote {
+    hanging-punctuation: first allow-end last;
+  }
+
+  /* Safari still draws the disclosure triangle on <summary> despite list-style: none. */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}

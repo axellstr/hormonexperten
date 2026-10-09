@@ -1,0 +1,50 @@
+---
+import Approach from '../../components/sections/Approach.astro';
+import ClosingCta from '../../components/sections/ClosingCta.astro';
+import Faq from '../../components/sections/Faq.astro';
+import Hero from '../../components/sections/Hero.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import Services from '../../components/sections/Services.astro';
+import Team from '../../components/sections/Team.astro';
+import Testimonials from '../../components/sections/Testimonials.astro';
+import TrustLogos from '../../components/sections/TrustLogos.astro';
+import { LOCALES, type Locale } from '../../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImage } from '../../lib/assets';
+import { getFaq, getHome, getSite, visible } from '../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const faq = getFaq(lang);
+const heroImage = getImage(home.hero.slides[0].image);
+const featuredFaq = visible(faq.categories.flatMap((category) => category.items)).filter(
+  (item) => item.featured,
+);
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={home.meta.title}
+  description={home.meta.description}
+  preloadImage={heroImage}
+>
+  <Hero hero={home.hero} />
+  <Services lang={lang} content={home.services} services={site.services} />
+  <TrustLogos trust={home.trust} />
+  <Approach lang={lang} approach={home.approach} />
+  <HowItWorks how={home.how} />
+  <Team lang={lang} team={home.team} />
+  <Testimonials testimonials={home.testimonials} />
+  <Faq lang={lang} title={home.faq.title} contact={home.faq.contact} items={featuredFaq} />
+  <ClosingCta closing={home.closing} />
+</BaseLayout>

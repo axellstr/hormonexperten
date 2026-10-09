@@ -1,0 +1,313 @@
+{
+  "updated_label": "Stand:",
+  "contents_label": "Auf dieser Seite",
+  "draft_notice": "TODO: Entwurf. Vor der Veröffentlichung von der Praxis bzw. ihrer Rechts- oder Datenschutzberatung prüfen lassen, dann „approved“ in src/content/legal/ auf true setzen.",
+  "pages": [
+    {
+      "id": "impressum",
+      "meta": {
+        "title": "Impressum | Hormonexperten",
+        "description": "Impressum von Hormonexperten: Anbieter, Kontakt und berufsrechtliche Angaben."
+      },
+      "title": "Impressum",
+      "updated": "2026-10-09",
+      "sections": [
+        {
+          "id": "anbieter",
+          "title": "Angaben gemäß § 5 DDG",
+          "body": [
+            {
+              "lines": [
+                "TODO: Name der Praxis bzw. des Unternehmens mit Rechtsform",
+                "TODO: Name und Titel der Inhaberin bzw. der vertretungsberechtigten Person",
+                "TODO: Straße und Hausnummer",
+                "TODO: Postleitzahl und Ort",
+                "TODO: Staat"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "kontakt",
+          "title": "Kontakt",
+          "body": [
+            {
+              "lines": [
+                [
+                  "E-Mail: ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                ],
+                "Telefon: TODO: bestätigte Telefonnummer"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "berufsrecht",
+          "title": "Berufsrechtliche Angaben",
+          "body": [
+            {
+              "lines": [
+                "Gesetzliche Berufsbezeichnung: TODO: z. B. Ärztin bzw. Fachärztin für Allgemeinmedizin",
+                "Verliehen in: TODO: Staat der Approbation bzw. Facharztanerkennung",
+                "Zuständige Ärztekammer: TODO: Name und Anschrift"
+              ]
+            },
+            "Es gelten folgende berufsrechtliche Regelungen: TODO: Berufsordnung der zuständigen Ärztekammer und Heilberufe-Kammergesetz des Landes, jeweils mit Link."
+          ]
+        },
+        {
+          "id": "register",
+          "title": "Register und Umsatzsteuer",
+          "body": [
+            {
+              "lines": [
+                "Registergericht und Registernummer: TODO: nur bei einer Gesellschaft, sonst Zeile entfernen",
+                "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: TODO: falls vorhanden, sonst Zeile entfernen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "versicherung",
+          "title": "Berufshaftpflichtversicherung",
+          "body": [
+            {
+              "lines": [
+                "Versicherer: TODO: Name und Anschrift",
+                "Räumlicher Geltungsbereich: TODO"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verantwortlich",
+          "title": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
+          "body": [{ "lines": ["TODO: Name", "TODO: Anschrift (wie oben, falls identisch)"] }]
+        },
+        {
+          "id": "streitbeilegung",
+          "title": "Verbraucherstreitbeilegung",
+          "body": [
+            "TODO: Erklärung nach § 36 VSBG, ob die Praxis an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilnimmt (Pflicht ab mehr als zehn Beschäftigten), oder Abschnitt entfernen."
+          ]
+        },
+        {
+          "id": "bildnachweise",
+          "title": "Bildnachweise",
+          "body": ["TODO: Quellen der verwendeten Fotos und Illustrationen."]
+        }
+      ]
+    },
+    {
+      "id": "datenschutz",
+      "meta": {
+        "title": "Datenschutzerklärung | Hormonexperten",
+        "description": "Wie Hormonexperten beim Besuch dieser Website mit Ihren Daten umgeht und welche Rechte Sie haben."
+      },
+      "title": "Datenschutzerklärung",
+      "updated": "2026-10-09",
+      "intro": "Hier erfahren Sie, welche Daten beim Besuch dieser Website verarbeitet werden, wozu und welche Rechte Sie haben.",
+      "sections": [
+        {
+          "id": "kurz",
+          "title": "Das Wichtigste in Kürze",
+          "body": [
+            {
+              "list": [
+                "Diese Website setzt keine Cookies.",
+                "Sie lädt keine Inhalte, Schriften oder Skripte von Dritten. Auch die Schrift kommt von unserem eigenen Server.",
+                "Es gibt auf der Website keine Formulare und keine Benutzerkonten.",
+                "Termine buchen Sie in einem externen Buchungssystem, das sich erst öffnet, wenn Sie einen Buchungslink anklicken."
+              ]
+            }
+          ],
+          "check_note": "Stimmt nur, solange der Farbpaletten-Test im Header (speichert die Auswahl im localStorage) vor dem Start entfernt wird."
+        },
+        {
+          "id": "verantwortlich",
+          "title": "Verantwortliche Stelle",
+          "body": [
+            "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:",
+            {
+              "lines": [
+                "TODO: Name der Praxis bzw. des Unternehmens",
+                "TODO: Anschrift",
+                [
+                  "E-Mail: ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "datenschutzbeauftragte",
+          "title": "Datenschutzbeauftragte",
+          "body": [
+            "TODO: Kontakt der oder des Datenschutzbeauftragten, oder Abschnitt entfernen, wenn keine Benennungspflicht besteht."
+          ]
+        },
+        {
+          "id": "hosting",
+          "title": "Hosting und Server-Logdateien",
+          "body": [
+            "Diese Website wird bei TODO: Name und Sitz des Hosting-Anbieters betrieben. Bei jedem Seitenaufruf verarbeitet der Server automatisch Daten, die Ihr Browser übermittelt:",
+            {
+              "list": [
+                "IP-Adresse",
+                "Datum und Uhrzeit des Abrufs",
+                "aufgerufene Seite und übertragene Datenmenge",
+                "zuvor besuchte Seite (Referrer), soweit Ihr Browser sie übermittelt",
+                "Browsertyp, Browserversion und Betriebssystem"
+              ]
+            },
+            "Diese Daten sind technisch nötig, um die Website auszuliefern und ihre Sicherheit und Stabilität zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt im sicheren und fehlerfreien Betrieb der Website. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Die Logdateien werden nach TODO: Anzahl Tage gelöscht."
+          ],
+          "check_note": "Auftragsverarbeitungsvertrag mit dem Hoster bestätigen; Speicherort (EU?) ergänzen."
+        },
+        {
+          "id": "verschluesselung",
+          "title": "Verschlüsselung",
+          "body": [
+            "Die Verbindung zu dieser Website ist per TLS verschlüsselt. Sie erkennen das an „https://“ in der Adresszeile Ihres Browsers."
+          ]
+        },
+        {
+          "id": "kontakt",
+          "title": "Kontakt per E-Mail oder Telefon",
+          "body": [
+            "Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage eine Behandlung betrifft oder vorbereitet, sonst Art. 6 Abs. 1 lit. f DSGVO. Gesundheitsangaben verarbeiten wir nach Art. 9 Abs. 2 lit. h DSGVO. Wir löschen Ihre Anfrage, sobald sie erledigt ist, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+            "E-Mails werden in der Regel nicht Ende-zu-Ende-verschlüsselt übertragen. Bitte senden Sie uns deshalb keine ausführlichen Gesundheitsangaben per E-Mail."
+          ],
+          "check_note": "Empfehlung zu Gesundheitsangaben per E-Mail mit der Praxis abstimmen."
+        },
+        {
+          "id": "buchung",
+          "title": "Terminbuchung und Bezahlung",
+          "body": [
+            "Für Terminbuchung und Bezahlung nutzen wir das Praxisverwaltungssystem Pabau (TODO: Anbieter mit Anschrift). Die Buchungsseite öffnet sich erst, wenn Sie einen Buchungslink anklicken; vorher werden keine Daten an Pabau übertragen. Pabau verarbeitet Ihre Daten in unserem Auftrag nach Art. 28 DSGVO.",
+            "TODO: Welche Daten bei der Buchung erhoben werden, Rechtsgrundlage, Speicherdauer und ggf. Übermittlung in ein Drittland (Vereinigtes Königreich) mit Grundlage."
+          ],
+          "check_note": "Vertrag mit Pabau, Serverstandort und Zahlungsanbieter prüfen."
+        },
+        {
+          "id": "behandlung",
+          "title": "Daten aus der Behandlung",
+          "body": [
+            "Daten, die in einer Behandlung entstehen, etwa in der Videosprechstunde oder in Befunden, erhebt diese Website nicht. Darüber informieren wir Sie gesondert in unserer Patienteninformation zum Datenschutz (TODO: Link)."
+          ]
+        },
+        {
+          "id": "matomo",
+          "title": "Reichweitenmessung mit Matomo",
+          "body": [
+            "Wir messen die Nutzung dieser Website mit Matomo, das auf TODO: Server bzw. Anbieter läuft. Matomo setzt dabei keine Cookies und speichert nichts auf Ihrem Gerät. IP-Adressen werden vor der Speicherung gekürzt, sodass wir Sie nicht identifizieren können. Die Daten werden nicht an Dritte weitergegeben und nach TODO: Speicherdauer gelöscht.",
+            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt darin, die Website zu verbessern."
+          ],
+          "needs_check": true,
+          "check_note": "Erst anzeigen, wenn Matomo live ist; cookielose Konfiguration, IP-Kürzung und Speicherdauer bestätigen."
+        },
+        {
+          "id": "links",
+          "title": "Links zu anderen Websites",
+          "body": [
+            "Links zu sozialen Netzwerken und anderen Websites sind einfache Links ohne eingebundene Inhalte. Erst wenn Sie einen anklicken, verlassen Sie unsere Website; dort gilt die Datenschutzerklärung des jeweiligen Anbieters."
+          ]
+        },
+        {
+          "id": "rechte",
+          "title": "Ihre Rechte",
+          "body": [
+            "Sie haben das Recht",
+            {
+              "list": [
+                "auf Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO),",
+                "auf Berichtigung unrichtiger Daten (Art. 16 DSGVO),",
+                "auf Löschung (Art. 17 DSGVO),",
+                "auf Einschränkung der Verarbeitung (Art. 18 DSGVO),",
+                "auf Datenübertragbarkeit (Art. 20 DSGVO) und",
+                "eine Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen (Art. 7 Abs. 3 DSGVO)."
+              ]
+            },
+            "Verarbeiten wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, können Sie dem aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).",
+            {
+              "lines": [
+                [
+                  "Schreiben Sie uns dazu an ",
+                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" },
+                  "."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "beschwerde",
+          "title": "Beschwerderecht",
+          "body": [
+            "Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), insbesondere in dem EU-Staat, in dem Sie wohnen oder arbeiten. Für uns zuständig ist TODO: Aufsichtsbehörde am Sitz der Praxis mit Anschrift."
+          ]
+        },
+        {
+          "id": "aenderungen",
+          "title": "Änderungen",
+          "body": [
+            "Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage ändert. Es gilt die hier veröffentlichte Fassung."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cookie-settings",
+      "meta": {
+        "title": "Cookie-Einstellungen | Hormonexperten",
+        "description": "Diese Website setzt keine Cookies und bindet keine Inhalte von Dritten ein."
+      },
+      "title": "Cookie-Einstellungen",
+      "updated": "2026-10-09",
+      "intro": "Diese Website setzt keine Cookies und bindet keine Inhalte von Dritten ein. Deshalb gibt es kein Cookie-Banner und hier nichts einzustellen.",
+      "sections": [
+        {
+          "id": "geraet",
+          "title": "Was auf Ihrem Gerät gespeichert wird",
+          "body": [
+            "Nichts, wofür eine Einwilligung nötig wäre. Es gibt keine Werbe-, Tracking- oder Social-Media-Cookies, und keine Videos, Karten, Schriften oder Bewertungs-Widgets, die beim Laden der Seite Daten an Dritte senden."
+          ],
+          "check_note": "Stimmt nur, wenn der Farbpaletten-Test im Header (localStorage) vor dem Start entfernt wird."
+        },
+        {
+          "id": "matomo",
+          "title": "Statistik ohne Cookies",
+          "body": [
+            "Für die Besucherstatistik nutzen wir Matomo ohne Cookies und ohne Daten auf Ihrem Gerät zu speichern. Einzelheiten stehen in der Datenschutzerklärung."
+          ],
+          "needs_check": true,
+          "check_note": "Erst anzeigen, wenn Matomo live ist."
+        },
+        {
+          "id": "aenderungen",
+          "title": "Wenn sich das ändert",
+          "body": [
+            "Sollten wir später Dienste einbinden, die eine Einwilligung brauchen, fragen wir Sie vorher. Ihre Auswahl können Sie dann jederzeit auf dieser Seite ändern."
+          ]
+        },
+        {
+          "id": "mehr",
+          "title": "Mehr erfahren",
+          "body": [
+            {
+              "lines": [
+                [
+                  "Wie wir mit Ihren Daten umgehen, lesen Sie in unserer ",
+                  { "label": "Datenschutzerklärung", "href": "/datenschutz" },
+                  "."
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

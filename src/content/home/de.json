@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "Spezialisierte Hormonbetreuung ohne Wartezimmer | Hormonexperten",
+    "description": "Private Online-Sprechstunden bei Dr. Wilden – mit Blick auf Ihre Hormongesundheit und Ihr Leben."
+  },
+  "hero": {
+    "trust": {
+      "items": ["Über 35 Jahre Erfahrung", "Über 5.000 behandelte Patientinnen und Patienten"],
+      "rating_label": "Bewertet mit {rating} von 5 Sternen"
+    },
+    "title": "Spezialisierte Hormonbetreuung – ganz ohne Wartezimmer.",
+    "subtitle": "Private Online-Sprechstunden bei Dr. Wilden – mit Blick auf Ihre Hormongesundheit und Ihr Leben.",
+    "cta": "Online-Sprechstunde buchen",
+    "features": [
+      {
+        "label": "Fachkundige ärztliche Betreuung"
+      },
+      {
+        "label": "Online & diskret"
+      },
+      {
+        "label": "Für Frauen & Männer"
+      }
+    ],
+    "gallery_label": "Fotos",
+    "slide_label": "Foto {n} von {total} anzeigen",
+    "slides": [
+      {
+        "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend"
+      },
+      {
+        "image_alt": "Eine Frau bei einer seitlichen Yoga-Dehnung im Freien"
+      }
+    ]
+  },
+  "services": {
+    "title": {
+      "prefix": "Hormongesundheit, ",
+      "emphasis": "abgestimmt",
+      "second_line": "auf Ihre persönlichen Bedürfnisse"
+    },
+    "previous": "Vorherige Leistung",
+    "next": "Nächste Leistung"
+  },
+  "approach": {
+    "eyebrow": "Unser Ansatz",
+    "title": "Hormonmedizin, die Frauen ernst nimmt.",
+    "cta": {
+      "label": "Mehr erfahren"
+    },
+    "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend"
+  },
+  "trust": {
+    "title": "Geschätzt von Patientinnen und Patienten, unterstützt von Partnern."
+  },
+  "how": {
+    "eyebrow": "So funktioniert’s",
+    "title": "Drei einfache Schritte, kein Wartezimmer.",
+    "intro": "Alles läuft an einem sicheren Ort zusammen – von der Terminbuchung über die Blutwerte bis zur Nachsorge. So wissen Sie immer, wie es weitergeht.",
+    "steps": [
+      {
+        "title": "Termin buchen",
+        "body": "Buchen Sie Ihren Termin online zu einer Zeit, die Ihnen passt. Bitte reichen Sie relevante Blutwerte und den ausgefüllten Anamnesebogen spätestens 48 Stunden vor Ihrem Erstgespräch ein – beides geht ganz einfach über Ihr Patientenportal."
+      },
+      {
+        "title": "Erstgespräch per Video",
+        "body": "Ihre Ärztin bespricht Ihre Beschwerden und Laborwerte und erläutert Ihnen ausführlich die Behandlungsmöglichkeiten. Wenn es sinnvoll ist, können verordnete Medikamente direkt zu Ihnen nach Hause geliefert werden."
+      },
+      {
+        "title": "Nachsorge",
+        "body": "Ihre Behandlung wird regelmäßig überprüft und bei Bedarf angepasst. Über Ihr Patientenportal bleiben Sie auch zwischen den Terminen auf dem Laufenden und mit Ihrer Ärztin in Kontakt."
+      }
+    ],
+    "note": {
+      "title": "Wichtige Hinweise",
+      "body": "Für die allermeisten unserer Patientinnen und Patienten ist die Online-Sprechstunde gut geeignet. In bestimmten Fällen kann jedoch ein persönlicher Arztbesuch medizinisch notwendig werden, etwa wenn eine körperliche Untersuchung angezeigt ist oder weitere Diagnostik (zum Beispiel ein Ultraschall oder eine Mammografie) erforderlich ist. In diesem Fall berät Ihre Ärztin Sie im Gespräch entsprechend und gibt Ihnen eine passende Überweisungsempfehlung."
+    }
+  },
+  "team": {
+    "title": "Erfahrung, Fachwissen und Exzellenz für Sie.",
+    "members": [
+      {
+        "role": "Fachärztin für Allgemeinmedizin mit Schwerpunkt bioidentische Hormontherapie",
+        "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend",
+        "cta": {
+          "label": "Mehr erfahren"
+        }
+      },
+      {
+        "cta": {
+          "label": "Mehr erfahren"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Das sagen unsere Patientinnen und Patienten.",
+    "rating_label": "Bewertet mit {rating} von 5 Sternen"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "contact": {
+      "title": "Noch Fragen?",
+      "body": "Wir helfen Ihnen gern weiter. Schreiben Sie uns – wir melden uns innerhalb von 2 Werktagen bei Ihnen.",
+      "cta": { "label": "Kontakt aufnehmen" },
+      "more": { "label": "Mehr erfahren" }
+    }
+  },
+  "closing": {
+    "title": "Sie müssen sich nicht einfach damit abfinden.",
+    "body": "Müdigkeit, schlechter Schlaf und Stimmungsschwankungen haben oft hormonelle Ursachen. Finden wir gemeinsam heraus, was bei Ihnen dahintersteckt.",
+    "cta": "Beratungstermin vereinbaren"
+  }
+}

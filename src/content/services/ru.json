@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Услуги | Hormonexperten"
+  },
+  "eyebrow": "Услуги",
+  "title": "Гормональное здоровье с учётом ваших личных потребностей.",
+  "intro": "Специализированная гормональная помощь при менопаузе, перименопаузе и нарушениях обмена веществ. Профессиональное медицинское сопровождение, не выходя из дома.",
+  "breadcrumb_label": "Навигационная цепочка",
+  "learn_more": "Подробнее",
+  "cta": "Записаться на онлайн-консультацию",
+  "others_title": "Другие услуги",
+  "pages": [
+    {
+      "id": "menopause",
+      "meta": {
+        "title": "Менопауза и перименопауза | Hormonexperten"
+      }
+    },
+    {
+      "id": "hormone-therapy",
+      "meta": {
+        "title": "Гормональная терапия | Hormonexperten"
+      }
+    },
+    {
+      "id": "rimkus",
+      "meta": {
+        "title": "Гормональная терапия по методу Rimkus® | Hormonexperten"
+      }
+    },
+    {
+      "id": "check-up",
+      "meta": {
+        "title": "Гормональное обследование | Hormonexperten"
+      }
+    },
+    {
+      "id": "metabolic-reset",
+      "meta": {
+        "title": "Metabolic Reset | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-disease",
+      "meta": {
+        "title": "Хронические заболевания | Hormonexperten"
+      }
+    }
+  ]
+}

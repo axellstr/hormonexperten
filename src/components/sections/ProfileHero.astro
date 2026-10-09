@@ -1,0 +1,100 @@
+---
+import { Picture } from 'astro:assets';
+import { BOOKING_URL, type Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Profile, Team, TeamMember } from '../../lib/schemas';
+import Breadcrumb from '../ui/Breadcrumb.astro';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Placeholder from '../ui/Placeholder.astro';
+
+interface Props {
+  lang: Locale;
+  /** Set when the profile falls back to another language than the page's. */
+  contentLang?: Locale | undefined;
+  team: Team;
+  member: TeamMember;
+  profile: Profile;
+}
+
+const { lang, contentLang, team, member, profile } = Astro.props;
+const [lead, ...bio] = profile.bio;
+const portrait =
+  'aspect-square w-full rounded-panel object-cover object-top sm:aspect-4/3 lg:aspect-4/5';
+---
+
+<!-- Sits below the floating header pill, like the home hero. -->
+<div class="mt-4 lg:mt-6" data-hero>
+  <Container>
+    <section
+      aria-labelledby="profile-title"
+      lang={contentLang}
+      class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
+    >
+      <Breadcrumb
+        label={team.breadcrumb_label}
+        lang={contentLang && lang}
+        items={[{ label: team.eyebrow, href: localizeHref('/team', lang) }, { label: member.name }]}
+      />
+
+      <div class="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+        <!-- Image first on mobile, on the end side from lg up. -->
+        <div class="relative lg:order-last lg:col-span-5">
+          <div aria-hidden="true" class="absolute inset-0 rotate-2 rounded-panel bg-coral/40"></div>
+          {member.image ? (
+            <Picture
+              src={getImage(member.image)}
+              alt={member.image_alt ?? ''}
+              formats={['avif', 'webp']}
+              widths={[480, 720, 960, 1200]}
+              sizes="(min-width: 1440px) 520px, (min-width: 1024px) 38vw, 90vw"
+              loading="eager"
+              fetchpriority="high"
+              class:list={['relative', portrait]}
+            />
+          ) : (
+            <Placeholder class:list={['relative', portrait]} />
+          )}
+        </div>
+
+        <div class="lg:col-span-7">
+          <Eyebrow>{profile.eyebrow}</Eyebrow>
+          <h1 id="profile-title" class="mt-4 text-display text-ink">
+            {profile.name}
+          </h1>
+          <ul class="mt-6 flex flex-wrap gap-2">
+            {profile.titles.map((title) => (
+              <li class="rounded-full bg-bg px-4 py-2 text-sm font-medium text-ink ring-1 ring-ink/10 md:text-base">
+                {title}
+              </li>
+            ))}
+          </ul>
+          <p class="mt-8 text-lead text-ink">{lead}</p>
+          {bio.map((paragraph) => (
+            <p class="mt-5 text-body text-ink/80">{paragraph}</p>
+          ))}
+          <Button href={BOOKING_URL} class="mt-10">
+            {profile.cta}
+          </Button>
+        </div>
+      </div>
+
+      <h2 class="sr-only">{profile.facts.title}</h2>
+      <ul
+        class:list={[
+          'mt-12 grid gap-8 border-t border-ink/10 pt-10 sm:grid-cols-2 lg:mt-16 lg:pt-12',
+          profile.facts.items.length > 2 && 'xl:grid-cols-4',
+        ]}
+      >
+        {profile.facts.items.map((fact) => (
+          <li class="flex items-center gap-5">
+            <span class="text-display text-ink tabular-nums">{fact.value}</span>
+            <span class="max-w-xs text-body text-ink/80">{fact.label}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </Container>
+</div>

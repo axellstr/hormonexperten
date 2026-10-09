@@ -1,0 +1,65 @@
+---
+import type { Profile } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  milestones: Profile['milestones'];
+}
+
+const { milestones } = Astro.props;
+
+/*
+ * Up to five milestones turn into a horizontal strip from xl up. Longer timelines would get
+ * columns too narrow to read, so they stay vertical, beside a sticky heading from lg up.
+ */
+const columns = { 3: 'xl:grid-cols-3', 4: 'xl:grid-cols-4', 5: 'xl:grid-cols-5' } as const;
+const strip = columns[milestones.items.length as keyof typeof columns];
+---
+
+<Section aria-labelledby="milestones-title">
+  <div class:list={[!strip && 'lg:grid lg:grid-cols-12 lg:gap-16']}>
+    <h2
+      id="milestones-title"
+      class:list={[
+        'text-h2 text-ink',
+        !strip && 'lg:sticky lg:top-28 lg:col-span-4 lg:self-start',
+      ]}
+    >
+      {milestones.title}
+    </h2>
+
+    <!--
+      A vertical line down the start edge. Each item draws its own piece of the line, so it stays
+      unbroken however tall the items get.
+    -->
+    <ol class:list={['mt-10 grid', strip ? ['lg:mt-16', strip] : 'lg:col-span-8 lg:mt-0']}>
+      {milestones.items.map((milestone) => (
+        <li
+          class:list={[
+            'relative border-s border-ink/15 ps-8 pb-12 last:pb-0 md:grid md:grid-cols-4 md:gap-8 motion-safe:reveal',
+            strip && 'xl:block xl:border-s-0 xl:border-t xl:ps-0 xl:pe-8 xl:pt-10 xl:pb-0',
+          ]}
+        >
+          <span
+            aria-hidden="true"
+            class:list={[
+              'absolute -start-2 top-1 size-4 rounded-full bg-coral ring-4 ring-coral-tint',
+              strip && 'xl:start-0 xl:-top-2',
+            ]}
+          />
+          <h3 class="text-h3 text-ink tabular-nums">{milestone.date}</h3>
+          <ul
+            class:list={[
+              'mt-4 space-y-3 text-body text-ink/80 md:col-span-3 md:mt-0',
+              strip && 'xl:mt-4',
+            ]}
+          >
+            {milestone.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Section>

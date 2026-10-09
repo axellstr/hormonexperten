@@ -1,0 +1,61 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import ProfileHero from '../../../components/sections/ProfileHero.astro';
+import ProfileMilestones from '../../../components/sections/ProfileMilestones.astro';
+import ProfileMission from '../../../components/sections/ProfileMission.astro';
+import ProfileQualifications from '../../../components/sections/ProfileQualifications.astro';
+import ProfileStory from '../../../components/sections/ProfileStory.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSite, getTeam, isVisible, memberLang, visible } from '../../../lib/content';
+import type { Profile, Team, TeamMember } from '../../../lib/schemas';
+
+// One page per visible team member whose profile is visible too.
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) => {
+    const team = getTeam(lang);
+    return visible(team.members).flatMap(({ profile, ...member }) =>
+      profile && isVisible(profile)
+        ? [{ params: { lang, member: member.id }, props: { lang, team, member, profile } }]
+        : [],
+    );
+  });
+}
+
+interface Props {
+  lang: Locale;
+  team: Team;
+  member: TeamMember;
+  profile: Profile;
+}
+
+const { lang, team, member, profile } = Astro.props;
+const site = getSite(lang);
+// Untranslated profiles fall back to English; say so for screen readers.
+const profileLang = memberLang(lang, member.id, 'profile');
+const contentLang = profileLang === lang ? undefined : profileLang;
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={profile.meta.title}
+  description={profile.meta.description}
+>
+  <ProfileHero
+    lang={lang}
+    contentLang={contentLang}
+    team={team}
+    member={member}
+    profile={profile}
+  />
+  <div lang={contentLang}>
+    {profile.mission && <ProfileMission mission={profile.mission} />}
+    <ProfileMilestones milestones={profile.milestones} />
+    <ProfileQualifications qualifications={profile.qualifications} />
+    <ProfileStory story={profile.story} cta={profile.closing_cta ? undefined : profile.cta} />
+    {profile.closing_cta && (
+      <ClosingCta closing={{ title: profile.closing_cta.title, cta: profile.cta }} />
+    )}
+  </div>
+</BaseLayout>

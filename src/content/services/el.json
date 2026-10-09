@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Υπηρεσίες | Hormonexperten"
+  },
+  "eyebrow": "Υπηρεσίες",
+  "title": "Ορμονική υγεία, προσαρμοσμένη στις προσωπικές σας ανάγκες.",
+  "intro": "Εξειδικευμένη ορμονική φροντίδα για την εμμηνόπαυση, την περιεμμηνόπαυση και τη μεταβολική υγεία. Έμπειρη ιατρική παρακολούθηση από την άνεση του σπιτιού σας.",
+  "breadcrumb_label": "Διαδρομή πλοήγησης",
+  "learn_more": "Μάθετε περισσότερα",
+  "cta": "Κλείστε διαδικτυακό ραντεβού",
+  "others_title": "Άλλες υπηρεσίες",
+  "pages": [
+    {
+      "id": "menopause",
+      "meta": {
+        "title": "Εμμηνόπαυση & Περιεμμηνόπαυση | Hormonexperten"
+      }
+    },
+    {
+      "id": "hormone-therapy",
+      "meta": {
+        "title": "Ορμονοθεραπεία | Hormonexperten"
+      }
+    },
+    {
+      "id": "rimkus",
+      "meta": {
+        "title": "Ορμονοθεραπεία κατά Rimkus® | Hormonexperten"
+      }
+    },
+    {
+      "id": "check-up",
+      "meta": {
+        "title": "Ορμονικός έλεγχος | Hormonexperten"
+      }
+    },
+    {
+      "id": "metabolic-reset",
+      "meta": {
+        "title": "Metabolic Reset | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-disease",
+      "meta": {
+        "title": "Χρόνιες παθήσεις | Hormonexperten"
+      }
+    }
+  ]
+}

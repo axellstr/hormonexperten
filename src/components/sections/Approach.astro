@@ -1,0 +1,41 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { localizeHref } from '../../lib/i18n';
+import type { Home } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  approach: Home['approach'];
+}
+
+const { lang, approach } = Astro.props;
+---
+
+<Section id="approach" aria-labelledby="approach-title">
+  <Panel class="grid items-center gap-10 p-6 md:p-12 lg:grid-cols-2 lg:gap-12 xl:gap-16 xl:p-20">
+    <Picture
+      src={getImage(approach.image)}
+      alt={approach.image_alt}
+      formats={['avif', 'webp']}
+      widths={[480, 720, 960, 1300]}
+      sizes="(min-width: 1440px) 600px, (min-width: 1024px) 40vw, 90vw"
+      class="aspect-7/6 w-full rounded-panel object-cover"
+    />
+    <div>
+      <Eyebrow>{approach.eyebrow}</Eyebrow>
+      <h2 id="approach-title" class="mt-4 text-h2 text-ink">
+        {approach.title}
+      </h2>
+      <p class="mt-6 max-w-prose text-body text-ink/80">{approach.body}</p>
+      <Button href={localizeHref(approach.cta.href, lang)} class="mt-10">
+        {approach.cta.label}
+      </Button>
+    </div>
+  </Panel>
+</Section>

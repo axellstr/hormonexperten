@@ -1,0 +1,32 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import ServiceList from '../../../components/sections/ServiceList.astro';
+import ServiceSteps from '../../../components/sections/ServiceSteps.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getHome, getServices, getSite, visible } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const services = getServices(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={services.meta.title}
+  description={services.meta.description}
+>
+  <ServiceList lang={lang} services={services} items={visible(site.services)} />
+  <ServiceSteps how={home.how} />
+  <ClosingCta closing={home.closing} />
+</BaseLayout>

@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Specialist hormone care, without the waiting room | Hormonexperten",
+    "description": "Private online consultations with Dr. Wilden, focused on your hormone health and your life."
+  },
+  "hero": {
+    "trust": {
+      "items": ["35+ years of experience", "5,000+ patients treated"],
+      "rating": 5,
+      "rating_label": "Rated {rating} out of 5",
+      "needs_check": true
+    },
+    "title": "Specialist hormone care, without the waiting room.",
+    "subtitle": "Private online consultations with Dr. Wilden, focused on your hormone health and your life.",
+    "cta": "Book Online Consultation",
+    "features": [
+      {
+        "icon": "medical",
+        "label": "Expert Medical Supervision"
+      },
+      {
+        "icon": "online",
+        "label": "Online & Discreet"
+      },
+      {
+        "icon": "women-men",
+        "label": "Women & Men"
+      }
+    ],
+    "gallery_label": "Photos",
+    "slide_label": "Show photo {n} of {total}",
+    "slides": [
+      {
+        "image": "dr-wilden.png",
+        "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop"
+      },
+      {
+        "image": "hero-2.png",
+        "image_alt": "A woman in a yoga side stretch outdoors"
+      }
+    ]
+  },
+  "services": {
+    "title": {
+      "prefix": "Hormone Health ",
+      "emphasis": "tailored,",
+      "second_line": "to your personal needs."
+    },
+    "previous": "Previous service",
+    "next": "Next service"
+  },
+  "approach": {
+    "eyebrow": "Our Approach",
+    "title": "Hormone Health Care that Takes Women Seriously.",
+    "body": "TODO: Approved text for Our Approach is still required. This temporary placeholder is intentionally longer so the section can be reviewed at its intended four-line height. Replace it with confirmed practice copy before launch; the mockup describes a different clinic and must not be used.",
+    "cta": {
+      "label": "Learn More",
+      "href": "/about-us"
+    },
+    "image": "dr-wilden.png",
+    "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop"
+  },
+  "trust": {
+    "title": "Trusted by patients, backed by partners.",
+    "logos": [
+      {
+        "name": "Jameda",
+        "logo": "jameda",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 1",
+        "logo": "partner-1",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 2",
+        "logo": "partner-2",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 3",
+        "logo": "partner-3",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 4",
+        "logo": "partner-4",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 5",
+        "logo": "partner-5",
+        "needs_check": true
+      },
+      {
+        "name": "TODO: partner 6",
+        "logo": "partner-6",
+        "needs_check": true
+      }
+    ]
+  },
+  "how": {
+    "eyebrow": "How it Works",
+    "title": "Three easy steps, no waiting room.",
+    "intro": "Everything happens in one secure place, from booking and blood results to follow-up care. You’ll always know what comes next.",
+    "steps": [
+      {
+        "title": "Book an Appointment",
+        "body": "Schedule your appointment online at a time that suits you. Please submit relevant blood work and your completed medical history form at least 48 hours in advance of your initial consultation – both can be done easily via your patient portal."
+      },
+      {
+        "title": "Initial Video Consultation",
+        "body": "Your doctor will review your symptoms and laboratory results and discuss treatment options with you in detail. Where appropriate, prescribed medications can be delivered directly to you at home."
+      },
+      {
+        "title": "Follow-Up Care",
+        "body": "Your treatment will be reviewed regularly and adjusted as needed. Your patient portal will keep you up-to-date and connected with your doctor between appointments."
+      }
+    ],
+    "note": {
+      "title": "Important information",
+      "body": "Online consultations are perfectly suitable for the vast majority of our patients. In certain cases, however, an in-person doctor’s visit may become medically necessary, for example when a physical examination is medically indicated or when additional diagnostics (such as an ultrasound scan or mammography exam) are required. Where this applies, your doctor will advise you accordingly during your consultation and provide you with a corresponding referral recommendation."
+    }
+  },
+  "team": {
+    "title": "Experience, expertise and excellence at your service.",
+    "members": [
+      {
+        "name": "Dr. Isabella Wilden",
+        "role": "Specialist in General Medicine with a focus on bioidentical hormone therapy",
+        "image": "dr-wilden.png",
+        "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop",
+        "cta": {
+          "label": "Learn More",
+          "href": "/team/isabella-wilden"
+        }
+      },
+      {
+        "name": "Dr. Yvonne Tuszing",
+        "role": "Medical Doctor · Hormone & Metabolic Health · Certified in Bioidentical Hormone Therapy",
+        "cta": {
+          "label": "Learn More",
+          "href": "/team/yvonne-tuszing"
+        },
+        "needs_check": true
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Here’s What Our Patients Are Saying.",
+    "rating_label": "Rated {rating} out of 5",
+    "prev_label": "Previous reviews",
+    "next_label": "Next reviews",
+    "slide_label": "Show review {n} of {total}",
+    "items": [
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Worth every minute and every euro.”",
+        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
+        "author": "Woman, 52 · Thyroid · Verified patient",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "contact": {
+      "title": "Still have questions?",
+      "image": "contact.jpg",
+      "image_alt": "",
+      "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
+      "cta": { "label": "Get in touch", "href": "mailto:info@hormonexperten.de" },
+      "more": { "label": "Learn More", "href": "/faq" }
+    }
+  },
+  "closing": {
+    "title": "You don’t have to just live with it.",
+    "body": "Tiredness, poor sleep and mood swings often have a hormonal cause. Let’s look at yours.",
+    "cta": "Start with a consultation"
+  }
+}
