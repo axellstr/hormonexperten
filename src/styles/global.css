@@ -297,6 +297,35 @@
   }
 }
 
+/*
+ * Scroll text reveal (RevealText): a heading or paragraph (`reveal-text`) fills in word by word
+ * as it scrolls up the screen. Its words (`reveal-word`) start at 20% opacity and reach full colour
+ * in reading order while the text's top travels from 90% to 35% of the screen height, whatever
+ * the text's length. Each word fades over three steps of the sequence, so neighbours overlap and
+ * the fill flows rather than ticks. Scroll position drives it, so scrolling back fades the words
+ * again. Browsers without scroll-driven animations, and reduced motion, show the text in full.
+ */
+@utility reveal-text {
+  view-timeline: --reveal-text block;
+}
+
+@utility reveal-word {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: reveal-word linear both;
+      animation-timeline: --reveal-text;
+      animation-range: cover calc(10vh + 55vh * var(--reveal-index) / (var(--reveal-total) + 2))
+        cover calc(10vh + 55vh * (var(--reveal-index) + 3) / (var(--reveal-total) + 2));
+    }
+  }
+}
+
+@keyframes reveal-word {
+  from {
+    opacity: 0.2;
+  }
+}
+
 @utility stack-progress {
   transform-origin: top;
   scale: 1 var(--stack-progress, 0);

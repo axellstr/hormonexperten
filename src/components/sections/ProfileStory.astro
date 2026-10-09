@@ -4,6 +4,7 @@ import { BOOKING_URL } from '../../config';
 import type { Profile } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Panel from '../ui/Panel.astro';
+import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -20,8 +21,8 @@ const { story, cta } = Astro.props;
     <!-- Without a statement beside it, the story reads as one centred column. -->
     <div class:list={[!story.statement && 'mx-auto max-w-3xl']}>
       <Quote class="size-12 text-coral lg:size-16" aria-hidden="true" />
-      <h2 id="story-title" class="mt-6 max-w-5xl text-h2 text-ink">
-        {story.title}
+      <h2 id="story-title" class="mt-6 max-w-5xl reveal-text text-h2 text-ink">
+        <RevealText text={story.title} />
       </h2>
 
       <div
@@ -31,8 +32,8 @@ const { story, cta } = Astro.props;
         ]}
       >
         {story.statement && (
-          <p class="text-h3 font-medium text-ink lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-            {story.statement}
+          <p class="reveal-text text-h3 font-medium text-ink lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+            <RevealText text={story.statement} />
           </p>
         )}
 
@@ -47,9 +48,7 @@ const { story, cta } = Astro.props;
             )}
           </div>
           {story.closing && (
-            <p class="mt-10 border-s-2 border-coral ps-6 text-h3 text-ink">
-              {story.closing}
-            </p>
+            <p class="mt-10 border-s-2 border-coral ps-6 text-h3 text-ink">{story.closing}</p>
           )}
           <p class="mt-6 text-body font-medium text-ink">
             <span aria-hidden="true">— </span>

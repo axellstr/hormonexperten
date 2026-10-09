@@ -7,6 +7,7 @@ import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Panel from '../ui/Panel.astro';
+import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -29,10 +30,12 @@ const { lang, approach } = Astro.props;
     />
     <div data-text-reveal>
       <Eyebrow data-reveal="0">{approach.eyebrow}</Eyebrow>
-      <h2 id="approach-title" class="mt-4 text-h2 text-ink" data-reveal="1">
-        {approach.title}
+      <h2 id="approach-title" class="mt-4 reveal-text text-h2 text-ink" data-reveal="1">
+        <RevealText text={approach.title} />
       </h2>
-      <p class="mt-6 max-w-prose text-body text-ink/80" data-reveal="2">{approach.body}</p>
+      <p class="mt-6 max-w-prose reveal-text text-body text-ink/80" data-reveal="2">
+        <RevealText text={approach.body} />
+      </p>
       <Button href={localizeHref(approach.cta.href, lang)} class="mt-10" data-reveal="3">
         {approach.cta.label}
       </Button>

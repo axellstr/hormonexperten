@@ -1,0 +1,29 @@
+---
+/**
+ * Text that fills in word by word as it scrolls up the screen: each word starts faint and reaches
+ * its full colour in reading order (see `reveal-word` in global.css). The enclosing heading or
+ * paragraph needs the `reveal-text` class, which supplies the scroll timeline. A heading built
+ * from several pieces passes each piece its `start` and the `total` word count, so the words fill
+ * in one sequence. Words stay plain inline text, so wrapping, hyphenation and kerning are untouched.
+ */
+interface Props {
+  text: string;
+  /** Index of this piece's first word within the whole text. */
+  start?: number;
+  /** Words in the whole text; defaults to this piece's own. */
+  total?: number;
+}
+
+const { text, start = 0, total } = Astro.props;
+const words = text.split(' ').filter(Boolean);
+const count = total ?? words.length;
+---
+
+{words.map((word, index) => (
+  <>
+    {index > 0 && ' '}
+    <span class="reveal-word" style={`--reveal-index: ${start + index}; --reveal-total: ${count}`}>
+      {word}
+    </span>
+  </>
+))}

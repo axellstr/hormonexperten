@@ -276,17 +276,7 @@ const sheetDelay = [
           never leave the screen. Without JS it is a plain <details> that opens instantly.
         -->
         <details class="group/mobile header-desktop:hidden" data-menu data-menu-sheet>
-          <summary class="flex size-11 cursor-pointer list-none items-center justify-center gap-2 rounded-full font-semibold text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors sm:w-auto sm:ps-4 sm:pe-3">
-            <span class="sr-only">{nav.menu}</span>
-            <!-- Both labels share one grid cell, so the button keeps its width as they swap. -->
-            <span class="hidden sm:inline-grid" aria-hidden="true">
-              <span class="col-start-1 row-start-1 group-open/mobile:group-not-data-closed/mobile:-translate-y-1 group-open/mobile:group-not-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
-                {nav.menu}
-              </span>
-              <span class="col-start-1 row-start-1 translate-y-1 opacity-0 group-open/mobile:group-not-data-closed/mobile:translate-y-0 group-open/mobile:group-not-data-closed/mobile:opacity-100 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
-                {nav.close}
-              </span>
-            </span>
+          <summary class="group/button flex size-11 cursor-pointer list-none items-center justify-center gap-2 rounded-full font-semibold text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors sm:w-auto sm:ps-3 sm:pe-4">
             <!-- Two bars that meet in the middle and turn into a cross. -->
             <svg
               viewBox="0 0 24 24"
@@ -306,6 +296,16 @@ const sheetDelay = [
                 class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:-translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
               />
             </svg>
+            <span class="sr-only">{nav.menu}</span>
+            <!-- Both labels share one grid cell, so the button keeps its width as they swap. -->
+            <span class="hidden sm:inline-grid" aria-hidden="true">
+              <span class="col-start-1 row-start-1 group-open/mobile:group-not-data-closed/mobile:-translate-y-1 group-open/mobile:group-not-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+                <RollText text={nav.menu} />
+              </span>
+              <span class="col-start-1 row-start-1 translate-y-1 opacity-0 group-open/mobile:group-not-data-closed/mobile:translate-y-0 group-open/mobile:group-not-data-closed/mobile:opacity-100 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+                <RollText text={nav.close} />
+              </span>
+            </span>
           </summary>
 
           <!-- Sits behind the pill (-z-10 inside the header), covering the page. -->

@@ -7,6 +7,7 @@ import { visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Home, Site } from '../../lib/schemas';
 import Placeholder from '../ui/Placeholder.astro';
+import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -17,6 +18,10 @@ interface Props {
 
 const { lang, content, services } = Astro.props;
 const { title } = content;
+// The heading's three pieces fill in as one sequence.
+const wordCount = (text: string) => text.split(' ').filter(Boolean).length;
+const [prefixWords, emphasisWords] = [wordCount(title.prefix), wordCount(title.emphasis)];
+const titleWords = prefixWords + emphasisWords + wordCount(title.second_line);
 
 const arrow =
   'grid size-11 cursor-pointer place-items-center rounded-full bg-surface text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink aria-disabled:cursor-default aria-disabled:text-ink/30 aria-disabled:hover:bg-surface motion-safe:transition-colors';
@@ -24,12 +29,25 @@ const arrow =
 
 <Section id="services" aria-labelledby="services-title" class="pt-6! lg:pt-10!">
   <div class="flex items-end justify-between gap-6">
-    <h2 id="services-title" class="min-w-0 flex-1 text-h2 text-ink" data-text-reveal data-reveal="0">
+    <h2
+      id="services-title"
+      class="min-w-0 flex-1 reveal-text text-h2 text-ink"
+      data-text-reveal
+      data-reveal="0"
+    >
       <span class="block lg:inline">
-        {title.prefix}
-        <span>{title.emphasis}</span>
+        <RevealText text={title.prefix} total={titleWords} />{' '}
+        <span>
+          <RevealText text={title.emphasis} start={prefixWords} total={titleWords} />
+        </span>
       </span>{' '}
-      <span class="block lg:inline">{title.second_line}</span>
+      <span class="block lg:inline">
+        <RevealText
+          text={title.second_line}
+          start={prefixWords + emphasisWords}
+          total={titleWords}
+        />
+      </span>
     </h2>
 
     <!-- Shown by service-rail.ts once the row overflows. Phones swipe instead. -->
