@@ -1,6 +1,6 @@
 import { z } from 'astro/zod';
 
-/** Unconfirmed content: previewed in dev, never built (see SHOW_UNCONFIRMED in config.ts). */
+/** Unconfirmed content: previewed in dev and work-in-progress builds only (see SHOW_UNCONFIRMED in config.ts). */
 const needsCheck = { needs_check: z.boolean().default(false) };
 
 const link = z.object({ label: z.string(), href: z.string() });

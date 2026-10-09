@@ -1,3 +1,5 @@
+import { CONTENT_CHECK } from 'astro:env/server';
+
 export const LOCALES = ['en', 'de', 'el', 'ru'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
@@ -30,6 +32,7 @@ export const BRAND = {
 
 /**
  * Content marked `needs_check: true` (unconfirmed claims, testimonials, logos, payment
- * methods...) is shown in `astro dev` and left out of every build.
+ * methods...) is shown in `astro dev` and in work-in-progress builds (CONTENT_CHECK=warn, see
+ * scripts/check-content.mjs), and left out of every other build.
  */
-export const SHOW_UNCONFIRMED = import.meta.env.DEV;
+export const SHOW_UNCONFIRMED = import.meta.env.DEV || CONTENT_CHECK === 'warn';

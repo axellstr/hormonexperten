@@ -81,5 +81,6 @@ if (problems.length > 0) {
     console.error('\nFix the content in src/content/ (or the image) and rebuild.\n');
     process.exit(1);
   }
+} else {
+  console.log('Content check passed.');
 }
-console.log('Content check passed.');

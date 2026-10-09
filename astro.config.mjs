@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,6 +11,17 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: true,
+    },
+  },
+  env: {
+    schema: {
+      // `warn`: work-in-progress build (see scripts/check-content.mjs and SHOW_UNCONFIRMED).
+      CONTENT_CHECK: envField.enum({
+        context: 'server',
+        access: 'public',
+        values: ['warn'],
+        optional: true,
+      }),
     },
   },
   vite: {
