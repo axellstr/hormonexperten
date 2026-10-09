@@ -135,5 +135,5 @@ export const PALETTES = {
 
 export type PaletteName = keyof typeof PALETTES;
 
-// Sets the first visit; the development picker remembers subsequent choices in local storage.
+// Sets the first visit; the palette picker remembers subsequent choices in local storage.
 export const ACTIVE_PALETTE: PaletteName = 'coral';

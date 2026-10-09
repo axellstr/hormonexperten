@@ -5,11 +5,11 @@
  * next service comes in from the right and shows there is more.
  * Reduced motion: no intro slide, and the arrows jump instead of gliding.
  */
+import { easeInOut } from './easing';
 
 /** How long the row stays on screen before the intro slide, so the first cards can be read. */
 const READ_DELAY = 1500;
 
-const easeInOut = (t: number) => (t < 0.5 ? 4 * t ** 3 : 1 - (-2 * t + 2) ** 3 / 2);
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 function setupRail(rail: HTMLElement) {

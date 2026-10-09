@@ -19,6 +19,7 @@ const links = LOCALES.map((locale) => ({
   locale,
   href: switchLocale(path, locale),
   name: LANGUAGE_NAMES[locale],
+  shortName: locale.toUpperCase(),
   current: locale === lang,
 }));
 const linkClass =
@@ -29,23 +30,24 @@ const linkClass =
   <div class={className}>
     <Eyebrow id="language-menu-label">{label}</Eyebrow>
     <nav aria-labelledby="language-menu-label" class="mt-3">
-      <!-- Segmented chips: two per row on phones and in the menu's narrow lg column. -->
-      <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+      <!-- Compact language codes keep all choices visible in one row on narrow screens. -->
+      <ul class="grid grid-cols-4 gap-2">
         {links.map((link) => (
           <li>
             <a
               href={link.href}
               hreflang={link.locale}
               lang={link.locale}
+              aria-label={link.name}
               aria-current={link.current ? 'true' : undefined}
               class:list={[
-                'flex min-h-12 items-center justify-center rounded-full px-4 text-base font-medium whitespace-nowrap hyphens-none ring-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow',
+                'flex min-h-12 items-center justify-center rounded-full px-2 text-base font-medium uppercase whitespace-nowrap hyphens-none ring-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow',
                 link.current
                   ? 'bg-ink text-on-dark ring-ink'
                   : 'bg-bg text-ink ring-ink/10 hover:ring-ink/30',
               ]}
             >
-              {link.name}
+              {link.shortName}
             </a>
           </li>
         ))}

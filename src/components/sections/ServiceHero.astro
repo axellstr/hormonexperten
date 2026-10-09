@@ -56,14 +56,14 @@ const image = 'aspect-4/3 w-full rounded-panel object-cover lg:aspect-4/5';
           )}
         </div>
 
-        <div class="lg:col-span-7">
-          <h1 id="service-title" class="text-display text-ink">
+        <div class="lg:col-span-7" data-text-reveal>
+          <h1 id="service-title" class="text-display text-ink" data-reveal="0">
             {service.title}
           </h1>
-          <p lang={contentLang} class="mt-6 max-w-prose text-lead text-ink/80">
+          <p lang={contentLang} class="mt-6 max-w-prose text-lead text-ink/80" data-reveal="1">
             {page.intro}
           </p>
-          <Button href={BOOKING_URL} class="mt-10">
+          <Button href={BOOKING_URL} class="mt-10" data-reveal="2">
             {services.cta}
           </Button>
         </div>

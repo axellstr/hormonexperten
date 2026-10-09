@@ -1,0 +1,26 @@
+---
+import Info from '../../assets/icons/info.svg';
+
+// The outlined "Important information" box under a set of steps.
+interface Props {
+  title: string;
+  body: string;
+  class?: string;
+}
+
+const { title, body, class: className } = Astro.props;
+---
+
+<div
+  role="note"
+  class:list={[
+    'rounded-card p-6 ring-1 ring-ink/10 md:p-8 xl:p-10',
+    className,
+  ]}
+>
+  <div class="flex items-center gap-4">
+    <Info class="size-11 shrink-0 text-ink" aria-hidden="true" />
+    <h3 class="text-h4 text-ink">{title}</h3>
+  </div>
+  <p class="mt-4 max-w-none text-body text-ink/80">{body}</p>
+</div>

@@ -4,12 +4,10 @@ interface Props {
   /** Items sharing a name close each other when one opens. */
   name?: string;
   open?: boolean;
-  /** Keep the open item expanded; another item in the named group can still replace it. */
-  keepOpen?: boolean;
   class?: string | undefined;
 }
 
-const { title, name, open = false, keepOpen = false, class: className } = Astro.props;
+const { title, name, open = false, class: className } = Astro.props;
 ---
 
 <!--
@@ -19,7 +17,6 @@ const { title, name, open = false, keepOpen = false, class: className } = Astro.
 <details
   name={name}
   open={open}
-  data-keep-open={keepOpen || undefined}
   class:list={[
     'group rounded-field bg-surface details-content:h-0 details-content:overflow-clip open:details-content:h-auto',
     'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-out',
@@ -54,27 +51,3 @@ const { title, name, open = false, keepOpen = false, class: className } = Astro.
     <slot />
   </div>
 </details>
-
-<style>
-  @media (prefers-reduced-motion: no-preference) {
-    :global(.accordion-wiggle) {
-      animation: accordion-wiggle 320ms ease-out;
-    }
-  }
-
-  @keyframes accordion-wiggle {
-    0%,
-    100% {
-      rotate: 0deg;
-    }
-    30% {
-      rotate: -5deg;
-    }
-    60% {
-      rotate: 4deg;
-    }
-    80% {
-      rotate: -2deg;
-    }
-  }
-</style>

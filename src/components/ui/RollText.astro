@@ -1,0 +1,44 @@
+---
+/**
+ * A button label that turns like the trust logos when its button is hovered or focused: each
+ * letter sits on a small prism, rolls up and away, and the same letter rolls up from underneath,
+ * one after another from the start of the label (see `roll-face` in global.css). The button needs
+ * the `group/button` class. Screen readers get the label once, as plain text.
+ */
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+
+// Split into words (so a long label still wraps between words) and words into graphemes (so a
+// Greek letter with its accent stays one letter). The index runs across the whole label.
+const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+let index = 0;
+const words = text
+  .split(' ')
+  .map((word) =>
+    [...segmenter.segment(word)].map(({ segment }) => ({ char: segment, index: index++ })),
+  );
+---
+
+<span class="sr-only">{text}</span>
+<span aria-hidden="true">
+  {words.map((letters, w) => (
+    <>
+      {w > 0 && ' '}
+      <span class="inline-block whitespace-nowrap">
+        {letters.map(({ char, index }) => (
+          <span class="inline-grid perspective-near" style={`--roll-index: ${index}`}>
+            <span class="roll-face group-hover/button:rotate-x-90 group-hover/button:opacity-0 group-focus-visible/button:rotate-x-90 group-focus-visible/button:opacity-0">
+              {char}
+            </span>
+            <span class="roll-face -rotate-x-90 opacity-0 group-hover/button:rotate-x-0 group-hover/button:opacity-100 group-focus-visible/button:rotate-x-0 group-focus-visible/button:opacity-100">
+              {char}
+            </span>
+          </span>
+        ))}
+      </span>
+    </>
+  ))}
+</span>

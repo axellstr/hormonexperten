@@ -9,13 +9,12 @@ interface Props {
   item: FaqItem;
   name?: string;
   open?: boolean;
-  keepOpen?: boolean;
 }
 
-const { lang, item, name, open, keepOpen } = Astro.props;
+const { lang, item, name, open } = Astro.props;
 ---
 
-<Accordion title={item.question} name={name} open={open} keepOpen={keepOpen}>
+<Accordion title={item.question} name={name} open={open}>
   {item.answer.split(/\n{2,}/).map((paragraph) => (
     <p>{paragraph}</p>
   ))}

@@ -21,14 +21,16 @@ const icons = {
 ---
 
 <Section aria-labelledby="mission-title">
-  <div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+  <div class="grid gap-6 lg:grid-cols-12 lg:gap-16" data-text-reveal>
     <div class="lg:col-span-5">
-      <Eyebrow>{mission.eyebrow}</Eyebrow>
-      <h2 id="mission-title" class="mt-4 text-h2 text-ink">
+      <Eyebrow data-reveal="0">{mission.eyebrow}</Eyebrow>
+      <h2 id="mission-title" class="mt-4 text-h2 text-ink" data-reveal="1">
         {mission.title}
       </h2>
     </div>
-    <p class="max-w-prose text-lead text-ink/80 lg:col-span-7 lg:pt-12">{mission.body}</p>
+    <p class="max-w-prose text-lead text-ink/80 lg:col-span-7 lg:pt-12" data-reveal="2">
+      {mission.body}
+    </p>
   </div>
 
   {mission.values.length > 0 && (
@@ -36,7 +38,7 @@ const icons = {
       {mission.values.map((value) => {
         const Icon = icons[value.icon];
         return (
-          <li class="rounded-card bg-surface p-6 motion-safe:reveal md:p-8">
+          <li class="rounded-card bg-surface p-6 md:p-8" data-text-reveal data-reveal="0">
             <span class="grid size-12 place-items-center rounded-full bg-coral-tint text-ink">
               <Icon class="size-6" aria-hidden="true" />
             </span>

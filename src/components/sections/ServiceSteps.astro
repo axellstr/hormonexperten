@@ -1,7 +1,7 @@
 ---
-import Info from '../../assets/icons/info.svg';
 import type { Home } from '../../lib/schemas';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Note from '../ui/Note.astro';
 import Panel from '../ui/Panel.astro';
 import Section from '../ui/Section.astro';
 
@@ -36,14 +36,5 @@ const { how } = Astro.props;
     ))}
   </ol>
 
-  <div
-    role="note"
-    class="mt-6 flex flex-col gap-4 rounded-card p-6 ring-1 ring-ink/10 sm:flex-row sm:gap-6 md:p-8 xl:p-10"
-  >
-    <Info class="size-11 shrink-0 text-ink" aria-hidden="true" />
-    <div>
-      <h3 class="text-h4 text-ink">{how.note.title}</h3>
-      <p class="mt-3 max-w-prose text-body text-ink/80">{how.note.body}</p>
-    </div>
-  </div>
+  <Note class="mt-6" title={how.note.title} body={how.note.body} />
 </Section>

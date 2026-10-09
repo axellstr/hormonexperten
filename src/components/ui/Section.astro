@@ -2,12 +2,19 @@
 import type { HTMLAttributes } from 'astro/types';
 import Container from './Container.astro';
 
-type Props = HTMLAttributes<'section'>;
+type Props = HTMLAttributes<'section'> & {
+  spacing?: 'default' | 'compact';
+};
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, spacing = 'default', ...rest } = Astro.props;
+
+const spacingClasses = {
+  default: 'py-16 lg:py-28',
+  compact: 'py-8 lg:py-12',
+};
 ---
 
-<section class:list={['py-16 lg:py-28', className]} {...rest}>
+<section class:list={[spacingClasses[spacing], className]} {...rest}>
   <Container>
     <slot />
   </Container>

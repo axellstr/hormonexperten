@@ -24,6 +24,8 @@ const strip = columns[milestones.items.length as keyof typeof columns];
         'text-h2 text-ink',
         !strip && 'lg:sticky lg:top-28 lg:col-span-4 lg:self-start',
       ]}
+      data-text-reveal
+      data-reveal="0"
     >
       {milestones.title}
     </h2>
@@ -36,9 +38,11 @@ const strip = columns[milestones.items.length as keyof typeof columns];
       {milestones.items.map((milestone) => (
         <li
           class:list={[
-            'relative border-s border-ink/15 ps-8 pb-12 last:pb-0 md:grid md:grid-cols-4 md:gap-8 motion-safe:reveal',
+            'relative border-s border-ink/15 ps-8 pb-12 last:pb-0 md:grid md:grid-cols-4 md:gap-8',
             strip && 'xl:block xl:border-s-0 xl:border-t xl:ps-0 xl:pe-8 xl:pt-10 xl:pb-0',
           ]}
+          data-text-reveal
+          data-reveal="0"
         >
           <span
             aria-hidden="true"

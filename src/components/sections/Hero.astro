@@ -28,30 +28,65 @@ const { trust, slides } = hero;
   <Container>
     <div class="overflow-hidden rounded-panel bg-surface">
       <div class="grid items-center gap-10 px-6 pt-6 pb-12 md:px-12 md:pt-12 lg:min-h-hero-height lg:grid-cols-2 lg:gap-12 lg:ps-12 lg:pe-0 xl:gap-16 xl:ps-16 lg:pt-16 lg:pb-16">
-        <div>
-          <h1 class="text-display text-ink">{hero.title}</h1>
-          <p class="mt-5 max-w-xl text-lead text-ink/80">{hero.subtitle}</p>
-          <Button href={BOOKING_URL} class="mt-8">
+        <div data-text-reveal>
+          {isVisible(trust) && (
+            <div class="mb-5" data-reveal="0">
+              <p class="sr-only">
+                {trust.items.join(' · ')}. {format(trust.rating_label, { rating: trust.rating })}.
+              </p>
+
+              <div data-hero-trust-cycler aria-hidden="true" class="text-sm text-ink/80 md:hidden">
+                <span
+                  data-slot
+                  class="grid min-h-10 grid-cols-1 grid-rows-1 items-center perspective-near"
+                >
+                  <span data-index="0" class="col-start-1 row-start-1">
+                    {trust.items[0]}
+                  </span>
+                </span>
+                <template data-pool>
+                  {trust.items.map((item, index) => (
+                    <span data-index={index} class="col-start-1 row-start-1">
+                      {item}
+                    </span>
+                  ))}
+                  <span
+                    data-index={trust.items.length}
+                    class="col-start-1 row-start-1 flex items-center gap-0.5"
+                  >
+                    {Array.from({ length: trust.rating }, () => (
+                      <Star class="size-3" />
+                    ))}
+                  </span>
+                </template>
+              </div>
+
+              <p
+                aria-hidden="true"
+                class="hidden flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/80 md:flex"
+              >
+                {trust.items.map((item) => (
+                  <span>
+                    {item} <span>·</span>
+                  </span>
+                ))}
+                <span class="flex gap-0.5">
+                  {Array.from({ length: trust.rating }, () => (
+                    <Star class="size-3" />
+                  ))}
+                </span>
+              </p>
+            </div>
+          )}
+          <h1 class="text-title text-ink md:text-display" data-reveal="1">
+            {hero.title}
+          </h1>
+          <p class="mt-4 max-w-xl text-body text-ink/80 md:mt-5 md:text-lead" data-reveal="2">
+            {hero.subtitle}
+          </p>
+          <Button href={BOOKING_URL} class="mt-8" data-reveal="3">
             {hero.cta}
           </Button>
-          {isVisible(trust) && (
-            <p class="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/80">
-              {trust.items.map((item) => (
-                <span>
-                  {item} <span aria-hidden="true">·</span>
-                </span>
-              ))}
-              <span
-                role="img"
-                aria-label={format(trust.rating_label, { rating: trust.rating })}
-                class="flex gap-0.5"
-              >
-                {Array.from({ length: trust.rating }, () => (
-                  <Star class="size-3" aria-hidden="true" />
-                ))}
-              </span>
-            </p>
-          )}
         </div>
 
         <!-- Image first on mobile. The first slide is a plain image; the rest scroll-snap. -->
@@ -59,7 +94,7 @@ const { trust, slides } = hero;
           <!-- The trailing spacer (a sixth of the track, less the gap before it) lets the last
                slide scroll all the way to the start like the others, instead of stopping short. -->
           <ul
-            class="relative flex cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto select-none scrollbar-none after:-ms-6 after:w-1/6 after:shrink-0 active:cursor-grabbing data-dragging:snap-none"
+            class="relative flex cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto select-none scrollbar-none after:-ms-6 after:w-1/6 after:shrink-0 active:cursor-grabbing data-moving:snap-none"
             aria-label={hero.gallery_label}
             data-carousel-track
           >
@@ -112,4 +147,5 @@ const { trust, slides } = hero;
 
 <script>
   import '../../scripts/carousel';
+  import '../../scripts/hero-trust-cycler';
 </script>

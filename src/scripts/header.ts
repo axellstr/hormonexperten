@@ -5,7 +5,8 @@
  * Menus ([data-menu] <details>):
  *   - open and close with a transition: `data-closed` holds the closed look while the panel
  *     ([data-menu-panel]) animates, and `open` is only dropped once it has finished
- *   - [data-menu-hover] menus also open on mouse hover, with a short delay each way
+ *   - [data-menu-hover] menus also open on mouse hover after a short rest, and close a moment after
+ *     the pointer leaves, unless it is on its way to the panel
  *   - close on an outside click, a link click, Escape, or focus leaving them
  *   - the [data-menu-sheet] menu (mobile) is a full-screen sheet behind the header pill: it grows
  *     out of the pill and back into it, and the page behind it is inert while it's open
@@ -18,83 +19,139 @@
  * while scrolling down and springs back on the way up (`data-hidden` once fully out of view).
  */
 
+export {};
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const menus = [...document.querySelectorAll<HTMLDetailsElement>('details[data-menu]')];
 
-if (import.meta.env.DEV) {
-  type PaletteOption = {
-    name: string;
-    label: string;
-    colors: Record<string, string>;
-  };
+type PaletteOption = {
+  name: string;
+  label: string;
+  colors: Record<string, string>;
+};
 
-  const picker = document.querySelector<HTMLDetailsElement>('[data-palette-picker]');
-  const toggle = picker?.querySelector<HTMLElement>('[data-palette-toggle]');
+const picker = document.querySelector<HTMLDetailsElement>('[data-palette-picker]');
+const toggle = picker?.querySelector<HTMLElement>('[data-palette-toggle]');
 
-  if (picker && toggle) {
-    const palettes = JSON.parse(picker.dataset.palettes ?? '[]') as PaletteOption[];
-    const currentLabel = picker.querySelector<HTMLElement>('[data-palette-current]');
-    const options = [...picker.querySelectorAll<HTMLButtonElement>('[data-palette-option]')];
-    const storageKey = 'hormonexperten-palette';
+if (picker && toggle) {
+  const palettes = JSON.parse(picker.dataset.palettes ?? '[]') as PaletteOption[];
+  const currentLabel = picker.querySelector<HTMLElement>('[data-palette-current]');
+  const options = [...picker.querySelectorAll<HTMLButtonElement>('[data-palette-option]')];
+  const storageKey = 'hormonexperten-palette';
 
-    const applyPalette = (palette: PaletteOption) => {
-      for (const [property, value] of Object.entries(palette.colors)) {
-        document.documentElement.style.setProperty(property, value);
-      }
+  const applyPalette = (palette: PaletteOption) => {
+    for (const [property, value] of Object.entries(palette.colors)) {
+      document.documentElement.style.setProperty(property, value);
+    }
 
-      document.documentElement.dataset.palette = palette.name;
-      picker.dataset.activePalette = palette.name;
-      toggle.setAttribute(
-        'aria-label',
-        `Choose colour palette. Current palette: ${palette.label}.`,
-      );
-      toggle.title = palette.label;
-      if (currentLabel) currentLabel.textContent = palette.label;
-
-      for (const option of options) {
-        const selected = option.dataset.paletteOption === palette.name;
-        option.setAttribute('aria-pressed', String(selected));
-        option.toggleAttribute('data-active', selected);
-        const check = option.querySelector<HTMLElement>('[data-palette-check]');
-        check?.toggleAttribute('hidden', !selected);
-      }
-
-      const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-      themeColor?.setAttribute('content', palette.colors['--color-surface']);
-    };
-
-    const saved = localStorage.getItem(storageKey);
-    const initial =
-      palettes.find((palette) => palette.name === saved) ??
-      palettes.find((palette) => palette.name === picker.dataset.activePalette);
-    if (initial) applyPalette(initial);
+    document.documentElement.dataset.palette = palette.name;
+    picker.dataset.activePalette = palette.name;
+    toggle.setAttribute('aria-label', `Choose colour palette. Current palette: ${palette.label}.`);
+    toggle.title = palette.label;
+    if (currentLabel) currentLabel.textContent = palette.label;
 
     for (const option of options) {
-      option.addEventListener('click', () => {
-        const palette = palettes.find(({ name }) => name === option.dataset.paletteOption);
-        if (!palette) return;
-        applyPalette(palette);
-        localStorage.setItem(storageKey, palette.name);
-        hide(picker);
-        toggle.focus();
-      });
+      const selected = option.dataset.paletteOption === palette.name;
+      option.setAttribute('aria-pressed', String(selected));
+      option.toggleAttribute('data-active', selected);
+      const check = option.querySelector<HTMLElement>('[data-palette-check]');
+      check?.toggleAttribute('hidden', !selected);
     }
+
+    const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    themeColor?.setAttribute('content', palette.colors['--color-surface']);
+  };
+
+  const saved = localStorage.getItem(storageKey);
+  const initial =
+    palettes.find((palette) => palette.name === saved) ??
+    palettes.find((palette) => palette.name === picker.dataset.activePalette);
+  if (initial) applyPalette(initial);
+
+  for (const option of options) {
+    option.addEventListener('click', () => {
+      const palette = palettes.find(({ name }) => name === option.dataset.paletteOption);
+      if (!palette) return;
+      applyPalette(palette);
+      localStorage.setItem(storageKey, palette.name);
+      hide(picker);
+      toggle.focus();
+    });
   }
 }
 
 const isShown = (menu: HTMLDetailsElement) => menu.open && !menu.hasAttribute('data-closed');
 
+// How long the pointer rests on a hover menu's trigger before it opens, how much longer it may wait
+// for the menu's images if they aren't in yet, and how long the pointer may be away (and not
+// heading for the panel) before it closes.
+const openDelay = 80;
+const imageWait = 250;
+const closeDelay = 300;
+
+type Point = { x: number; y: number };
+
+/** Whether `p` lies in the triangle `abc`, edges included. */
+function inTriangle(p: Point, a: Point, b: Point, c: Point) {
+  const side = (from: Point, to: Point) =>
+    (to.x - from.x) * (p.y - from.y) - (to.y - from.y) * (p.x - from.x);
+  const [ab, bc, ca] = [side(a, b), side(b, c), side(c, a)];
+  return (ab >= 0 && bc >= 0 && ca >= 0) || (ab <= 0 && bc <= 0 && ca <= 0);
+}
+
+const decoded = new WeakMap<HTMLImageElement, Promise<unknown>>();
+
 /**
- * Fetch a menu's lazy images ahead of opening, so they don't pop in. Images inside a
- * [data-warm-media] block are only fetched while that media query matches (the sheet shows
- * services as thumbnails on phones and as cards from lg, never both).
+ * Fetch and decode a menu's lazy images ahead of opening, so they don't pop in; resolves once
+ * they're ready to paint. Images inside a [data-warm-media] block are only fetched while that
+ * media query matches (the sheet shows services as thumbnails on phones and as cards from lg,
+ * never both).
  */
 function warm(menu: HTMLDetailsElement) {
-  for (const img of menu.querySelectorAll<HTMLImageElement>('img[loading="lazy"]')) {
+  const ready: Promise<unknown>[] = [];
+  for (const img of menu.querySelectorAll<HTMLImageElement>('img')) {
     const media = img.closest<HTMLElement>('[data-warm-media]')?.dataset.warmMedia;
     if (media && !window.matchMedia(media).matches) continue;
-    img.loading = 'eager';
+    let decoding = decoded.get(img);
+    if (!decoding) {
+      img.loading = 'eager';
+      const loaded = img.complete
+        ? Promise.resolve()
+        : new Promise((done) => {
+            img.addEventListener(
+              'load',
+              () => {
+                // In after the menu opened (a slow connection): fade it in rather than pop.
+                if (menu.open && !reduceMotion.matches) {
+                  img.animate(
+                    { opacity: [0, 1] },
+                    { duration: 300, easing: 'cubic-bezier(0, 0, 0.2, 1)' },
+                  );
+                }
+                done(undefined);
+              },
+              { once: true },
+            );
+            img.addEventListener('error', done, { once: true });
+          });
+      // A broken image is as ready as it will get.
+      decoding = loaded.then(() => img.decode()).catch(() => {});
+      decoded.set(img, decoding);
+    }
+    ready.push(decoding);
   }
+  return Promise.all(ready);
+}
+
+/** Run `callback` once the page has loaded and the browser is idle. */
+function whenSettled(callback: () => void) {
+  const idle = () => {
+    // Safari has no requestIdleCallback.
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(callback, { timeout: 2000 });
+    else window.setTimeout(callback, 200);
+  };
+  if (document.readyState === 'complete') idle();
+  else window.addEventListener('load', idle, { once: true });
 }
 
 /**
@@ -171,21 +228,80 @@ for (const menu of menus) {
 
   if (!menu.hasAttribute('data-menu-hover')) continue;
 
+  /*
+   * Hover, with a mouse. Opening waits for the pointer to rest, so sweeping across the nav doesn't
+   * flash the menu open. Leaving starts the close delay, but heading for the panel doesn't count:
+   * the strip between the trigger and the panel counts as the trigger, and in the triangle from
+   * where the pointer left to the panel's top edge every move restarts the delay, so a slow or
+   * diagonal path to the far cards keeps it open. Back on the trigger while it fades out, it
+   * turns straight round.
+   */
+  const panel = menu.querySelector<HTMLElement>('[data-menu-panel]');
   let timer: number | undefined;
-  menu.addEventListener('pointerenter', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    warm(menu);
+  let hovering = false;
+  let aim: ((event: PointerEvent) => void) | undefined;
+
+  // Its images load once the page has settled, or when the pointer first comes to the header, so
+  // even the first opening paints complete cards. Not while it's hidden (the nav on small screens).
+  const prefetch = () => {
+    if (menu.getClientRects().length > 0) warm(menu);
+  };
+  whenSettled(prefetch);
+  menu.closest('[data-header]')?.addEventListener('pointerenter', prefetch, { once: true });
+
+  const stopAiming = () => {
+    if (aim) document.removeEventListener('pointermove', aim);
+    aim = undefined;
+  };
+  const closeLater = () => {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => {
-      if (isShown(menu)) return;
+      stopAiming();
+      // Clicked open in the meantime: that stays until dismissed.
+      if (menu.dataset.via === 'hover') hide(menu);
+    }, closeDelay);
+  };
+
+  menu.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'mouse') return;
+    hovering = true;
+    stopAiming();
+    window.clearTimeout(timer);
+    const ready = warm(menu);
+    const open = () => {
+      if (!hovering || isShown(menu)) return;
       show(menu);
       menu.dataset.via = 'hover';
-    }, 80);
+    };
+    if (menu.open) return open();
+    timer = window.setTimeout(() => {
+      // The images are normally in by now; if not, give them a moment rather than open on blanks.
+      const patience = new Promise((done) => window.setTimeout(done, imageWait));
+      void Promise.race([ready, patience]).then(open);
+    }, openDelay);
   });
+
   menu.addEventListener('pointerleave', (event) => {
     if (event.pointerType !== 'mouse') return;
+    hovering = false;
+    stopAiming();
     window.clearTimeout(timer);
-    if (menu.dataset.via === 'hover') timer = window.setTimeout(() => hide(menu), 200);
+    if (menu.dataset.via !== 'hover' || !panel) return;
+    const trigger = summary.getBoundingClientRect();
+    const target = panel.getBoundingClientRect();
+    const exit = { x: event.clientX, y: event.clientY };
+    const topLeft = { x: target.left, y: target.top };
+    const topRight = { x: target.right, y: target.top };
+    closeLater();
+    aim = ({ clientX: x, clientY: y }) => {
+      if (x >= trigger.left && x <= trigger.right && y >= trigger.bottom && y <= target.top) {
+        window.clearTimeout(timer);
+        timer = undefined;
+      } else if (timer === undefined || inTriangle({ x, y }, exit, topLeft, topRight)) {
+        closeLater();
+      }
+    };
+    document.addEventListener('pointermove', aim);
   });
 }
 

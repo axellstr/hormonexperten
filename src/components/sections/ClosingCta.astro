@@ -1,6 +1,4 @@
 ---
-import ctaLeft from '../../assets/decor/cta-left.svg';
-import ctaRight from '../../assets/decor/cta-right.svg';
 import { BOOKING_URL } from '../../config';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
@@ -14,33 +12,16 @@ interface Props {
 const { closing } = Astro.props;
 ---
 
-<Section aria-labelledby="closing-title">
-  <Panel class="relative overflow-hidden px-6 py-20 text-center md:px-12 lg:py-32">
-    <!-- Decorative line art as cached, lazy images: inlined it would add ~50 KB to every page. -->
-    <img
-      src={ctaLeft.src}
-      width={ctaLeft.width}
-      height={ctaLeft.height}
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="pointer-events-none absolute bottom-0 start-0 h-11/12 w-auto max-w-none"
-    />
-    <img
-      src={ctaRight.src}
-      width={ctaRight.width}
-      height={ctaRight.height}
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="pointer-events-none absolute inset-y-0 end-0 hidden h-full w-auto max-w-none md:block"
-    />
-    <div class="relative mx-auto max-w-2xl">
-      <h2 id="closing-title" class="text-h2 text-ink">
+<Section spacing="compact" aria-labelledby="closing-title">
+  <Panel class="px-6 py-12 text-center md:px-12 md:py-14 lg:py-16">
+    <div class="mx-auto max-w-2xl" data-text-reveal>
+      <h2 id="closing-title" class="text-h2 text-ink" data-reveal="0">
         {closing.title}
       </h2>
-      {closing.body && <p class="mt-6 text-lead text-ink/80">{closing.body}</p>}
-      <Button href={BOOKING_URL} class="mt-10">
+      {closing.body && (
+        <p class="mt-6 text-lead text-ink/80" data-reveal="1">{closing.body}</p>
+      )}
+      <Button href={BOOKING_URL} class="mt-10" data-reveal={closing.body ? '2' : '1'}>
         {closing.cta}
       </Button>
     </div>
