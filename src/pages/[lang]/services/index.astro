@@ -5,6 +5,7 @@ import ServiceSteps from '../../../components/sections/ServiceSteps.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getHome, getServices, getSite, visible } from '../../../lib/content';
+import { itemList } from '../../../lib/structured-data';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
@@ -18,6 +19,14 @@ const { lang } = Astro.props;
 const site = getSite(lang);
 const home = getHome(lang);
 const services = getServices(lang);
+const items = visible(site.services);
+const structuredData = {
+  type: 'CollectionPage' as const,
+  mainEntity: itemList(
+    items.map((service) => ({ name: service.title, href: service.href })),
+    lang,
+  ),
+};
 ---
 
 <BaseLayout
@@ -25,8 +34,9 @@ const services = getServices(lang);
   site={site}
   title={services.meta.title}
   description={services.meta.description}
+  {structuredData}
 >
-  <ServiceList lang={lang} services={services} items={visible(site.services)} />
+  <ServiceList lang={lang} services={services} items={items} />
   <ServiceSteps how={home.how} />
   <ClosingCta closing={home.closing} />
 </BaseLayout>

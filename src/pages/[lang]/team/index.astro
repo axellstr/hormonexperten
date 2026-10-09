@@ -3,7 +3,8 @@ import ClosingCta from '../../../components/sections/ClosingCta.astro';
 import TeamMembers from '../../../components/sections/TeamMembers.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getHome, getSite, getTeam } from '../../../lib/content';
+import { getHome, getSite, getTeam, isVisible, visible } from '../../../lib/content';
+import { itemList } from '../../../lib/structured-data';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
@@ -16,9 +17,25 @@ interface Props {
 const { lang } = Astro.props;
 const site = getSite(lang);
 const team = getTeam(lang);
+// The members with a profile page of their own.
+const structuredData = {
+  type: 'CollectionPage' as const,
+  mainEntity: itemList(
+    visible(team.members)
+      .filter((member) => member.profile && isVisible(member.profile))
+      .map((member) => ({ name: member.name, href: `/team/${member.id}` })),
+    lang,
+  ),
+};
 ---
 
-<BaseLayout lang={lang} site={site} title={team.meta.title} description={team.meta.description}>
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={team.meta.title}
+  description={team.meta.description}
+  {structuredData}
+>
   <TeamMembers lang={lang} team={team} />
   <ClosingCta closing={getHome(lang).closing} />
 </BaseLayout>

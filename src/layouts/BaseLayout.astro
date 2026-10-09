@@ -13,6 +13,7 @@ import {
   HERO_IMAGE_WIDTHS,
 } from '../lib/assets';
 import { switchLocale } from '../lib/i18n';
+import { pageGraph, type PageData } from '../lib/structured-data';
 import type { Site } from '../lib/schemas';
 
 interface Props {
@@ -21,9 +22,21 @@ interface Props {
   title: string;
   description: string;
   preloadImage?: ImageMetadata;
+  /** Keeps the page out of search results and the sitemap (crawlers still follow its links). */
+  noindex?: boolean;
+  /** What the page is, for its schema.org JSON-LD (see src/lib/structured-data.ts). */
+  structuredData?: PageData;
 }
 
-const { lang, site, title, description, preloadImage } = Astro.props;
+const {
+  lang,
+  site,
+  title,
+  description,
+  preloadImage,
+  noindex = false,
+  structuredData,
+} = Astro.props;
 const path = Astro.url.pathname;
 const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
 const palette = PALETTES[ACTIVE_PALETTE];
@@ -55,6 +68,7 @@ const imagePreload = preloadImage
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={urlFor(lang)} />
     {LOCALES.map((locale) => (
       <link rel="alternate" hreflang={locale} href={urlFor(locale)} />
@@ -80,6 +94,18 @@ const imagePreload = preloadImage
     )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content={palette.colors['--color-surface']} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={pageGraph({
+        site,
+        lang,
+        url: urlFor(lang),
+        title,
+        description,
+        data: structuredData,
+      })}
+    />
   </head>
   <body class="bg-bg font-sans text-ink antialiased">
     <a

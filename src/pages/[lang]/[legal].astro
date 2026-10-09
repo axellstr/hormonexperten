@@ -9,7 +9,10 @@ import type { LegalPage as Page } from '../../lib/schemas';
 // three from every page (CLAUDE.md, privacy).
 export function getStaticPaths() {
   return LOCALES.flatMap((lang) =>
-    getLegal(lang).pages.map((page) => ({ params: { lang, legal: page.id }, props: { lang, page } })),
+    getLegal(lang).pages.map((page) => ({
+      params: { lang, legal: page.id },
+      props: { lang, page },
+    })),
   );
 }
 
@@ -25,8 +28,17 @@ const legal = getLegal(lang);
 // Untranslated text falls back to English; say so for screen readers.
 const bodyLang = legalPageLang(lang, page.id);
 const contentLang = bodyLang === lang ? undefined : bodyLang;
+
+// Cookie settings is a utility page with nothing to find in search: keep it out.
+const noindex = page.id === 'cookie-settings';
 ---
 
-<BaseLayout lang={lang} site={site} title={page.meta.title} description={page.meta.description}>
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={page.meta.title}
+  description={page.meta.description}
+  {noindex}
+>
   <LegalPage lang={lang} contentLang={contentLang} legal={legal} page={page} />
 </BaseLayout>

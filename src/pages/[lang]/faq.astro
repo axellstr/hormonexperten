@@ -5,6 +5,7 @@ import Section from '../../components/ui/Section.astro';
 import { LOCALES, type Locale } from '../../config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getFaq, getSite, visible } from '../../lib/content';
+import { faqEntities } from '../../lib/structured-data';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
@@ -20,9 +21,20 @@ const faq = getFaq(lang);
 const categories = faq.categories
   .map((category) => ({ ...category, items: visible(category.items) }))
   .filter((category) => category.items.length > 0);
+// The FAQ page owns the FAQPage markup; the excerpts on other pages don't repeat it.
+const structuredData = {
+  type: 'FAQPage' as const,
+  mainEntity: faqEntities(categories.flatMap((category) => category.items)),
+};
 ---
 
-<BaseLayout lang={lang} site={site} title={faq.meta.title} description={faq.meta.description}>
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={faq.meta.title}
+  description={faq.meta.description}
+  {structuredData}
+>
   <Section aria-labelledby="faq-title">
     <h1 id="faq-title" class="text-display text-ink">
       {faq.title}

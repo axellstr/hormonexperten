@@ -12,6 +12,7 @@ import { LOCALES, type Locale } from '../../config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getImage } from '../../lib/assets';
 import { getFaq, getHome, getSite, visible } from '../../lib/content';
+import { organizationRef } from '../../lib/structured-data';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
@@ -37,6 +38,7 @@ const featuredFaq = visible(faq.categories.flatMap((category) => category.items)
   title={home.meta.title}
   description={home.meta.description}
   preloadImage={heroImage}
+  structuredData={{ about: organizationRef }}
 >
   <Hero hero={home.hero} />
   <Services lang={lang} content={home.services} services={site.services} />

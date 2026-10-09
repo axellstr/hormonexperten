@@ -8,6 +8,8 @@ import ProfileStory from '../../../components/sections/ProfileStory.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getSite, getTeam, isVisible, memberLang, visible } from '../../../lib/content';
+import { localizeHref } from '../../../lib/i18n';
+import { person } from '../../../lib/structured-data';
 import type { Profile, Team, TeamMember } from '../../../lib/schemas';
 
 // One page per visible team member whose profile is visible too.
@@ -34,6 +36,11 @@ const site = getSite(lang);
 // Untranslated profiles fall back to English; say so for screen readers.
 const profileLang = memberLang(lang, member.id, 'profile');
 const contentLang = profileLang === lang ? undefined : profileLang;
+const structuredData = {
+  type: 'ProfilePage' as const,
+  breadcrumb: [{ label: team.eyebrow, href: localizeHref('/team', lang) }, { label: member.name }],
+  mainEntity: await person(member, profile, new URL(Astro.url.pathname, Astro.site).href),
+};
 ---
 
 <BaseLayout
@@ -41,6 +48,7 @@ const contentLang = profileLang === lang ? undefined : profileLang;
   site={site}
   title={profile.meta.title}
   description={profile.meta.description}
+  {structuredData}
 >
   <ProfileHero
     lang={lang}

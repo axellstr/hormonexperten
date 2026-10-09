@@ -2,6 +2,7 @@
 import { defineConfig, envField } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from './integrations/sitemap.mjs';
 
 export default defineConfig({
   site: 'https://hormonexperten.de',
@@ -24,6 +25,7 @@ export default defineConfig({
       }),
     },
   },
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

@@ -155,6 +155,27 @@ Build each section as its own component in `src/components/sections/`, with shar
 - Every page links Impressum, Datenschutz and Cookie Settings in the footer. Legal pages exist in German at minimum.
 - Old site URLs are kept in `src/redirects` and must 301 to their new pages.
 
+## SEO and GEO
+
+Goal: be found by search engines and cited by AI answer engines (ChatGPT, Claude, Perplexity, Gemini). Set up on 9 Oct 2026:
+
+- **`/robots.txt`** (`src/pages/robots.txt.ts`): every crawler allowed, AI crawlers included; points to the sitemap. Hide a page with `noindex`, never with `Disallow` (a blocked crawler can't see the noindex). Blocking AI *training* crawlers (GPTBot, Google-Extended, CCBot) is the practice's call, not ours.
+- **`/sitemap.xml`** (`integrations/sitemap.mjs`, an Astro integration, no package): written after the build from the built pages, so it lists exactly the pages whose canonical is their own URL and that aren't `noindex`, with hreflang alternates and `x-default`. Unconfirmed pages drop out automatically. No `<lastmod>` until there is a real content date (a guessed one gets ignored).
+- **`noindex`**: `BaseLayout`'s `noindex` prop. Only cookie settings uses it.
+- **Structured data** (`src/lib/structured-data.ts`): one JSON-LD `@graph` per page, built in `BaseLayout` from the `structuredData` prop each page passes (`MedicalOrganization` + `WebSite` everywhere; `FAQPage` on `/faq` only; `MedicalWebPage` + `Service` on service pages; `ProfilePage` + `Person` on profiles; `CollectionPage` + `ItemList` on the overviews; `BreadcrumbList` mirroring the visible breadcrumb).
+  - It may only say what the page shows, filtered with `visible()`. Never add ratings or reviews, a `medicalSpecialty` (schema.org's nearest value is "Endocrine"), or anything flagged `needs_check`.
+  - FAQ markup lives only on `/faq`; FAQ excerpts on other pages don't repeat it.
+  - Entity ids are language-independent (`https://hormonexperten.de/#organization`, `/#person-{id}`), so all four languages describe the same entities.
+  - URLs inside it end in `/` like the canonicals.
+
+Still to do, in order of impact:
+
+1. Fix the nav and footer links to pages that don't exist (`/about-us`, `/contact`, `/partners`, `/terms`).
+2. One URL form site-wide: internal links use `/en/team`, canonicals `/en/team/`. Pick the slash form (`trailingSlash: 'always'` in Astro and `"trailingSlash": true` in `vercel.json`) and update `localizeHref`.
+3. Once the practice confirms them: address and phone on the organization, real `sameAs` profiles (Jameda, LinkedIn…), and `reviewedBy`/`lastReviewed` on medical pages if Dr. Wilden reviews them.
+4. `llms.txt` generated from the content files (no new copy).
+5. Redirects from the old site (see Privacy and third parties) and a social sharing image (`og:image`).
+
 ## Working agreements
 
 - Before building a section, list which Figma frames it comes from and any token it needs that doesn't exist yet.

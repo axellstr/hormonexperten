@@ -16,7 +16,9 @@ import {
   servicePageLang,
   visible,
 } from '../../../lib/content';
+import { localizeHref } from '../../../lib/i18n';
 import type { Service, ServicePage } from '../../../lib/schemas';
+import { service as serviceEntity } from '../../../lib/structured-data';
 
 // One page per visible service whose page is visible too. Every service needs a page, since the
 // header, home row and footer all link to it.
@@ -67,9 +69,26 @@ const others = visible(site.services).filter(
 // Untranslated page text falls back to English; say so for screen readers.
 const bodyLang = servicePageLang(lang, page.id);
 const contentLang = bodyLang === lang ? undefined : bodyLang;
+const structuredData = {
+  type: 'MedicalWebPage' as const,
+  breadcrumb: [
+    { label: services.eyebrow, href: localizeHref('/services', lang) },
+    { label: service.title },
+  ],
+  about: await serviceEntity(
+    { title: service.title, intro: page.intro, image: service.image },
+    new URL(Astro.url.pathname, Astro.site).href,
+  ),
+};
 ---
 
-<BaseLayout lang={lang} site={site} title={page.meta.title} description={page.meta.description}>
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={page.meta.title}
+  description={page.meta.description}
+  {structuredData}
+>
   <ServiceHero
     lang={lang}
     contentLang={contentLang}
