@@ -32,7 +32,7 @@ const cardWidth =
     : 'w-4/5 sm:w-1/2 lg:w-2/5 xl:w-1/3 header-desktop:w-1/4';
 ---
 
-<Section id="services" aria-labelledby="services-title" class="pt-6! lg:pt-10!">
+<Section id="services" aria-labelledby="services-title">
   <div class="flex items-end justify-between gap-6">
     <h2 id="services-title" class="min-w-0 flex-1 reveal-text text-h2 text-ink">
       <span class="block lg:inline">
@@ -69,7 +69,7 @@ const cardWidth =
     `lg:w-1/4` is exactly a quarter of the row and the next card stays hidden until the row moves.
     service-rail.ts drives the arrows and slides the row one card on once it has been in view a moment.
   -->
-  <div class="mt-10 lg:mt-14">
+  <div class="mt-intro">
     <ul
       id="services-rail"
       class="-mx-4 -my-2 flex snap-x snap-mandatory scroll-ps-2 overflow-x-auto px-2 py-2 scrollbar-none data-moving:snap-none md:-mx-3 md:scroll-ps-0 md:px-0"

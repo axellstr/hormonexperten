@@ -36,7 +36,7 @@ Values were sampled from a PNG export; confirm them against the Figma styles bef
 - **Contrast:** white text on `#EA8878` is 2.5:1, which fails WCAG AA even for large text (needs 3:1). On 9 Oct 2026 the user chose white labels (`text-on-dark`) on the current coral for primary buttons, accepting the contrast failure; a darker coral (`#C84732`) was tried and rejected as too dark. Don't revert either without being asked. Use white on coral only for button labels, never for running text.
 - The muted grey `#9B9B9B` is 2.8:1 on white and fails too. Darken it (about `#767676` reaches 4.5:1) for any text that has to be read.
 - Radii: large panels and images about 24px, cards about 20px, buttons and FAQ items fully rounded or 16px. Read the exact values from Figma and set them as `--radius-panel`, `--radius-card` and `--radius-field` in `@theme` (giving `rounded-panel` and so on). Use `rounded-full` for pills.
-- Spacing: Tailwind's default scale (`p-4` = 16px). Sections are separated by generous whitespace: `py-16` on mobile and `lg:py-28` or `lg:py-32` on desktop. Wrap this in a `Section` component rather than repeating it.
+- Spacing: Tailwind's default scale (`p-4` = 16px). Page rhythm (12 Oct 2026) is one token: every section sits `--spacing-section` (64 → 128px, fluid) below the one before it, the hero included. `Section` sets it as top padding only (`pt-section`), so neighbours never add up; there are no spacing variants and no `py-*!` overrides on a section. The footer docks at half that gap (`pb-footer` on `<main>`). Two blocks with their own H2 inside one section are separated by `mb-section`.
 
 ## Typography
 
@@ -67,6 +67,7 @@ The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 6
 | UI | `text-base` | 16px | Tailwind (24px) | 0 | `font-medium`/`font-semibold` | Buttons, nav, chips; body copy inside narrow cards (≤ 320px), regular weight, no `leading-*` override |
 | Small | `text-sm` | 14px | Tailwind | 0 | regular/medium | Meta: trust line, captions, dates, breadcrumbs, review author, copyright |
 
+- **Home hero on phones (12 Oct 2026):** the H1 is `text-title` below md, so the subline is `text-body md:text-lead` there, keeping it clearly below the heading. Below md the image and text share a 16px inset in the panel (48px from md).
 - **Lead is for openers, not paragraphs.** A paragraph of three or more lines, or anything a patient reads to understand care, is `text-body`. At 1440px the lead (≈18.8px) sits clearly below H3 (≈23px); don't close that gap.
 - **14px is the floor** for anything a person reads (the audience is mostly 40+). `text-xs` is only for the logo lockup and tooltips.
 - **Weights:** 600 for headings (set by the role token), 500 for interactive labels and emphasis inside text, 400 for reading text. No 700/800, no 200/300 except the logo wordmark.

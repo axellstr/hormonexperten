@@ -18,7 +18,7 @@ const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
 ---
 
 {logos.length > 0 && (
-  <Section aria-labelledby="trust-title" class="py-10! lg:py-16!">
+  <Section aria-labelledby="trust-title">
     <h2 id="trust-title" class="mx-auto text-center text-h3 text-ink">
       {trust.title}
     </h2>
@@ -32,7 +32,7 @@ const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
     <div
       data-logo-cycler
       aria-hidden="true"
-      class="mx-auto mt-10 flex max-w-5xl justify-center gap-8 md:gap-12 lg:mt-14 lg:gap-16"
+      class="mx-auto mt-intro flex max-w-5xl justify-center gap-8 md:gap-12 lg:gap-16"
     >
       {slots.map((logo, index) => (
         <div

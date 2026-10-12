@@ -85,10 +85,10 @@ const sheetDelay = [
   <!-- From 1440px the nav shows and the pill takes the full content width, so the longest
        languages (German, Greek) keep every nav label on one line. -->
   <Container class="max-w-header! xl:w-11/12 header-desktop:max-w-content! header-desktop:w-full">
-    <!-- A floating pill. The end padding equals the Book Now button's inset from the top and
-         bottom, so the button sits concentric in the pill's rounded end. -->
+    <!-- A floating pill. The end padding equals the end button's inset from the top and bottom
+         (10px in the 64px phone pill, 14px from md), so it sits concentric in the rounded end. -->
     <div
-      class="relative flex h-18 items-center justify-between gap-2 rounded-full bg-bg ps-4 pe-3.5 ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/10 sm:gap-4 md:ps-6 lg:h-20 lg:pe-4.5 xl:ps-8 motion-safe:transition-shadow"
+      class="relative flex h-16 items-center justify-between gap-2 rounded-full bg-bg ps-4 pe-2.5 ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/10 sm:gap-4 md:h-18 md:ps-6 md:pe-3.5 lg:h-20 lg:pe-4.5 xl:ps-8 motion-safe:transition-shadow"
       data-header-bar
     >
       <Logo href={localizeHref('/', lang)} label={nav.home} />

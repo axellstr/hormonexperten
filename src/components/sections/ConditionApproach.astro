@@ -19,7 +19,7 @@ const { conditions, page, related, contentLang } = Astro.props;
 const more = page.approach_more && isVisible(page.approach_more) ? page.approach_more : undefined;
 ---
 
-<Section spacing="compact" aria-labelledby="approach-title">
+<Section aria-labelledby="approach-title">
   <Panel class="grid gap-8 px-6 py-10 md:px-12 md:py-14 lg:grid-cols-12 lg:gap-12 lg:py-16 xl:gap-20 xl:px-16">
     <h2 id="approach-title" class="text-h2 text-ink lg:col-span-5">
       {conditions.approach_title}

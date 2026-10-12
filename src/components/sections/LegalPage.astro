@@ -52,7 +52,7 @@ const kind = (block: LegalBlock) =>
 
       {page.intro && <p class="mt-8 max-w-measure text-lead text-ink/80">{page.intro}</p>}
 
-      <div class="mt-12 flex flex-col gap-12 lg:mt-16 lg:gap-14">
+      <div class="mt-intro flex flex-col gap-12 lg:gap-14">
         {sections.map((section) => (
           <section id={section.id} aria-labelledby={`${section.id}-title`}>
             <h2 id={`${section.id}-title`} class="text-h3 text-ink">

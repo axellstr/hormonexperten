@@ -127,6 +127,14 @@
   ); /* heading block → section content, 40 → 64px */
 
   /*
+   * Page rhythm: one gap between any two sections (hero included), set as each section's top
+   * padding so neighbours never add up. The footer, like the header, is page chrome and docks
+   * closer, at half the gap. Gives pt-section, mb-section and pb-footer.
+   */
+  --spacing-section: clamp(4rem, 2.947rem + 4.678vw, 8rem); /* section → section, 64 → 128px */
+  --spacing-footer: calc(var(--spacing-section) / 2); /* last section → footer, 32 → 64px */
+
+  /*
    * Type scale: one token per role (see CLAUDE.md, Typography), each carrying its size, leading,
    * tracking and weight, so a role changes in one place. Sizes are fluid between 360px and 1728px
    * viewports. The scale is clinical rather than editorial: reading text is the anchor (16 → 18px),
