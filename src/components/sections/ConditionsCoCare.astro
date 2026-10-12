@@ -1,0 +1,32 @@
+---
+import Stethoscope from '../../assets/icons/stethoscope.svg';
+import type { Conditions } from '../../lib/schemas';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  coCare: Conditions['co_care'];
+  /** Set when the text falls back to another language than the page's. */
+  contentLang?: string | undefined;
+}
+
+const { coCare, contentLang } = Astro.props;
+---
+
+<!-- For patients already seeing a gynaecologist: their care stays where it is. -->
+<Section spacing="compact" aria-labelledby="co-care-title">
+  <Panel
+    class="flex flex-col gap-6 p-6 md:flex-row md:items-start md:gap-8 md:p-10 xl:p-12"
+    lang={contentLang}
+  >
+    <span class="grid size-14 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
+      <Stethoscope class="size-7" aria-hidden="true" />
+    </span>
+    <div>
+      <h2 id="co-care-title" class="text-h3 text-ink">
+        {coCare.title}
+      </h2>
+      <p class="mt-3 max-w-prose text-body text-ink/80">{coCare.body}</p>
+    </div>
+  </Panel>
+</Section>

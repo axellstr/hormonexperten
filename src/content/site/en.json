@@ -5,13 +5,17 @@
     "home": "Hormonexperten, Dr. Wilden: home",
     "items": [
       {
-        "label": "About Us",
-        "href": "/about-us"
+        "label": "Our Approach",
+        "href": "/our-approach"
       },
       {
         "label": "Services",
         "href": "/services",
         "submenu": "services"
+      },
+      {
+        "label": "Conditions",
+        "href": "/conditions"
       },
       {
         "label": "Our Team",
@@ -63,15 +67,13 @@
       "id": "metabolic-reset",
       "title": "Metabolic Reset",
       "summary": "TODO: short summary for Metabolic Reset",
-      "image_alt": "",
-      "needs_check": true
+      "image_alt": ""
     },
     {
       "id": "chronic-disease",
-      "title": "Chronic Disease",
-      "summary": "TODO: short summary for Chronic Disease",
-      "image_alt": "",
-      "needs_check": true
+      "title": "Chronic Disease Package",
+      "summary": "TODO: short summary for Chronic Disease Package",
+      "image_alt": ""
     }
   ],
   "footer": {
@@ -138,13 +140,16 @@
             "href": "/services"
           },
           {
+            "label": "Conditions we treat",
+            "href": "/conditions"
+          },
+          {
             "label": "Hormone Therapy",
             "href": "/services/hormone-therapy"
           },
           {
             "label": "Metabolic Reset",
-            "href": "/services/metabolic-reset",
-            "needs_check": true
+            "href": "/services/metabolic-reset"
           },
           {
             "label": "Rimkus-Method®",
@@ -152,9 +157,8 @@
             "needs_check": true
           },
           {
-            "label": "Chronic Disease",
-            "href": "/services/chronic-disease",
-            "needs_check": true
+            "label": "Chronic Disease Package",
+            "href": "/services/chronic-disease"
           }
         ]
       },
@@ -162,8 +166,8 @@
         "title": "Company",
         "items": [
           {
-            "label": "About Us",
-            "href": "/about-us"
+            "label": "Our Approach",
+            "href": "/our-approach"
           },
           {
             "label": "Our Team",

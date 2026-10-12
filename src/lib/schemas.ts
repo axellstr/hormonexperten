@@ -360,14 +360,16 @@ export const servicesSchema = z.object({
   ),
 });
 
-/** The About us page. Team members, steps and the closing panel come from their own collections. */
-export const aboutSchema = z.object({
+/** The Our approach page. Team members, steps and the closing panel come from their own collections. */
+export const approachSchema = z.object({
   meta: z.object({ title: z.string(), description: z.string() }),
   hero: z.object({
     eyebrow: z.string(),
     title: z.string(),
-    /** One- or two-sentence opener under the H1. */
-    intro: z.string(),
+    /** One-sentence opener under the H1. */
+    lead: z.string(),
+    /** The paragraph that follows the lead. */
+    body: z.string(),
     /** Booking button label. */
     cta: z.string(),
     /** Two photos set side by side, the second one lower; a placeholder stands in for a missing one. */
@@ -383,44 +385,112 @@ export const aboutSchema = z.object({
     }),
     ...checkNote,
   }),
-  story: z.object({
-    eyebrow: z.string(),
-    title: z.string(),
-    /** Paragraphs. */
-    body: z.array(z.string()).min(1),
-    /** A quote from the founder beside the story; name, role and photo come from the team. */
-    founder: z.object({
-      /** A team member's id. */
-      member: z.string(),
-      quote: z.string(),
-      /** Label of the link to the member's profile. */
-      link: z.string(),
-      ...needsCheck,
-      ...checkNote,
-    }),
-  }),
-  values: z.object({
-    eyebrow: z.string(),
+  /** The principles of the approach, one icon card each. */
+  pillars: z.object({
     title: z.string(),
     items: z
       .array(
         z.object({
-          icon: z.enum([
-            'sprout',
-            'message-circle',
-            'book-open',
-            'sliders',
-            'stethoscope',
-            'users',
-          ]),
+          icon: z.enum(['clock', 'connected', 'layers', 'sunrise']),
           title: z.string(),
           body: z.string(),
         }),
       )
       .min(1),
   }),
+  /** A quote from the founder beside a round portrait; name and role come from the team. */
+  founder: z.object({
+    /** A team member's id. */
+    member: z.string(),
+    quote: z.string(),
+    /** A square head-and-shoulders crop; shown in a circle. */
+    image: z.string(),
+    image_alt: z.string().default(''),
+    /** Label of the link to the member's profile. */
+    link: z.string(),
+    ...needsCheck,
+    ...checkNote,
+  }),
   /** The team row; its heading and members come from the team collection. */
   team: z.object({ more: z.string() }),
+});
+
+/** A link to a condition page or a service page by id; without either it has no page yet. */
+const conditionLink = z.object({
+  label: z.string(),
+  condition: z.string().optional(),
+  service: z.string().optional(),
+  ...needsCheck,
+  ...checkNote,
+});
+
+/** The conditions overview and one page per condition. */
+export const conditionsSchema = z.object({
+  meta: z.object({ title: z.string(), description: z.string() }),
+  /** Overview eyebrow and the breadcrumb's first step. */
+  eyebrow: z.string(),
+  title: z.string(),
+  intro: z.string(),
+  /** Booking button label, at the top and bottom of every page. */
+  cta: z.string(),
+  breadcrumb_label: z.string(),
+  /** Label of the jump links to the groups in the overview hero. */
+  groups_label: z.string(),
+  learn_more: z.string(),
+  /** Line under the cards: the list isn't complete. */
+  more: z.string(),
+  /** Strip on the overview for patients already seeing a gynaecologist. */
+  co_care: z.object({ title: z.string(), body: z.string() }),
+  familiar_title: z.string(),
+  approach_title: z.string(),
+  related_title: z.string(),
+  groups: z.array(
+    z.object({
+      /** Also the anchor on the overview: /{lang}/conditions#{id}. */
+      id: z.string(),
+      title: z.string(),
+      /** Page ids, in order. */
+      items: z.array(z.string()).min(1),
+    }),
+  ),
+  pages: z.array(
+    z.object({
+      /** Also the URL slug: /{lang}/conditions/{id}. */
+      id: z.string(),
+      /** Short name for the breadcrumb, the page title and links. */
+      name: z.string(),
+      /** Card heading on the overview, when it differs from the name. */
+      card_title: z.string().optional(),
+      /** Card text on the overview, also the meta description. */
+      summary: z.string(),
+      title: z.string(),
+      /** Lead under the H1. */
+      intro: z.string(),
+      /** A list of the conditions the page covers, before the symptoms. */
+      list: z
+        .object({
+          title: z.string(),
+          items: z.array(
+            z.object({
+              title: z.string(),
+              body: z.string().optional(),
+              link: conditionLink.optional(),
+            }),
+          ),
+        })
+        .optional(),
+      /** What patients tend to say, in their words. */
+      familiar: z.array(z.string()).min(1),
+      approach: z.string(),
+      /** A sentence appended to the approach that can be gated on its own. */
+      approach_more: z.object({ text: z.string(), ...needsCheck, ...checkNote }).optional(),
+      /** Safety line in small print under the approach. */
+      safety: z.string().optional(),
+      related: z.array(conditionLink).default([]),
+      ...needsCheck,
+      ...checkNote,
+    }),
+  ),
 });
 
 /** The Contact page. */
@@ -529,7 +599,10 @@ export type Service = Site['services'][number];
 export type ServicePage = Services['pages'][number];
 export type TeamMember = Team['members'][number];
 export type Profile = NonNullable<TeamMember['profile']>;
-export type About = z.infer<typeof aboutSchema>;
+export type ApproachPage = z.infer<typeof approachSchema>;
+export type Conditions = z.infer<typeof conditionsSchema>;
+export type ConditionPage = Conditions['pages'][number];
+export type ConditionLink = z.infer<typeof conditionLink>;
 export type Contact = z.infer<typeof contactSchema>;
 export type Legal = z.infer<typeof legalSchema>;
 export type LegalPage = Legal['pages'][number];

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Our approach | Hormonexperten",
+    "description": "We take time to know you: your story, your life and what you have been carrying, not just your symptoms."
+  },
+  "hero": {
+    "eyebrow": "Our approach",
+    "title": "Medicine that takes time for you",
+    "lead": "We take time to know you: your story, your life and what you have been carrying, not just your symptoms.",
+    "body": "Because hormones, metabolism and micronutrients are one connected system, we look at the whole picture, backed by more than 35 years of experience across many medical fields and current research. You leave understood, informed and hopeful, with a doctor who stays close by your side.",
+    "cta": "Book your initial consultation",
+    "images": [
+      {
+        "image": "contact.jpg",
+        "image_alt": ""
+      },
+      {
+        "image": "hero-2.png",
+        "image_alt": "A woman in a yoga side stretch outdoors"
+      }
+    ],
+    "facts": {
+      "title": "At a glance",
+      "items": [
+        {
+          "value": "2023",
+          "label": "Founded by Dr. Isabella Wilden",
+          "needs_check": true,
+          "check_note": "Year from Dr. Wilden’s approved profile (bio and milestones). Confirm it is the practice’s founding year."
+        },
+        {
+          "value": "100%",
+          "label": "online care, no waiting room",
+          "needs_check": true,
+          "check_note": "From the footer line “100% online · No waiting room”. Blood tests and any in-person referrals happen locally; confirm the wording."
+        },
+        {
+          "value": "4",
+          "label": "EU countries where Dr. Wilden is licensed to practise",
+          "needs_check": true,
+          "check_note": "From Dr. Wilden’s profile (Romania, Greece, Germany, Cyprus). Confirm it belongs on the practice page, and that it doesn’t suggest care in countries the practice doesn’t serve."
+        }
+      ]
+    },
+    "check_note": "Copy from “Website – Our Approach (EN)”, 12 Oct 2026, final and approved by the practice; that approval is the source for “more than 35 years” (the live site says both 35+ and 14 years). The doc’s one paragraph is set as a lead sentence and a body paragraph, words unchanged. The doc places the section on the home page; the user moved it to this page (formerly About us). Both photos are stand-ins used elsewhere on the site."
+  },
+  "pillars": {
+    "title": "Our four pillars",
+    "items": [
+      {
+        "icon": "clock",
+        "title": "Time to know you",
+        "body": "Your story, your life and your wellbeing, not just your lab results. Our first consultation takes 60 minutes."
+      },
+      {
+        "icon": "connected",
+        "title": "Everything is connected",
+        "body": "Hormones, metabolism and micronutrients, looked at as one system, so your whole body is being understood."
+      },
+      {
+        "icon": "layers",
+        "title": "Experience across many fields",
+        "body": "More than 35 years in general medicine, research, psycho-oncology, surgery, acupuncture and orthomolecular medicine, combined with gynaecology training and current research on hormones and metabolism."
+      },
+      {
+        "icon": "sunrise",
+        "title": "You leave empowered",
+        "body": "Understood, informed and hopeful, with a doctor who stays close by your side."
+      }
+    ]
+  },
+  "founder": {
+    "member": "isabella-wilden",
+    "quote": "My mission is to help women take back control of their health and feel like themselves again.",
+    "image": "dr-wilden-portrait.jpg",
+    "image_alt": "",
+    "link": "Read the full profile",
+    "check_note": "First sentence of Dr. Wilden’s mission on her profile (approved 2026-10-09). Confirm she is happy to be quoted with it here. The portrait is a square crop of her team photo (dr-wilden.png); the name beside it makes it decorative, hence the empty alt."
+  },
+  "team": {
+    "more": "Meet our team"
+  }
+}

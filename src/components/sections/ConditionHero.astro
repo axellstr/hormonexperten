@@ -1,0 +1,46 @@
+---
+import { BOOKING_URL, type Locale } from '../../config';
+import { localizeHref } from '../../lib/i18n';
+import type { ConditionPage, Conditions } from '../../lib/schemas';
+import Breadcrumb from '../ui/Breadcrumb.astro';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+interface Props {
+  lang: Locale;
+  /** Set when the page body falls back to another language than the page's. */
+  contentLang?: Locale | undefined;
+  conditions: Conditions;
+  page: ConditionPage;
+}
+
+const { lang, contentLang, conditions, page } = Astro.props;
+---
+
+<!-- Text only: there are no condition photos. Sits below the floating header pill. -->
+<div class="mt-4 lg:mt-6" data-hero>
+  <Container>
+    <section
+      aria-labelledby="condition-title"
+      class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-16 xl:px-16"
+    >
+      <Breadcrumb
+        label={conditions.breadcrumb_label}
+        items={[
+          { label: conditions.eyebrow, href: localizeHref('/conditions', lang) },
+          { label: page.name },
+        ]}
+      />
+
+      <div lang={contentLang} class="mt-8 lg:mt-10">
+        <h1 id="condition-title" class="max-w-4xl text-display text-ink">
+          {page.title}
+        </h1>
+        <p class="mt-6 max-w-prose text-lead text-ink/80">{page.intro}</p>
+      </div>
+      <Button href={BOOKING_URL} class="mt-10">
+        {conditions.cta}
+      </Button>
+    </section>
+  </Container>
+</div>

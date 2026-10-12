@@ -1,0 +1,62 @@
+---
+import ArrowEnd from '../../assets/icons/arrow-end.svg';
+import type { Locale } from '../../config';
+import { localizeHref } from '../../lib/i18n';
+import type { ConditionPage, Conditions } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  conditions: Conditions;
+  /** Groups with their visible pages, in order. */
+  groups: { id: string; title: string; pages: ConditionPage[] }[];
+  /** Set when the text falls back to another language than the page's. */
+  contentLang?: string | undefined;
+}
+
+const { lang, conditions, groups, contentLang } = Astro.props;
+---
+
+<!-- One row per group: the heading in a side column, its condition cards beside it. -->
+<Section aria-label={conditions.eyebrow}>
+  <div class="divide-y divide-ink/10" lang={contentLang}>
+    {groups.map((group) => (
+      <section
+        id={group.id}
+        aria-labelledby={`group-${group.id}`}
+        class="grid scroll-mt-28 gap-6 py-10 first:pt-0 lg:grid-cols-12 lg:gap-12 lg:py-14 xl:gap-20"
+      >
+        <h2 id={`group-${group.id}`} class="text-h2 text-ink lg:col-span-4">
+          {group.title}
+        </h2>
+        <ul class="grid gap-4 md:grid-cols-2 lg:col-span-8 lg:gap-6">
+          {group.pages.map((page) => (
+            <li>
+              <a
+                href={localizeHref(`/conditions/${page.id}`, lang)}
+                class="group flex h-full flex-col rounded-card bg-surface p-6 hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors md:p-8"
+              >
+                <h3 class="text-h4 text-ink">{page.card_title ?? page.name}</h3>
+                <p class="mt-3 text-body text-ink/80">{page.summary}</p>
+                <span
+                  lang={lang}
+                  class="mt-auto inline-flex items-center gap-2 pt-5 text-base font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 group-hover:decoration-ink motion-safe:transition-colors"
+                >
+                  {conditions.learn_more}
+                  <ArrowEnd
+                    class="size-5 shrink-0 group-hover:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100"
+                    aria-hidden="true"
+                  />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+
+  <p lang={contentLang} class="mt-4 max-w-prose text-body text-ink/80 lg:mt-6">
+    {conditions.more}
+  </p>
+</Section>

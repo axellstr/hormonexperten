@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "title": "Behandlungsschwerpunkte | Hormonexperten",
+    "description": "Ob sich Ihr Zyklus verändert hat, Ihre Energie nachlässt oder sich Ihr Körper nicht mehr wie Ihr eigener anfühlt – selten gibt es nur eine Ursache. Deshalb betrachten wir Ihre Hormone, Ihren Stoffwechsel und Ihre Gesundheit immer gemeinsam."
+  },
+  "eyebrow": "Behandlungsschwerpunkte",
+  "title": "Ihre Hormone und Ihr Stoffwechsel, gemeinsam betrachtet",
+  "intro": "Ob sich Ihr Zyklus verändert hat, Ihre Energie nachlässt oder sich Ihr Körper nicht mehr wie Ihr eigener anfühlt – selten gibt es nur eine Ursache. Deshalb betrachten wir Ihre Hormone, Ihren Stoffwechsel und Ihre Gesundheit immer gemeinsam. Wir hören zuerst zu, schauen genauer hin als die Standardtests und begleiten Sie, bis Ihre Behandlung wirklich zu Ihnen passt.",
+  "cta": "Erstgespräch buchen",
+  "breadcrumb_label": "Brotkrümelnavigation",
+  "groups_label": "Gruppen von Beschwerden",
+  "learn_more": "Mehr erfahren",
+  "more": "Das sind die Beschwerden, die wir am häufigsten sehen, aber nicht die einzigen. Wenn Ihre Symptome hier nicht aufgeführt sind oder Sie nicht sicher sind, wohin sie gehören, buchen Sie Ihr Erstgespräch – dann betrachten wir gemeinsam das ganze Bild.",
+  "co_care": {
+    "title": "Sie sind bereits bei Ihrer Gynäkologin oder Ihrem Gynäkologen in Behandlung?",
+    "body": "Wir arbeiten gern ergänzend zu Ihrer gynäkologischen Betreuung, zum Beispiel wenn Sie eine Zweitmeinung oder einen anderen Ansatz für die Ihnen vorgeschlagene Behandlung wünschen. Ihre bestehende Betreuung bleibt erhalten."
+  },
+  "familiar_title": "Kommt Ihnen das bekannt vor?",
+  "approach_title": "So gehen wir vor",
+  "related_title": "Passend dazu",
+  "groups": [
+    { "id": "hormones-cycle", "title": "Hormone & Zyklus" },
+    { "id": "metabolism", "title": "Stoffwechsel" },
+    { "id": "thyroid", "title": "Schilddrüse" },
+    { "id": "chronic-autoimmune", "title": "Chronische & Autoimmun\u00aderkrankungen" }
+  ],
+  "pages": [
+    {
+      "id": "perimenopause",
+      "name": "Perimenopause",
+      "summary": "Ihr Zyklus verändert sich und mit ihm Ihre Lebensqualität. Die ersten Anzeichen beginnen oft Anfang vierzig, manchmal früher.",
+      "title": "Perimenopause: wenn sich alles zu verändern beginnt",
+      "intro": "Die Perimenopause ist der Übergang vor Ihrer letzten Periode. Sie beginnt oft Anfang vierzig, manchmal früher, und kann mehrere Jahre dauern. Die Hormonspiegel schwanken stark, und viele Frauen spüren es lange bevor ihre Periode ausbleibt.",
+      "familiar": [
+        "„Mein Zyklus ist völlig unberechenbar. Ich kann nichts mehr planen.“",
+        "„Ich schlafe schlecht, wache zu früh auf und bin den ganzen Tag erschöpft.“",
+        "„Ich bin gereizt und weinerlich, und meine Familie bekommt es zu spüren.“",
+        "„Ich vergesse Dinge und verliere den Faden.“",
+        "„Mein Gewicht ist fast gleich, aber mein Körper hat sich verändert.“",
+        "„Meine Laborwerte sind ‚in Ordnung‘, aber mir geht es nicht gut.“"
+      ],
+      "approach": "Wir betrachten Ihre Symptome, Ihren Zyklus und Ihre Vorgeschichte, nicht nur einen einzelnen Laborwert, denn die Hormonspiegel in der Perimenopause ändern sich von Tag zu Tag. Gemeinsam entscheiden wir, ob eine Hormontherapie, eine Unterstützung des Stoffwechsels oder andere Maßnahmen für Sie sinnvoll sind.",
+      "related": [{ "label": "Weibliche Hormone" }, { "label": "Premium-Hormonpaket" }]
+    },
+    {
+      "id": "menopause",
+      "name": "Menopause",
+      "summary": "Hitzewallungen, schlaflose Nächte, ein Körper, der sich verändert. Wir unterstützen Sie dabei, sich in diesem neuen Lebensabschnitt kraftvoll, stark und voller Leben zu fühlen.",
+      "title": "Menopause: ein neues Kapitel, nicht das Ende des Wohlbefindens",
+      "intro": "Von der Menopause spricht man, wenn Sie zwölf Monate keine Periode mehr hatten. Der Rückgang von Östrogen und Progesteron kann Ihren Schlaf, Ihre Stimmung, Ihre Haut, Ihre Intimgesundheit, Ihre Knochen und Ihr Herz beeinflussen. Diese Veränderungen müssen Sie nicht einfach hinnehmen.",
+      "familiar": [
+        "„Hitzewallungen und Nachtschweiß bestimmen meine Tage und Nächte.“",
+        "„Ich wache um 3 Uhr nachts auf und bleibe wach.“",
+        "„Meine Haut ist trockener, meine Haare sind dünner.“",
+        "„Sex ist schmerzhaft geworden, und ich habe keine Lust mehr.“",
+        "„Ich wache steif auf, und meine Gelenke schmerzen.“",
+        "„Ich mache mir Sorgen wegen Osteoporose, weil sie in meiner Familie vorkommt.“"
+      ],
+      "approach": "Wir wägen Nutzen und Risiken einer Hormontherapie für Sie persönlich ab, auf Grundlage Ihres Alters, Ihrer Vorgeschichte und Ihrer Ziele. Über Ihre Symptome hinaus betrachten wir auch Ihre langfristige Gesundheit: Knochen, Stoffwechsel und Herz. Für eine stärkere Version von Ihnen.",
+      "related": [{ "label": "Weibliche Hormone" }, { "label": "Premium-Hormonpaket" }]
+    },
+    {
+      "id": "cycle-disturbances",
+      "name": "Zyklusstörungen",
+      "summary": "Unregelmäßige, starke, schmerzhafte oder sehr kurze Zyklen, die es schwer machen, Ihr Leben zu planen.",
+      "title": "Zyklus\u00adstörungen: wenn Ihre Periode Ihr Leben bestimmt",
+      "intro": "Zu kurze, zu lange, zu starke oder zu schmerzhafte Zyklen sind häufig, aber nichts, womit Sie einfach leben müssen. Oft sind Hormone, Stoffwechsel oder die Schilddrüse beteiligt.",
+      "familiar": [
+        "„Meine Periode kommt alle zwei bis drei Wochen, oder ich weiß nie, wann sie kommt.“",
+        "„Meine Blutung ist so stark, dass ich meinen Tag um die nächste Toilette herum plane.“",
+        "„Ich habe Schmierblutungen zwischen meinen Perioden.“",
+        "„Meine Regelschmerzen sind so stark, dass ich nicht arbeiten kann.“"
+      ],
+      "approach": "Wir betrachten Ihr Zyklusmuster, Ihre Hormone, Ihre Schilddrüse und Ihren Stoffwechsel gemeinsam. Auf Wunsch beobachten wir Ihren Zyklus mit Ihnen, um zu sehen, was wirklich passiert. Starke oder veränderte Blutungen sollten zuerst gynäkologisch untersucht werden, um Ursachen wie Myome oder Polypen auszuschließen. Wir arbeiten ergänzend zu Ihrer gynäkologischen Betreuung.",
+      "related": [{ "label": "Weibliche Hormone" }, { "label": "Schilddrüsentherapie" }]
+    },
+    {
+      "id": "pms-pmdd",
+      "name": "PMS & PMDS",
+      "summary": "Wenn die Tage vor Ihrer Periode Ihre Stimmung, Ihre Energie und Ihre Beziehungen verändern.",
+      "title": "PMS & PMDS: wenn die Tage vor Ihrer Periode verändern, wer Sie sind",
+      "intro": "Das prämenstruelle Syndrom (PMS) bringt in den Tagen vor Ihrer Periode körperliche und seelische Beschwerden mit sich. Die prämenstruelle dysphorische Störung (PMDS) ist seine schwere Form, mit starken Stimmungsschwankungen, die Arbeit, Beziehungen und Lebensqualität beeinträchtigen können. Beide klingen typischerweise wenige Tage nach Beginn der Periode ab.",
+      "familiar": [
+        "„Eine oder zwei Wochen im Monat erkenne ich mich selbst nicht wieder.“",
+        "„Ich bin gereizt, ängstlich oder traurig, und dann ist es plötzlich weg, wenn meine Periode einsetzt.“",
+        "„Meine Brüste schmerzen, ich fühle mich aufgebläht und habe Heißhunger auf Süßes.“",
+        "„Jeden Monat zur gleichen Zeit streite ich mit meinem Partner.“"
+      ],
+      "approach": "Zuerst dokumentieren wir Ihre Symptome über Ihren Zyklus hinweg, damit wir das Muster klar erkennen. Dann betrachten wir Ihre Hormone, Ihren Stoffwechsel und Ihre Mikronährstoffe und entscheiden gemeinsam, welche Möglichkeiten zu Ihnen passen, mit oder ohne Hormone. Bei starken seelischen Beschwerden empfehlen wir zusätzlich psychologische oder psychiatrische Unterstützung.",
+      "safety": "Wenn Sie sehr niedergeschlagen sind oder Gedanken haben, sich selbst zu verletzen, suchen Sie bitte sofort Hilfe beim örtlichen Notruf oder bei einer Krisenhotline.",
+      "related": [{ "label": "Weibliche Hormone" }, { "label": "Mikronährstofftherapie" }]
+    },
+    {
+      "id": "amenorrhoea",
+      "name": "Amenorrhö",
+      "summary": "Wenn Ihre Periode ausbleibt oder nie eingesetzt hat, gibt es immer einen Grund, den es zu finden lohnt.",
+      "title": "Amenorrhö: wenn Ihre Periode ausbleibt",
+      "intro": "Wenn Ihre Periode seit mehreren Monaten ausbleibt oder nie eingesetzt hat, sendet Ihr Körper ein Signal. Die Ursachen reichen von PMOS (früher PCOS) und Schilddrüsenerkrankungen bis zu Stress, intensivem Training, Gewichtsveränderungen oder einem frühen Nachlassen der Eierstockfunktion. Die Ursache zu finden ist wichtig – für Ihren Zyklus, Ihre Fruchtbarkeit und Ihre Knochen.",
+      "familiar": [
+        "„Ich habe seit Monaten keine Periode, und niemand kann mir sagen, warum.“",
+        "„Ich habe die Pille abgesetzt, und meine Periode ist nie zurückgekommen.“",
+        "„Seit ich abgenommen habe oder mehr trainiere, ist mein Zyklus verschwunden.“",
+        "„Ich möchte irgendwann schwanger werden und mache mir Sorgen.“"
+      ],
+      "approach": "Nachdem eine Schwangerschaft ausgeschlossen ist, suchen wir Schritt für Schritt nach der Ursache: Hormone, Schilddrüse, Stoffwechsel, Energiebilanz und Ihre Vorgeschichte. Dann erstellen wir mit Ihnen einen Plan, ob Ihr Ziel ein regelmäßiger Zyklus ist, der Schutz Ihrer Knochen oder die Vorbereitung auf eine Schwangerschaft.",
+      "related": [
+        { "label": "Weibliche Hormone" },
+        { "label": "Schilddrüsentherapie" },
+        { "label": "PMOS (früher PCOS)" }
+      ]
+    },
+    {
+      "id": "endometriosis",
+      "name": "Endometriose",
+      "summary": "Ein anderer Ansatz: Wir möchten Entzündungen im ganzen Körper beruhigen und Ihre hormonelle und Stoffwechselgesundheit unterstützen.",
+      "title": "Endometriose: Unterstützung über den Operationssaal hinaus",
+      "intro": "Bei der Endometriose wächst Gewebe, das der Gebärmutterschleimhaut ähnelt, außerhalb der Gebärmutter. Sie kann starke Regelschmerzen, Schmerzen beim Sex, starke Blutungen, Erschöpfung, Darm- oder Blasenbeschwerden und Schwierigkeiten, schwanger zu werden, verursachen. Eine Operation kann notwendig sein, ist aber selten die ganze Antwort.",
+      "familiar": [
+        "„Ich wurde operiert, und die Schmerzen sind zurückgekommen.“",
+        "„Meine Regelschmerzen sind so stark, dass ich jeden Monat Tage verliere.“",
+        "„Ich bin ständig erschöpft, und mein Darm ist immer gereizt.“",
+        "„Niemand hat sich je meine Hormone oder meinen Stoffwechsel angesehen.“"
+      ],
+      "approach": "Wir arbeiten ergänzend zu Ihrer gynäkologischen Betreuung oder Ihrem Endometriosezentrum. Wir betrachten Ihre Hormone, Entzündungsprozesse, Ihren Stoffwechsel und Ihre Darmgesundheit und ergänzen unterstützende Maßnahmen wie Mikronährstoffe und Ernährung. Wenn Sie sich einen anderen Ansatz für die Ihnen vorgeschlagene Behandlung wünschen, nehmen wir uns die Zeit, Ihnen Ihre Möglichkeiten zu erklären.",
+      "related": [
+        { "label": "Weibliche Hormone" },
+        { "label": "Darmgesundheit" },
+        { "label": "Paket Chronische Erkrankungen" }
+      ]
+    },
+    {
+      "id": "pmos-pcos",
+      "name": "PMOS (früher PCOS)",
+      "summary": "Unregelmäßige Zyklen, Veränderungen an Haut und Haaren, Gewicht, das sich nicht bewegt. Hormone und Stoffwechsel, als Einheit behandelt.",
+      "title": "PMOS (früher PCOS): Hormone und Stoffwechsel, als Einheit behandelt",
+      "intro": "Das polyzystische Ovarsyndrom (PCOS) hat einen neuen Namen: polyendokrines metabolisches Ovarsyndrom, kurz PMOS. Der neue Name, 2026 international vereinbart, spiegelt wider, was die Forschung seit Jahren zeigt: Es geht nicht nur um die Eierstöcke. Es betrifft Ihren Zyklus, Ihre Haut und Haare und sehr oft Ihren Stoffwechsel. Viele Frauen mit PMOS haben auch eine Insulinresistenz – deshalb übersieht eine Behandlung ohne Blick auf den Stoffwechsel oft die Hälfte des Bildes.",
+      "familiar": [
+        "„Meine Periode ist unregelmäßig oder bleibt ganz aus.“",
+        "„Ich habe Akne, unerwünschten Haarwuchs oder dünner werdendes Kopfhaar.“",
+        "„Ich nehme leicht zu, besonders am Bauch, und es geht nicht wieder weg.“",
+        "„Ich habe Heißhunger und Energietiefs nach dem Essen.“",
+        "„Ich möchte schwanger werden, und es klappt nicht.“"
+      ],
+      "approach": "Wir betrachten Ihre Hormone und Ihren Stoffwechsel gemeinsam, einschließlich Blutzucker und Insulinempfindlichkeit und, wenn geeignet, einer kontinuierlichen Glukosemessung. Je nach Ihren Zielen kann Ihr Plan eine hormonelle Behandlung, Unterstützung des Stoffwechsels, Gewichtsmanagement, Ernährung und Zyklusbeobachtung umfassen.",
+      "approach_more": {
+        "text": "PMOS und seine Auswirkungen auf den Stoffwechsel stehen im Mittelpunkt der Forschung von Dr. Yvonne Tuszing."
+      },
+      "related": [
+        { "label": "Insulinresistenz" },
+        { "label": "Gewichtsmanagement" },
+        { "label": "Metabolic Reset" }
+      ]
+    },
+    {
+      "id": "insulin-resistance",
+      "name": "Insulinresistenz",
+      "summary": "Heißhunger, Energietiefs und Bauchfett, das nicht weichen will. Oft der verborgene Auslöser hinter hormonellen Beschwerden.",
+      "title": "Insulinresistenz: der verborgene Auslöser vieler hormoneller Beschwerden",
+      "intro": "Bei einer Insulinresistenz reagieren Ihre Zellen weniger auf Insulin, sodass Ihr Körper mehr davon bilden muss, um Ihren Blutzucker stabil zu halten. Das kann jahrelang so gehen, während die üblichen Blutzuckerwerte noch normal aussehen. Währenddessen kann ein hoher Insulinspiegel Ihren Zyklus, Ihr Gewicht, Ihre Energie und Ihre langfristige Gesundheit beeinflussen.",
+      "familiar": [
+        "„Ich bin nach jeder Mahlzeit müde und habe nachmittags Heißhunger auf Süßes.“",
+        "„Mein Bauch wird immer größer, obwohl ich mich gut ernähre.“",
+        "„Mein Blutzucker ist ‚normal‘, aber ich habe trotzdem das Gefühl, dass etwas nicht stimmt.“",
+        "„Ich habe PMOS, und niemand hat je mein Insulin untersucht.“",
+        "„Diabetes liegt in meiner Familie, und ich möchte vorbeugen.“"
+      ],
+      "approach": "Wir schauen über einen einzelnen Blutzuckerwert hinaus: Insulin, Stoffwechselwerte, Körperzusammensetzung und, wenn geeignet, eine kontinuierliche Glukosemessung, damit Sie sehen, wie Ihr Körper auf Essen, Schlaf und Stress reagiert. Ihr Plan verbindet Ernährung, Bewegung und Muskelaufbau, Schlaf und, wenn medizinisch sinnvoll, Medikamente. Weil Insulin und Sexualhormone sich gegenseitig beeinflussen, betrachten wir immer auch Ihren Zyklus und Ihre Hormone.",
+      "related": [
+        { "label": "Metabolic Reset" },
+        { "label": "Gewichtsmanagement" },
+        { "label": "PMOS (früher PCOS)" }
+      ]
+    },
+    {
+      "id": "thyroid",
+      "name": "Schilddrüsenerkrankungen",
+      "summary": "Müde, frierend und Haarausfall – oder unruhig und angespannt. Unter- und Überfunktion der Schilddrüse, einschließlich Hashimoto.",
+      "title": "Schilddrüsen\u00aderkrankungen: kleines Organ, große Wirkung",
+      "intro": "Ihre Schilddrüse beeinflusst Ihre Energie, Ihr Gewicht, Ihre Haare, Ihre Stimmung und Ihren Zyklus. Ob sie unterfunktioniert ist, von Hashimoto betroffen oder in manchen Fällen überfunktioniert: Wir betrachten Ihre Symptome und Ihre Werte gemeinsam, nicht nur den Referenzbereich.",
+      "familiar": [
+        "„Ich bin ständig müde, egal wie viel ich schlafe.“",
+        "„Meine Haare fallen aus und werden dünner.“",
+        "„Ich nehme zu, obwohl ich nichts verändert habe.“",
+        "„Mir ist immer kalt.“",
+        "„Mein Herz rast, und ich fühle mich unruhig und angespannt.“",
+        "„Meine Schilddrüsenwerte sind ‚normal‘, aber mir geht es trotzdem nicht gut.“"
+      ],
+      "approach": "Wir beurteilen Ihre Schilddrüse im Zusammenhang mit Ihren anderen Hormonen, Ihrem Zyklus und Ihrem Stoffwechsel. Ihr Plan kann Schilddrüsenmedikamente, regelmäßige Kontrollen und unterstützende Behandlungen wie eine Mikronährstofftherapie umfassen. Wenn Bildgebung oder eine fachärztliche Meinung nötig ist, überweisen wir Sie.",
+      "related": [
+        { "label": "Schilddrüsentherapie" },
+        { "label": "Chronische & Autoimmunerkrankungen" }
+      ]
+    },
+    {
+      "id": "chronic-autoimmune",
+      "name": "Chronische & Autoimmunerkrankungen",
+      "card_title": "Rheumatoide Arthritis, Sjögren-Syndrom, Arthrose",
+      "summary": "Wenn Gelenke, Energie und Entzündungsprozesse betroffen sind, betrachten wir, wie Hormone und Stoffwechsel ins Bild passen – ergänzend zu Ihrer fachärztlichen Betreuung.",
+      "title": "Chronische & Autoimmun\u00aderkrankungen: das ganze Bild sehen",
+      "intro": "Autoimmunerkrankungen wie rheumatoide Arthritis und das Sjögren-Syndrom sind bei Frauen weit häufiger, und viele Frauen bemerken, dass sich ihre Symptome mit dem Zyklus, in der Schwangerschaft oder in den Wechseljahren verändern. Auch Arthrose wird nach der Menopause häufiger. Hormone, Stoffwechsel und Entzündungsprozesse sind eng miteinander verbunden, deshalb betrachten wir sie gemeinsam.",
+      "list": {
+        "title": "Erkrankungen, die wir häufig sehen",
+        "items": [
+          {
+            "title": "Rheumatoide Arthritis",
+            "body": "Gelenkschmerzen, Schwellungen und Morgensteifigkeit, oft mit Erschöpfung."
+          },
+          {
+            "title": "Sjögren-Syndrom",
+            "body": "Trockene Augen und trockener Mund, Erschöpfung und Gelenkschmerzen."
+          },
+          {
+            "title": "Arthrose",
+            "body": "Gelenkschmerzen und Steifigkeit, die rund um und nach der Menopause oft zunehmen."
+          },
+          {
+            "title": "Hashimoto-Thyreoiditis",
+            "link": { "label": "Siehe Schilddrüsenerkrankungen" }
+          }
+        ]
+      },
+      "familiar": [
+        "„Ich wache mit geschwollenen Händen und steifen Gelenken auf.“",
+        "„Ich war bei so vielen Ärztinnen und Ärzten, und niemand verbindet die Punkte.“",
+        "„Ich nehme mehrere Medikamente und bin nicht sicher, ob sie noch alle zusammenpassen.“",
+        "„Seit den Wechseljahren sind meine Gelenkschmerzen viel schlimmer geworden.“",
+        "„Ich bin ständig erschöpft.“"
+      ],
+      "approach": "Wir betrachten Ihre Symptome systematisch und sehen das ganze Bild: Wir prüfen Ihre aktuellen Medikamente, schauen auf Ihre hormonelle Lebensphase, Ihren Stoffwechsel, Entzündungsprozesse, Mikronährstoffe und Ihre Darmgesundheit und erstellen einen Plan, der sich in Ihre bestehende Behandlung einfügt.",
+      "related": [
+        { "label": "Paket Chronische Erkrankungen" },
+        { "label": "Mikronährstofftherapie" },
+        { "label": "Darmgesundheit" }
+      ]
+    }
+  ]
+}

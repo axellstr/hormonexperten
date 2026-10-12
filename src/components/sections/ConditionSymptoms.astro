@@ -1,0 +1,62 @@
+---
+import ArrowEnd from '../../assets/icons/arrow-end.svg';
+import type { ResolvedLink } from '../../lib/conditions';
+import type { ConditionPage, Conditions } from '../../lib/schemas';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  conditions: Conditions;
+  page: ConditionPage;
+  /** The list items' links, resolved in the same order (null when hidden). */
+  listLinks: (ResolvedLink | null)[];
+  /** Set when the page body falls back to another language than the page's. */
+  contentLang?: string | undefined;
+}
+
+const { conditions, page, listLinks, contentLang } = Astro.props;
+---
+
+<Section aria-labelledby="familiar-title">
+  {page.list && (
+    <div class="mb-16 lg:mb-24" lang={contentLang}>
+      <h2 id="list-title" class="text-h2 text-ink">
+        {page.list.title}
+      </h2>
+      <ul class="mt-8 grid gap-x-12 md:grid-cols-2 lg:mt-12">
+        {page.list.items.map((item, index) => {
+          const link = listLinks[index];
+          return (
+            <li class="border-t border-ink/10 py-6">
+              <h3 class="text-h4 text-ink">{item.title}</h3>
+              {item.body && <p class="mt-2 max-w-prose text-body text-ink/80">{item.body}</p>}
+              {link?.href && (
+                <a
+                  href={link.href}
+                  class="group mt-2 inline-flex items-center gap-2 text-base font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+                >
+                  {link.label}
+                  <ArrowEnd
+                    class="size-5 shrink-0 group-hover:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100"
+                    aria-hidden="true"
+                  />
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
+
+  <h2 id="familiar-title" class="text-h2 text-ink">
+    {conditions.familiar_title}
+  </h2>
+  <!-- What patients tend to say, in their own words: set like spoken statements, not a bullet list. -->
+  <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6" lang={contentLang}>
+    {page.familiar.map((statement) => (
+      <li class="rounded-card bg-surface p-6 md:p-8">
+        <p class="text-h4 font-medium text-ink">{statement}</p>
+      </li>
+    ))}
+  </ul>
+</Section>

@@ -151,26 +151,22 @@
         "needs_check": true,
         "check_note": "Taken from the FAQ answer “Can hormone therapy improve my metabolism?”. Confirm for this page."
       },
-      "faq": ["belly-fat", "metabolism", "weight-loss"],
-      "needs_check": true,
-      "check_note": "Service not confirmed yet (CLAUDE.md, open questions)."
+      "faq": ["belly-fat", "metabolism", "weight-loss"]
     },
     {
       "id": "chronic-disease",
       "meta": {
-        "title": "Chronic Disease | Hormonexperten",
-        "description": "TODO: approved meta description for the Chronic Disease page"
+        "title": "Chronic Disease Package | Hormonexperten",
+        "description": "TODO: approved meta description for the Chronic Disease Package page"
       },
-      "intro": "TODO: one- or two-sentence opener for Chronic Disease",
+      "intro": "TODO: one- or two-sentence opener for Chronic Disease Package",
       "about": {
-        "title": "TODO: section heading for Chronic Disease",
+        "title": "TODO: section heading for Chronic Disease Package",
         "body": [
-          "TODO: approved text describing Chronic Disease: who it is for, what it involves and what patients can expect."
+          "TODO: approved text describing Chronic Disease Package: who it is for, what it involves and what patients can expect."
         ]
       },
-      "faq": [],
-      "needs_check": true,
-      "check_note": "Service not confirmed yet (CLAUDE.md, open questions)."
+      "faq": []
     }
   ]
 }

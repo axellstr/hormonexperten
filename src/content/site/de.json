@@ -4,8 +4,9 @@
     "label": "Hauptnavigation",
     "home": "Hormonexperten, Dr. Wilden: Startseite",
     "items": [
-      { "label": "Über uns" },
+      { "label": "Unser Ansatz" },
       { "label": "Leistungen" },
+      { "label": "Schwerpunkte" },
       { "label": "Unser Team" },
       { "label": "Kontakt" }
     ],
@@ -44,8 +45,8 @@
     },
     {
       "id": "chronic-disease",
-      "title": "Chronische Erkrankungen",
-      "summary": "TODO: Kurzbeschreibung für Chronische Erkrankungen"
+      "title": "Paket Chronische Erkrankungen",
+      "summary": "TODO: Kurzbeschreibung für Paket Chronische Erkrankungen"
     }
   ],
   "footer": {
@@ -65,16 +66,17 @@
         "title": "Leistungen",
         "items": [
           { "label": "Bioidentische Hormone" },
+          { "label": "Behandlungsschwerpunkte" },
           { "label": "Hormontherapie" },
           { "label": "Metabolic Reset" },
           { "label": "Rimkus-Methode®" },
-          { "label": "Chronische Erkrankungen" }
+          { "label": "Paket Chronische Erkrankungen" }
         ]
       },
       {
         "title": "Praxis",
         "items": [
-          { "label": "Über uns" },
+          { "label": "Unser Ansatz" },
           { "label": "Unser Team" },
           { "label": "Kontakt" },
           { "label": "Partner" }

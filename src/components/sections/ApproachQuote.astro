@@ -1,0 +1,98 @@
+---
+import { Picture } from 'astro:assets';
+import ArrowEnd from '../../assets/icons/arrow-end.svg';
+import Quote from '../../assets/icons/quote.svg';
+import type { Locale } from '../../config';
+import { getImage } from '../../lib/assets';
+import { isVisible, memberLang, textLang } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
+import type { ApproachPage, Team } from '../../lib/schemas';
+import Panel from '../ui/Panel.astro';
+import RevealText from '../ui/RevealText.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Locale;
+  founder: ApproachPage['founder'];
+  team: Team;
+}
+
+const { lang, founder: quote, team } = Astro.props;
+
+// The quote is shown only while its author is on the team page; name and role come from there.
+const member = team.members.find((item) => item.id === quote.member);
+if (!member) throw new Error(`Approach quote: unknown team member "${quote.member}"`);
+const founder = isVisible(member) && isVisible(quote) ? member : undefined;
+const profileHref =
+  founder?.profile && isVisible(founder.profile)
+    ? localizeHref(`/team/${founder.id}`, lang)
+    : undefined;
+// Untranslated text falls back to English; say so for screen readers.
+const otherLang = (text: Locale) => (text === lang ? undefined : text);
+const quoteLang = otherLang(textLang('approach', lang, ['founder', 'quote']));
+const roleLang = founder && otherLang(memberLang(lang, founder.id, 'role'));
+---
+
+<!--
+  The founder in her own words: a round portrait beside the statement, which is set large and
+  start-aligned, with her name under a hairline. Phones: portrait above, the text below it.
+-->
+{founder && (
+  <Section spacing="compact">
+    <Panel class="px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-24 xl:py-24">
+      <figure class="grid items-center gap-10 md:grid-cols-12 md:gap-12 xl:gap-20">
+        <!--
+          The photo sits in a hairline ring, a circle round a circle. The quote badge is centred on
+          that ring at 45° (1/7 of the box in from each side), cut out of the photo by a surface border.
+        -->
+        <div class="relative w-52 sm:w-60 md:col-span-5 md:w-full md:max-w-sm md:justify-self-center">
+          <div class="rounded-full p-2.5 ring-1 ring-coral/50 md:p-3">
+            <Picture
+              src={getImage(quote.image)}
+              alt={quote.image_alt}
+              formats={['avif', 'webp']}
+              widths={[240, 360, 480, 720]}
+              sizes="(min-width: 768px) 360px, 220px"
+              class="aspect-square w-full rounded-full object-cover"
+            />
+          </div>
+          <span
+            aria-hidden="true"
+            class="absolute end-1/7 bottom-1/7 grid size-14 translate-x-1/2 translate-y-1/2 place-items-center rounded-full border-4 border-surface bg-coral text-on-dark md:size-16 rtl:-translate-x-1/2"
+          >
+            <Quote class="size-6 md:size-7" />
+          </span>
+        </div>
+
+        <div class="md:col-span-7">
+          <blockquote lang={quoteLang}>
+            <p class="reveal-text text-h2 font-medium text-ink">
+              <RevealText text={quote.quote} />
+            </p>
+          </blockquote>
+          <figcaption class="mt-8 flex flex-col gap-5 border-t border-ink/10 pt-6 lg:mt-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+            <div class="border-s-2 border-coral ps-4">
+              <p class="text-body font-medium text-ink">{founder.name}</p>
+              <p lang={roleLang} class="mt-1 max-w-sm text-sm text-ink/70">
+                {founder.role}
+              </p>
+            </div>
+            {profileHref && (
+              <a
+                href={profileHref}
+                class="group inline-flex shrink-0 items-center gap-2 self-start rounded-sm text-base font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors lg:self-auto"
+              >
+                {quote.link}
+                <span class="sr-only">: {founder.name}</span>
+                <ArrowEnd
+                  class="size-5 shrink-0 group-hover:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100"
+                  aria-hidden="true"
+                />
+              </a>
+            )}
+          </figcaption>
+        </div>
+      </figure>
+    </Panel>
+  </Section>
+)}

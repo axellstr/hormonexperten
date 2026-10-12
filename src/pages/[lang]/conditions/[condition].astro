@@ -1,0 +1,66 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import ConditionApproach from '../../../components/sections/ConditionApproach.astro';
+import ConditionHero from '../../../components/sections/ConditionHero.astro';
+import ConditionSymptoms from '../../../components/sections/ConditionSymptoms.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { resolveLink, resolveLinks } from '../../../lib/conditions';
+import {
+  conditionPageLang,
+  getConditions,
+  getHome,
+  getSite,
+  isVisible,
+} from '../../../lib/content';
+import type { ConditionPage } from '../../../lib/schemas';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) =>
+    getConditions(lang)
+      .pages.filter(isVisible)
+      .map((page) => ({ params: { lang, condition: page.id }, props: { lang, page } })),
+  );
+}
+
+interface Props {
+  lang: Locale;
+  page: ConditionPage;
+}
+
+const { lang, page } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const conditions = getConditions(lang);
+
+const related = resolveLinks(page.related, lang);
+const listLinks = (page.list?.items ?? []).map((item) =>
+  item.link ? resolveLink(item.link, lang) : null,
+);
+
+// Untranslated page text falls back to English; say so for screen readers.
+const bodyLang = conditionPageLang(lang, page.id);
+const contentLang = bodyLang === lang ? undefined : bodyLang;
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={`${page.name} | Hormonexperten`}
+  description={page.summary}
+>
+  <ConditionHero lang={lang} contentLang={contentLang} conditions={conditions} page={page} />
+  <ConditionSymptoms
+    conditions={conditions}
+    page={page}
+    listLinks={listLinks}
+    contentLang={contentLang}
+  />
+  <ConditionApproach
+    conditions={conditions}
+    page={page}
+    related={related}
+    contentLang={contentLang}
+  />
+  <ClosingCta closing={{ ...home.closing, cta: conditions.cta }} />
+</BaseLayout>

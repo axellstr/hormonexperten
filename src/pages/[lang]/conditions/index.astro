@@ -1,0 +1,64 @@
+---
+import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import ConditionGroups from '../../../components/sections/ConditionGroups.astro';
+import ConditionsCoCare from '../../../components/sections/ConditionsCoCare.astro';
+import ConditionsHero from '../../../components/sections/ConditionsHero.astro';
+import { LOCALES, type Locale } from '../../../config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getConditions, getHome, getSite, isVisible, textLang } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const conditions = getConditions(lang);
+
+const groups = conditions.groups
+  .map((group) => ({
+    ...group,
+    pages: group.items.flatMap((id) => {
+      const page = conditions.pages.find((item) => item.id === id);
+      if (!page) throw new Error(`Condition group "${group.id}" lists unknown page "${id}"`);
+      return isVisible(page) ? [page] : [];
+    }),
+  }))
+  .filter((group) => group.pages.length > 0);
+
+// Untranslated text falls back to English; say so for screen readers.
+const fallback = (path: string[]) => {
+  const used = textLang('conditions', lang, path);
+  return used === lang ? undefined : used;
+};
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={conditions.meta.title}
+  description={conditions.meta.description}
+>
+  <ConditionsHero
+    conditions={conditions}
+    groups={groups.map((group) => ({
+      id: group.id,
+      title: group.title,
+      count: group.pages.length,
+    }))}
+    contentLang={fallback(['intro'])}
+  />
+  <ConditionGroups
+    lang={lang}
+    conditions={conditions}
+    groups={groups}
+    contentLang={fallback(['pages'])}
+  />
+  <ConditionsCoCare coCare={conditions.co_care} contentLang={fallback(['co_care'])} />
+  <ClosingCta closing={{ ...home.closing, cta: conditions.cta }} />
+</BaseLayout>

@@ -166,4 +166,4 @@ Build each section as its own component in `src/components/sections/`, with shar
 
 - Final booking URL (Pabau) and whether "Book Now" goes straight to booking or to a pricing page first.
 - Which trust logos and testimonials are real and approved.
-- Services list: the footer adds "Metabolic Reset" and "Chronic Disease", which aren't in the card row. Are they real services?
+- Services list: "Metabolic Reset" and "Chronic Disease Package" were confirmed as services on 12 Oct 2026 (Conditions We Treat v2 doc); their page copy is still missing. "Premium Hormone Package", "Female hormones", "Thyroid therapy", "Micronutrient Therapy", "Gut Health Support" and "Weight management" are linked from condition pages but have no page yet.

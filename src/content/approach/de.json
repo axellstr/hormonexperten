@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Unser Ansatz | Hormonexperten",
+    "description": "Wir nehmen uns Zeit, Sie kennenzulernen: Ihre Geschichte, Ihr Leben und das, was Sie bisher mit sich getragen haben – nicht nur Ihre Symptome."
+  },
+  "hero": {
+    "eyebrow": "Unser Ansatz",
+    "title": "Medizin, die sich Zeit für Sie nimmt",
+    "lead": "Wir nehmen uns Zeit, Sie kennenzulernen: Ihre Geschichte, Ihr Leben und das, was Sie bisher mit sich getragen haben – nicht nur Ihre Symptome.",
+    "body": "Weil Hormone, Stoffwechsel und Mikronährstoffe ein zusammenhängendes System bilden, betrachten wir das Gesamtbild – gestützt auf mehr als 35 Jahre Erfahrung in vielen medizinischen Fachgebieten und auf aktuelle Forschung. Sie gehen verstanden, informiert und voller Zuversicht, mit einer Ärztin, die Ihnen weiterhin eng zur Seite steht.",
+    "cta": "Ihr Erstgespräch buchen",
+    "facts": {
+      "title": "Auf einen Blick",
+      "items": [
+        {
+          "label": "Gegründet von Dr. Isabella Wilden"
+        },
+        {
+          "value": "100 %",
+          "label": "online betreut, ohne Wartezimmer"
+        },
+        {
+          "label": "EU-Länder, in denen Dr. Wilden als Ärztin zugelassen ist"
+        }
+      ]
+    }
+  },
+  "pillars": {
+    "title": "Unsere vier Säulen",
+    "items": [
+      {
+        "title": "Zeit, Sie kennenzulernen",
+        "body": "Ihre Geschichte, Ihr Leben und Ihr Wohlbefinden – nicht nur Ihre Laborwerte. Unser Erstgespräch dauert 60 Minuten."
+      },
+      {
+        "title": "Alles hängt zusammen",
+        "body": "Hormone, Stoffwechsel und Mikronährstoffe, betrachtet als ein System, damit Ihr ganzer Körper verstanden wird."
+      },
+      {
+        "title": "Erfahrung aus vielen Fachgebieten",
+        "body": "Mehr als 35 Jahre in Allgemeinmedizin, Forschung, Psychoonkologie, Chirurgie, Akupunktur und orthomolekularer Medizin, ergänzt durch eine Ausbildung in Gynäkologie und aktuelle Forschung zu Hormonen und Stoffwechsel."
+      },
+      {
+        "title": "Sie gehen gestärkt",
+        "body": "Verstanden, informiert und voller Zuversicht, mit einer Ärztin, die Ihnen weiterhin eng zur Seite steht."
+      }
+    ]
+  },
+  "founder": {
+    "link": "Zum vollständigen Profil"
+  },
+  "team": {
+    "more": "Unser Team kennenlernen"
+  }
+}

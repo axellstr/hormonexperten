@@ -1,0 +1,39 @@
+---
+import ApproachHero from '../../components/sections/ApproachHero.astro';
+import ApproachPillars from '../../components/sections/ApproachPillars.astro';
+import ApproachQuote from '../../components/sections/ApproachQuote.astro';
+import ClosingCta from '../../components/sections/ClosingCta.astro';
+import ServiceSteps from '../../components/sections/ServiceSteps.astro';
+import TeamBrief from '../../components/sections/TeamBrief.astro';
+import { LOCALES, type Locale } from '../../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getApproach, getHome, getSite, getTeam } from '../../lib/content';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const team = getTeam(lang);
+const approach = getApproach(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={approach.meta.title}
+  description={approach.meta.description}
+>
+  <ApproachHero hero={approach.hero} />
+  <ApproachPillars pillars={approach.pillars} />
+  <ApproachQuote lang={lang} founder={approach.founder} team={team} />
+  <ServiceSteps how={home.how} />
+  <TeamBrief lang={lang} team={team} more={approach.team.more} />
+  <ClosingCta closing={home.closing} />
+</BaseLayout>

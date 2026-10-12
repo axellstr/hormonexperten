@@ -3,14 +3,14 @@ import { Picture } from 'astro:assets';
 import { BOOKING_URL } from '../../config';
 import { getImage } from '../../lib/assets';
 import { visible } from '../../lib/content';
-import type { About } from '../../lib/schemas';
+import type { ApproachPage } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Placeholder from '../ui/Placeholder.astro';
 
 interface Props {
-  hero: About['hero'];
+  hero: ApproachPage['hero'];
 }
 
 const { hero } = Astro.props;
@@ -22,16 +22,18 @@ const photo = 'aspect-3/4 w-full rounded-panel object-cover';
 <div class="mt-4 lg:mt-6" data-hero>
   <Container>
     <section
-      aria-labelledby="about-title"
+      aria-labelledby="approach-title"
       class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
     >
       <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
         <div class="lg:col-span-6">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
-          <h1 id="about-title" class="mt-4 text-display text-ink">
+          <h1 id="approach-title" class="mt-4 text-display text-ink">
             {hero.title}
           </h1>
-          <p class="mt-6 max-w-prose text-lead text-ink/80">{hero.intro}</p>
+          <!-- One approved paragraph, set as an opening sentence and the text that follows it. -->
+          <p class="mt-6 max-w-prose text-lead text-ink/80">{hero.lead}</p>
+          <p class="mt-4 max-w-prose text-body text-ink/80">{hero.body}</p>
           <Button href={BOOKING_URL} class="mt-10">
             {hero.cta}
           </Button>

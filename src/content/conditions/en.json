@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "title": "Conditions we treat | Hormonexperten",
+    "description": "Whether your cycle has changed, your energy has dropped or your body no longer feels like your own, there is rarely just one cause. That’s why we always look at your hormones, your metabolism and your overall health together."
+  },
+  "eyebrow": "Conditions we treat",
+  "title": "Your hormones and your metabolism, looked at together",
+  "intro": "Whether your cycle has changed, your energy has dropped or your body no longer feels like your own, there is rarely just one cause. That’s why we always look at your hormones, your metabolism and your overall health together. We listen first, look deeper than the standard tests and stay by your side until your treatment truly fits you.",
+  "cta": "Book your initial consultation",
+  "breadcrumb_label": "Breadcrumb",
+  "groups_label": "Condition groups",
+  "learn_more": "Learn more",
+  "more": "These are the conditions we see most often, but not the only ones. If your symptoms aren’t listed here, or you’re not sure where they belong, book your initial consultation and we’ll look at the full picture together.",
+  "co_care": {
+    "title": "Already in care with your gynaecologist?",
+    "body": "We can work alongside your gynaecologist, for example if you would like a second opinion or a different approach to the treatment you have been offered. Your existing care stays in place."
+  },
+  "familiar_title": "Does this sound familiar?",
+  "approach_title": "How we approach it",
+  "related_title": "Related",
+  "groups": [
+    {
+      "id": "hormones-cycle",
+      "title": "Hormones & cycle",
+      "items": [
+        "perimenopause",
+        "menopause",
+        "cycle-disturbances",
+        "pms-pmdd",
+        "amenorrhoea",
+        "endometriosis"
+      ]
+    },
+    {
+      "id": "metabolism",
+      "title": "Metabolism",
+      "items": ["pmos-pcos", "insulin-resistance"]
+    },
+    {
+      "id": "thyroid",
+      "title": "Thyroid",
+      "items": ["thyroid"]
+    },
+    {
+      "id": "chronic-autoimmune",
+      "title": "Chronic & autoimmune conditions",
+      "items": ["chronic-autoimmune"]
+    }
+  ],
+  "pages": [
+    {
+      "id": "perimenopause",
+      "name": "Perimenopause",
+      "summary": "Your cycle is changing, and so is your quality of life. Often the first signs start in your early forties, sometimes earlier.",
+      "title": "Perimenopause: when everything starts to shift",
+      "intro": "Perimenopause is the transition before your last period. It often begins in your early forties, sometimes earlier, and can last several years. Hormone levels fluctuate strongly, and many women feel it long before their periods stop.",
+      "familiar": [
+        "“My cycle is completely unpredictable. I can’t plan anything anymore.”",
+        "“I sleep badly, wake up too early and I’m exhausted all day.”",
+        "“I’m irritable and tearful, and my family feels it.”",
+        "“I forget things and lose my train of thought.”",
+        "“My weight is almost the same, but my body has changed.”",
+        "“My labs are ‘fine’, but I don’t feel fine.”"
+      ],
+      "approach": "We look at your symptoms, your cycle and your history, not just a single lab value, because hormone levels in perimenopause change from day to day. Together we decide whether hormone therapy, metabolic support or other measures make sense for you.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Premium Hormone Package",
+          "needs_check": true,
+          "check_note": "No page for this package yet."
+        }
+      ]
+    },
+    {
+      "id": "menopause",
+      "name": "Menopause",
+      "summary": "Hot flushes, sleepless nights, a changing body. We support you to feel powerful, strong and full of life in this new chapter of life.",
+      "title": "Menopause: a new chapter, not the end of feeling well",
+      "intro": "Menopause is confirmed when you haven’t had a period for twelve months. The drop in oestrogen and progesterone can affect your sleep, mood, skin, intimate health, bones and heart. You don’t have to simply accept these changes.",
+      "familiar": [
+        "“Hot flushes and night sweats take over my days and nights.”",
+        "“I wake up at 3 a.m. and stay awake.”",
+        "“My skin is drier, my hair is thinner.”",
+        "“Sex has become painful, and I have no desire anymore.”",
+        "“I wake up stiff, and my joints hurt.”",
+        "“I’m worried about osteoporosis because it runs in my family.”"
+      ],
+      "approach": "We weigh the benefits and risks of hormone therapy for you personally, based on your age, your health history and your goals. Beyond your symptoms, we also look at your long-term health: bones, metabolism and heart. For a stronger version of you.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Premium Hormone Package",
+          "needs_check": true,
+          "check_note": "No page for this package yet."
+        }
+      ]
+    },
+    {
+      "id": "cycle-disturbances",
+      "name": "Cycle disturbances",
+      "summary": "Irregular, heavy, painful or very short cycles that make it hard to plan your life.",
+      "title": "Cycle disturbances: when your period runs your life",
+      "intro": "Cycles that are too short, too long, too heavy or too painful are common, but they are not something you simply have to live with. Often hormones, metabolism or the thyroid are involved.",
+      "familiar": [
+        "“My period comes every two to three weeks, or I never know when it will come.”",
+        "“My bleeding is so heavy that I plan my day around the next toilet.”",
+        "“I have spotting between my periods.”",
+        "“My period pain is so strong that I can’t work.”"
+      ],
+      "approach": "We look at your cycle pattern, your hormones, your thyroid and your metabolism together. If you wish, we track your cycle with you to see what is really happening. Heavy or changed bleeding should first be examined by a gynaecologist, to rule out causes such as fibroids or polyps. We work alongside your gynaecologist.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Thyroid therapy",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        }
+      ]
+    },
+    {
+      "id": "pms-pmdd",
+      "name": "PMS & PMDD",
+      "summary": "When the days before your period change your mood, energy and relationships.",
+      "title": "PMS & PMDD: when the days before your period change who you are",
+      "intro": "Premenstrual syndrome (PMS) brings physical and emotional symptoms in the days before your period. Premenstrual dysphoric disorder (PMDD) is its severe form, with strong mood changes that can affect work, relationships and quality of life. Both typically ease within a few days after your period starts.",
+      "familiar": [
+        "“For one or two weeks every month, I don’t recognise myself.”",
+        "“I’m irritable, anxious or sad, and then it’s suddenly gone when my period starts.”",
+        "“My breasts hurt, I feel bloated and I crave sweets.”",
+        "“I argue with my partner every month at the same time.”"
+      ],
+      "approach": "We start by tracking your symptoms across your cycle, so we can see the pattern clearly. Then we look at your hormones, metabolism and micronutrients, and decide together which options suit you, with or without hormones. If mood symptoms are severe, we recommend additional psychological or psychiatric support.",
+      "safety": "If you have very low mood or thoughts of harming yourself, please seek urgent help from your local emergency services or a crisis line.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Micronutrient Therapy",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        }
+      ]
+    },
+    {
+      "id": "amenorrhoea",
+      "name": "Amenorrhoea",
+      "summary": "When your period stops or doesn’t come at all, there is always a reason worth finding.",
+      "title": "Amenorrhoea: when your period stays away",
+      "intro": "If your period has stopped for several months, or has never started, your body is sending a signal. The causes range from PMOS (formerly PCOS) and thyroid disorders to stress, intense training, weight changes or an early decline in ovarian function. Finding the cause matters, for your cycle, your fertility and your bones.",
+      "familiar": [
+        "“I haven’t had a period for months, and nobody can tell me why.”",
+        "“I stopped the pill, and my period never came back.”",
+        "“Since I lost weight or started training more, my cycle has disappeared.”",
+        "“I want to get pregnant one day, and I’m worried.”"
+      ],
+      "approach": "After ruling out pregnancy, we look for the cause step by step: hormones, thyroid, metabolism, energy balance and your history. Then we build a plan with you, whether your goal is a regular cycle, protecting your bones or preparing for pregnancy.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Thyroid therapy",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        { "label": "PMOS (formerly PCOS)", "condition": "pmos-pcos" }
+      ]
+    },
+    {
+      "id": "endometriosis",
+      "name": "Endometriosis",
+      "summary": "A different approach: we aim to calm inflammation throughout the body and support your hormonal and metabolic health.",
+      "title": "Endometriosis: support beyond the operating room",
+      "intro": "In endometriosis, tissue similar to the lining of the uterus grows outside it. It can cause severe period pain, pain during sex, heavy bleeding, fatigue, bowel or bladder symptoms and difficulty getting pregnant. Surgery can be necessary, but it is rarely the whole answer.",
+      "familiar": [
+        "“I’ve had surgery, and the pain came back.”",
+        "“My period pain is so strong that I lose days every month.”",
+        "“I’m exhausted all the time, and my gut is always irritated.”",
+        "“Nobody has ever looked at my hormones or my metabolism.”"
+      ],
+      "approach": "We work alongside your gynaecologist or endometriosis centre. We look at your hormones, inflammation, metabolism and gut health, and add supportive measures such as micronutrients and nutrition. If you would like a different approach to the treatment you have been offered, we take the time to explain your options.",
+      "related": [
+        {
+          "label": "Female hormones",
+          "needs_check": true,
+          "check_note": "No page for this yet. Link it to a service once one exists."
+        },
+        {
+          "label": "Gut Health Support",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        { "label": "Chronic Disease Package", "service": "chronic-disease" }
+      ]
+    },
+    {
+      "id": "pmos-pcos",
+      "name": "PMOS (formerly PCOS)",
+      "summary": "Irregular cycles, skin and hair changes, weight that won’t shift. Hormones and metabolism, treated as one.",
+      "title": "PMOS (formerly PCOS): hormones and metabolism, treated as one",
+      "intro": "Polycystic ovary syndrome (PCOS) has a new name: polyendocrine metabolic ovarian syndrome, or PMOS. The new name, agreed internationally in 2026, reflects what research has shown for years: this is not just about the ovaries. It affects your cycle, skin and hair, and very often your metabolism. Many women with PMOS also have insulin resistance, which is why treating it without looking at metabolism often misses half the picture.",
+      "familiar": [
+        "“My periods are irregular or don’t come at all.”",
+        "“I have acne, unwanted hair growth or thinning hair on my head.”",
+        "“I gain weight easily, especially around my belly, and it won’t shift.”",
+        "“I have cravings and energy crashes after meals.”",
+        "“I want to get pregnant, and it isn’t working.”"
+      ],
+      "approach": "We look at your hormones and your metabolism together, including blood sugar and insulin sensitivity and, if suitable, continuous glucose monitoring. Depending on your goals, your plan can include hormonal treatment, metabolic support, weight management, nutrition and cycle tracking.",
+      "approach_more": {
+        "text": "PMOS and its metabolic effects are at the centre of Dr. Yvonne Tuszing’s research.",
+        "needs_check": true,
+        "check_note": "Dr. Tuszing’s credentials are unconfirmed (CLAUDE.md); show this once her profile is confirmed."
+      },
+      "related": [
+        { "label": "Insulin resistance", "condition": "insulin-resistance" },
+        {
+          "label": "Weight management",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        { "label": "Metabolic Reset", "service": "metabolic-reset" }
+      ]
+    },
+    {
+      "id": "insulin-resistance",
+      "name": "Insulin resistance",
+      "summary": "Cravings, energy crashes and belly fat that won’t move. Often the hidden driver behind hormonal symptoms.",
+      "title": "Insulin resistance: the hidden driver behind many hormonal symptoms",
+      "intro": "In insulin resistance, your cells respond less to insulin, so your body has to produce more of it to keep your blood sugar stable. This can go on for years while standard blood sugar values still look normal. Meanwhile, high insulin can affect your cycle, your weight, your energy and your long-term health.",
+      "familiar": [
+        "“I’m tired after every meal and crave sweets in the afternoon.”",
+        "“My belly keeps growing, even though I eat well.”",
+        "“My blood sugar is ‘normal’, but I still feel something is off.”",
+        "“I have PMOS, and nobody has ever checked my insulin.”",
+        "“Diabetes runs in my family, and I want to prevent it.”"
+      ],
+      "approach": "We look beyond a single blood sugar value: insulin, metabolic markers, body composition and, if suitable, continuous glucose monitoring, so you can see how your body reacts to food, sleep and stress. Your plan combines nutrition, movement and muscle-building, sleep and, if medically appropriate, medication. Because insulin and sex hormones influence each other, we always look at your cycle and hormones too.",
+      "related": [
+        { "label": "Metabolic Reset", "service": "metabolic-reset" },
+        {
+          "label": "Weight management",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        { "label": "PMOS (formerly PCOS)", "condition": "pmos-pcos" }
+      ]
+    },
+    {
+      "id": "thyroid",
+      "name": "Thyroid problems",
+      "summary": "Tired, cold and losing hair, or restless and on edge. Underactive and overactive thyroid, including Hashimoto’s.",
+      "title": "Thyroid problems: small gland, big impact",
+      "intro": "Your thyroid influences your energy, weight, hair, mood and cycle. Whether it is underactive, affected by Hashimoto’s or, in some cases, overactive, we look at your symptoms and your results together, not just the reference range.",
+      "familiar": [
+        "“I’m tired all the time, no matter how much I sleep.”",
+        "“My hair is falling out and getting thinner.”",
+        "“I’m gaining weight even though I haven’t changed anything.”",
+        "“I’m always cold.”",
+        "“My heart races and I feel restless and on edge.”",
+        "“My thyroid values are ‘normal’, but I still don’t feel well.”"
+      ],
+      "approach": "We assess your thyroid in the context of your other hormones, your cycle and your metabolism. Your plan can include thyroid medication, regular checks and supporting treatments such as micronutrient therapy. If imaging or a specialist opinion is needed, we refer you.",
+      "related": [
+        {
+          "label": "Thyroid therapy",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        { "label": "Chronic & autoimmune conditions", "condition": "chronic-autoimmune" }
+      ]
+    },
+    {
+      "id": "chronic-autoimmune",
+      "name": "Chronic & autoimmune conditions",
+      "card_title": "Rheumatoid arthritis, Sjögren’s syndrome, osteoarthritis",
+      "summary": "When joints, energy and inflammation are affected, we look at how hormones and metabolism fit into the picture, alongside your specialist care.",
+      "title": "Chronic & autoimmune conditions: seeing the whole picture",
+      "intro": "Autoimmune conditions such as rheumatoid arthritis and Sjögren’s syndrome are far more common in women, and many women notice their symptoms change with their cycle, pregnancy or menopause. Osteoarthritis also becomes more common after menopause. Hormones, metabolism and inflammation are closely linked, so we look at them together.",
+      "list": {
+        "title": "Conditions we often see",
+        "items": [
+          {
+            "title": "Rheumatoid arthritis",
+            "body": "Joint pain, swelling and morning stiffness, often with fatigue."
+          },
+          {
+            "title": "Sjögren’s syndrome",
+            "body": "Dry eyes and mouth, fatigue and joint pain."
+          },
+          {
+            "title": "Osteoarthritis",
+            "body": "Joint pain and stiffness that often increases around and after menopause."
+          },
+          {
+            "title": "Hashimoto’s thyroiditis",
+            "link": { "label": "See Thyroid problems", "condition": "thyroid" }
+          }
+        ]
+      },
+      "familiar": [
+        "“I wake up with swollen hands and stiff joints.”",
+        "“I’ve seen so many doctors, and nobody connects the dots.”",
+        "“I take several medications and I’m not sure they all still fit together.”",
+        "“Since menopause, my joint pain has become much worse.”",
+        "“I’m exhausted all the time.”"
+      ],
+      "approach": "We look at your symptoms systematically and see the whole picture: we review your current medication, look at your hormonal phase, your metabolism, inflammation, micronutrients and gut health, and build a plan that fits around your existing treatment.",
+      "related": [
+        { "label": "Chronic Disease Package", "service": "chronic-disease" },
+        {
+          "label": "Micronutrient Therapy",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        },
+        {
+          "label": "Gut Health Support",
+          "needs_check": true,
+          "check_note": "No page for this service yet."
+        }
+      ]
+    }
+  ]
+}

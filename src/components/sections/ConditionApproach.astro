@@ -1,0 +1,76 @@
+---
+import ArrowEnd from '../../assets/icons/arrow-end.svg';
+import Info from '../../assets/icons/info.svg';
+import { isVisible } from '../../lib/content';
+import type { ResolvedLink } from '../../lib/conditions';
+import type { ConditionPage, Conditions } from '../../lib/schemas';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  conditions: Conditions;
+  page: ConditionPage;
+  related: ResolvedLink[];
+  /** Set when the page body falls back to another language than the page's. */
+  contentLang?: string | undefined;
+}
+
+const { conditions, page, related, contentLang } = Astro.props;
+const more = page.approach_more && isVisible(page.approach_more) ? page.approach_more : undefined;
+---
+
+<Section spacing="compact" aria-labelledby="approach-title">
+  <Panel class="grid gap-8 px-6 py-10 md:px-12 md:py-14 lg:grid-cols-12 lg:gap-12 lg:py-16 xl:gap-20 xl:px-16">
+    <h2 id="approach-title" class="text-h2 text-ink lg:col-span-5">
+      {conditions.approach_title}
+    </h2>
+
+    <div class="lg:col-span-7">
+      <p lang={contentLang} class="max-w-prose text-body text-ink/80">
+        {page.approach}
+        {more && ` ${more.text}`}
+      </p>
+
+      {page.safety && (
+        <p
+          role="note"
+          lang={contentLang}
+          class="mt-6 flex max-w-prose gap-3 rounded-card bg-bg p-4 text-sm text-ink"
+        >
+          <Info class="size-5 shrink-0 text-ink" aria-hidden="true" />
+          <span>{page.safety}</span>
+        </p>
+      )}
+
+      {related.length > 0 && (
+        <div class="mt-10 border-t border-ink/10 pt-8">
+          <h3 id="related-title" class="text-h4 text-ink">
+            {conditions.related_title}
+          </h3>
+          <ul aria-labelledby="related-title" class="mt-4 flex flex-wrap gap-2" lang={contentLang}>
+            {related.map((link) => (
+              <li>
+                {link.href ? (
+                  <a
+                    href={link.href}
+                    class="group inline-flex min-h-11 items-center gap-2 rounded-full bg-bg px-5 py-2 text-base font-medium text-ink ring-1 ring-ink/10 hover:bg-coral-tint hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition"
+                  >
+                    {link.label}
+                    <ArrowEnd
+                      class="size-4 shrink-0 group-hover:translate-x-0.5 motion-safe:transition-transform rtl:-scale-x-100"
+                      aria-hidden="true"
+                    />
+                  </a>
+                ) : (
+                  <span class="inline-flex min-h-11 items-center rounded-full px-5 py-2 text-base font-medium text-ink/70 ring-1 ring-ink/10">
+                    {link.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </Panel>
+</Section>

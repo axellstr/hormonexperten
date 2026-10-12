@@ -472,9 +472,10 @@ const sheetDelay = [
                     sheetDelay[4],
                   ]}
                 >
-                  <div class="flex flex-wrap items-start justify-between gap-x-10 gap-y-6">
+                  <!-- Stacked and start-aligned on phones; side by side from sm, the languages at the end. -->
+                  <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
                     {social.length > 0 && (
-                      <div class="shrink-0">
+                      <div>
                         <Eyebrow id="sheet-socials">{nav.socials}</Eyebrow>
                         <ul aria-labelledby="sheet-socials" class="mt-3 flex flex-wrap gap-2">
                           {social.map((item) => {
@@ -498,7 +499,7 @@ const sheetDelay = [
                       lang={lang}
                       label={nav.language}
                       inline
-                      class="ms-auto min-w-0 max-w-md basis-56"
+                      class="shrink-0"
                     />
                   </div>
                   <Button href={BOOKING_URL} class="w-full sm:hidden">

@@ -30,8 +30,8 @@ const linkClass =
   <div class={className}>
     <Eyebrow id="language-menu-label">{label}</Eyebrow>
     <nav aria-labelledby="language-menu-label" class="mt-3">
-      <!-- Compact language codes keep all choices visible in one row on narrow screens. -->
-      <ul class="grid grid-cols-4 gap-2">
+      <!-- Compact codes in circles the size of the menu's social icons, so the two rows match. -->
+      <ul class="flex flex-wrap gap-2">
         {links.map((link) => (
           <li>
             <a
@@ -41,7 +41,7 @@ const linkClass =
               aria-label={link.name}
               aria-current={link.current ? 'true' : undefined}
               class:list={[
-                'flex min-h-12 items-center justify-center rounded-full px-2 text-base font-medium uppercase whitespace-nowrap hyphens-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors',
+                'grid size-12 place-items-center rounded-full text-base font-medium uppercase whitespace-nowrap hyphens-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors',
                 link.current
                   ? 'bg-ink text-on-dark'
                   : 'bg-bg text-ink hover:bg-coral-tint',

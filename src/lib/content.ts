@@ -1,7 +1,8 @@
 import { z } from 'astro/zod';
 import { DEFAULT_LOCALE, SHOW_UNCONFIRMED, type Locale } from '../config';
 import {
-  aboutSchema,
+  approachSchema,
+  conditionsSchema,
   contactSchema,
   faqSchema,
   homeSchema,
@@ -66,7 +67,17 @@ const NBSP = ' ';
 const NARROW_NBSP = ' ';
 
 /** Keys that hold identifiers, paths or URLs rather than text to read. */
-const VERBATIM_KEYS = new Set(['id', 'href', 'image', 'logo', 'icon', 'source', 'submenu']);
+const VERBATIM_KEYS = new Set([
+  'id',
+  'href',
+  'image',
+  'logo',
+  'icon',
+  'source',
+  'submenu',
+  'condition',
+  'service',
+]);
 
 /**
  * Non-breaking spaces where a line break would split what belongs together (CLAUDE.md,
@@ -122,8 +133,9 @@ export const getFaq = (lang: Locale) => load('faq', faqSchema, lang);
 export const getTeam = (lang: Locale) => load('team', teamSchema, lang);
 export const getServices = (lang: Locale) => load('services', servicesSchema, lang);
 export const getLegal = (lang: Locale) => load('legal', legalSchema, lang);
-export const getAbout = (lang: Locale) => load('about', aboutSchema, lang);
+export const getApproach = (lang: Locale) => load('approach', approachSchema, lang);
 export const getContact = (lang: Locale) => load('contact', contactSchema, lang);
+export const getConditions = (lang: Locale) => load('conditions', conditionsSchema, lang);
 
 /**
  * The language a team member's `role` or `profile` is written in: the locale when its own file
@@ -143,6 +155,14 @@ export function servicePageLang(lang: Locale, id: string): Locale {
   const pages = files[`../content/services/${lang}.json`]?.pages;
   const translated =
     Array.isArray(pages) && pages.some((page) => hasId(page) && page.id === id && 'about' in page);
+  return translated ? lang : DEFAULT_LOCALE;
+}
+
+/** The language a condition page's body is written in: the locale when its file has one, else English. */
+export function conditionPageLang(lang: Locale, id: string): Locale {
+  const pages = files[`../content/conditions/${lang}.json`]?.pages;
+  const translated =
+    Array.isArray(pages) && pages.some((page) => hasId(page) && page.id === id && 'intro' in page);
   return translated ? lang : DEFAULT_LOCALE;
 }
 
