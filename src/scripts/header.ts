@@ -11,6 +11,9 @@
  *   - the [data-menu-sheet] menu (mobile) is a full-screen sheet behind the header pill: it grows
  *     out of the pill and back into it, and the page behind it is inert while it's open
  *
+ * Nav (the [data-nav-track] list): a pill ([data-nav-indicator]) slides to the mouse-hovered or
+ * focused item and otherwise rests on the item whose section is on screen.
+ *
  * Header ([data-header]): gets `data-scrolled` once the hero ([data-hero]) has scrolled up behind
  * it, or on pages without one once the page scrolls, for its outline. It moves up with the page
  * while scrolling down and springs back on the way up (`data-hidden` once fully out of view).
@@ -312,6 +315,99 @@ document.addEventListener('keydown', (event) => {
     if (hadFocus) menu.querySelector('summary')?.focus();
   }
 });
+
+// Sliding pill behind the nav items.
+const track = document.querySelector<HTMLElement>('[data-nav-track]');
+const indicator = document.querySelector<HTMLElement>('[data-nav-indicator]');
+const bar = indicator?.closest<HTMLElement>('[data-header-bar]');
+
+if (track && indicator && bar) {
+  const items = [...track.querySelectorAll<HTMLElement>('[data-nav-item]')];
+  let target: HTMLElement | null = null;
+  let current: HTMLElement | null = null;
+
+  const place = (item: HTMLElement | null) => {
+    target = item;
+    if (!item || item.offsetWidth === 0) {
+      indicator.style.opacity = '0';
+      return;
+    }
+    const box = item.getBoundingClientRect();
+    const frame = bar.getBoundingClientRect();
+    const rtl = getComputedStyle(bar).direction === 'rtl';
+    // The pill is anchored at the bar's inline start; move it onto the item.
+    const x = rtl ? box.right - frame.right : box.left - frame.left;
+    const appearing = indicator.style.opacity !== '1';
+    // Don't slide in from wherever the pill last was: appear in place.
+    if (appearing) indicator.style.transitionProperty = 'opacity';
+    indicator.style.translate = `${x}px ${box.top - frame.top}px`;
+    indicator.style.width = `${box.width}px`;
+    indicator.style.height = `${box.height}px`;
+    indicator.style.opacity = '1';
+    if (appearing) {
+      void indicator.offsetWidth;
+      indicator.style.transitionProperty = '';
+    }
+  };
+
+  const rest = () => {
+    const open = items.find((item) => {
+      const menu = item.closest<HTMLDetailsElement>('details[data-menu]');
+      return menu && isShown(menu);
+    });
+    place(open ?? current);
+  };
+
+  // Only a mouse moves the pill. A tap on iOS also fires pointerenter and leaves :hover stuck on
+  // the item until the next tap elsewhere, which pinned the pill to the tapped item; so hover is
+  // tracked here from mouse events rather than read from :hover.
+  let hovering = false;
+
+  track.setAttribute('data-enhanced', '');
+  for (const item of items) {
+    item.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'mouse') place(item);
+    });
+    item.addEventListener('focus', () => place(item));
+  }
+  track.addEventListener('pointerenter', (event) => {
+    if (event.pointerType === 'mouse') hovering = true;
+  });
+  track.addEventListener('pointerleave', (event) => {
+    if (event.pointerType !== 'mouse') return;
+    hovering = false;
+    rest();
+  });
+  track.addEventListener('focusout', (event) => {
+    if (!track.contains(event.relatedTarget as Node | null)) rest();
+  });
+  for (const menu of menus) menu.addEventListener('toggle', () => !hovering && rest());
+
+  new ResizeObserver(() => place(target)).observe(track);
+
+  // Scroll-spy: rest on the item whose section crosses the upper middle of the viewport.
+  const sections = new Map<Element, HTMLElement>();
+  for (const item of items) {
+    const section = item.dataset.navItem && document.getElementById(item.dataset.navItem);
+    const href = item.getAttribute('href');
+    const samePage = !href || new URL(href, location.href).pathname === location.pathname;
+    if (section && samePage) sections.set(section, item);
+  }
+  const onScreen = new Set<Element>();
+  const spy = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) onScreen.add(entry.target);
+        else onScreen.delete(entry.target);
+      }
+      const visibleSection = [...sections.keys()].find((section) => onScreen.has(section));
+      current = visibleSection ? sections.get(visibleSection)! : null;
+      if (!hovering && !track.contains(document.activeElement)) rest();
+    },
+    { rootMargin: '-35% 0px -60% 0px' },
+  );
+  for (const section of sections.keys()) spy.observe(section);
+}
 
 // Outline on the header bar once content scrolls behind it: past the hero, or any scroll without one.
 const header = document.querySelector<HTMLElement>('[data-header]');
