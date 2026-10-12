@@ -30,12 +30,12 @@
     "slide_label": "Show photo {n} of {total}",
     "slides": [
       {
-        "image": "dr-wilden.png",
-        "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop"
+        "image": "wilden-tuszing-seated.jpg",
+        "image_alt": "Dr. Isabella Wilden, seated, and Dr. Yvonne Tuszing standing beside her"
       },
       {
-        "image": "hero-2.png",
-        "image_alt": "A woman in a yoga side stretch outdoors"
+        "image": "wilden-lab-coat.jpg",
+        "image_alt": "Dr. Isabella Wilden in a white doctor’s coat, holding a stethoscope"
       }
     ]
   },
@@ -56,8 +56,8 @@
       "label": "Learn More",
       "href": "/our-approach"
     },
-    "image": "dr-wilden.png",
-    "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop"
+    "image": "wilden-lab-coat.jpg",
+    "image_alt": "Dr. Isabella Wilden in a white doctor’s coat, holding a stethoscope"
   },
   "trust": {
     "title": "Trusted by patients, backed by partners.",
@@ -179,8 +179,8 @@
       {
         "name": "Dr. Isabella Wilden",
         "role": "Specialist in General Medicine with a focus on bioidentical hormone therapy",
-        "image": "dr-wilden.png",
-        "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop",
+        "image": "wilden-lab-coat.jpg",
+        "image_alt": "Dr. Isabella Wilden in a white doctor’s coat, holding a stethoscope",
         "cta": {
           "label": "Learn More",
           "href": "/team/isabella-wilden"
@@ -189,6 +189,8 @@
       {
         "name": "Dr. Yvonne Tuszing",
         "role": "Medical Doctor · Hormone & Metabolic Health · Certified in Bioidentical Hormone Therapy",
+        "image": "tuszing-lab-coat.jpg",
+        "image_alt": "Dr. Yvonne Tuszing in a white doctor’s coat, holding a stethoscope",
         "cta": {
           "label": "Learn More",
           "href": "/team/yvonne-tuszing"

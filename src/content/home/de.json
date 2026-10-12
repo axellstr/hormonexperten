@@ -26,10 +26,10 @@
     "slide_label": "Foto {n} von {total} anzeigen",
     "slides": [
       {
-        "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend"
+        "image_alt": "Dr. Isabella Wilden, sitzend, und Dr. Yvonne Tuszing, die neben ihr steht"
       },
       {
-        "image_alt": "Eine Frau bei einer seitlichen Yoga-Dehnung im Freien"
+        "image_alt": "Dr. Isabella Wilden im weißen Arztkittel mit Stethoskop"
       }
     ]
   },
@@ -49,7 +49,7 @@
     "cta": {
       "label": "Mehr erfahren"
     },
-    "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend"
+    "image_alt": "Dr. Isabella Wilden im weißen Arztkittel mit Stethoskop"
   },
   "trust": {
     "title": "Geschätzt von Patientinnen und Patienten, unterstützt von Partnern."
@@ -108,12 +108,13 @@
     "members": [
       {
         "role": "Fachärztin für Allgemeinmedizin mit Schwerpunkt bioidentische Hormontherapie",
-        "image_alt": "Dr. Isabella Wilden in weißem Blazer, an einem Tisch mit Laptop sitzend",
+        "image_alt": "Dr. Isabella Wilden im weißen Arztkittel mit Stethoskop",
         "cta": {
           "label": "Mehr erfahren"
         }
       },
       {
+        "image_alt": "Dr. Yvonne Tuszing im weißen Arztkittel mit Stethoskop",
         "cta": {
           "label": "Mehr erfahren"
         }

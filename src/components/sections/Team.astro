@@ -34,10 +34,10 @@ const { lang, team } = Astro.props;
               formats={['avif', 'webp']}
               widths={[480, 720, 960, 1300]}
               sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
-              class="unveil-photo aspect-3/2 w-full object-cover"
+              class="unveil-photo aspect-3/2 w-full object-cover object-top lg:aspect-5/4"
             />
           ) : (
-            <Placeholder class="aspect-3/2 w-full" />
+            <Placeholder class="aspect-3/2 w-full lg:aspect-5/4" />
           )}
         </div>
         <h3 class="mt-6 text-h3 text-ink">{member.name}</h3>

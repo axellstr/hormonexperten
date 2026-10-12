@@ -12,8 +12,8 @@
       "id": "isabella-wilden",
       "name": "Dr. Isabella Wilden",
       "role": "Specialist in General Medicine with a focus on bioidentical hormone therapy",
-      "image": "dr-wilden.png",
-      "image_alt": "Dr. Isabella Wilden in a white blazer, seated at a table with a laptop",
+      "image": "wilden-portrait.jpg",
+      "image_alt": "Dr. Isabella Wilden in a white top, arms crossed, smiling",
       "check_note": "CLAUDE.md role line kept on the card; the profile header uses the titles from her CV doc (Hormone Expert · Specialist in Orthomolecular Medicine).",
       "profile": {
         "meta": {
@@ -232,7 +232,7 @@
           "Claims (CLAUDE.md): “35+ years as a physician” and “cared for thousands of women” need a source before going live. The 1989 M.D. supports 35+ years.",
           "HWG: the personal health story (Hashimoto’s, lumps in her breasts, hormone therapy “through my own body”) needs a legal read so it doesn’t read as a promised result.",
           "Values strip: “I know many of these changes from many years of training added by my own life experiences” reads awkwardly. Reword?",
-          "Photo: the doc asks for a professional portrait; the existing landing-page photo (at a laptop) stands in.",
+          "Photo: the doc asks for a professional portrait; the studio portrait from the 30 Sep 2026 shoot is used.",
           "Copy edits made: double spaces removed, “Private Practice” lower-cased, leading “·” dropped from the title line, mission heading split into eyebrow + title, CV lines split into title, detail and year."
         ]
       }
@@ -241,6 +241,8 @@
       "id": "yvonne-tuszing",
       "name": "Dr. Yvonne Tuszing",
       "role": "Medical Doctor · Hormone & Metabolic Health · Certified in Bioidentical Hormone Therapy",
+      "image": "tuszing-portrait.jpg",
+      "image_alt": "Dr. Yvonne Tuszing in a dark top and white trousers, smiling",
       "needs_check": true,
       "check_note": "CLAUDE.md: her credentials stay behind a flag until the practice confirms them. Copy is from her CV (About Us – Yvonne Tuszing, M.D. (EN), 8 Oct 2026). Remove needs_check once the profile is approved.",
       "profile": {

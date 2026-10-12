@@ -11,12 +11,12 @@
     "cta": "Book your initial consultation",
     "images": [
       {
-        "image": "contact.jpg",
+        "image": "wilden-tuszing.jpg",
         "image_alt": ""
       },
       {
-        "image": "hero-2.png",
-        "image_alt": "A woman in a yoga side stretch outdoors"
+        "image": "wilden-standing.jpg",
+        "image_alt": ""
       }
     ],
     "facts": {
@@ -42,7 +42,7 @@
         }
       ]
     },
-    "check_note": "Copy from “Website – Our Approach (EN)”, 12 Oct 2026, final and approved by the practice; that approval is the source for “more than 35 years” (the live site says both 35+ and 14 years). The doc’s one paragraph is set as a lead sentence and a body paragraph, words unchanged. The doc places the section on the home page; the user moved it to this page (formerly About us). Both photos are stand-ins used elsewhere on the site."
+    "check_note": "Copy from “Website – Our Approach (EN)”, 12 Oct 2026, final and approved by the practice; that approval is the source for “more than 35 years” (the live site says both 35+ and 14 years). The doc’s one paragraph is set as a lead sentence and a body paragraph, words unchanged. The doc places the section on the home page; the user moved it to this page (formerly About us). Photos from the 30 Sep 2026 studio shoot; decorative beside the heading, hence the empty alt."
   },
   "pillars": {
     "title": "The four pillars of our approach",
@@ -72,10 +72,10 @@
   "founder": {
     "member": "isabella-wilden",
     "quote": "My mission is to help women take back control of their health and feel like themselves again.",
-    "image": "dr-wilden-portrait.jpg",
+    "image": "wilden-seated.jpg",
     "image_alt": "",
     "link": "Read the full profile",
-    "check_note": "First sentence of Dr. Wilden’s mission on her profile (approved 2026-10-09). Confirm she is happy to be quoted with it here. The portrait is a square crop of her team photo (dr-wilden.png); the name beside it makes it decorative, hence the empty alt."
+    "check_note": "First sentence of Dr. Wilden’s mission on her profile (approved 2026-10-09). Confirm she is happy to be quoted with it here. The portrait is her seated studio photo, cropped square; the name beside it makes it decorative, hence the empty alt."
   },
   "team": {
     "more": "Meet our team"
