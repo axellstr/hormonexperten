@@ -205,52 +205,84 @@
     "prev_label": "Previous reviews",
     "next_label": "Next reviews",
     "slide_label": "Show review {n} of {total}",
+    "translation_note": "Reviews written in German, shown in translation.",
     "items": [
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
+        "title": "“Very competent and empathetic advice.”",
+        "body": "I felt very much at ease with Ms Wilden!",
+        "author": "Verified appointment",
         "source": "Jameda",
         "rating": 5,
         "needs_check": true
       },
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
+        "title": "“The first consultation was very good and helpful to better understand some of the problems.”",
+        "body": "Dr. Wilden takes her time and explains the problems in great detail. Dr. Wilden made a very good and competent impression.",
+        "author": "E.",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“The video consultation is just as personal, competent and pleasant as a conversation in person.”",
+        "body": "Dr. Wilden takes a lot of time, asks detailed questions and never makes you feel under time pressure.",
+        "author": "Verified appointment",
         "source": "Jameda",
         "rating": 5,
         "needs_check": true
       },
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
+        "title": "“An outstanding doctor who thinks outside the box.”",
+        "body": "She takes a holistic approach and doesn’t just prescribe any old medication. However, the patient also needs to participate and do their part. I think she and her team are fantastic!",
+        "author": "B. K.",
+        "source": "Google",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Dr. Wilden is an exceptionally competent and compassionate doctor.”",
+        "body": "She takes her time, really listens, and explains everything clearly and in detail. With her, you feel taken seriously, in the best of hands, and seen as a person – not just as a patient.",
+        "author": "Anonymous",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“The medical history was thorough and very pleasant.”",
+        "body": "I was able to describe my problems calmly, was taken seriously and felt that Dr. Wilden understood what it was about. The connections were explained to me clearly and logically.",
+        "author": "Verified appointment",
         "source": "Jameda",
         "rating": 5,
         "needs_check": true
       },
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
+        "title": "“Dr. Wilden is very attentive to her patients.”",
+        "body": "She’s a great listener. She also accurately identifies the problem. She’s very friendly, and you’re in very good hands with her. I – and we – can only recommend her. Men, too.",
+        "author": "Karl-Heinz F. & Martina L.",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“I feel in very good hands with Dr. Wilden.”",
+        "body": "She has a very precise understanding of our body chemistry and a holistic overview; her advice was very helpful.",
+        "author": "Verified appointment",
         "source": "Jameda",
         "rating": 5,
         "needs_check": true
       },
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
-        "source": "Jameda",
+        "title": "“Professional yet empathetic.”",
+        "body": "Responds well to you. You don’t have to wait forever for an appointment. Highly recommended.",
+        "author": "Sandra B.",
+        "source": "ProvenExpert",
         "rating": 5,
         "needs_check": true
       },
       {
-        "title": "“Worth every minute and every euro.”",
-        "body": "I recently had a video consultation with Dr Wilden and was absolutely impressed. Even though the consultation took place via screen and camera. I felt cared for with great empathy. She took plenty of time to answer my questions about the thyroid thoroughly.",
-        "author": "Woman, 52 · Thyroid · Verified patient",
-        "source": "Jameda",
+        "title": "“Dr. Wilden and her team are truly exceptional in their compassion and expertise!”",
+        "author": "Jana S.",
+        "source": "Google",
         "rating": 5,
         "needs_check": true
       }

@@ -100,7 +100,7 @@ The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 6
 
 ### Punctuation and spacing in content
 
-- Typographic marks only; the build check fails on straight `'` and `"` in `src/content/`. English: ’ “ ” and a spaced en dash ( – ). German: „ “ and a spaced en dash. Russian and Greek: « » ; Russian uses a spaced em dash ( — ). Ranges use an unspaced en dash (9:00–17:00, 1997–2000). Ellipsis is …, not three dots.
+- Typographic marks only; the build check fails on straight `'` and `"` in `src/content/`. English: ’ “ ” and a spaced en dash ( – ). German: „ “ and a spaced en dash. Russian and Greek: « » ; Russian uses a spaced em dash ( — ). Ranges use an unspaced en dash (9:00–17:00, 1997–2000). Ellipsis is …, not three dots. Exception (the user's call, 12 Oct 2026): testimonial titles use English “ ” in every locale, German included.
 - Content files stay plain; `typeset()` in `src/lib/content.ts` adds non-breaking spaces as text loads: after Dr./Prof., inside "z. B."-style abbreviations (narrow), between a number and the word it counts, before a spaced dash, and (Russian) after one- and two-letter words. Don't type `&nbsp;` into content; extend `typeset()` instead.
 - Sentence case for headings in new copy. Several mockup headings are Title Case ("Hormone Health Care that Takes Women Seriously"); keep whatever the approved copy says, but don't invent Title Case.
 

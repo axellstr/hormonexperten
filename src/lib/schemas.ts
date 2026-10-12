@@ -204,10 +204,14 @@ export const homeSchema = z.object({
     prev_label: z.string(),
     next_label: z.string(),
     slide_label: z.string(),
+    /** Shown under the reviews when they appear in translation; empty where they are verbatim. */
+    translation_note: z.string().optional(),
     items: z.array(
       z.object({
+        /** A verbatim sentence from the review, in quotes. */
         title: z.string(),
-        body: z.string(),
+        /** More of the review, verbatim; left out when the title is the whole review. */
+        body: z.string().optional(),
         author: z.string(),
         source: z.string(),
         rating: z.number().int().min(1).max(5),

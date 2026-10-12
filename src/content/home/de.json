@@ -123,7 +123,74 @@
   },
   "testimonials": {
     "title": "Das sagen unsere Patientinnen und Patienten.",
-    "rating_label": "Bewertet mit {rating} von 5 Sternen"
+    "rating_label": "Bewertet mit {rating} von 5 Sternen",
+    "translation_note": "",
+    "items": [
+      {
+        "title": "“Professionell und dennoch empathisch.”",
+        "body": "Geht gut auf einen ein. Man muss nicht ewig lange auf einen Termin warten. Sehr zu empfehlen.",
+        "author": "Sandra B.",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Ich fühle mich bei Frau Dr. Wilden sehr gut aufgehoben.”",
+        "body": "Sie hat ein sehr genaues Verständnis von unserer Körperchemie und einen ganzheitlichen Überblick, ihre Beratung war sehr hilfreich.",
+        "author": "Termin verifiziert",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Fr. Dr. Wilden geht sehr gut auf den Patienten ein.”",
+        "body": "Sie hört sehr gut zu. Erkennt auch treffend das Problem. Sehr freundlich und man ist sehr gut bei ihr in Behandlung. Ich/wir können sie nur weiterempfehlen. Auch Männer.",
+        "author": "Karl-Heinz F. & Martina L.",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Die Anamnese war ausführlich und sehr angenehm.”",
+        "body": "Ich konnte meine Probleme in Ruhe schildern, wurde ernst genommen und hatte das Gefühl dass Fr. Dr. Wilden versteht um was es geht. Zusammenhänge wurden mir verständlich und logisch nachvollziehbar erklärt.",
+        "author": "Termin verifiziert",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Frau Dr. Wilden ist eine außergewöhnlich kompetente und menschliche Ärztin.”",
+        "body": "Sie nimmt sich Zeit, hört wirklich zu und erklärt alles verständlich und ausführlich. Bei ihr fühlt man sich ernst genommen, bestens aufgehoben und als Mensch gesehen – nicht nur als Patient.",
+        "author": "Anonym",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Die Videosprechstunde ist genauso persönlich, kompetent und angenehm wie ein Gespräch vor Ort.”",
+        "body": "Frau Dr. Wilden nimmt sich viel Zeit, fragt ausführlich nach und vermittelt niemals das Gefühl von Zeitdruck.",
+        "author": "Termin verifiziert",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Die erste Beratung war sehr gut und hilfreich, um einige Probleme besser zu verstehen.”",
+        "body": "Frau Dr. Wilden nimmt sich Zeit und erläutert die Probleme sehr detailliert. Frau Dr. Wilden machte einen sehr guten und kompetenten Eindruck.",
+        "author": "E.",
+        "source": "ProvenExpert",
+        "rating": 5,
+        "needs_check": true
+      },
+      {
+        "title": "“Sehr kompetente und empathische Beratung.”",
+        "body": "Ich habe mich bei Frau Wilden sehr wohl gefühlt!",
+        "author": "Termin verifiziert",
+        "source": "Jameda",
+        "rating": 5,
+        "needs_check": true
+      }
+    ]
   },
   "faq": {
     "title": "Häufige Fragen",

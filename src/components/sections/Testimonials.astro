@@ -1,6 +1,8 @@
 ---
 import Avatar from '../../assets/icons/avatar.svg';
+import Google from '../../assets/icons/google.svg';
 import Jameda from '../../assets/icons/jameda.svg';
+import ProvenExpert from '../../assets/icons/provenexpert.svg';
 import Star from '../../assets/icons/star.svg';
 import type { Locale } from '../../config';
 import { getLogo } from '../../lib/assets';
@@ -19,7 +21,7 @@ interface Props {
 
 const { lang, testimonials, reviewProfile } = Astro.props;
 const items = visible(testimonials.items);
-const sourceIcons: Record<string, typeof Jameda> = { Jameda };
+const sourceIcons: Record<string, typeof Jameda> = { Jameda, ProvenExpert, Google };
 const platforms = visible(reviewProfile.platforms).map((platform) => ({
   ...platform,
   image: getLogo(platform.logo),
@@ -206,9 +208,11 @@ const cardClass =
                             <p class="line-clamp-2 text-sm font-semibold text-ink lg:line-clamp-none lg:text-base">
                               {item.title}
                             </p>
-                            <p class="mt-1.5 line-clamp-4 text-sm text-ink/80 lg:mt-2.5 lg:line-clamp-none">
-                              {item.body}
-                            </p>
+                            {item.body && (
+                              <p class="mt-1.5 line-clamp-4 text-sm text-ink/80 lg:mt-2.5 lg:line-clamp-none">
+                                {item.body}
+                              </p>
+                            )}
                           </blockquote>
                           <figcaption class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-ink/80 lg:mt-5">
                             <span>{item.author}</span>
@@ -232,6 +236,10 @@ const cardClass =
           ))}
         </div>
       </Panel>
+    )}
+
+    {items.length > 0 && testimonials.translation_note && (
+      <p class="mt-4 text-center text-sm text-ink/70">{testimonials.translation_note}</p>
     )}
   </Section>
 )}
