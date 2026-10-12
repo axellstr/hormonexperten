@@ -1,0 +1,39 @@
+---
+import type { Locale } from '../../config';
+import { localizeHref } from '../../lib/i18n';
+import type { Contact, FaqItem as Item } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Section from '../ui/Section.astro';
+import FaqItem from './FaqItem.astro';
+
+interface Props {
+  lang: Locale;
+  faq: Contact['faq'];
+  /** The questions to show, visible ones only, in order. */
+  items: Item[];
+}
+
+const { lang, faq, items } = Astro.props;
+---
+
+<!-- The questions people tend to ask before writing, beside a link to the full FAQ. -->
+{items.length > 0 && (
+  <Section aria-labelledby="quick-answers-title">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
+        <h2 id="quick-answers-title" class="text-h2 text-ink">
+          {faq.title}
+        </h2>
+        <Button href={localizeHref(faq.more.href, lang)} variant="secondary" class="mt-8">
+          {faq.more.label}
+        </Button>
+      </div>
+
+      <div class="flex flex-col gap-4 lg:col-span-8">
+        {items.map((item) => (
+          <FaqItem lang={lang} item={item} name="contact-faq" />
+        ))}
+      </div>
+    </div>
+  </Section>
+)}

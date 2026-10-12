@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Kontakt | Hormonexperten"
+  },
+  "hero": {
+    "eyebrow": "Kontakt",
+    "title": "Kontakt aufnehmen",
+    "intro": "Wir helfen Ihnen gern weiter. Schreiben Sie uns – wir melden uns innerhalb von 2 Werktagen bei Ihnen.",
+    "cta": "Online-Sprechstunde buchen"
+  },
+  "channels": {
+    "title": "So erreichen Sie uns",
+    "items": [
+      {
+        "id": "email",
+        "label": "E-Mail",
+        "detail": "Antwort innerhalb von 2 Werktagen"
+      },
+      {
+        "id": "phone",
+        "label": "Telefon",
+        "detail": "Mo–Fr, 9:00–17:00 Uhr (MEZ)"
+      }
+    ],
+    "social": "Folgen Sie uns"
+  },
+  "faq": {
+    "title": "Schnelle Antworten",
+    "more": {
+      "label": "Alle Fragen"
+    }
+  },
+  "details": {
+    "title": "Praxisinformationen",
+    "hours": {
+      "title": "Praxiszeiten",
+      "rows": [
+        {
+          "days": "Montag–Freitag",
+          "time": "9:00–17:00 Uhr"
+        },
+        {
+          "days": "Samstag und Sonntag",
+          "time": "Geschlossen"
+        }
+      ],
+      "note": "Mitteleuropäische Zeit (MEZ)"
+    },
+    "practice": {
+      "title": "Praxis"
+    },
+    "privacy": {
+      "title": "Ihre Daten",
+      "link": {
+        "label": "Datenschutz"
+      }
+    }
+  }
+}

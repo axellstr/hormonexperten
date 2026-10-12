@@ -13,7 +13,8 @@
     "close": "Κλείσιμο",
     "book": "Κλείστε ραντεβού",
     "all_services": "Όλες οι υπηρεσίες",
-    "language": "Γλώσσα"
+    "language": "Γλώσσα",
+    "socials": "Social"
   },
   "services": [
     {

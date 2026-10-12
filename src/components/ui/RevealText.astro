@@ -1,8 +1,9 @@
 ---
 /**
  * Text that fills in word by word as it scrolls up the screen: each word starts faint and reaches
- * its full colour in reading order (see `reveal-word` in global.css). The enclosing heading or
- * paragraph needs the `reveal-text` class, which supplies the scroll timeline. A heading built
+ * its full colour in reading order (see `reveal-word` in global.css). An enclosing element needs
+ * the `reveal-text` class, which supplies the scroll timeline: the heading or paragraph itself, or
+ * a block holding several pieces that fill in one after another (`from`/`to`). A heading built
  * from several pieces passes each piece its `start` and the `total` word count, so the words fill
  * in one sequence. Words stay plain inline text, so wrapping, hyphenation and kerning are untouched.
  */
@@ -12,17 +13,21 @@ interface Props {
   start?: number;
   /** Words in the whole text; defaults to this piece's own. */
   total?: number;
+  /** Where this piece starts and ends within the block's run, 0–1 (e.g. a heading 0–0.55, the paragraph under it 0.35–1). */
+  from?: number;
+  to?: number;
 }
 
-const { text, start = 0, total } = Astro.props;
+const { text, start = 0, total, from = 0, to = 1 } = Astro.props;
 const words = text.split(' ').filter(Boolean);
 const count = total ?? words.length;
+const piece = `${from > 0 ? `; --reveal-from: ${from}` : ''}${to < 1 ? `; --reveal-to: ${to}` : ''}`;
 ---
 
 {words.map((word, index) => (
   <>
     {index > 0 && ' '}
-    <span class="reveal-word" style={`--reveal-index: ${start + index}; --reveal-total: ${count}`}>
+    <span class="reveal-word" style={`--reveal-index: ${start + index}; --reveal-total: ${count}${piece}`}>
       {word}
     </span>
   </>

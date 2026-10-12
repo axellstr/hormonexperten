@@ -1,0 +1,90 @@
+---
+import { Picture } from 'astro:assets';
+import { BOOKING_URL } from '../../config';
+import { getImage } from '../../lib/assets';
+import { visible } from '../../lib/content';
+import type { About } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Placeholder from '../ui/Placeholder.astro';
+
+interface Props {
+  hero: About['hero'];
+}
+
+const { hero } = Astro.props;
+const facts = visible(hero.facts.items);
+const photo = 'aspect-3/4 w-full rounded-panel object-cover';
+---
+
+<!-- Sits below the floating header pill, like the other heroes. -->
+<div class="mt-4 lg:mt-6" data-hero>
+  <Container>
+    <section
+      aria-labelledby="about-title"
+      class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
+    >
+      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+        <div class="lg:col-span-6">
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <h1 id="about-title" class="mt-4 text-display text-ink">
+            {hero.title}
+          </h1>
+          <p class="mt-6 max-w-prose text-lead text-ink/80">{hero.intro}</p>
+          <Button href={BOOKING_URL} class="mt-10">
+            {hero.cta}
+          </Button>
+        </div>
+
+        <!--
+          Two photos side by side, the second one set lower, so the pair reads as a composition
+          rather than a grid. The offset is padding on the end column (not a margin on the photo),
+          so both columns keep the same width and the pair stays inside the panel.
+        -->
+        <div class="grid grid-cols-2 items-start gap-3 sm:gap-4 lg:col-span-6 xl:gap-6">
+          {hero.images.map((item, index) => (
+            <div class:list={[index === 1 && 'pt-10 sm:pt-16 xl:pt-24']}>
+              {item.image ? (
+                <Picture
+                  src={getImage(item.image)}
+                  alt={item.image_alt}
+                  formats={['avif', 'webp']}
+                  widths={[240, 360, 480, 640]}
+                  sizes="(min-width: 1440px) 300px, (min-width: 1024px) 22vw, 45vw"
+                  loading="eager"
+                  fetchpriority={index === 0 ? 'high' : undefined}
+                  class={photo}
+                />
+              ) : (
+                <Placeholder class={photo} />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {facts.length > 0 && (
+        <>
+          <h2 class="sr-only">{hero.facts.title}</h2>
+          <!-- Value above label on phones, so the labels line up whatever the value's width. -->
+          <ul
+            class:list={[
+              'mt-12 grid gap-8 border-t border-ink/10 pt-10 sm:grid-cols-2 lg:mt-16 lg:pt-12',
+              facts.length > 2 && 'lg:grid-cols-3',
+            ]}
+          >
+            {facts.map((fact) => (
+              <li class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-5">
+                <span class="text-display whitespace-nowrap text-ink tabular-nums">
+                  {fact.value}
+                </span>
+                <span class="max-w-xs text-body text-ink/80">{fact.label}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </section>
+  </Container>
+</div>

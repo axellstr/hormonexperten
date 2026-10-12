@@ -1,6 +1,8 @@
 import { z } from 'astro/zod';
 import { DEFAULT_LOCALE, SHOW_UNCONFIRMED, type Locale } from '../config';
 import {
+  aboutSchema,
+  contactSchema,
   faqSchema,
   homeSchema,
   legalSchema,
@@ -120,6 +122,8 @@ export const getFaq = (lang: Locale) => load('faq', faqSchema, lang);
 export const getTeam = (lang: Locale) => load('team', teamSchema, lang);
 export const getServices = (lang: Locale) => load('services', servicesSchema, lang);
 export const getLegal = (lang: Locale) => load('legal', legalSchema, lang);
+export const getAbout = (lang: Locale) => load('about', aboutSchema, lang);
+export const getContact = (lang: Locale) => load('contact', contactSchema, lang);
 
 /**
  * The language a team member's `role` or `profile` is written in: the locale when its own file
@@ -149,6 +153,16 @@ export function legalPageLang(lang: Locale, id: string): Locale {
     Array.isArray(pages) &&
     pages.some((page) => hasId(page) && page.id === id && 'sections' in page);
   return translated ? lang : DEFAULT_LOCALE;
+}
+
+/**
+ * The language a value in a content file is written in: the locale when its own file has it,
+ * otherwise English (the fallback). `path` leads to the value, e.g. ['story', 'founder', 'quote'].
+ */
+export function textLang(collection: string, lang: Locale, path: string[]): Locale {
+  let value: unknown = files[`../content/${collection}/${lang}.json`];
+  for (const key of path) value = isObject(value) ? value[key] : undefined;
+  return value === undefined ? DEFAULT_LOCALE : lang;
 }
 
 type Checkable = { needs_check?: boolean };

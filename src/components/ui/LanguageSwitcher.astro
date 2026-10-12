@@ -41,10 +41,10 @@ const linkClass =
               aria-label={link.name}
               aria-current={link.current ? 'true' : undefined}
               class:list={[
-                'flex min-h-12 items-center justify-center rounded-full px-2 text-base font-medium uppercase whitespace-nowrap hyphens-none ring-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow',
+                'flex min-h-12 items-center justify-center rounded-full px-2 text-base font-medium uppercase whitespace-nowrap hyphens-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors',
                 link.current
-                  ? 'bg-ink text-on-dark ring-ink'
-                  : 'bg-bg text-ink ring-ink/10 hover:ring-ink/30',
+                  ? 'bg-ink text-on-dark'
+                  : 'bg-bg text-ink hover:bg-coral-tint',
               ]}
             >
               {link.shortName}
@@ -64,7 +64,7 @@ const linkClass =
       </span>
     </summary>
     <ul
-      class="absolute start-0 top-full z-10 mt-5.5 min-w-44 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/lang:-translate-y-1 group-data-closed/lang:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/lang:duration-150 motion-safe:group-not-data-closed/lang:duration-200 lg:mt-6.5"
+      class="absolute start-0 top-full z-10 mt-5.5 min-w-44 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/lang:-translate-y-1 group-data-closed/lang:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth lg:mt-6.5"
       data-menu-panel
     >
       {links.map((link) => (

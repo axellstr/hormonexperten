@@ -1,0 +1,56 @@
+---
+import BookOpen from '../../assets/icons/book-open.svg';
+import MessageCircle from '../../assets/icons/message-circle.svg';
+import Sliders from '../../assets/icons/sliders.svg';
+import Sprout from '../../assets/icons/sprout.svg';
+import Stethoscope from '../../assets/icons/stethoscope.svg';
+import Users from '../../assets/icons/users.svg';
+import type { About } from '../../lib/schemas';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Panel from '../ui/Panel.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  values: About['values'];
+}
+
+const { values } = Astro.props;
+const icons = {
+  sprout: Sprout,
+  'message-circle': MessageCircle,
+  'book-open': BookOpen,
+  sliders: Sliders,
+  stethoscope: Stethoscope,
+  users: Users,
+};
+---
+
+<!-- White cards on a warm panel; two to a row, so each value has room for a sentence or two. -->
+<Section aria-labelledby="values-title">
+  <Panel class="px-6 py-12 md:p-12 xl:p-20">
+    <Eyebrow>{values.eyebrow}</Eyebrow>
+    <h2 id="values-title" class="mt-4 max-w-3xl text-h2 text-ink">
+      {values.title}
+    </h2>
+
+    <ul class="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14 lg:gap-6">
+      {values.items.map((value, index) => {
+        const Icon = icons[value.icon];
+        return (
+          <li class="flex flex-col rounded-card bg-bg p-6 md:p-8 xl:p-10">
+            <div class="flex items-start justify-between gap-4">
+              <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
+                <Icon class="size-6" aria-hidden="true" />
+              </span>
+              <span class="text-sm font-medium text-text-muted tabular-nums" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <h3 class="mt-8 text-h3 text-ink lg:mt-10">{value.title}</h3>
+            <p class="mt-3 max-w-prose text-body text-ink/80">{value.body}</p>
+          </li>
+        );
+      })}
+    </ul>
+  </Panel>
+</Section>

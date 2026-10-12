@@ -1,26 +1,58 @@
 ---
 import Info from '../../assets/icons/info.svg';
 
-// The outlined "Important information" box under a set of steps.
+// An important-information note: outlined by default, or a quiet disclosure when compact.
+// Compact is an absolute overlay, or with `inline` opens in the flow and pushes what follows
+// down (for the end of a section, where an overlay would cover the next one). Height on
+// ::details-content opens the slot; the inner panel fades and slides. Exit delays the height
+// collapse until the fade has finished so overflow-clip doesn't crop mid-fade; enter runs
+// height immediately.
 interface Props {
   title: string;
   body: string;
   class?: string;
+  compact?: boolean;
+  inline?: boolean;
 }
 
-const { title, body, class: className } = Astro.props;
+const { title, body, class: className, compact = false, inline = false } = Astro.props;
 ---
 
-<div
-  role="note"
-  class:list={[
-    'rounded-card p-6 ring-1 ring-ink/10 md:p-8 xl:p-10',
-    className,
-  ]}
->
-  <div class="flex items-center gap-4">
-    <Info class="size-11 shrink-0 text-ink" aria-hidden="true" />
-    <h3 class="text-h4 text-ink">{title}</h3>
+{compact ? (
+  <details
+    class:list={[
+      'group/notice relative max-w-md open:z-30',
+      inline
+        ? 'details-content:h-0 details-content:overflow-clip'
+        : 'details-content:absolute details-content:start-0 details-content:top-full details-content:mt-3 details-content:h-0 details-content:w-full details-content:overflow-clip',
+      'open:details-content:h-auto',
+      'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-200 motion-safe:details-content:delay-150 motion-safe:details-content:ease-smooth',
+      'motion-safe:open:details-content:duration-300 motion-safe:open:details-content:delay-0',
+      className,
+    ]}
+  >
+    <summary class="inline-flex cursor-pointer list-none items-center gap-2 text-sm font-medium text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">
+      <span
+        class="text-base leading-none text-coral group-open/notice:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
+        aria-hidden="true"
+      >
+        +
+      </span>
+      <span class="underline decoration-coral decoration-1 underline-offset-4">{title}</span>
+    </summary>
+    <div
+      role="note"
+      class="-translate-y-2 opacity-0 group-open/notice:translate-y-0 group-open/notice:opacity-100 motion-safe:transition-[opacity,translate] motion-safe:duration-150 motion-safe:ease-smooth motion-safe:group-open/notice:duration-200"
+    >
+      <p class:list={['ps-6 text-sm leading-relaxed text-ink/70', inline && 'pt-3']}>{body}</p>
+    </div>
+  </details>
+) : (
+  <div role="note" class:list={['rounded-card p-6 ring-1 ring-ink/10 md:p-8 xl:p-10', className]}>
+    <div class="flex items-center gap-4">
+      <Info class="size-11 shrink-0 text-ink" aria-hidden="true" />
+      <h3 class="text-h4 text-ink">{title}</h3>
+    </div>
+    <p class="mt-4 max-w-none text-body text-ink/80">{body}</p>
   </div>
-  <p class="mt-4 max-w-none text-body text-ink/80">{body}</p>
-</div>
+)}

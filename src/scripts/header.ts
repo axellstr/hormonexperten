@@ -121,11 +121,15 @@ function warm(menu: HTMLDetailsElement) {
             img.addEventListener(
               'load',
               () => {
-                // In after the menu opened (a slow connection): fade it in rather than pop.
+                // In after the menu opened (a slow connection): fade it in rather than pop, at the
+                // menus' own pace and curve (--ease-smooth).
                 if (menu.open && !reduceMotion.matches) {
+                  const easing = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--ease-smooth')
+                    .trim();
                   img.animate(
                     { opacity: [0, 1] },
-                    { duration: 300, easing: 'cubic-bezier(0, 0, 0.2, 1)' },
+                    { duration: 300, easing: easing || 'ease-in-out' },
                   );
                 }
                 done(undefined);
@@ -141,17 +145,6 @@ function warm(menu: HTMLDetailsElement) {
     ready.push(decoding);
   }
   return Promise.all(ready);
-}
-
-/** Run `callback` once the page has loaded and the browser is idle. */
-function whenSettled(callback: () => void) {
-  const idle = () => {
-    // Safari has no requestIdleCallback.
-    if (typeof requestIdleCallback === 'function') requestIdleCallback(callback, { timeout: 2000 });
-    else window.setTimeout(callback, 200);
-  };
-  if (document.readyState === 'complete') idle();
-  else window.addEventListener('load', idle, { once: true });
 }
 
 /**
@@ -241,12 +234,13 @@ for (const menu of menus) {
   let hovering = false;
   let aim: ((event: PointerEvent) => void) | undefined;
 
-  // Its images load once the page has settled, or when the pointer first comes to the header, so
-  // even the first opening paints complete cards. Not while it's hidden (the nav on small screens).
+  // Its images load as soon as the page has loaded, or when the pointer first comes to the header,
+  // so even the first opening paints complete cards. Not while it's hidden (the nav on small screens).
   const prefetch = () => {
     if (menu.getClientRects().length > 0) warm(menu);
   };
-  whenSettled(prefetch);
+  if (document.readyState === 'complete') prefetch();
+  else window.addEventListener('load', prefetch, { once: true });
   menu.closest('[data-header]')?.addEventListener('pointerenter', prefetch, { once: true });
 
   const stopAiming = () => {

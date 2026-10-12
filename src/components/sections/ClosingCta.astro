@@ -14,14 +14,16 @@ const { closing } = Astro.props;
 
 <Section spacing="compact" aria-labelledby="closing-title">
   <Panel class="px-6 py-12 text-center md:px-12 md:py-14 lg:py-16">
-    <div class="mx-auto max-w-2xl" data-text-reveal>
-      <h2 id="closing-title" class="text-h2 text-ink" data-reveal="0">
+    <div class="mx-auto max-w-2xl">
+      <h2 id="closing-title" class="text-h2 text-ink">
         {closing.title}
       </h2>
       {closing.body && (
-        <p class="mt-6 text-lead text-ink/80" data-reveal="1">{closing.body}</p>
+        <p class="mt-6 text-lead text-ink/80">
+          {closing.body}
+        </p>
       )}
-      <Button href={BOOKING_URL} class="mt-10" data-reveal={closing.body ? '2' : '1'}>
+      <Button href={BOOKING_URL} class="mt-10">
         {closing.cta}
       </Button>
     </div>

@@ -19,7 +19,7 @@ const { title, name, open = false, class: className } = Astro.props;
   open={open}
   class:list={[
     'group rounded-field bg-surface details-content:h-0 details-content:overflow-clip open:details-content:h-auto',
-    'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-out',
+    'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-smooth',
     className,
   ]}
 >
@@ -33,17 +33,17 @@ const { title, name, open = false, class: className } = Astro.props;
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="size-6 shrink-0 text-ink opacity-80 group-open:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+      class="size-6 shrink-0 text-ink opacity-80 group-open:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
       data-accordion-icon
       aria-hidden="true"
     >
       <path
         d="M4 7l6 6"
-        class="origin-bottom-right transform-fill group-open:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+        class="origin-bottom-right transform-fill group-open:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
       />
       <path
         d="m10 13 6-6"
-        class="origin-bottom-left transform-fill group-open:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+        class="origin-bottom-left transform-fill group-open:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
       />
     </svg>
   </summary>

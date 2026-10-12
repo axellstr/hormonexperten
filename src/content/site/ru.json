@@ -13,7 +13,8 @@
     "close": "Закрыть",
     "book": "Записаться",
     "all_services": "Все услуги",
-    "language": "Язык"
+    "language": "Язык",
+    "socials": "Соцсети"
   },
   "services": [
     {

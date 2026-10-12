@@ -68,7 +68,7 @@ const link =
               {visible(column.items).map((item) => (
                 <li class="flex min-h-7 items-center py-1 text-on-dark/70">
                   {item.href ? (
-                    <a href={localizeHref(item.href, lang)} class:list={[link, 'break-words']}>
+                    <a href={localizeHref(item.href, lang)} class:list={[link, 'wrap-anywhere']}>
                       {item.label}
                     </a>
                   ) : (

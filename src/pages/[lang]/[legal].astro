@@ -9,7 +9,10 @@ import type { LegalPage as Page } from '../../lib/schemas';
 // three from every page (CLAUDE.md, privacy).
 export function getStaticPaths() {
   return LOCALES.flatMap((lang) =>
-    getLegal(lang).pages.map((page) => ({ params: { lang, legal: page.id }, props: { lang, page } })),
+    getLegal(lang).pages.map((page) => ({
+      params: { lang, legal: page.id },
+      props: { lang, page },
+    })),
   );
 }
 

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Contact | Hormonexperten",
+    "description": "TODO: approved meta description for the Contact page"
+  },
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "intro": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
+    "cta": "Book Online Consultation"
+  },
+  "channels": {
+    "title": "Ways to reach us",
+    "items": [
+      {
+        "id": "email",
+        "icon": "mail",
+        "label": "Email",
+        "value": "info@hormonexperten.de",
+        "href": "mailto:info@hormonexperten.de",
+        "detail": "We reply within 2 working days"
+      },
+      {
+        "id": "phone",
+        "icon": "phone",
+        "label": "Phone",
+        "value": "+49 1512 2682 778",
+        "href": "tel:+4915122682778",
+        "detail": "Mon–Fri, 9:00–17:00 (CET)",
+        "needs_check": true,
+        "check_note": "Number from the current hormonexperten.de; the footer still shows the mockup’s +49 30 23125 456. Confirm which number patients should call, and its hours."
+      }
+    ],
+    "social": "Follow us"
+  },
+  "faq": {
+    "title": "Quick answers",
+    "more": {
+      "label": "All questions",
+      "href": "/faq"
+    },
+    "items": ["video-consultation", "blood-tests", "outside-germany", "insurance", "cancel"]
+  },
+  "details": {
+    "title": "Practice details",
+    "hours": {
+      "title": "Office hours",
+      "rows": [
+        {
+          "days": "Monday–Friday",
+          "time": "9:00–17:00"
+        },
+        {
+          "days": "Saturday and Sunday",
+          "time": "Closed",
+          "needs_check": true,
+          "check_note": "The footer only gives weekday hours. Confirm the practice is closed at weekends."
+        }
+      ],
+      "note": "Central European Time (CET)"
+    },
+    "practice": {
+      "title": "Practice",
+      "lines": [
+        "TODO: practice name, as in the Impressum",
+        "TODO: street and number",
+        "TODO: postcode, city, country"
+      ],
+      "link": {
+        "label": "Impressum",
+        "href": "/impressum"
+      }
+    },
+    "privacy": {
+      "title": "Your privacy",
+      "body": "TODO: approved note on writing to us about your health: what to include in a message, and what not to send by email. Two or three sentences.",
+      "link": {
+        "label": "Privacy Policy",
+        "href": "/datenschutz"
+      }
+    }
+  }
+}

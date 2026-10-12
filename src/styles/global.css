@@ -96,6 +96,15 @@
   --radius-field: 1.5rem;
 
   /*
+   * Nested corners: a panel that frames a photo close to its edge (Our Approach) is padded by the
+   * frame gap and rounded by the photo's radius plus that gap. The two corners then share one
+   * centre, so the gap stays the same width all the way round the bend: 24px + 24px = 48px.
+   * Gives p-frame and rounded-frame (Panel's `frame` prop).
+   */
+  --spacing-frame: 1.5rem;
+  --radius-frame: calc(var(--radius-panel) + var(--spacing-frame));
+
+  /*
    * Type scale: one token per role (see CLAUDE.md, Typography), each carrying its size, leading,
    * tracking and weight, so a role changes in one place. Sizes are fluid between 360px and 1728px
    * viewports. The scale is clinical rather than editorial: reading text is the anchor (16 → 18px),
@@ -135,15 +144,21 @@
   /* Fixed UI sizes (Tailwind's): text-base 16px for buttons/nav, text-sm 14px, the floor for any text. */
 
   /*
+   * Motion: one symmetric curve (gives ease-smooth) for everything that opens, closes or turns, so
+   * a menu leaves the way it came. Open and close always share one duration: 300ms for dropdowns,
+   * accordions and their icons, 500ms for the full-screen mobile menu sheet; the button roll (500ms)
+   * and logo turn (700ms) use the same curve.
+   */
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /*
    * Trust logo cycler: the logos sit on the faces of a turning prism. The outgoing logo rolls up
    * over the top edge while the next one rolls up from underneath, both at once. The pivot sits
    * half a slot behind the face (translateZ), which gives the turn its depth; the slot supplies
    * the perspective.
    */
-  --animate-logo-out: logo-out 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  --animate-logo-in: logo-in 700ms cubic-bezier(0.65, 0, 0.35, 1) both;
-  --animate-review-left: review-left 600s linear infinite;
-  --animate-review-right: review-right 600s linear infinite;
+  --animate-logo-out: logo-out 700ms var(--ease-smooth) both;
+  --animate-logo-in: logo-in 700ms var(--ease-smooth) both;
 
   @keyframes logo-out {
     from {
@@ -164,18 +179,6 @@
       transform: translateZ(-1.25rem) rotateX(0deg) translateZ(1.25rem);
     }
   }
-
-  @keyframes review-left {
-    to {
-      transform: translateX(calc(0px - var(--review-cycle)));
-    }
-  }
-
-  @keyframes review-right {
-    from {
-      transform: translateX(calc(0px - var(--review-cycle)));
-    }
-  }
 }
 
 @utility scrollbar-none {
@@ -184,10 +187,6 @@
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-@utility pause-animation {
-  animation-play-state: paused;
 }
 
 /*
@@ -215,10 +214,24 @@
  *     sticks only once its bottom is in view, so no part of it is covered unread (the script only
  *     pins the heading if no more than a card's image would tuck under it). Takes --stack-index
  *     (markup) and --stack-height (script).
+ *   stack-deck: the list of cards. Below lg its cards are square, so it is no wider than the
+ *     screen is tall less the room around a stuck card (header, heading, peeks), with a floor
+ *     for landscape phones. From lg cards are 3:2 and the deck sits at the end of its column,
+ *     keeping the page's outer edge.
  *   stack-face: the card's surface. It sinks back and darkens as later cards cover it
  *     (--stack-depth, one per card on top of it). Reduced motion: it only darkens.
  *   stack-progress: the line in the step list beside the deck, filled to --stack-progress (0–1).
  */
+@utility stack-deck {
+  --stack-room: calc(var(--spacing) * 64);
+  width: min(100%, max(100svh - var(--stack-room), 20rem));
+
+  @variant lg {
+    --stack-room: calc(var(--spacing) * 44);
+    justify-self: end;
+  }
+}
+
 @utility stack-head {
   position: sticky;
   top: var(--stack-top);
@@ -292,18 +305,25 @@
   @media (prefers-reduced-motion: no-preference) {
     transition-property: transform, opacity;
     transition-duration: 500ms;
-    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    transition-timing-function: var(--ease-smooth);
     transition-delay: calc(var(--roll-index, 0) * 30ms);
   }
 }
 
 /*
- * Scroll text reveal (RevealText): a heading or paragraph (`reveal-text`) fills in word by word
- * as it scrolls up the screen. Its words (`reveal-word`) start at 20% opacity and reach full colour
- * in reading order while the text's top travels from 90% to 35% of the screen height, whatever
- * the text's length. Each word fades over three steps of the sequence, so neighbours overlap and
- * the fill flows rather than ticks. Scroll position drives it, so scrolling back fades the words
- * again. Browsers without scroll-driven animations, and reduced motion, show the text in full.
+ * Scroll text reveal (RevealText): text fills in word by word as it scrolls up the screen. The
+ * element carrying `reveal-text` (a heading, a paragraph, or a block holding both) sets the run:
+ * its words (`reveal-word`) start at 20% opacity and reach full colour in reading order while its
+ * top travels from 90% to 35% of the screen height, whatever the text's length.
+ *   Pieces: a piece of text can take part of the run (--reveal-from/--reveal-to, 0–1), so in a
+ *     block the heading fills first and the paragraph picks up before it ends, in reading order,
+ *     rather than both filling at once.
+ *   Soft front: each word fades over three steps of its piece's sequence, but never less than
+ *     a fifth of the piece's run, so a long paragraph fills behind a soft edge several words
+ *     wide, as a short heading does, rather than a hard one.
+ * The linear opacity ramp already looks even to the eye (browsers blend in sRGB). Scroll position
+ * drives it, so scrolling back fades the words again. Browsers without scroll-driven animations,
+ * and reduced motion, show the text in full.
  */
 @utility reveal-text {
   view-timeline: --reveal-text block;
@@ -312,10 +332,17 @@
 @utility reveal-word {
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
+      /* All in fractions of the run: the piece's length, one word's fade, this word's start. */
+      --reveal-length: calc(var(--reveal-to, 1) - var(--reveal-from, 0));
+      --reveal-fade: max(3 / (var(--reveal-total) + 2), 0.2);
+      --reveal-start: calc(
+        var(--reveal-from, 0) + var(--reveal-length) * (1 - var(--reveal-fade)) *
+          var(--reveal-index) / max(var(--reveal-total) - 1, 1)
+      );
       animation: reveal-word linear both;
       animation-timeline: --reveal-text;
-      animation-range: cover calc(10vh + 55vh * var(--reveal-index) / (var(--reveal-total) + 2))
-        cover calc(10vh + 55vh * (var(--reveal-index) + 3) / (var(--reveal-total) + 2));
+      animation-range: cover calc(10vh + 55vh * var(--reveal-start))
+        cover calc(10vh + 55vh * (var(--reveal-start) + var(--reveal-length) * var(--reveal-fade)));
     }
   }
 }
@@ -323,6 +350,58 @@
 @keyframes reveal-word {
   from {
     opacity: 0.2;
+  }
+}
+
+/*
+ * Photo unveil (Team cards, Our Approach): as a rounded photo frame (`unveil`) scrolls into view,
+ * its shape opens out from 6% inside its edges to the full frame while the photo in it
+ * (`unveil-photo`) settles from 110% to 100%. It runs from the frame's top entering the screen
+ * until the frame is well on screen (45% of the way through its pass), on the ease-smooth curve.
+ * `unveil-late` (e.g. `md:even:unveil-late`) starts a second card in a row a beat later. Scroll
+ * position drives it, so scrolling back closes it again. Browsers without scroll-driven
+ * animations, and reduced motion, show the photo as it is.
+ */
+@utility unveil {
+  view-timeline: --unveil block;
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: unveil var(--ease-smooth) both;
+      animation-timeline: --unveil;
+      animation-range: entry calc(15% * var(--unveil-lag, 0)) cover
+        calc(45% + 10% * var(--unveil-lag, 0));
+    }
+  }
+}
+
+@utility unveil-photo {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: unveil-photo var(--ease-smooth) both;
+      animation-timeline: --unveil;
+      animation-range: entry calc(15% * var(--unveil-lag, 0)) cover
+        calc(45% + 10% * var(--unveil-lag, 0));
+    }
+  }
+}
+
+@utility unveil-late {
+  --unveil-lag: 1;
+}
+
+@keyframes unveil {
+  from {
+    clip-path: inset(6% round var(--radius-panel));
+  }
+  to {
+    clip-path: inset(0 round var(--radius-panel));
+  }
+}
+
+@keyframes unveil-photo {
+  from {
+    scale: 1.1;
   }
 }
 
@@ -342,13 +421,14 @@
 /*
  * The mobile menu sheet grows out of the header pill and shrinks back into it. `sheet` is the
  * open shape (the whole screen); `sheet-collapsed` clips it to the pill, whose box the header
- * script writes to --pill-*. Reduced motion: it just appears.
+ * script writes to --pill-*. Both ways take the same time on the same curve. Reduced motion: it
+ * just appears.
  */
 @utility sheet {
   clip-path: inset(0 round 0);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: clip-path 550ms cubic-bezier(0.32, 0.72, 0, 1);
+    transition: clip-path 500ms var(--ease-smooth);
   }
 }
 
@@ -357,10 +437,6 @@
     var(--pill-top, 0) var(--pill-right, 0) var(--pill-bottom, 0) var(--pill-left, 0) round
       var(--pill-radius, 0)
   );
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition-duration: 400ms;
-  }
 }
 
 @keyframes reveal {
@@ -416,6 +492,12 @@
     text-wrap: pretty;
   }
 
+  /* Statements set in a heading role (pull quotes, closing lines) break like headings. */
+  :where(p):where(.text-display, .text-h2, .text-title, .text-h3) {
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+
   /*
    * Hyphenate German, Greek and Russian (long words, narrow columns); English stays unhyphenated.
    * Headings only split words of 14+ letters (Специализированная, Wechseljahresbeschwerden), which
@@ -428,7 +510,9 @@
 
   /* Spans inside a heading match :lang() themselves, so they need the heading limit too. */
   :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6),
-  :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6) * {
+  :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6) *,
+  :where(:lang(de), :lang(el), :lang(ru))
+    :where(p):where(.text-display, .text-h2, .text-title, .text-h3) {
     hyphenate-limit-chars: 14 6 6;
   }
 

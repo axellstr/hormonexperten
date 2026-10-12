@@ -1,11 +1,17 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type Props = HTMLAttributes<'div'>;
+type Props = HTMLAttributes<'div'> & {
+  /**
+   * Frames a photo close to its edge: padded by the frame gap, with corners that nest round the
+   * photo's (`--radius-frame` in global.css). The photo keeps `rounded-panel`.
+   */
+  frame?: boolean;
+};
 
-const { class: className, ...rest } = Astro.props;
+const { class: className, frame = false, ...rest } = Astro.props;
 ---
 
-<div class:list={['rounded-panel bg-surface', className]} {...rest}>
+<div class:list={[frame ? 'rounded-frame p-frame' : 'rounded-panel', 'bg-surface', className]} {...rest}>
   <slot />
 </div>

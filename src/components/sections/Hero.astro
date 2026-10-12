@@ -14,6 +14,7 @@ import { format } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
+import RollText from '../ui/RollText.astro';
 
 interface Props {
   hero: Home['hero'];
@@ -28,9 +29,9 @@ const { trust, slides } = hero;
   <Container>
     <div class="overflow-hidden rounded-panel bg-surface">
       <div class="grid items-center gap-10 px-6 pt-6 pb-12 md:px-12 md:pt-12 lg:min-h-hero-height lg:grid-cols-2 lg:gap-12 lg:ps-12 lg:pe-0 xl:gap-16 xl:ps-16 lg:pt-16 lg:pb-16">
-        <div data-text-reveal>
+        <div>
           {isVisible(trust) && (
-            <div class="mb-5" data-reveal="0">
+            <div class="mb-5">
               <p class="sr-only">
                 {trust.items.join(' · ')}. {format(trust.rating_label, { rating: trust.rating })}.
               </p>
@@ -78,14 +79,14 @@ const { trust, slides } = hero;
               </p>
             </div>
           )}
-          <h1 class="text-title text-ink md:text-display" data-reveal="1">
+          <h1 class="text-title text-ink md:text-display">
             {hero.title}
           </h1>
-          <p class="mt-4 max-w-xl text-body text-ink/80 md:mt-5 md:text-lead" data-reveal="2">
+          <p class="mt-4 max-w-xl text-body text-ink/80 md:mt-5 md:text-lead">
             {hero.subtitle}
           </p>
-          <Button href={BOOKING_URL} class="mt-8" data-reveal="3">
-            {hero.cta}
+          <Button href={BOOKING_URL} class="mt-8">
+            <RollText text={hero.cta} />
           </Button>
         </div>
 

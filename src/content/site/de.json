@@ -13,7 +13,8 @@
     "close": "Schließen",
     "book": "Termin buchen",
     "all_services": "Alle Leistungen ansehen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "socials": "Social Media"
   },
   "services": [
     {

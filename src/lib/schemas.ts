@@ -31,6 +31,8 @@ export const siteSchema = z.object({
     /** The menu link to every service, after the first four. */
     all_services: z.string(),
     language: z.string(),
+    /** Eyebrow above the social icons in the mobile menu. */
+    socials: z.string(),
   }),
   services: z.array(
     z
@@ -133,6 +135,10 @@ export const homeSchema = z.object({
     eyebrow: z.string(),
     title: z.string(),
     intro: z.string(),
+    cta: z.object({
+      body: z.string(),
+      label: z.string(),
+    }),
     steps: z.array(
       z.object({
         title: z.string(),
@@ -354,6 +360,122 @@ export const servicesSchema = z.object({
   ),
 });
 
+/** The About us page. Team members, steps and the closing panel come from their own collections. */
+export const aboutSchema = z.object({
+  meta: z.object({ title: z.string(), description: z.string() }),
+  hero: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    /** One- or two-sentence opener under the H1. */
+    intro: z.string(),
+    /** Booking button label. */
+    cta: z.string(),
+    /** Two photos set side by side, the second one lower; a placeholder stands in for a missing one. */
+    images: z
+      .array(z.object({ image: z.string().optional(), image_alt: z.string().default('') }))
+      .length(2),
+    facts: z.object({
+      /** Heading for screen readers only. */
+      title: z.string(),
+      items: z.array(
+        z.object({ value: z.string(), label: z.string(), ...needsCheck, ...checkNote }),
+      ),
+    }),
+    ...checkNote,
+  }),
+  story: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    /** Paragraphs. */
+    body: z.array(z.string()).min(1),
+    /** A quote from the founder beside the story; name, role and photo come from the team. */
+    founder: z.object({
+      /** A team member's id. */
+      member: z.string(),
+      quote: z.string(),
+      /** Label of the link to the member's profile. */
+      link: z.string(),
+      ...needsCheck,
+      ...checkNote,
+    }),
+  }),
+  values: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    items: z
+      .array(
+        z.object({
+          icon: z.enum([
+            'sprout',
+            'message-circle',
+            'book-open',
+            'sliders',
+            'stethoscope',
+            'users',
+          ]),
+          title: z.string(),
+          body: z.string(),
+        }),
+      )
+      .min(1),
+  }),
+  /** The team row; its heading and members come from the team collection. */
+  team: z.object({ more: z.string() }),
+});
+
+/** The Contact page. */
+export const contactSchema = z.object({
+  meta: z.object({ title: z.string(), description: z.string() }),
+  hero: z.object({
+    eyebrow: z.string(),
+    title: z.string(),
+    intro: z.string(),
+    /** Booking button label. */
+    cta: z.string(),
+  }),
+  channels: z.object({
+    /** Heading for screen readers only. */
+    title: z.string(),
+    items: z.array(
+      z.object({
+        id: z.string(),
+        icon: z.enum(['mail', 'phone']),
+        label: z.string(),
+        /** The address or number itself, shown large. */
+        value: z.string(),
+        href: z.string(),
+        /** A line under the value, e.g. when to expect a reply. */
+        detail: z.string().optional(),
+        ...needsCheck,
+        ...checkNote,
+      }),
+    ),
+    /** Heading over the social links (taken from the footer's). */
+    social: z.string(),
+  }),
+  /** Questions people tend to ask before writing, picked from the FAQ by id. */
+  faq: z.object({
+    title: z.string(),
+    more: link,
+    items: z.array(z.string()).min(1),
+  }),
+  details: z.object({
+    title: z.string(),
+    hours: z.object({
+      title: z.string(),
+      rows: z.array(z.object({ days: z.string(), time: z.string(), ...needsCheck, ...checkNote })),
+      note: z.string().optional(),
+    }),
+    practice: z.object({
+      title: z.string(),
+      /** Address lines, kept together. */
+      lines: z.array(z.string()).min(1),
+      link,
+    }),
+    privacy: z.object({ title: z.string(), body: z.string(), link }),
+  }),
+});
+
 /** A run of text in a legal page: plain, or a link (e-mail, phone, web, another page). */
 const legalText = z.union([z.string(), link]);
 
@@ -407,6 +529,8 @@ export type Service = Site['services'][number];
 export type ServicePage = Services['pages'][number];
 export type TeamMember = Team['members'][number];
 export type Profile = NonNullable<TeamMember['profile']>;
+export type About = z.infer<typeof aboutSchema>;
+export type Contact = z.infer<typeof contactSchema>;
 export type Legal = z.infer<typeof legalSchema>;
 export type LegalPage = Legal['pages'][number];
 export type LegalBlock = LegalPage['sections'][number]['body'][number];

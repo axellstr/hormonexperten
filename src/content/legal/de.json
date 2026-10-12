@@ -73,10 +73,7 @@
           "title": "Berufshaftpflichtversicherung",
           "body": [
             {
-              "lines": [
-                "Versicherer: TODO: Name und Anschrift",
-                "Räumlicher Geltungsbereich: TODO"
-              ]
+              "lines": ["Versicherer: TODO: Name und Anschrift", "Räumlicher Geltungsbereich: TODO"]
             }
           ]
         },

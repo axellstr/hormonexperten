@@ -57,6 +57,10 @@
     "eyebrow": "So funktioniert’s",
     "title": "Drei einfache Schritte, kein Wartezimmer.",
     "intro": "Alles läuft an einem sicheren Ort zusammen – von der Terminbuchung über die Blutwerte bis zur Nachsorge. So wissen Sie immer, wie es weitergeht.",
+    "cta": {
+      "body": "Bereit für den nächsten Schritt? Wählen Sie einen passenden Termin in unserem sicheren Patientenportal.",
+      "label": "Termin vereinbaren"
+    },
     "steps": [
       {
         "title": "Termin buchen",
@@ -73,7 +77,7 @@
     ],
     "note": {
       "title": "Wichtige Hinweise",
-      "body": "Für die allermeisten unserer Patientinnen und Patienten ist die Online-Sprechstunde gut geeignet. In bestimmten Fällen kann jedoch ein persönlicher Arztbesuch medizinisch notwendig werden, etwa wenn eine körperliche Untersuchung angezeigt ist oder weitere Diagnostik (zum Beispiel ein Ultraschall oder eine Mammografie) erforderlich ist. In diesem Fall berät Ihre Ärztin Sie im Gespräch entsprechend und gibt Ihnen eine passende Überweisungsempfehlung."
+      "body": "Online-Sprechstunden eignen sich für die meisten Patientinnen und Patienten. Wenn eine körperliche Untersuchung oder weitere Diagnostik, etwa Ultraschall oder Mammografie, medizinisch erforderlich ist, empfiehlt Ihre Ärztin den passenden nächsten Schritt."
     }
   },
   "team": {

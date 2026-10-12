@@ -6,7 +6,7 @@
     "items": [
       {
         "label": "About Us",
-        "href": "/#approach"
+        "href": "/about-us"
       },
       {
         "label": "Services",
@@ -19,14 +19,15 @@
       },
       {
         "label": "Contact",
-        "href": "/#contact"
+        "href": "/contact"
       }
     ],
     "menu": "Menu",
     "close": "Close",
     "book": "Book Now",
     "all_services": "View all services",
-    "language": "Language"
+    "language": "Language",
+    "socials": "Socials"
   },
   "services": [
     {

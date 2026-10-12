@@ -1,6 +1,11 @@
 ---
 import { Picture } from 'astro:assets';
 import ChevronEnd from '../../assets/icons/chevron-end.svg';
+import Facebook from '../../assets/icons/facebook.svg';
+import Instagram from '../../assets/icons/instagram.svg';
+import Jameda from '../../assets/icons/jameda.svg';
+import LinkedIn from '../../assets/icons/linkedin.svg';
+import WhatsApp from '../../assets/icons/whatsapp.svg';
 import { BOOKING_URL, type Locale } from '../../config';
 import { ACTIVE_PALETTE, PALETTES } from '../../config/palettes';
 import { getImage } from '../../lib/assets';
@@ -22,8 +27,16 @@ interface Props {
 }
 
 const { lang, site } = Astro.props;
-const { nav } = site;
+const { nav, footer } = site;
 const services = visible(site.services);
+const social = visible(footer.social);
+const socialIcons = {
+  linkedin: LinkedIn,
+  instagram: Instagram,
+  whatsapp: WhatsApp,
+  facebook: Facebook,
+  jameda: Jameda,
+};
 // The menus show the first four as image cards and list the rest as text links beside them.
 const featured = services.slice(0, 4);
 const more = services.slice(4);
@@ -53,9 +66,10 @@ const sheetLink =
   'group/link flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-field py-4 text-h2 font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:py-5';
 const sheetIcon =
   'grid size-11 shrink-0 place-items-center rounded-full bg-bg text-ink group-hover/link:bg-coral motion-safe:transition-colors motion-safe:duration-300';
-// Sheet contents rise in one after another once the sheet has started to grow.
+// Sheet contents rise in one after another once the sheet has started to grow, and leave together
+// at the same pace.
 const sheetReveal =
-  'group-data-closed/mobile:translate-y-3 group-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/mobile:duration-150 motion-safe:group-not-data-closed/mobile:duration-500';
+  'group-data-closed/mobile:translate-y-3 group-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth';
 const sheetDelay = [
   'motion-safe:group-not-data-closed/mobile:delay-100',
   'motion-safe:group-not-data-closed/mobile:delay-150',
@@ -104,25 +118,25 @@ const sheetDelay = [
                       stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="size-4 shrink-0 group-open/mega:group-not-data-closed/mega:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                      class="size-4 shrink-0 group-open/mega:group-not-data-closed/mega:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                       aria-hidden="true"
                     >
                       <path
                         d="M4 7l6 6"
-                        class="origin-bottom-right transform-fill group-open/mega:group-not-data-closed/mega:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                        class="origin-bottom-right transform-fill group-open/mega:group-not-data-closed/mega:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                       />
                       <path
                         d="m10 13 6-6"
-                        class="origin-bottom-left transform-fill group-open/mega:group-not-data-closed/mega:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                        class="origin-bottom-left transform-fill group-open/mega:group-not-data-closed/mega:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                       />
                     </svg>
                   </summary>
 
-                  <!-- Moves as one piece, in step with the chevron: in over its 300ms with its easing,
-                       and out the way it came, speeding up as it goes. While it fades out it lets the
-                       pointer through, so passing over it can't bring it back. -->
+                  <!-- Moves as one piece, in step with the chevron: in and out the same way, over the
+                       same 300ms on the same curve. While it fades out it lets the pointer through,
+                       so passing over it can't bring it back. -->
                   <div
-                    class="absolute inset-x-0 top-full pt-2 group-data-closed/mega:pointer-events-none group-data-closed/mega:-translate-y-1 group-data-closed/mega:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:group-not-data-closed/mega:ease-out motion-safe:group-data-closed/mega:ease-in"
+                    class="absolute inset-x-0 top-full pt-2 group-data-closed/mega:pointer-events-none group-data-closed/mega:-translate-y-1 group-data-closed/mega:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth"
                     data-menu-panel
                   >
                     <div class="flex gap-3 rounded-panel bg-bg p-3">
@@ -203,7 +217,7 @@ const sheetDelay = [
           </summary>
 
           <div
-            class="absolute end-0 top-full z-20 mt-2 w-72 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/palette:-translate-y-1 group-data-closed/palette:opacity-0 motion-safe:transition motion-safe:ease-out motion-safe:group-data-closed/palette:duration-150 motion-safe:group-not-data-closed/palette:duration-200"
+            class="absolute end-0 top-full z-20 mt-2 w-72 rounded-card bg-bg p-2 ring-1 ring-ink/10 group-data-closed/palette:-translate-y-1 group-data-closed/palette:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth"
             data-menu-panel
           >
             <div class="flex items-baseline justify-between gap-4 px-3 pt-2 pb-1.5">
@@ -289,20 +303,20 @@ const sheetDelay = [
             >
               <path
                 d="M5 9h14"
-                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
               />
               <path
                 d="M5 15h14"
-                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:-translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                class="origin-center transform-fill group-open/mobile:group-not-data-closed/mobile:-translate-y-0.75 group-open/mobile:group-not-data-closed/mobile:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
               />
             </svg>
             <span class="sr-only">{nav.menu}</span>
             <!-- Both labels share one grid cell, so the button keeps its width as they swap. -->
             <span class="hidden sm:inline-grid" aria-hidden="true">
-              <span class="col-start-1 row-start-1 group-open/mobile:group-not-data-closed/mobile:-translate-y-1 group-open/mobile:group-not-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+              <span class="col-start-1 row-start-1 group-open/mobile:group-not-data-closed/mobile:-translate-y-1 group-open/mobile:group-not-data-closed/mobile:opacity-0 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth">
                 <RollText text={nav.menu} />
               </span>
-              <span class="col-start-1 row-start-1 translate-y-1 opacity-0 group-open/mobile:group-not-data-closed/mobile:translate-y-0 group-open/mobile:group-not-data-closed/mobile:opacity-100 motion-safe:transition motion-safe:duration-300 motion-safe:ease-out">
+              <span class="col-start-1 row-start-1 translate-y-1 opacity-0 group-open/mobile:group-not-data-closed/mobile:translate-y-0 group-open/mobile:group-not-data-closed/mobile:opacity-100 motion-safe:transition motion-safe:duration-300 motion-safe:ease-smooth">
                 <RollText text={nav.close} />
               </span>
             </span>
@@ -313,9 +327,10 @@ const sheetDelay = [
             class="sheet scrollbar-none fixed inset-0 -z-10 flex flex-col overflow-y-auto overscroll-contain bg-surface pt-24 group-data-closed/mobile:sheet-collapsed lg:pt-32"
             data-menu-panel
           >
-            <Container class="flex max-w-header! grow flex-col xl:w-11/12">
-              <!-- Inset like the pill's content, so the menu lines up under the logo. -->
-              <div class="flex grow flex-col px-4 pb-6 md:px-6 md:pb-10 lg:grid lg:grid-cols-12 lg:content-start lg:gap-x-16 xl:px-8">
+            <Container class="flex min-h-full max-w-header! grow flex-col xl:w-11/12">
+              <!-- Inset like the pill's content, so the menu lines up under the logo.
+                   On lg: row 1 is 1fr so the language row sits at the bottom of the sheet. -->
+              <div class="flex grow flex-col px-4 pb-6 md:px-6 md:pb-10 lg:grid lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-16 xl:px-8">
                 <nav aria-label={nav.label} class="lg:col-span-5">
                   <ul class="space-y-1">
                     {nav.items.map((item, index) => (
@@ -328,7 +343,7 @@ const sheetDelay = [
                         ]}
                       >
                         {item.submenu ? (
-                          <details class="group/sub details-content:h-0 details-content:overflow-clip open:details-content:h-auto motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-out">
+                          <details class="group/sub details-content:h-0 details-content:overflow-clip open:details-content:h-auto motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-smooth">
                             <summary class={sheetLink}>
                               {item.label}
                               <span class={sheetIcon}>
@@ -340,16 +355,16 @@ const sheetDelay = [
                                   stroke-width="1.5"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
-                                  class="size-6 opacity-80 group-open/sub:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                                  class="size-6 opacity-80 group-open/sub:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                                   aria-hidden="true"
                                 >
                                   <path
                                     d="M4 7l6 6"
-                                    class="origin-bottom-right transform-fill group-open/sub:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                                    class="origin-bottom-right transform-fill group-open/sub:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                                   />
                                   <path
                                     d="m10 13 6-6"
-                                    class="origin-bottom-left transform-fill group-open/sub:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+                                    class="origin-bottom-left transform-fill group-open/sub:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
                                   />
                                 </svg>
                               </span>
@@ -412,7 +427,7 @@ const sheetDelay = [
                 {servicesItem && (
                   <div
                     class:list={[
-                      'hidden md:mt-12 md:block lg:col-span-7 lg:row-span-2 lg:mt-0 lg:pt-5',
+                      'hidden md:mt-12 md:block lg:col-span-7 lg:mt-0 lg:pt-5',
                       sheetReveal,
                       sheetDelay[2],
                     ]}
@@ -452,12 +467,40 @@ const sheetDelay = [
 
                 <div
                   class:list={[
-                    'mt-auto space-y-6 pt-10 lg:col-span-5 lg:col-start-1 lg:mt-0',
+                    'mt-auto space-y-6 pt-10 lg:col-span-12 lg:col-start-1',
                     sheetReveal,
                     sheetDelay[4],
                   ]}
                 >
-                  <LanguageSwitcher lang={lang} label={nav.language} inline />
+                  <div class="flex flex-wrap items-start justify-between gap-x-10 gap-y-6">
+                    {social.length > 0 && (
+                      <div class="shrink-0">
+                        <Eyebrow id="sheet-socials">{nav.socials}</Eyebrow>
+                        <ul aria-labelledby="sheet-socials" class="mt-3 flex flex-wrap gap-2">
+                          {social.map((item) => {
+                            const Icon = socialIcons[item.icon];
+                            return (
+                              <li>
+                                <a
+                                  href={item.href}
+                                  class="grid size-12 place-items-center rounded-full bg-bg text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+                                >
+                                  <Icon class="size-5" aria-hidden="true" />
+                                  <span class="sr-only">{item.name}</span>
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    )}
+                    <LanguageSwitcher
+                      lang={lang}
+                      label={nav.language}
+                      inline
+                      class="ms-auto min-w-0 max-w-md basis-56"
+                    />
+                  </div>
                   <Button href={BOOKING_URL} class="w-full sm:hidden">
                     {nav.book}
                   </Button>

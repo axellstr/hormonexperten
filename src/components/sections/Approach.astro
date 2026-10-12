@@ -5,6 +5,7 @@ import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
+import RollText from '../ui/RollText.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Panel from '../ui/Panel.astro';
 import RevealText from '../ui/RevealText.astro';
@@ -19,25 +20,32 @@ const { lang, approach } = Astro.props;
 ---
 
 <Section id="approach" aria-labelledby="approach-title">
-  <Panel class="grid items-center gap-10 p-6 md:p-12 lg:grid-cols-2 lg:gap-12 xl:gap-16 xl:p-20">
-    <Picture
-      src={getImage(approach.image)}
-      alt={approach.image_alt}
-      formats={['avif', 'webp']}
-      widths={[480, 720, 960, 1300]}
-      sizes="(min-width: 1440px) 600px, (min-width: 1024px) 40vw, 90vw"
-      class="aspect-7/6 w-full rounded-panel object-cover"
-    />
-    <div data-text-reveal>
-      <Eyebrow data-reveal="0">{approach.eyebrow}</Eyebrow>
-      <h2 id="approach-title" class="mt-4 reveal-text text-h2 text-ink" data-reveal="1">
-        <RevealText text={approach.title} />
+  <!--
+    The photo sits one frame gap from the panel's edge at every width, so the panel's corners nest
+    round it. On desktop it fills the row's height, so the gap holds when the text is the taller
+    column; the text keeps its own, larger padding.
+  -->
+  <Panel frame class="grid gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+    <div class="unveil aspect-7/6 w-full overflow-hidden rounded-panel lg:self-stretch">
+      <Picture
+        src={getImage(approach.image)}
+        alt={approach.image_alt}
+        formats={['avif', 'webp']}
+        widths={[480, 720, 960, 1300]}
+        sizes="(min-width: 1440px) 640px, (min-width: 1024px) 45vw, 90vw"
+        class="unveil-photo size-full object-cover"
+      />
+    </div>
+    <div class="reveal-text md:px-6 md:pb-6 lg:self-center lg:py-6 lg:ps-0 xl:py-14 xl:pe-14">
+      <Eyebrow>{approach.eyebrow}</Eyebrow>
+      <h2 id="approach-title" class="mt-4 text-h2 text-ink">
+        <RevealText text={approach.title} to={0.55} />
       </h2>
-      <p class="mt-6 max-w-prose reveal-text text-body text-ink/80" data-reveal="2">
-        <RevealText text={approach.body} />
+      <p class="mt-6 max-w-prose text-body text-ink/80">
+        <RevealText text={approach.body} from={0.35} />
       </p>
-      <Button href={localizeHref(approach.cta.href, lang)} class="mt-10" data-reveal="3">
-        {approach.cta.label}
+      <Button href={localizeHref(approach.cta.href, lang)} class="mt-10">
+        <RollText text={approach.cta.label} />
       </Button>
     </div>
   </Panel>

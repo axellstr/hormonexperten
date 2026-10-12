@@ -9,7 +9,7 @@ interface Props {
   lang: Locale;
   title: string;
   contact: Faq['contact'];
-  /** Visible questions, in order; the first starts open. */
+  /** Visible questions, in order. */
   items: Item[];
 }
 
@@ -18,14 +18,14 @@ const { lang, title, contact, items } = Astro.props;
 
 {items.length > 0 && (
   <Section id="faq" aria-labelledby="faq-title">
-    <h2 id="faq-title" class="text-h2 text-ink" data-text-reveal data-reveal="0">
+    <h2 id="faq-title" class="text-h2 text-ink">
       {title}
     </h2>
 
     <div class="mt-10 grid gap-16 lg:mt-14 lg:grid-cols-12 lg:items-start">
       <div class="flex flex-col gap-4 lg:col-span-7">
-        {items.map((item, index) => (
-          <FaqItem lang={lang} item={item} name="faq" open={index === 0} />
+        {items.map((item) => (
+          <FaqItem lang={lang} item={item} name="faq" />
         ))}
       </div>
 

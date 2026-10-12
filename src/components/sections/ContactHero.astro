@@ -1,0 +1,140 @@
+---
+import ArrowUpRight from '../../assets/icons/arrow-up-right.svg';
+import Facebook from '../../assets/icons/facebook.svg';
+import Instagram from '../../assets/icons/instagram.svg';
+import Jameda from '../../assets/icons/jameda.svg';
+import LinkedIn from '../../assets/icons/linkedin.svg';
+import Mail from '../../assets/icons/mail.svg';
+import Phone from '../../assets/icons/phone.svg';
+import WhatsApp from '../../assets/icons/whatsapp.svg';
+import { BOOKING_URL } from '../../config';
+import { visible } from '../../lib/content';
+import type { Contact, Site } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+
+interface Props {
+  hero: Contact['hero'];
+  channels: Contact['channels'];
+  /** The footer's social links, so both stay in step. */
+  social: Site['footer']['social'];
+}
+
+const { hero, channels, social: allSocial } = Astro.props;
+const items = visible(channels.items);
+const social = visible(allSocial);
+const channelIcons = { mail: Mail, phone: Phone };
+const socialIcons = {
+  linkedin: LinkedIn,
+  instagram: Instagram,
+  whatsapp: WhatsApp,
+  facebook: Facebook,
+  jameda: Jameda,
+};
+---
+
+<!-- Sits below the floating header pill, like the other heroes. -->
+<div class="mt-4 lg:mt-6" data-hero>
+  <Container>
+    <section
+      aria-labelledby="contact-title"
+      class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
+    >
+      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+        <div class="lg:col-span-5">
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
+          <h1 id="contact-title" class="mt-4 text-display text-ink">
+            {hero.title}
+          </h1>
+          <p class="mt-6 max-w-prose text-lead text-ink/80">{hero.intro}</p>
+          <Button href={BOOKING_URL} class="mt-10">
+            {hero.cta}
+          </Button>
+        </div>
+
+        <div class="lg:col-span-7">
+          <h2 class="sr-only">{channels.title}</h2>
+          <!--
+            One card per way to reach the practice, the whole card a link. Narrow screens stack the
+            icon row above the text, so an e-mail address gets the card's full width; from sm the
+            icon, text and arrow share one row.
+          -->
+          <ul class="grid gap-3 sm:gap-4">
+            {items.map((channel) => {
+              const Icon = channelIcons[channel.icon];
+              return (
+                <li>
+                  <a
+                    href={channel.href}
+                    class="group flex flex-col gap-6 rounded-card bg-bg p-5 ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow sm:flex-row sm:items-center sm:gap-5 sm:p-6 md:p-8"
+                  >
+                    <span class="flex items-center justify-between sm:contents">
+                      <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink sm:order-first">
+                        <Icon class="size-6" aria-hidden="true" />
+                      </span>
+                      <span class="grid size-10 shrink-0 place-items-center rounded-full bg-surface text-ink group-hover:bg-coral motion-safe:transition-colors motion-safe:duration-300 sm:order-last">
+                        <ArrowUpRight
+                          class="size-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 rtl:-scale-x-100"
+                          aria-hidden="true"
+                        />
+                      </span>
+                    </span>
+                    <span class="block min-w-0 grow">
+                      <span class="block text-sm font-medium text-ink/70">{channel.label}</span>
+                      <!-- An address may break before its @ (and anywhere as a last resort); a number never breaks. -->
+                      <span
+                        class:list={[
+                          'mt-1 block text-h4 text-ink',
+                          channel.icon === 'phone'
+                            ? 'whitespace-nowrap tabular-nums'
+                            : 'wrap-anywhere',
+                        ]}
+                      >
+                        {channel.icon === 'mail' ? (
+                          <>
+                            {channel.value.split('@')[0]}
+                            <wbr />@{channel.value.split('@').slice(1).join('@')}
+                          </>
+                        ) : (
+                          channel.value
+                        )}
+                      </span>
+                      {channel.detail && (
+                        <span class="mt-2 block text-sm text-ink/70">{channel.detail}</span>
+                      )}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          {social.length > 0 && (
+            <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 sm:mt-8">
+              <p id="contact-social" class="text-sm font-medium text-ink/70">
+                {channels.social}
+              </p>
+              <ul aria-labelledby="contact-social" class="flex flex-wrap gap-2">
+                {social.map((item) => {
+                  const Icon = socialIcons[item.icon];
+                  return (
+                    <li>
+                      <a
+                        href={item.href}
+                        class="grid size-11 place-items-center rounded-full bg-bg text-ink ring-1 ring-ink/10 hover:bg-coral-tint hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition"
+                      >
+                        <Icon class="size-5" aria-hidden="true" />
+                        <span class="sr-only">{item.name}</span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  </Container>
+</div>

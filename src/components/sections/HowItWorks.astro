@@ -1,10 +1,14 @@
 ---
 import { Picture } from 'astro:assets';
+import { BOOKING_URL } from '../../config';
 import { getImage } from '../../lib/assets';
 import type { Home } from '../../lib/schemas';
+import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Note from '../ui/Note.astro';
 import Placeholder from '../ui/Placeholder.astro';
+import RevealText from '../ui/RevealText.astro';
+import RollText from '../ui/RollText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -25,23 +29,20 @@ const { how } = Astro.props;
     data-stack
   >
     <!-- From lg as tall as the stacked deck (set by the script), so the two leave together.
-         Below lg it has no box of its own, so the heading can pin for the whole deck; that's
-         also why the reveal groups sit on its children. -->
+         Below lg it has no box of its own, so the heading can pin for the whole deck. -->
     <div class="contents lg:sticky lg:top-28 lg:col-span-5 lg:block lg:min-h-(--stack-span) lg:self-start">
-      <div class="group-data-pinned/stack:stack-head" data-stack-head data-text-reveal>
-        <Eyebrow data-reveal="0">{how.eyebrow}</Eyebrow>
-        <h2 id="how-title" class="mt-4 max-w-3xl text-h2 text-ink" data-reveal="1">
+      <div class="group-data-pinned/stack:stack-head" data-stack-head>
+        <Eyebrow>{how.eyebrow}</Eyebrow>
+        <h2 id="how-title" class="mt-4 max-w-3xl text-h2 text-ink">
           {how.title}
         </h2>
       </div>
-      <p class="mt-5 max-w-3xl text-lead text-ink/80" data-text-reveal data-reveal="2">
-        {how.intro}
-      </p>
+      <p class="mt-5 hidden max-w-3xl text-lead text-ink/80 lg:block">{how.intro}</p>
 
       <!-- Where the reader is in the deck. The cards carry the same titles, so it is hidden
            from assistive tech; the line and dots only move with the script. -->
       <ol aria-hidden="true" class="relative mt-12 hidden space-y-6 lg:block">
-        <span class="absolute start-3.75 top-4 bottom-4 w-0.5 bg-ink/10">
+        <span class="absolute start-3.75 top-4 bottom-0 w-0.5 bg-ink/10">
           <span class="stack-progress block h-full bg-coral" data-stack-rail></span>
         </span>
         {how.steps.map((step, index) => (
@@ -55,11 +56,19 @@ const { how } = Astro.props;
           </li>
         ))}
       </ol>
+
+      <div class="hidden lg:mt-10 lg:block">
+        <p class="max-w-md text-base leading-relaxed text-ink/80">{how.cta.body}</p>
+        <Button href={BOOKING_URL} class="mt-5">
+          <RollText text={how.cta.label} />
+        </Button>
+        <Note compact class="mt-8" title={how.note.title} body={how.note.body} />
+      </div>
     </div>
 
     <!-- Equal rows, so every card in the deck is the same height. -->
     <ol
-      class="mt-10 -mb-(--stack-release) grid auto-rows-fr gap-6 lg:col-span-7 lg:mt-0 lg:mb-0 lg:gap-12"
+      class="stack-deck mt-10 -mb-(--stack-release) grid auto-rows-fr gap-6 lg:col-span-7 lg:mt-0 lg:mb-0 lg:gap-12"
       data-stack-list
     >
       {how.steps.map((step, index) => (
@@ -68,29 +77,39 @@ const { how } = Astro.props;
           style={`--stack-index: ${index}`}
           data-stack-card
         >
-          <div class="stack-face h-full overflow-hidden rounded-panel bg-surface ring-1 ring-ink/5">
-            <div data-stack-media>
-              {step.image ? (
-                <Picture
-                  src={getImage(step.image)}
-                  alt={step.image_alt ?? ''}
-                  formats={['avif', 'webp']}
-                  widths={[480, 720, 1080]}
-                  sizes="(min-width: 1440px) 800px, (min-width: 1024px) 55vw, 95vw"
-                  class="aspect-5/2 w-full object-cover"
-                />
-              ) : (
-                <Placeholder class="aspect-5/2" />
-              )}
-            </div>
-            <div class="p-6 md:p-8 xl:p-10">
-              <h3 class="text-h3 text-ink">
-                <span class="text-text-muted tabular-nums" aria-hidden="true">
-                  {`${index + 1}.`}
-                </span>{' '}
-                {step.title}
-              </h3>
-              <p class="mt-4 max-w-prose text-body text-ink/80">{step.body}</p>
+          <!-- The photo fills the card and the text sits on a panel inset at the bottom, its
+               corners concentric with the card's. An aspect box shares the grid cell with the
+               text (square below lg, 3:2 from lg), so the card grows taller only when the text
+               needs the room. The space above the panel keeps a band of photo in view; it is
+               also all that may tuck under the pinned heading. -->
+          <div class="stack-face grid h-full grid-cols-1 overflow-clip rounded-panel bg-surface ring-1 ring-ink/5">
+            {step.image ? (
+              <Picture
+                src={getImage(step.image)}
+                alt={step.image_alt ?? ''}
+                formats={['avif', 'webp']}
+                widths={[480, 720, 1080]}
+                sizes="(min-width: 1440px) 800px, (min-width: 1024px) 55vw, 95vw"
+                class="absolute inset-0 size-full object-cover"
+              />
+            ) : (
+              <Placeholder class="absolute inset-0" />
+            )}
+            <div class="col-start-1 row-start-1 aspect-square w-full lg:aspect-3/2"></div>
+            <div class="col-start-1 row-start-1 flex flex-col">
+              <div class="min-h-28 flex-1" data-stack-media></div>
+              <div class="relative m-3 rounded-xl bg-surface p-5 md:p-6 lg:m-4 lg:rounded-lg lg:p-5 xl:p-6">
+                <h3 class="flex items-start gap-3 text-h4 text-ink">
+                  <span
+                    class="flex size-7 shrink-0 items-center justify-center rounded-full bg-coral-tint text-sm font-semibold tabular-nums ring-1 ring-coral"
+                    aria-hidden="true"
+                  >
+                    {index + 1}
+                  </span>
+                  {step.title}
+                </h3>
+                <p class="mt-2 max-w-prose text-base leading-snug text-ink/80">{step.body}</p>
+              </div>
             </div>
           </div>
         </li>
@@ -98,7 +117,18 @@ const { how } = Astro.props;
     </ol>
   </div>
 
-  <Note class="mt-10 lg:mt-16" title={how.note.title} body={how.note.body} />
+  <!-- Below lg the intro and the booking button close the deck instead of opening it, so the
+       steps follow the heading straight away. It sits outside the deck's box, so the pinned
+       heading has left by the time it comes up. -->
+  <div class="mt-12 md:mt-16 lg:hidden">
+    <p class="max-w-2xl reveal-text text-h3 font-medium text-ink">
+      <RevealText text={how.intro} />
+    </p>
+    <Button href={BOOKING_URL} class="mt-8 w-full sm:w-auto">
+      <RollText text={how.cta.label} />
+    </Button>
+    <Note compact inline class="mt-6" title={how.note.title} body={how.note.body} />
+  </div>
 </Section>
 
 <script>

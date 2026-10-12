@@ -101,9 +101,13 @@
     ]
   },
   "how": {
-    "eyebrow": "How it Works",
+    "eyebrow": "How Things Work",
     "title": "Three easy steps, no waiting room.",
     "intro": "Everything happens in one secure place, from booking and blood results to follow-up care. You’ll always know what comes next.",
+    "cta": {
+      "body": "Ready to take the next step? Choose a convenient time in our secure patient portal.",
+      "label": "Schedule an appointment"
+    },
     "steps": [
       {
         "title": "Book an Appointment",
@@ -120,7 +124,7 @@
     ],
     "note": {
       "title": "Important information",
-      "body": "Online consultations are perfectly suitable for the vast majority of our patients. In certain cases, however, an in-person doctor’s visit may become medically necessary, for example when a physical examination is medically indicated or when additional diagnostics (such as an ultrasound scan or mammography exam) are required. Where this applies, your doctor will advise you accordingly during your consultation and provide you with a corresponding referral recommendation."
+      "body": "Online consultations suit most patients. If a physical examination or further diagnostics, such as an ultrasound or mammogram, are medically necessary, your doctor will recommend the appropriate next step."
     }
   },
   "team": {
