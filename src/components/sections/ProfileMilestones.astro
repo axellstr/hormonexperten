@@ -29,7 +29,7 @@ const strip = columns[milestones.items.length as keyof typeof columns];
       A vertical line down the start edge. Each item draws its own piece of the line, so it stays
       unbroken however tall the items get.
     -->
-    <ol class:list={['mt-10 grid', strip ? ['lg:mt-16', strip] : 'lg:col-span-8 lg:mt-0']}>
+    <ol class:list={['mt-intro grid', strip ? [strip] : 'lg:col-span-8 lg:mt-0']}>
       {milestones.items.map((milestone) => (
         <li
           class:list={[
@@ -47,8 +47,8 @@ const strip = columns[milestones.items.length as keyof typeof columns];
           <h3 class="text-h3 text-ink tabular-nums">{milestone.date}</h3>
           <ul
             class:list={[
-              'mt-4 space-y-3 text-body text-ink/80 md:col-span-3 md:mt-0',
-              strip && 'xl:mt-4',
+              'mt-subheading space-y-3 text-body text-ink/80 md:col-span-3 md:mt-0',
+              strip && 'xl:mt-subheading',
             ]}
           >
             {milestone.items.map((item) => (

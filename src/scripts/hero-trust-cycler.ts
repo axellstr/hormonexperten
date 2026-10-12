@@ -1,6 +1,6 @@
 /**
- * On phones, turn the hero trust signals through one compact slot using the same prism motion as
- * the trust logos. The complete copy remains in the hero for assistive technology.
+ * Turn the hero trust signals through one compact slot using the same prism motion as the trust
+ * logos. The complete copy remains in the hero for assistive technology.
  */
 
 const HOLD = 2000;

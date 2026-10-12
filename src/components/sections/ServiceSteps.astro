@@ -15,10 +15,10 @@ const { how } = Astro.props;
 <!-- The home page's How it Works, without the step photos: three cards in a row from lg. -->
 <Section id="how-it-works" aria-labelledby="how-title">
   <Eyebrow>{how.eyebrow}</Eyebrow>
-  <h2 id="how-title" class="mt-4 max-w-3xl text-h2 text-ink">
+  <h2 id="how-title" class="mt-eyebrow max-w-3xl text-h2 text-ink">
     {how.title}
   </h2>
-  <p class="mt-5 max-w-3xl text-lead text-ink/80">{how.intro}</p>
+  <p class="mt-heading max-w-3xl text-lead text-ink/80">{how.intro}</p>
 
   <ol class="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-3 lg:gap-6">
     {how.steps.map((step, index) => (
@@ -30,7 +30,7 @@ const { how } = Astro.props;
             </span>{' '}
             {step.title}
           </h3>
-          <p class="mt-4 text-body text-ink/80">{step.body}</p>
+          <p class="mt-subheading text-body text-ink/80">{step.body}</p>
         </Panel>
       </li>
     ))}

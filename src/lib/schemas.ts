@@ -120,6 +120,7 @@ export const homeSchema = z.object({
         name: z.string(),
         logo: z.enum([
           'jameda',
+          'provenexpert',
           'partner-1',
           'partner-2',
           'partner-3',
@@ -127,6 +128,41 @@ export const homeSchema = z.object({
           'partner-5',
           'partner-6',
         ]),
+        ...needsCheck,
+      }),
+    ),
+  }),
+  /**
+   * Date-stamped snapshot of independent review ratings (ProvenExpert aggregate + per-source
+   * breakdown). Shown in the trust section and above testimonials; not fetched at runtime.
+   */
+  review_profile: z.object({
+    name: z.string(),
+    href: z.string(),
+    logo: z.literal('provenexpert'),
+    rating: z.number().positive().max(5),
+    rating_max: z.number().int().positive(),
+    reviews: z.number().int().nonnegative(),
+    sources: z.number().int().positive(),
+    descriptor: z.string(),
+    /** ISO date the snapshot was checked (YYYY-MM-DD). */
+    checked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    /** Localised display form of `checked`, e.g. "12 October 2026". */
+    checked_display: z.string(),
+    rating_label: z.string(),
+    reviews_label: z.string(),
+    /** Per-platform review count, e.g. "{count} reviews". */
+    platform_reviews_label: z.string(),
+    checked_label: z.string(),
+    link_label: z.string(),
+    platforms: z.array(
+      z.object({
+        name: z.string(),
+        logo: z.enum(['jameda', 'provenexpert', 'google', 'sanego']),
+        href: z.string(),
+        rating: z.number().positive().max(5),
+        reviews: z.number().int().nonnegative(),
+        link_label: z.string(),
         ...needsCheck,
       }),
     ),
@@ -440,7 +476,13 @@ export const conditionsSchema = z.object({
   /** Line under the cards: the list isn't complete. */
   more: z.string(),
   /** Strip on the overview for patients already seeing a gynaecologist. */
-  co_care: z.object({ title: z.string(), body: z.string() }),
+  co_care: z.object({
+    title: z.string(),
+    body: z.string(),
+    /** Square photo beside the text; a placeholder shows until there is one. */
+    image: z.string().optional(),
+    image_alt: z.string().default(''),
+  }),
   familiar_title: z.string(),
   approach_title: z.string(),
   related_title: z.string(),

@@ -53,6 +53,29 @@
   "trust": {
     "title": "Με την εμπιστοσύνη των ασθενών και την υποστήριξη συνεργατών."
   },
+  "review_profile": {
+    "descriptor": "Εξαιρετικό",
+    "checked_display": "12 Οκτωβρίου 2026",
+    "rating_label": "{rating} από {max}",
+    "reviews_label": "{count} αξιολογήσεις από {sources} πηγές",
+    "platform_reviews_label": "{count} αξιολογήσεις",
+    "checked_label": "Ελέγχθηκε",
+    "link_label": "Προβολή προφίλ ProvenExpert",
+    "platforms": [
+      {
+        "link_label": "Προβολή προφίλ Jameda"
+      },
+      {
+        "link_label": "Προβολή προφίλ ProvenExpert"
+      },
+      {
+        "link_label": "Προβολή αξιολογήσεων Google"
+      },
+      {
+        "link_label": "Αξιολογήσεις sanego στο ProvenExpert"
+      }
+    ]
+  },
   "how": {
     "eyebrow": "Πώς λειτουργεί",
     "title": "Τρία απλά βήματα, χωρίς αίθουσα αναμονής.",

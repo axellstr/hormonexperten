@@ -26,7 +26,7 @@ const more = page.approach_more && isVisible(page.approach_more) ? page.approach
     </h2>
 
     <div class="lg:col-span-7">
-      <p lang={contentLang} class="max-w-prose text-body text-ink/80">
+      <p lang={contentLang} class="max-w-measure text-body text-ink/80">
         {page.approach}
         {more && ` ${more.text}`}
       </p>
@@ -35,7 +35,7 @@ const more = page.approach_more && isVisible(page.approach_more) ? page.approach
         <p
           role="note"
           lang={contentLang}
-          class="mt-6 flex max-w-prose gap-3 rounded-card bg-bg p-4 text-sm text-ink"
+          class="mt-6 flex max-w-measure gap-3 rounded-card bg-bg p-4 text-sm text-ink"
         >
           <Info class="size-5 shrink-0 text-ink" aria-hidden="true" />
           <span>{page.safety}</span>
@@ -47,7 +47,11 @@ const more = page.approach_more && isVisible(page.approach_more) ? page.approach
           <h3 id="related-title" class="text-h4 text-ink">
             {conditions.related_title}
           </h3>
-          <ul aria-labelledby="related-title" class="mt-4 flex flex-wrap gap-2" lang={contentLang}>
+          <ul
+            aria-labelledby="related-title"
+            class="mt-label flex flex-wrap gap-2"
+            lang={contentLang}
+          >
             {related.map((link) => (
               <li>
                 {link.href ? (

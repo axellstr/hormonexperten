@@ -52,7 +52,7 @@ For typography this ruleset takes precedence over the Figma file (the user's dec
 
 Every piece of text uses one role. Roles are tokens in `@theme`, fluid between 360px and 1728px viewports, and each token carries its size, line height, tracking **and weight**, so a role class needs no `font-*` class unless it is a listed exception. **Don't use raw `text-lg/xl/2xl` or breakpoint steps like `text-lg xl:text-xl 2xl:text-2xl` for content**; pick the role.
 
-The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 60/46/24/20 scale read as a magazine). Reading text is the anchor at 16 → 18px; headings step up from it in moderate ratios; tracking stays close to Manrope's own. Medical content (FAQ answers, step text, notes) is set at least as comfortably as marketing copy, never smaller.
+The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 60/46/24/20 scale read as a magazine). Reading text is the anchor at 16 → 17px (lowered from 18px with tighter leading on 12 Oct 2026: the user found paragraphs too large and the line spacing visible); headings step up from it in moderate ratios; tracking stays close to Manrope's own. Medical content (FAQ answers, step text, notes) is set at least as comfortably as marketing copy, never smaller.
 
 | Role | Utility | Size (360 → 1728) | Line height | Tracking | Weight | Use |
 |---|---|---|---|---|---|---|
@@ -62,12 +62,12 @@ The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 6
 | H3 | `text-h3` | 20 → 24px | 1.3 | −0.01em | 600 (`font-medium` for pull statements) | Sub-headings, step titles, team names in cards |
 | H4 | `text-h4` | 18 → 20px | 1.4 | 0 | 600 (`font-medium` for FAQ questions) | Card titles, list titles, note titles |
 | Eyebrow | `text-eyebrow` (`<Eyebrow>`) | 14px fixed | 1.4 | +0.08em | 600, `uppercase`, `text-text-muted` | Label above an H1/H2 (`mt-4` to the heading), footer column titles |
-| Lead | `text-lead` | 18 → 20px | 1.55 | 0 | 400 | One- or two-sentence openers only: hero subline, section intros, CTA sublines, profile lead |
-| Body | `text-body` | 16 → 18px | 1.65 | 0 | 400 | Running text, step text, FAQ answers, bios, roles, notes, footer blurb |
-| UI | `text-base` | 16px | Tailwind | 0 | `font-medium`/`font-semibold` | Buttons, nav, chips; body copy inside narrow cards (≤ 320px) |
+| Lead | `text-lead` | 18 → 19px | 1.45 | 0 | 400 | One- or two-sentence openers only: hero subline, section intros, CTA sublines, profile lead |
+| Body | `text-body` | 16 → 17px | 1.55 | 0 | 400 | Running text, step text, FAQ answers, bios, roles, notes, footer blurb |
+| UI | `text-base` | 16px | Tailwind (24px) | 0 | `font-medium`/`font-semibold` | Buttons, nav, chips; body copy inside narrow cards (≤ 320px), regular weight, no `leading-*` override |
 | Small | `text-sm` | 14px | Tailwind | 0 | regular/medium | Meta: trust line, captions, dates, breadcrumbs, review author, copyright |
 
-- **Lead is for openers, not paragraphs.** A paragraph of three or more lines, or anything a patient reads to understand care, is `text-body`. At 1440px the lead (≈19.6px) sits clearly below H3 (≈23px); don't close that gap.
+- **Lead is for openers, not paragraphs.** A paragraph of three or more lines, or anything a patient reads to understand care, is `text-body`. At 1440px the lead (≈18.8px) sits clearly below H3 (≈23px); don't close that gap.
 - **14px is the floor** for anything a person reads (the audience is mostly 40+). `text-xs` is only for the logo lockup and tooltips.
 - **Weights:** 600 for headings (set by the role token), 500 for interactive labels and emphasis inside text, 400 for reading text. No 700/800, no 200/300 except the logo wordmark.
 - **Colour:** headings and labels `text-ink`; lead and body `text-ink/80` (Figma's #454545); meta `text-ink/80` or `text-text-muted`; secondary detail under a title `text-ink/70`. On the footer: `text-on-dark` for titles, `text-on-dark/70` for text. Never text lighter than these (contrast).
@@ -76,8 +76,20 @@ The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 6
 
 ### Measure and spacing
 
-- Running text is 45–75 characters per line: give paragraphs `max-w-prose` (65ch) unless their column is already narrower. Headings sit in `max-w-3xl` or a grid column.
-- Rhythm: eyebrow → H2 `mt-3`/`mt-4`; H2 → lead `mt-5`/`mt-6`; lead → CTA `mt-8`/`mt-10`; paragraph to paragraph `space-y-4` (body) or `space-y-6` (long-form).
+- Running text is 45–75 characters per line: give paragraphs `max-w-measure` (54ch, about 66 characters) unless their column is already narrower. Never use Tailwind's `max-w-prose`: it is a fixed 65ch, and Manrope's wide "0" makes that about 80 characters. Paragraphs come in exactly three treatments: lead, body, and `text-base` in narrow cards; no other size or leading for running text. Headings sit in `max-w-3xl` or a grid column.
+- Rhythm (12 Oct 2026): spacing between text elements uses the named tokens in `@theme`, one per relationship, never raw `mt-*` steps. The gap shrinks with the heading's rank, and a heading always sits closer to its own text than to what comes before it.
+
+  | Relationship | Utility | Value |
+  |---|---|---|
+  | eyebrow → its heading | `mt-eyebrow` | 16px |
+  | display / H2 → its lead, intro or body | `mt-heading` | 24px |
+  | H3 → its text | `mt-subheading` | 12px |
+  | H4 → its text or chip list | `mt-label` | 8px |
+  | paragraph → paragraph (all text, long-form included) | `space-y-paragraph` | 16px |
+  | text → its button(s) | `mt-action` | 32px |
+  | section heading block → its cards, grid, list or accordion | `mt-intro` | 40 → 64px, fluid |
+
+  Structural gaps (icon → card title, between cards, dividers, section padding) stay on the normal spacing scale. Grouped content where the heading already has more space above it than `mt-intro` would give (e.g. Conditions groups) may sit tighter; never looser.
 
 ### Line breaking (set in `global.css`, don't override)
 

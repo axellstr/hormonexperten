@@ -20,7 +20,7 @@ const chips = focus && isVisible(focus) ? focus : undefined;
     </h2>
 
     <div class="lg:col-span-7">
-      <div class="max-w-prose space-y-4 text-body text-ink/80">
+      <div class="max-w-measure space-y-paragraph text-body text-ink/80">
         {about.body.map((paragraph) => (
           <p>{paragraph}</p>
         ))}
@@ -29,7 +29,7 @@ const chips = focus && isVisible(focus) ? focus : undefined;
       {chips && (
         <Panel class="mt-10 p-6 md:p-8 lg:mt-12">
           <h3 class="text-h4 text-ink">{chips.title}</h3>
-          <ul class="mt-5 flex flex-wrap gap-2">
+          <ul class="mt-label flex flex-wrap gap-2">
             {chips.items.map((item) => (
               <li class="rounded-full bg-bg px-4 py-2 text-base text-ink ring-1 ring-ink/10">
                 {item}

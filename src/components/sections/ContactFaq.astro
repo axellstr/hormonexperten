@@ -24,7 +24,7 @@ const { lang, faq, items } = Astro.props;
         <h2 id="quick-answers-title" class="text-h2 text-ink">
           {faq.title}
         </h2>
-        <Button href={localizeHref(faq.more.href, lang)} variant="secondary" class="mt-8">
+        <Button href={localizeHref(faq.more.href, lang)} variant="secondary" class="mt-action">
           {faq.more.label}
         </Button>
       </div>

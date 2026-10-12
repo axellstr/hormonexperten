@@ -36,7 +36,7 @@ const { trust, slides } = hero;
                 {trust.items.join(' · ')}. {format(trust.rating_label, { rating: trust.rating })}.
               </p>
 
-              <div data-hero-trust-cycler aria-hidden="true" class="text-sm text-ink/80 md:hidden">
+              <div data-hero-trust-cycler aria-hidden="true" class="text-sm text-ink/80">
                 <span
                   data-slot
                   class="grid min-h-10 grid-cols-1 grid-rows-1 items-center perspective-near"
@@ -61,31 +61,11 @@ const { trust, slides } = hero;
                   </span>
                 </template>
               </div>
-
-              <p
-                aria-hidden="true"
-                class="hidden flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink/80 md:flex"
-              >
-                {trust.items.map((item) => (
-                  <span>
-                    {item} <span>·</span>
-                  </span>
-                ))}
-                <span class="flex gap-0.5">
-                  {Array.from({ length: trust.rating }, () => (
-                    <Star class="size-3" />
-                  ))}
-                </span>
-              </p>
             </div>
           )}
-          <h1 class="text-title text-ink md:text-display">
-            {hero.title}
-          </h1>
-          <p class="mt-4 max-w-xl text-body text-ink/80 md:mt-5 md:text-lead">
-            {hero.subtitle}
-          </p>
-          <Button href={BOOKING_URL} class="mt-8">
+          <h1 class="text-title text-ink md:text-display">{hero.title}</h1>
+          <p class="mt-heading max-w-xl text-lead text-ink/80">{hero.subtitle}</p>
+          <Button href={BOOKING_URL} class="mt-action">
             <RollText text={hero.cta} />
           </Button>
         </div>

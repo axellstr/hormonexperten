@@ -87,6 +87,11 @@
   /* Content width (gives max-w-content), gutters included. */
   --container-content: 90rem; /* 1440px */
   --container-header: 85rem; /* 1360px */
+  /*
+   * Reading measure (gives max-w-measure), about 66 characters a line. Use it instead of Tailwind's
+   * max-w-measure: that is a fixed 65ch, and "0" is wide in Manrope, so it sets about 80 characters.
+   */
+  --container-measure: 54ch;
   --breakpoint-header-desktop: 90rem; /* 1440px */
   --spacing-hero-height: 70vh;
 
@@ -103,6 +108,23 @@
    */
   --spacing-frame: 1.5rem;
   --radius-frame: calc(var(--radius-panel) + var(--spacing-frame));
+
+  /*
+   * Text rhythm: one gap per relationship, so the same pairing spaces the same on every page. The
+   * gap shrinks with the heading's rank, and a heading always sits closer to its own text than to
+   * whatever comes before it. Gives mt-eyebrow, mt-heading and so on (also space-y-*, gap-*).
+   */
+  --spacing-eyebrow: 1rem; /* eyebrow → its heading */
+  --spacing-heading: 1.5rem; /* display/H2 → its intro, lead or body */
+  --spacing-subheading: 0.75rem; /* H3 → its text */
+  --spacing-label: 0.5rem; /* H4 → its text */
+  --spacing-paragraph: 1rem; /* paragraph → paragraph */
+  --spacing-action: 2rem; /* text → its button(s) */
+  --spacing-intro: clamp(
+    2.5rem,
+    2.105rem + 1.754vw,
+    4rem
+  ); /* heading block → section content, 40 → 64px */
 
   /*
    * Type scale: one token per role (see CLAUDE.md, Typography), each carrying its size, leading,
@@ -134,12 +156,16 @@
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: 0.08em;
   --text-eyebrow--font-weight: 600;
-  --text-lead: clamp(1.125rem, 1.092rem + 0.146vw, 1.25rem); /* 18 → 20px, intros and sublines */
-  --text-lead--line-height: 1.55;
+  --text-lead: clamp(
+    1.125rem,
+    1.1086rem + 0.0731vw,
+    1.1875rem
+  ); /* 18 → 19px, intros and sublines */
+  --text-lead--line-height: 1.45;
   --text-lead--letter-spacing: 0em;
   --text-lead--font-weight: 400;
-  --text-body: clamp(1rem, 0.967rem + 0.146vw, 1.125rem); /* 16 → 18px, running text */
-  --text-body--line-height: 1.65;
+  --text-body: clamp(1rem, 0.9836rem + 0.0731vw, 1.0625rem); /* 16 → 17px, running text */
+  --text-body--line-height: 1.55;
   --text-body--font-weight: 400;
   /* Fixed UI sizes (Tailwind's): text-base 16px for buttons/nav, text-sm 14px, the floor for any text. */
 
@@ -348,8 +374,8 @@
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: --reveal-text;
-      animation-range: cover calc(10vh + 55vh * var(--reveal-start))
-        cover calc(10vh + 55vh * (var(--reveal-start) + var(--reveal-length) * var(--reveal-fade)));
+      animation-range: cover calc(10vh + 55vh * var(--reveal-start)) cover
+        calc(10vh + 55vh * (var(--reveal-start) + var(--reveal-length) * var(--reveal-fade)));
     }
   }
 }
@@ -409,6 +435,83 @@
 @keyframes unveil-photo {
   from {
     scale: 1.1;
+  }
+}
+
+/*
+ * Pillar cards (Our approach): as a card scrolls into view it rises into place and fades in, its
+ * icon circle grows out of the card a moment later, and the line icon in it draws itself (its
+ * shapes carry pathLength="1", so one dash is the whole stroke). In a row the cards follow one
+ * another a beat apart (`pillar-lag-*`, one step per card before it in the row). Scroll position
+ * drives it, so scrolling back plays it in reverse. Browsers without scroll-driven animations,
+ * and reduced motion, show the cards as they are. Longhands only: the minifier folds a shorthand
+ * and a timeline into one invalid declaration.
+ */
+@utility pillar {
+  view-timeline: --pillar block;
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: pillar;
+      animation-timing-function: var(--ease-smooth);
+      animation-fill-mode: both;
+      animation-timeline: --pillar;
+      animation-range: entry calc(10% * var(--pillar-lag, 0)) cover
+        calc(30% + 6% * var(--pillar-lag, 0));
+    }
+  }
+}
+
+@utility pillar-icon {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation-name: pillar-icon;
+      animation-timing-function: var(--ease-smooth);
+      animation-fill-mode: both;
+      animation-timeline: --pillar;
+      animation-range: cover calc(8% + 6% * var(--pillar-lag, 0)) cover
+        calc(28% + 6% * var(--pillar-lag, 0));
+    }
+  }
+}
+
+@utility pillar-draw {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      & :where(path, circle) {
+        stroke-dasharray: 1 2; /* gap longer than the path, so no round cap shows as a dot before it draws */
+        animation-name: pillar-draw;
+        animation-timing-function: var(--ease-smooth);
+        animation-fill-mode: both;
+        animation-timeline: --pillar;
+        animation-range: cover calc(14% + 6% * var(--pillar-lag, 0)) cover
+          calc(38% + 6% * var(--pillar-lag, 0));
+      }
+    }
+  }
+}
+
+@utility pillar-lag-* {
+  --pillar-lag: --value(integer);
+}
+
+@keyframes pillar {
+  from {
+    opacity: 0;
+    translate: 0 3rem;
+  }
+}
+
+@keyframes pillar-icon {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+}
+
+@keyframes pillar-draw {
+  from {
+    stroke-dashoffset: 1;
   }
 }
 

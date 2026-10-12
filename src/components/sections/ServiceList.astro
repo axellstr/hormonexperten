@@ -20,10 +20,10 @@ const { lang, services, items } = Astro.props;
 
 <Section aria-labelledby="services-title">
   <Eyebrow>{services.eyebrow}</Eyebrow>
-  <h1 id="services-title" class="mt-4 max-w-3xl text-display text-ink">
+  <h1 id="services-title" class="mt-eyebrow max-w-3xl text-display text-ink">
     {services.title}
   </h1>
-  <p class="mt-6 max-w-prose text-lead text-ink/80">{services.intro}</p>
+  <p class="mt-heading max-w-measure text-lead text-ink/80">{services.intro}</p>
 
   <ul class="mt-10 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 xl:gap-x-8">
     {items.map((service) => (
@@ -47,7 +47,7 @@ const { lang, services, items } = Astro.props;
             )}
           </div>
           <h2 class="mt-6 text-h3 text-ink">{service.title}</h2>
-          <p class="mt-3 max-w-prose text-body text-ink/80">{service.summary}</p>
+          <p class="mt-subheading max-w-measure text-body text-ink/80">{service.summary}</p>
           <span class="mt-auto inline-flex items-center gap-2 pt-5 text-base font-semibold text-ink underline decoration-coral decoration-2 underline-offset-4 group-hover:decoration-ink motion-safe:transition-colors">
             {services.learn_more}
             <svg

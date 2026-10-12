@@ -1,15 +1,38 @@
 ---
+import Star from '../../assets/icons/star.svg';
+import type { Locale } from '../../config';
 import { getLogo } from '../../lib/assets';
 import { visible } from '../../lib/content';
+import { format } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Section from '../ui/Section.astro';
 
 interface Props {
+  lang: Locale;
   trust: Home['trust'];
+  reviewProfile: Home['review_profile'];
 }
 
-const { trust } = Astro.props;
+const { lang, trust, reviewProfile } = Astro.props;
 const logos = visible(trust.logos).map((logo) => ({ ...logo, image: getLogo(logo.logo) }));
+const platforms = visible(reviewProfile.platforms).map((platform) => ({
+  ...platform,
+  image: getLogo(platform.logo),
+  ratingDisplay: platform.rating.toLocaleString(lang, {
+    minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
+    maximumFractionDigits: 2,
+  }),
+  ratingText: format(reviewProfile.rating_label, {
+    rating: platform.rating.toLocaleString(lang, {
+      minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
+      maximumFractionDigits: 2,
+    }),
+    max: reviewProfile.rating_max,
+  }),
+  reviewsText: format(reviewProfile.platform_reviews_label, {
+    count: platform.reviews,
+  }),
+}));
 
 // One line: 3 slots on phones, 4 on tablets, 5 on desktop. The other logos wait in the template
 // and roll in a few seconds later (src/scripts/logo-cycler.ts).
@@ -17,57 +40,96 @@ const slots = logos.slice(0, 5);
 const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
 ---
 
-{logos.length > 0 && (
+{(logos.length > 0 || platforms.length > 0) && (
   <Section aria-labelledby="trust-title" class="py-10! lg:py-16!">
     <h2 id="trust-title" class="mx-auto text-center text-h3 text-ink">
       {trust.title}
     </h2>
 
-    <ul class="sr-only">
-      {logos.map((logo) => (
-        <li>{logo.name}</li>
-      ))}
-    </ul>
-
-    <div
-      data-logo-cycler
-      aria-hidden="true"
-      class="mx-auto mt-10 flex max-w-5xl justify-center gap-8 md:gap-12 lg:mt-14 lg:gap-16"
-    >
-      {slots.map((logo, index) => (
-        <div
-          data-slot
-          class:list={[
-            slotClass[index],
-            'h-10 min-w-0 flex-1 grid-cols-1 grid-rows-1 place-items-center perspective-near lg:h-12',
-          ]}
-        >
-          <img
-            src={logo.image.src}
-            width={logo.image.width}
-            height={logo.image.height}
-            alt=""
-            data-index={index}
-            loading="lazy"
-            decoding="async"
-            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
-          />
-        </div>
-      ))}
-      <template data-pool>
-        {logos.map((logo, index) => (
-          <img
-            src={logo.image.src}
-            width={logo.image.width}
-            height={logo.image.height}
-            alt=""
-            data-index={index}
-            decoding="async"
-            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
-          />
+    {platforms.length > 0 && (
+      <ul class="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-8 lg:mt-10 lg:grid-cols-4 lg:gap-x-6">
+        {platforms.map((platform) => (
+          <li>
+            <a
+              href={platform.href}
+              class="flex flex-col items-center gap-2 rounded-field px-2 py-2 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              aria-label={`${platform.link_label}: ${platform.ratingText}, ${platform.reviewsText}`}
+            >
+              <img
+                src={platform.image.src}
+                width={platform.image.width}
+                height={platform.image.height}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="h-7 w-auto max-w-full object-contain opacity-70 md:h-8"
+              />
+              <span class="flex flex-col items-center gap-1 text-sm text-ink/80">
+                <span class="flex items-center gap-1.5">
+                  <span class="flex gap-0.5 text-coral" aria-hidden="true">
+                    {Array.from({ length: reviewProfile.rating_max }, () => (
+                      <Star class="size-2.5" />
+                    ))}
+                  </span>
+                  <span class="tabular-nums font-medium text-ink">{platform.ratingDisplay}</span>
+                </span>
+                <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
+              </span>
+            </a>
+          </li>
         ))}
-      </template>
-    </div>
+      </ul>
+    )}
+
+    {logos.length > 0 && (
+      <>
+        <ul class="sr-only">
+          {logos.map((logo) => (
+            <li>{logo.name}</li>
+          ))}
+        </ul>
+
+        <div
+          data-logo-cycler
+          aria-hidden="true"
+          class="mx-auto mt-10 flex max-w-5xl justify-center gap-8 md:gap-12 lg:mt-14 lg:gap-16"
+        >
+          {slots.map((logo, index) => (
+            <div
+              data-slot
+              class:list={[
+                slotClass[index],
+                'h-10 min-w-0 flex-1 grid-cols-1 grid-rows-1 place-items-center perspective-near lg:h-12',
+              ]}
+            >
+              <img
+                src={logo.image.src}
+                width={logo.image.width}
+                height={logo.image.height}
+                alt=""
+                data-index={index}
+                loading="lazy"
+                decoding="async"
+                class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+              />
+            </div>
+          ))}
+          <template data-pool>
+            {logos.map((logo, index) => (
+              <img
+                src={logo.image.src}
+                width={logo.image.width}
+                height={logo.image.height}
+                alt=""
+                data-index={index}
+                decoding="async"
+                class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+              />
+            ))}
+          </template>
+        </div>
+      </>
+    )}
   </Section>
 )}
 

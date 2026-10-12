@@ -50,7 +50,7 @@ const kind = (block: LegalBlock) =>
         </p>
       )}
 
-      {page.intro && <p class="mt-8 max-w-prose text-lead text-ink/80">{page.intro}</p>}
+      {page.intro && <p class="mt-8 max-w-measure text-lead text-ink/80">{page.intro}</p>}
 
       <div class="mt-12 flex flex-col gap-12 lg:mt-16 lg:gap-14">
         {sections.map((section) => (
@@ -58,7 +58,7 @@ const kind = (block: LegalBlock) =>
             <h2 id={`${section.id}-title`} class="text-h3 text-ink">
               {section.title}
             </h2>
-            <div class="mt-5 max-w-prose space-y-4 text-body text-ink/80">
+            <div class="mt-subheading max-w-measure space-y-paragraph text-body text-ink/80">
               {section.body.map((block) => {
                 const type = kind(block);
                 if (type === 'paragraph') return <p>{block as string}</p>;

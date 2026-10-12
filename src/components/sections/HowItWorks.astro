@@ -33,11 +33,11 @@ const { how } = Astro.props;
     <div class="contents lg:sticky lg:top-28 lg:col-span-5 lg:block lg:min-h-(--stack-span) lg:self-start">
       <div class="group-data-pinned/stack:stack-head" data-stack-head>
         <Eyebrow>{how.eyebrow}</Eyebrow>
-        <h2 id="how-title" class="mt-4 max-w-3xl text-h2 text-ink">
+        <h2 id="how-title" class="mt-eyebrow max-w-3xl text-h2 text-ink">
           {how.title}
         </h2>
       </div>
-      <p class="mt-5 hidden max-w-3xl text-lead text-ink/80 lg:block">{how.intro}</p>
+      <p class="mt-heading hidden max-w-3xl text-lead text-ink/80 lg:block">{how.intro}</p>
 
       <!-- Where the reader is in the deck. The cards carry the same titles, so it is hidden
            from assistive tech; the line and dots only move with the script. -->
@@ -58,8 +58,8 @@ const { how } = Astro.props;
       </ol>
 
       <div class="hidden lg:mt-10 lg:block">
-        <p class="max-w-md text-base leading-relaxed text-ink/80">{how.cta.body}</p>
-        <Button href={BOOKING_URL} class="mt-5">
+        <p class="max-w-md text-base text-ink/80">{how.cta.body}</p>
+        <Button href={BOOKING_URL} class="mt-action">
           <RollText text={how.cta.label} />
         </Button>
         <Note compact class="mt-8" title={how.note.title} body={how.note.body} />
@@ -108,7 +108,7 @@ const { how } = Astro.props;
                   </span>
                   {step.title}
                 </h3>
-                <p class="mt-2 max-w-prose text-base leading-snug text-ink/80">{step.body}</p>
+                <p class="mt-label max-w-measure text-base text-ink/80">{step.body}</p>
               </div>
             </div>
           </div>

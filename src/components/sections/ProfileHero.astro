@@ -61,23 +61,21 @@ const portrait =
 
         <div class="lg:col-span-7">
           <Eyebrow>{profile.eyebrow}</Eyebrow>
-          <h1 id="profile-title" class="mt-4 text-display text-ink">
+          <h1 id="profile-title" class="mt-eyebrow text-display text-ink">
             {profile.name}
           </h1>
-          <ul class="mt-6 flex flex-wrap gap-2">
+          <ul class="mt-heading flex flex-wrap gap-2">
             {profile.titles.map((title) => (
               <li class="rounded-full bg-bg px-4 py-2 text-sm font-medium text-ink ring-1 ring-ink/10 md:text-base">
                 {title}
               </li>
             ))}
           </ul>
-          <p class="mt-8 text-lead text-ink">
-            {lead}
-          </p>
+          <p class="mt-8 max-w-measure text-lead text-ink">{lead}</p>
           {bio.map((paragraph) => (
-            <p class="mt-5 text-body text-ink/80">{paragraph}</p>
+            <p class="mt-5 max-w-measure text-body text-ink/80">{paragraph}</p>
           ))}
-          <Button href={BOOKING_URL} class="mt-10">
+          <Button href={BOOKING_URL} class="mt-action">
             {profile.cta}
           </Button>
         </div>

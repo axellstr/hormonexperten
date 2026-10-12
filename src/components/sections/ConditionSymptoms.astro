@@ -22,13 +22,13 @@ const { conditions, page, listLinks, contentLang } = Astro.props;
       <h2 id="list-title" class="text-h2 text-ink">
         {page.list.title}
       </h2>
-      <ul class="mt-8 grid gap-x-12 md:grid-cols-2 lg:mt-12">
+      <ul class="mt-intro grid gap-x-12 md:grid-cols-2">
         {page.list.items.map((item, index) => {
           const link = listLinks[index];
           return (
             <li class="border-t border-ink/10 py-6">
               <h3 class="text-h4 text-ink">{item.title}</h3>
-              {item.body && <p class="mt-2 max-w-prose text-body text-ink/80">{item.body}</p>}
+              {item.body && <p class="mt-label max-w-measure text-body text-ink/80">{item.body}</p>}
               {link?.href && (
                 <a
                   href={link.href}
@@ -52,7 +52,7 @@ const { conditions, page, listLinks, contentLang } = Astro.props;
     {conditions.familiar_title}
   </h2>
   <!-- What patients tend to say, in their own words: set like spoken statements, not a bullet list. -->
-  <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-6" lang={contentLang}>
+  <ul class="mt-intro grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6" lang={contentLang}>
     {page.familiar.map((statement) => (
       <li class="rounded-card bg-surface p-6 md:p-8">
         <p class="text-h4 font-medium text-ink">{statement}</p>

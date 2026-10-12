@@ -44,11 +44,11 @@ const socialIcons = {
       <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
         <div class="lg:col-span-5">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
-          <h1 id="contact-title" class="mt-4 text-display text-ink">
+          <h1 id="contact-title" class="mt-eyebrow text-display text-ink">
             {hero.title}
           </h1>
-          <p class="mt-6 max-w-prose text-lead text-ink/80">{hero.intro}</p>
-          <Button href={BOOKING_URL} class="mt-10">
+          <p class="mt-heading max-w-measure text-lead text-ink/80">{hero.intro}</p>
+          <Button href={BOOKING_URL} class="mt-action">
             {hero.cta}
           </Button>
         </div>

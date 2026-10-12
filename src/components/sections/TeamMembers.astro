@@ -28,11 +28,11 @@ const members = visible(team.members).map((member) => ({
 
 <Section aria-labelledby="team-title">
   <Eyebrow>{team.eyebrow}</Eyebrow>
-  <h1 id="team-title" class="mt-4 max-w-4xl text-display text-ink">
+  <h1 id="team-title" class="mt-eyebrow max-w-4xl text-display text-ink">
     {team.title}
   </h1>
 
-  <ul class="mt-10 grid gap-14 md:grid-cols-2 md:gap-8 lg:mt-16 xl:gap-12">
+  <ul class="mt-intro grid gap-14 md:grid-cols-2 md:gap-8 xl:gap-12">
     {members.map((member) => {
       // The photo repeats the button's link for pointer users; keyboards and screen readers skip it.
       const Frame = member.href ? 'a' : 'div';
@@ -64,12 +64,12 @@ const members = visible(team.members).map((member) => ({
           <h2 class="mt-8 text-h2 text-ink">{member.name}</h2>
           <p
             lang={member.roleLang === lang ? undefined : member.roleLang}
-            class="mt-3 text-lead text-ink/80"
+            class="mt-heading text-lead text-ink/80"
           >
             {member.role}
           </p>
           {member.href && (
-            <Button href={member.href} class="mt-6 self-start">
+            <Button href={member.href} class="mt-action self-start">
               {team.learn_more}
               <span class="sr-only">: {member.name}</span>
             </Button>

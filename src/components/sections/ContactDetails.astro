@@ -32,7 +32,7 @@ const arrow =
   </h2>
 
   <!-- Three cards from lg; on tablets the third spans the row below the first two. -->
-  <div class="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-6">
+  <div class="mt-intro grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
     <section aria-labelledby="hours-title" class={card}>
       <span class={icon}>
         <Clock class="size-6" aria-hidden="true" />
@@ -40,7 +40,7 @@ const arrow =
       <h3 id="hours-title" class="mt-6 text-h4 text-ink">
         {hours.title}
       </h3>
-      <dl class="mt-4 divide-y divide-ink/10">
+      <dl class="mt-label divide-y divide-ink/10">
         {rows.map((row) => (
           <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3 first:pt-0">
             <dt class="text-body text-ink/80">{row.days}</dt>
@@ -58,7 +58,7 @@ const arrow =
       <h3 id="practice-title" class="mt-6 text-h4 text-ink">
         {practice.title}
       </h3>
-      <address class="mt-4 text-body text-ink/80 not-italic">
+      <address class="mt-label text-body text-ink/80 not-italic">
         {practice.lines.map((line, index) => (
           <>
             {index > 0 && <br />}
@@ -79,7 +79,7 @@ const arrow =
       <h3 id="privacy-title" class="mt-6 text-h4 text-ink">
         {privacy.title}
       </h3>
-      <p class="mt-4 max-w-prose text-body text-ink/80">{privacy.body}</p>
+      <p class="mt-label max-w-measure text-body text-ink/80">{privacy.body}</p>
       <a href={localizeHref(privacy.link.href, lang)} class={more}>
         {privacy.link.label}
         <ArrowEnd class={arrow} aria-hidden="true" />

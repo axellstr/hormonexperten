@@ -53,6 +53,29 @@
   "trust": {
     "title": "Нам доверяют пациенты, нас поддерживают партнёры."
   },
+  "review_profile": {
+    "descriptor": "Отлично",
+    "checked_display": "12 октября 2026",
+    "rating_label": "{rating} из {max}",
+    "reviews_label": "{count} отзывов из {sources} источников",
+    "platform_reviews_label": "{count} отзывов",
+    "checked_label": "Проверено",
+    "link_label": "Открыть профиль ProvenExpert",
+    "platforms": [
+      {
+        "link_label": "Открыть профиль Jameda"
+      },
+      {
+        "link_label": "Открыть профиль ProvenExpert"
+      },
+      {
+        "link_label": "Открыть отзывы Google"
+      },
+      {
+        "link_label": "Отзывы sanego на ProvenExpert"
+      }
+    ]
+  },
   "how": {
     "eyebrow": "Как это работает",
     "title": "Три простых шага — без очередей в приёмной.",

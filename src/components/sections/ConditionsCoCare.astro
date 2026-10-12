@@ -1,7 +1,8 @@
 ---
-import Stethoscope from '../../assets/icons/stethoscope.svg';
+import { Picture } from 'astro:assets';
+import { getImage } from '../../lib/assets';
 import type { Conditions } from '../../lib/schemas';
-import Panel from '../ui/Panel.astro';
+import Placeholder from '../ui/Placeholder.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -13,20 +14,32 @@ interface Props {
 const { coCare, contentLang } = Astro.props;
 ---
 
-<!-- For patients already seeing a gynaecologist: their care stays where it is. -->
+<!-- For patients already seeing a gynaecologist: their care stays where it is.
+     From md the photo column takes the text row's height and stays square. -->
 <Section spacing="compact" aria-labelledby="co-care-title">
-  <Panel
-    class="flex flex-col gap-6 p-6 md:flex-row md:items-start md:gap-8 md:p-10 xl:p-12"
+  <div
+    class="grid items-center gap-6 md:grid-cols-[auto_minmax(0,1fr)] md:items-stretch md:gap-8"
     lang={contentLang}
   >
-    <span class="grid size-14 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
-      <Stethoscope class="size-7" aria-hidden="true" />
-    </span>
-    <div>
+    <div class="aspect-square w-full max-w-48 justify-self-start overflow-hidden rounded-panel md:h-full md:w-auto md:max-w-none">
+      {coCare.image ? (
+        <Picture
+          src={getImage(coCare.image)}
+          alt={coCare.image_alt}
+          formats={['avif', 'webp']}
+          widths={[192, 288, 384, 480]}
+          sizes="(min-width: 768px) 160px, 192px"
+          class="size-full object-cover"
+        />
+      ) : (
+        <Placeholder class="size-full" />
+      )}
+    </div>
+    <div class="min-w-0 self-center">
       <h2 id="co-care-title" class="text-h3 text-ink">
         {coCare.title}
       </h2>
-      <p class="mt-3 max-w-prose text-body text-ink/80">{coCare.body}</p>
+      <p class="mt-subheading max-w-measure text-body text-ink/80">{coCare.body}</p>
     </div>
-  </Panel>
+  </div>
 </Section>

@@ -18,12 +18,8 @@ const { closing } = Astro.props;
       <h2 id="closing-title" class="text-h2 text-ink">
         {closing.title}
       </h2>
-      {closing.body && (
-        <p class="mt-6 text-lead text-ink/80">
-          {closing.body}
-        </p>
-      )}
-      <Button href={BOOKING_URL} class="mt-10">
+      {closing.body && <p class="mt-heading text-lead text-ink/80">{closing.body}</p>}
+      <Button href={BOOKING_URL} class="mt-action">
         {closing.cta}
       </Button>
     </div>

@@ -38,13 +38,13 @@ const { lang, approach } = Astro.props;
     </div>
     <div class="reveal-text md:px-6 md:pb-6 lg:self-center lg:py-6 lg:ps-0 xl:py-14 xl:pe-14">
       <Eyebrow>{approach.eyebrow}</Eyebrow>
-      <h2 id="approach-title" class="mt-4 text-h2 text-ink">
+      <h2 id="approach-title" class="mt-eyebrow text-h2 text-ink">
         <RevealText text={approach.title} to={0.55} />
       </h2>
-      <p class="mt-6 max-w-prose text-body text-ink/80">
+      <p class="mt-heading max-w-measure text-body text-ink/80">
         <RevealText text={approach.body} from={0.35} />
       </p>
-      <Button href={localizeHref(approach.cta.href, lang)} class="mt-10">
+      <Button href={localizeHref(approach.cta.href, lang)} class="mt-action">
         <RollText text={approach.cta.label} />
       </Button>
     </div>

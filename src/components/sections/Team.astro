@@ -23,7 +23,7 @@ const { lang, team } = Astro.props;
     {team.title}
   </h2>
 
-  <ul class="mt-10 grid gap-14 md:grid-cols-2 lg:mt-16 lg:gap-16">
+  <ul class="mt-intro grid gap-14 md:grid-cols-2 lg:gap-16">
     {visible(team.members).map((member) => (
       <li class="flex flex-col md:even:unveil-late">
         <div class="unveil overflow-hidden rounded-panel">
@@ -41,8 +41,8 @@ const { lang, team } = Astro.props;
           )}
         </div>
         <h3 class="mt-6 text-h3 text-ink">{member.name}</h3>
-        <p class="mt-2 max-w-prose text-body text-ink/80">{member.role}</p>
-        <Button href={localizeHref(member.cta.href, lang)} class="mt-6 self-start">
+        <p class="mt-subheading max-w-measure text-body text-ink/80">{member.role}</p>
+        <Button href={localizeHref(member.cta.href, lang)} class="mt-action self-start">
           <RollText text={member.cta.label} />
           <span class="sr-only">: {member.name}</span>
         </Button>

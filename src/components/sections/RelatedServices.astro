@@ -18,7 +18,7 @@ const { lang, title, items } = Astro.props;
     <h2 id="related-title" class="text-h2 text-ink">
       {title}
     </h2>
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-6">
+    <ul class="mt-intro grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {items.map((service) => (
         <li>
           <ServiceMenuCard

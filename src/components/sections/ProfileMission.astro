@@ -24,13 +24,11 @@ const icons = {
   <div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
     <div class="lg:col-span-5">
       <Eyebrow>{mission.eyebrow}</Eyebrow>
-      <h2 id="mission-title" class="mt-4 text-h2 text-ink">
+      <h2 id="mission-title" class="mt-eyebrow text-h2 text-ink">
         {mission.title}
       </h2>
     </div>
-    <p class="max-w-prose text-lead text-ink/80 lg:col-span-7 lg:pt-12">
-      {mission.body}
-    </p>
+    <p class="max-w-measure text-lead text-ink/80 lg:col-span-7 lg:pt-12">{mission.body}</p>
   </div>
 
   {mission.values.length > 0 && (
@@ -43,7 +41,7 @@ const icons = {
               <Icon class="size-6" aria-hidden="true" />
             </span>
             <h3 class="mt-6 text-h4 text-ink">{value.title}</h3>
-            <p class="mt-2 text-base text-ink/80">{value.body}</p>
+            <p class="mt-label text-base text-ink/80">{value.body}</p>
           </li>
         );
       })}

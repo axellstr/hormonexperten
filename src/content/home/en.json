@@ -69,6 +69,10 @@
         "needs_check": true
       },
       {
+        "name": "ProvenExpert",
+        "logo": "provenexpert"
+      },
+      {
         "name": "TODO: partner 1",
         "logo": "partner-1",
         "needs_check": true
@@ -97,6 +101,57 @@
         "name": "TODO: partner 6",
         "logo": "partner-6",
         "needs_check": true
+      }
+    ]
+  },
+  "review_profile": {
+    "name": "ProvenExpert",
+    "href": "https://www.provenexpert.com/en-us/frau-dr-isabella-wilden-hormonexperten-de/",
+    "logo": "provenexpert",
+    "rating": 4.88,
+    "rating_max": 5,
+    "reviews": 212,
+    "sources": 4,
+    "descriptor": "Excellent",
+    "checked": "2026-10-12",
+    "checked_display": "12 October 2026",
+    "rating_label": "{rating} out of {max}",
+    "reviews_label": "{count} reviews from {sources} sources",
+    "platform_reviews_label": "{count} reviews",
+    "checked_label": "Checked",
+    "link_label": "View ProvenExpert profile",
+    "platforms": [
+      {
+        "name": "Jameda",
+        "logo": "jameda",
+        "href": "https://www.jameda.de/isabella-wilden/allgemeinmediziner/regensburg",
+        "rating": 5,
+        "reviews": 168,
+        "link_label": "View Jameda profile"
+      },
+      {
+        "name": "ProvenExpert",
+        "logo": "provenexpert",
+        "href": "https://www.provenexpert.com/en-us/frau-dr-isabella-wilden-hormonexperten-de/",
+        "rating": 5,
+        "reviews": 17,
+        "link_label": "View ProvenExpert profile"
+      },
+      {
+        "name": "Google",
+        "logo": "google",
+        "href": "https://www.google.com/maps/search/?api=1&query=Frau+Dr.+Isabella+Wilden+Hormonexperten+Regensburg",
+        "rating": 3.9,
+        "reviews": 19,
+        "link_label": "View Google reviews"
+      },
+      {
+        "name": "sanego",
+        "logo": "sanego",
+        "href": "https://www.provenexpert.com/en-us/frau-dr-isabella-wilden-hormonexperten-de/",
+        "rating": 4.56,
+        "reviews": 8,
+        "link_label": "View sanego reviews on ProvenExpert"
       }
     ]
   },

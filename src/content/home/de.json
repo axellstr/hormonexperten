@@ -53,6 +53,32 @@
   "trust": {
     "title": "Geschätzt von Patientinnen und Patienten, unterstützt von Partnern."
   },
+  "review_profile": {
+    "href": "https://www.provenexpert.com/frau-dr-isabella-wilden-hormonexperten-de/",
+    "descriptor": "Ausgezeichnet",
+    "checked_display": "12. Oktober 2026",
+    "rating_label": "{rating} von {max}",
+    "reviews_label": "{count} Bewertungen aus {sources} Quellen",
+    "platform_reviews_label": "{count} Bewertungen",
+    "checked_label": "Stand",
+    "link_label": "ProvenExpert-Profil ansehen",
+    "platforms": [
+      {
+        "link_label": "Jameda-Profil ansehen"
+      },
+      {
+        "href": "https://www.provenexpert.com/frau-dr-isabella-wilden-hormonexperten-de/",
+        "link_label": "ProvenExpert-Profil ansehen"
+      },
+      {
+        "link_label": "Google-Bewertungen ansehen"
+      },
+      {
+        "href": "https://www.provenexpert.com/frau-dr-isabella-wilden-hormonexperten-de/",
+        "link_label": "sanego-Bewertungen auf ProvenExpert"
+      }
+    ]
+  },
   "how": {
     "eyebrow": "So funktioniert’s",
     "title": "Drei einfache Schritte, kein Wartezimmer.",

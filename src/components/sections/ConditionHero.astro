@@ -36,9 +36,9 @@ const { lang, contentLang, conditions, page } = Astro.props;
         <h1 id="condition-title" class="max-w-4xl text-display text-ink">
           {page.title}
         </h1>
-        <p class="mt-6 max-w-prose text-lead text-ink/80">{page.intro}</p>
+        <p class="mt-heading max-w-measure text-lead text-ink/80">{page.intro}</p>
       </div>
-      <Button href={BOOKING_URL} class="mt-10">
+      <Button href={BOOKING_URL} class="mt-action">
         {conditions.cta}
       </Button>
     </section>

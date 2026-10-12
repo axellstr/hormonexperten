@@ -2,6 +2,8 @@
 import Avatar from '../../assets/icons/avatar.svg';
 import Jameda from '../../assets/icons/jameda.svg';
 import Star from '../../assets/icons/star.svg';
+import type { Locale } from '../../config';
+import { getLogo } from '../../lib/assets';
 import { visible } from '../../lib/content';
 import { format } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
@@ -10,100 +12,148 @@ import Panel from '../ui/Panel.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
+  lang: Locale;
   testimonials: Home['testimonials'];
+  reviewProfile: Home['review_profile'];
 }
 
-const { testimonials } = Astro.props;
+const { lang, testimonials, reviewProfile } = Astro.props;
 const items = visible(testimonials.items);
 const sourceIcons: Record<string, typeof Jameda> = { Jameda };
+const profileLogo = getLogo(reviewProfile.logo);
+const ratingDisplay = reviewProfile.rating.toLocaleString(lang, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+const ratingText = format(reviewProfile.rating_label, {
+  rating: ratingDisplay,
+  max: reviewProfile.rating_max,
+});
+const reviewsText = format(reviewProfile.reviews_label, {
+  count: reviewProfile.reviews,
+  sources: reviewProfile.sources,
+});
+const checkedText = `${reviewProfile.checked_label} ${reviewProfile.checked_display}`;
 
 // Keep a full repeated set on either side so drag-to-pan can wrap without a visible jump.
 const copies = Math.max(3, Math.ceil(8 / Math.max(items.length, 1)));
 const row = Array.from({ length: copies }, () => items).flat();
 ---
 
-{items.length > 0 && (
+{(items.length > 0 || reviewProfile) && (
   <Section id="testimonials" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" class="text-center text-h2 text-ink">
       {testimonials.title}
     </h2>
 
-    <Panel class="mt-8 overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:mt-14 lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]">
-      <!--
-        Two centered rows, clipped on both sides. The second row's start margin is one
-        pitch, which centering turns into a half-card stagger. grab-scroll.ts makes
-        each row pannable. Small screens use the same arrangement at a smaller card size.
-      -->
-      <div class="flex flex-col gap-3 lg:gap-8">
-        {[false, true].map((staggered) => (
-          <div
-            class="flex min-w-0 cursor-grab justify-center overflow-hidden scrollbar-none select-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink active:cursor-grabbing"
-            data-grab
-            data-stagger={staggered ? '' : undefined}
-            data-cycle-items={items.length}
-            tabindex={staggered ? -1 : 0}
-            aria-label={staggered ? undefined : testimonials.title}
-            aria-hidden={staggered ? 'true' : undefined}
-          >
-            <ul
-              class:list={[
-                'flex w-max gap-2 lg:gap-10',
-                staggered && 'ms-(--review-pitch)',
-              ]}
+    <a
+      href={reviewProfile.href}
+      class="mx-auto mt-6 flex w-full max-w-3xl flex-col items-center gap-3 rounded-field px-4 py-3 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-5 sm:gap-y-2 sm:text-start"
+      aria-label={`${reviewProfile.link_label}: ${reviewProfile.descriptor}, ${ratingText}, ${reviewsText}. ${checkedText}.`}
+    >
+      <img
+        src={profileLogo.src}
+        width={profileLogo.width}
+        height={profileLogo.height}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="h-7 w-auto max-w-full object-contain sm:h-8"
+      />
+      <span class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-ink/80 sm:justify-start">
+        <span class="font-medium text-ink">{reviewProfile.descriptor}</span>
+        <span aria-hidden="true">·</span>
+        <span class="flex items-center gap-1.5">
+          <span class="flex gap-0.5 text-coral" aria-hidden="true">
+            {Array.from({ length: reviewProfile.rating_max }, () => (
+              <Star class="size-3" />
+            ))}
+          </span>
+          <span class="tabular-nums">{ratingText}</span>
+        </span>
+        <span aria-hidden="true">·</span>
+        <span class="tabular-nums">{reviewsText}</span>
+        <span aria-hidden="true">·</span>
+        <span>
+          {reviewProfile.checked_label}{' '}
+          <time datetime={reviewProfile.checked}>{reviewProfile.checked_display}</time>
+        </span>
+      </span>
+    </a>
+
+    {items.length > 0 && (
+      <Panel class="mt-8 overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:mt-14 lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]">
+        <!--
+          Two centered rows, clipped on both sides. The second row's start margin is one
+          pitch, which centering turns into a half-card stagger. grab-scroll.ts makes
+          each row pannable. Small screens use the same arrangement at a smaller card size.
+        -->
+        <div class="flex flex-col gap-3 lg:gap-8">
+          {[false, true].map((staggered) => (
+            <div
+              class="flex min-w-0 cursor-grab justify-center overflow-hidden scrollbar-none select-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink active:cursor-grabbing"
+              data-grab
+              data-stagger={staggered ? '' : undefined}
+              data-cycle-items={items.length}
+              tabindex={staggered ? -1 : 0}
+              aria-label={staggered ? undefined : testimonials.title}
+              aria-hidden={staggered ? 'true' : undefined}
             >
-              {row.map((item, index) => {
-                const SourceIcon = sourceIcons[item.source];
-                const duplicate = index >= items.length;
-                return (
-                  <li
-                    class="flex w-72 shrink-0 lg:w-md"
-                    aria-hidden={duplicate ? 'true' : undefined}
-                  >
-                    <Card class="flex h-full w-full items-start gap-3 p-4 lg:gap-5 lg:p-5">
-                      <Avatar
-                        class="size-10 shrink-0 overflow-hidden rounded-full lg:size-16"
-                        aria-hidden="true"
-                      />
-                      <figure class="min-w-0 flex-1">
-                        <div
-                          role="img"
-                          aria-label={format(testimonials.rating_label, { rating: item.rating })}
-                          class="flex gap-0.5 text-coral"
-                        >
-                          {Array.from({ length: item.rating }, () => (
-                            <Star class="size-2.5 lg:size-3" aria-hidden="true" />
-                          ))}
-                        </div>
-                        <blockquote class="mt-1.5 lg:mt-2.5">
-                          <p class="line-clamp-2 text-sm font-semibold text-ink lg:line-clamp-none lg:text-base">
-                            {item.title}
-                          </p>
-                          <p class="mt-1.5 line-clamp-4 text-sm text-ink/80 lg:mt-2.5 lg:line-clamp-none">
-                            {item.body}
-                          </p>
-                        </blockquote>
-                        <figcaption class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-ink/80 lg:mt-5">
-                          <span>{item.author}</span>
-                          <span class="inline-flex items-center gap-1">
-                            {SourceIcon && (
-                              <SourceIcon
-                                class="size-3 text-coral lg:size-3.5"
-                                aria-hidden="true"
-                              />
-                            )}
-                            {item.source}
-                          </span>
-                        </figcaption>
-                      </figure>
-                    </Card>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </Panel>
+              <ul class:list={['flex w-max gap-2 lg:gap-10', staggered && 'ms-(--review-pitch)']}>
+                {row.map((item, index) => {
+                  const SourceIcon = sourceIcons[item.source];
+                  const duplicate = index >= items.length;
+                  return (
+                    <li
+                      class="flex w-72 shrink-0 lg:w-md"
+                      aria-hidden={duplicate ? 'true' : undefined}
+                    >
+                      <Card class="flex h-full w-full items-start gap-3 p-4 lg:gap-5 lg:p-5">
+                        <Avatar
+                          class="size-10 shrink-0 overflow-hidden rounded-full lg:size-16"
+                          aria-hidden="true"
+                        />
+                        <figure class="min-w-0 flex-1">
+                          <div
+                            role="img"
+                            aria-label={format(testimonials.rating_label, { rating: item.rating })}
+                            class="flex gap-0.5 text-coral"
+                          >
+                            {Array.from({ length: item.rating }, () => (
+                              <Star class="size-2.5 lg:size-3" aria-hidden="true" />
+                            ))}
+                          </div>
+                          <blockquote class="mt-1.5 lg:mt-2.5">
+                            <p class="line-clamp-2 text-sm font-semibold text-ink lg:line-clamp-none lg:text-base">
+                              {item.title}
+                            </p>
+                            <p class="mt-1.5 line-clamp-4 text-sm text-ink/80 lg:mt-2.5 lg:line-clamp-none">
+                              {item.body}
+                            </p>
+                          </blockquote>
+                          <figcaption class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-ink/80 lg:mt-5">
+                            <span>{item.author}</span>
+                            <span class="inline-flex items-center gap-1">
+                              {SourceIcon && (
+                                <SourceIcon
+                                  class="size-3 text-coral lg:size-3.5"
+                                  aria-hidden="true"
+                                />
+                              )}
+                              {item.source}
+                            </span>
+                          </figcaption>
+                        </figure>
+                      </Card>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Panel>
+    )}
   </Section>
 )}
 
