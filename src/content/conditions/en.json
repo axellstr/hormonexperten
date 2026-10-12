@@ -13,7 +13,9 @@
   "more": "These are the conditions we see most often, but not the only ones. If your symptoms aren’t listed here, or you’re not sure where they belong, book your initial consultation and we’ll look at the full picture together.",
   "co_care": {
     "title": "Already in care with your gynaecologist?",
-    "body": "We can work alongside your gynaecologist, for example if you would like a second opinion or a different approach to the treatment you have been offered. Your existing care stays in place."
+    "body": "We can work alongside your gynaecologist, for example if you would like a second opinion or a different approach to the treatment you have been offered. Your existing care stays in place.",
+    "image": "dr-wilden-cocare.jpg",
+    "image_alt": "Dr. Isabella Wilden in a white shirt, smiling"
   },
   "familiar_title": "Does this sound familiar?",
   "approach_title": "How we approach it",

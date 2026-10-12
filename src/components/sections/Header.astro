@@ -60,7 +60,7 @@ const servicesItem = nav.items.find((item) => item.submenu);
 
 // Without JS the hover background is on the link itself; with JS a sliding pill replaces it.
 const navLink =
-  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors xl:px-4';
+  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide whitespace-nowrap text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
 // Mobile menu sheet: large rows with a round icon button at the end, like the service cards.
 const sheetLink =
   'group/link flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-field py-4 text-h2 font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:py-5';
@@ -82,7 +82,9 @@ const sheetDelay = [
 
 <div data-header-sentinel aria-hidden="true" class="h-px -mb-px"></div>
 <header class="group/header sticky top-0 z-40 origin-top pt-2 lg:pt-4" data-header>
-  <Container class="max-w-header! xl:w-11/12">
+  <!-- From 1440px the nav shows and the pill takes the full content width, so the longest
+       languages (German, Greek) keep every nav label on one line. -->
+  <Container class="max-w-header! xl:w-11/12 header-desktop:max-w-content! header-desktop:w-full">
     <!-- A floating pill. The end padding equals the Book Now button's inset from the top and
          bottom, so the button sits concentric in the pill's rounded end. -->
     <div
@@ -327,7 +329,7 @@ const sheetDelay = [
             class="sheet scrollbar-none fixed inset-0 -z-10 flex flex-col overflow-y-auto overscroll-contain bg-surface pt-24 group-data-closed/mobile:sheet-collapsed lg:pt-32"
             data-menu-panel
           >
-            <Container class="flex min-h-full max-w-header! grow flex-col xl:w-11/12">
+            <Container class="flex min-h-full max-w-header! grow flex-col xl:w-11/12 header-desktop:max-w-content! header-desktop:w-full">
               <!-- Inset like the pill's content, so the menu lines up under the logo.
                    On lg: row 1 is 1fr so the language row sits at the bottom of the sheet. -->
               <div class="flex grow flex-col px-4 pb-6 md:px-6 md:pb-10 lg:grid lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-16 xl:px-8">
@@ -472,7 +474,7 @@ const sheetDelay = [
                     sheetDelay[4],
                   ]}
                 >
-                  <!-- Stacked and start-aligned on phones; side by side from sm, the languages at the end. -->
+                  <!-- Phones: language above socials. From sm they sit in a row, languages at the end. -->
                   <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
                     {social.length > 0 && (
                       <div>
@@ -499,7 +501,7 @@ const sheetDelay = [
                       lang={lang}
                       label={nav.language}
                       inline
-                      class="shrink-0"
+                      class="order-first shrink-0 sm:order-none"
                     />
                   </div>
                   <Button href={BOOKING_URL} class="w-full sm:hidden">

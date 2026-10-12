@@ -82,7 +82,7 @@ export const homeSchema = z.object({
   hero: z.object({
     trust: z.object({
       items: z.array(z.string()),
-      rating: z.number().int().min(1).max(5),
+      /** Filled with review_profile rating / max, e.g. "{rating} out of {max} stars on". */
       rating_label: z.string(),
       ...needsCheck,
     }),
@@ -133,8 +133,8 @@ export const homeSchema = z.object({
     ),
   }),
   /**
-   * Date-stamped snapshot of independent review ratings (ProvenExpert aggregate + per-source
-   * breakdown). Shown in the trust section and above testimonials; not fetched at runtime.
+   * Date-stamped snapshot of independent review ratings (aggregate for the hero trust line;
+   * per-source cards above testimonials). Not fetched at runtime.
    */
   review_profile: z.object({
     name: z.string(),
@@ -158,7 +158,7 @@ export const homeSchema = z.object({
     platforms: z.array(
       z.object({
         name: z.string(),
-        logo: z.enum(['jameda', 'provenexpert', 'google', 'sanego']),
+        logo: z.enum(['jameda', 'provenexpert', 'google']),
         href: z.string(),
         rating: z.number().positive().max(5),
         reviews: z.number().int().nonnegative(),

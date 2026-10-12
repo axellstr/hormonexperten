@@ -5,21 +5,14 @@
  * one after another from the start of the label (see `roll-face` in global.css). The button needs
  * the `group/button` class. Screen readers get the label once, as plain text.
  */
+import { rollLetters } from '../../lib/roll-letters';
+
 interface Props {
   text: string;
 }
 
 const { text } = Astro.props;
-
-// Split into words (so a long label still wraps between words) and words into graphemes (so a
-// Greek letter with its accent stays one letter). The index runs across the whole label.
-const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
-let index = 0;
-const words = text
-  .split(' ')
-  .map((word) =>
-    [...segmenter.segment(word)].map(({ segment }) => ({ char: segment, index: index++ })),
-  );
+const words = rollLetters(text);
 ---
 
 <span class="sr-only">{text}</span>

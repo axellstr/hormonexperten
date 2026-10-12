@@ -1,0 +1,30 @@
+---
+/**
+ * One face of a rolling phrase: each letter sits on a small prism (see `roll-face` in global.css).
+ * Used where text turns on its own (hero trust cycler), not on hover — for hover, use RollText,
+ * which keeps a second face ready underneath.
+ */
+import { rollLetters } from '../../lib/roll-letters';
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+const words = rollLetters(text);
+---
+
+{
+  words.map((letters, w) => (
+    <>
+      {w > 0 && ' '}
+      <span class="inline-block whitespace-nowrap">
+        {letters.map(({ char, index }) => (
+          <span class="inline-grid perspective-near" style={`--roll-index: ${index}`}>
+            <span class="roll-face">{char}</span>
+          </span>
+        ))}
+      </span>
+    </>
+  ))
+}

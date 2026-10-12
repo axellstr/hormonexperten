@@ -1,6 +1,5 @@
 ---
 import { Picture } from 'astro:assets';
-import Star from '../../assets/icons/star.svg';
 import { BOOKING_URL } from '../../config';
 import {
   getImage,
@@ -14,14 +13,26 @@ import { format } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
+import RollPhrase from '../ui/RollPhrase.astro';
 import RollText from '../ui/RollText.astro';
 
 interface Props {
+  lang: import('../../config').Locale;
   hero: Home['hero'];
+  reviewProfile: Home['review_profile'];
 }
 
-const { hero } = Astro.props;
+const { lang, hero, reviewProfile } = Astro.props;
 const { trust, slides } = hero;
+
+const ratingDisplay = reviewProfile.rating.toLocaleString(lang, {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+const ratingText = format(trust.rating_label, {
+  rating: ratingDisplay,
+  max: reviewProfile.rating_max,
+});
 ---
 
 <!-- Sits below the floating header pill rather than under it. -->
@@ -33,31 +44,23 @@ const { trust, slides } = hero;
           {isVisible(trust) && (
             <div class="mb-5">
               <p class="sr-only">
-                {trust.items.join(' · ')}. {format(trust.rating_label, { rating: trust.rating })}.
+                {trust.items.join(' · ')}. {ratingText}.
               </p>
 
               <div data-hero-trust-cycler aria-hidden="true" class="text-sm text-ink/80">
-                <span
-                  data-slot
-                  class="grid min-h-10 grid-cols-1 grid-rows-1 items-center perspective-near"
-                >
-                  <span data-index="0" class="col-start-1 row-start-1">
-                    {trust.items[0]}
+                <span data-slot class="grid min-h-10 grid-cols-1 grid-rows-1 items-center">
+                  <span data-index="0" data-roll class="col-start-1 row-start-1">
+                    <RollPhrase text={trust.items[0]} />
                   </span>
                 </span>
                 <template data-pool>
                   {trust.items.map((item, index) => (
-                    <span data-index={index} class="col-start-1 row-start-1">
-                      {item}
+                    <span data-index={index} data-roll class="col-start-1 row-start-1">
+                      <RollPhrase text={item} />
                     </span>
                   ))}
-                  <span
-                    data-index={trust.items.length}
-                    class="col-start-1 row-start-1 flex items-center gap-0.5"
-                  >
-                    {Array.from({ length: trust.rating }, () => (
-                      <Star class="size-3" />
-                    ))}
+                  <span data-index={trust.items.length} data-roll class="col-start-1 row-start-1">
+                    <RollPhrase text={ratingText} />
                   </span>
                 </template>
               </div>

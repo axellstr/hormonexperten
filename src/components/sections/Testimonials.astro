@@ -20,66 +20,145 @@ interface Props {
 const { lang, testimonials, reviewProfile } = Astro.props;
 const items = visible(testimonials.items);
 const sourceIcons: Record<string, typeof Jameda> = { Jameda };
-const profileLogo = getLogo(reviewProfile.logo);
-const ratingDisplay = reviewProfile.rating.toLocaleString(lang, {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-const ratingText = format(reviewProfile.rating_label, {
-  rating: ratingDisplay,
-  max: reviewProfile.rating_max,
-});
-const reviewsText = format(reviewProfile.reviews_label, {
-  count: reviewProfile.reviews,
-  sources: reviewProfile.sources,
-});
-const checkedText = `${reviewProfile.checked_label} ${reviewProfile.checked_display}`;
+const platforms = visible(reviewProfile.platforms).map((platform) => ({
+  ...platform,
+  image: getLogo(platform.logo),
+  ratingDisplay: platform.rating.toLocaleString(lang, {
+    minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
+    maximumFractionDigits: 2,
+  }),
+  ratingText: format(reviewProfile.rating_label, {
+    rating: platform.rating.toLocaleString(lang, {
+      minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
+      maximumFractionDigits: 2,
+    }),
+    max: reviewProfile.rating_max,
+  }),
+  reviewsText: format(reviewProfile.platform_reviews_label, {
+    count: platform.reviews,
+  }),
+}));
 
 // Keep a full repeated set on either side so drag-to-pan can wrap without a visible jump.
 const copies = Math.max(3, Math.ceil(8 / Math.max(items.length, 1)));
 const row = Array.from({ length: copies }, () => items).flat();
+
+const cardClass =
+  'flex flex-col items-center gap-2 rounded-field px-2 py-2 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink';
 ---
 
-{(items.length > 0 || reviewProfile) && (
+{(items.length > 0 || platforms.length > 0) && (
   <Section id="testimonials" aria-labelledby="testimonials-title">
     <h2 id="testimonials-title" class="text-center text-h2 text-ink">
       {testimonials.title}
     </h2>
 
-    <a
-      href={reviewProfile.href}
-      class="mx-auto mt-6 flex w-full max-w-3xl flex-col items-center gap-3 rounded-field px-4 py-3 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-5 sm:gap-y-2 sm:text-start"
-      aria-label={`${reviewProfile.link_label}: ${reviewProfile.descriptor}, ${ratingText}, ${reviewsText}. ${checkedText}.`}
-    >
-      <img
-        src={profileLogo.src}
-        width={profileLogo.width}
-        height={profileLogo.height}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        class="h-7 w-auto max-w-full object-contain sm:h-8"
-      />
-      <span class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-ink/80 sm:justify-start">
-        <span class="font-medium text-ink">{reviewProfile.descriptor}</span>
-        <span aria-hidden="true">·</span>
-        <span class="flex items-center gap-1.5">
-          <span class="flex gap-0.5 text-coral" aria-hidden="true">
-            {Array.from({ length: reviewProfile.rating_max }, () => (
-              <Star class="size-3" />
-            ))}
-          </span>
-          <span class="tabular-nums">{ratingText}</span>
-        </span>
-        <span aria-hidden="true">·</span>
-        <span class="tabular-nums">{reviewsText}</span>
-        <span aria-hidden="true">·</span>
-        <span>
-          {reviewProfile.checked_label}{' '}
-          <time datetime={reviewProfile.checked}>{reviewProfile.checked_display}</time>
-        </span>
-      </span>
-    </a>
+    {platforms.length > 0 && (
+      <>
+        <!-- Mobile assistive copy; the cycler below is decorative. -->
+        <ul class="sr-only sm:hidden">
+          {platforms.map((platform) => (
+            <li>
+              <a href={platform.href}>
+                {platform.link_label}: {platform.ratingText}, {platform.reviewsText}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!--
+          Mobile: horizontal 2D carousel. Centre card at 80% opacity, neighbours quieter;
+          the track slides on X and loops via tripled items (review-source-cycler.ts).
+        -->
+        <div
+          data-review-cycler
+          data-count={platforms.length}
+          aria-hidden="true"
+          class="relative mx-auto mt-6 w-full max-w-sm overflow-hidden sm:hidden"
+        >
+          <ul
+            data-track
+            class="flex w-max items-start gap-3 will-change-transform motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-smooth"
+          >
+            {Array.from({ length: 3 }, () => platforms)
+              .flat()
+              .map((platform, index) => (
+                <li class="w-36 shrink-0">
+                  <a
+                    href={platform.href}
+                    data-index={index % platforms.length}
+                    tabindex="-1"
+                    class:list={[cardClass, 'w-full motion-safe:transition-opacity motion-safe:duration-700 motion-safe:ease-smooth']}
+                    style={`opacity: ${index % platforms.length === 0 ? 0.8 : 0.35}`}
+                  >
+                    <img
+                      src={platform.image.src}
+                      width={platform.image.width}
+                      height={platform.image.height}
+                      alt=""
+                      loading={index < platforms.length ? 'lazy' : undefined}
+                      decoding="async"
+                      class="mx-auto h-7 w-auto max-w-full object-contain"
+                    />
+                    <span class="flex flex-col items-center gap-1 text-sm text-ink/80">
+                      <span class="flex items-center gap-1.5">
+                        <span class="flex gap-0.5 text-coral" aria-hidden="true">
+                          {Array.from({ length: reviewProfile.rating_max }, () => (
+                            <Star class="size-2.5" />
+                          ))}
+                        </span>
+                        <span class="tabular-nums font-medium text-ink">{platform.ratingDisplay}</span>
+                      </span>
+                      <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+          </ul>
+          <!-- Soft edge fades so side cards ease out instead of cutting off. -->
+          <div
+            class="pointer-events-none absolute inset-y-0 start-0 w-16 bg-linear-to-r from-bg to-transparent"
+          ></div>
+          <div
+            class="pointer-events-none absolute inset-y-0 end-0 w-16 bg-linear-to-l from-bg to-transparent"
+          ></div>
+        </div>
+
+        <!-- sm+: all three sources in a row (the accessible links at this size). -->
+        <ul class="mx-auto mt-6 hidden max-w-3xl grid-cols-3 gap-x-6 sm:mt-8 sm:grid">
+          {platforms.map((platform) => (
+            <li>
+              <a
+                href={platform.href}
+                class={cardClass}
+                aria-label={`${platform.link_label}: ${platform.ratingText}, ${platform.reviewsText}`}
+              >
+                <img
+                  src={platform.image.src}
+                  width={platform.image.width}
+                  height={platform.image.height}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  class="h-7 w-auto max-w-full object-contain md:h-8"
+                />
+                <span class="flex flex-col items-center gap-1 text-sm text-ink/80">
+                  <span class="flex items-center gap-1.5">
+                    <span class="flex gap-0.5 text-coral" aria-hidden="true">
+                      {Array.from({ length: reviewProfile.rating_max }, () => (
+                        <Star class="size-2.5" />
+                      ))}
+                    </span>
+                    <span class="tabular-nums font-medium text-ink">{platform.ratingDisplay}</span>
+                  </span>
+                  <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
 
     {items.length > 0 && (
       <Panel class="mt-8 overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:mt-14 lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]">
@@ -159,4 +238,5 @@ const row = Array.from({ length: copies }, () => items).flat();
 
 <script>
   import '../../scripts/grab-scroll';
+  import '../../scripts/review-source-cycler';
 </script>

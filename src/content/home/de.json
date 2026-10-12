@@ -6,7 +6,7 @@
   "hero": {
     "trust": {
       "items": ["Über 35 Jahre Erfahrung", "Über 5.000 behandelte Patientinnen und Patienten"],
-      "rating_label": "Bewertet mit {rating} von 5 Sternen"
+      "rating_label": "{rating} von {max} Sternen bei ProvenExpert®"
     },
     "title": "Spezialisierte Hormonbetreuung – ganz ohne Wartezimmer.",
     "subtitle": "Private Online-Sprechstunden bei Dr. Wilden – mit Blick auf Ihre Hormongesundheit und Ihr Leben.",
@@ -45,6 +45,7 @@
   "approach": {
     "eyebrow": "Unser Ansatz",
     "title": "Hormonmedizin, die Frauen ernst nimmt.",
+    "body": "Wir nehmen uns Zeit, Sie kennenzulernen: Ihre Geschichte, Ihr Leben und das, was Sie bisher mit sich getragen haben – nicht nur Ihre Symptome. Weil Hormone, Stoffwechsel und Mikronährstoffe ein zusammenhängendes System bilden, betrachten wir das Gesamtbild. Sie gehen verstanden, informiert und voller Zuversicht.",
     "cta": {
       "label": "Mehr erfahren"
     },
@@ -64,18 +65,14 @@
     "link_label": "ProvenExpert-Profil ansehen",
     "platforms": [
       {
-        "link_label": "Jameda-Profil ansehen"
-      },
-      {
         "href": "https://www.provenexpert.com/frau-dr-isabella-wilden-hormonexperten-de/",
         "link_label": "ProvenExpert-Profil ansehen"
       },
       {
-        "link_label": "Google-Bewertungen ansehen"
+        "link_label": "Jameda-Profil ansehen"
       },
       {
-        "href": "https://www.provenexpert.com/frau-dr-isabella-wilden-hormonexperten-de/",
-        "link_label": "sanego-Bewertungen auf ProvenExpert"
+        "link_label": "Google-Bewertungen ansehen"
       }
     ]
   },

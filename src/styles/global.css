@@ -321,11 +321,13 @@
 }
 
 /*
- * Button label roll (RollText): the trust logos' prism turn, letter by letter. Both copies of a
- * letter share one grid cell and turn about a pivot half a line behind the face, so the old one
- * rolls up over the top edge as the new one rolls up from underneath. Letters start --roll-index
- * steps apart, from the start of the label. Shorter than the logo turn, as it answers a hover.
- * Reduced motion: the label stays still.
+ * Button label roll (RollText) and hero trust cycler (RollPhrase): the trust logos' prism turn,
+ * letter by letter. Both copies of a letter share one grid cell and turn about a pivot half a
+ * line behind the face, so the old one rolls up over the top edge as the new one rolls up from
+ * underneath. Letters start --roll-index steps apart, from the start of the label. Shorter than
+ * the logo turn, as it answers a hover (or a cycler beat). Reduced motion: the label stays still.
+ * `roll-out` / `roll-in` are the resting poses the hero cycler toggles in JS (Tailwind would not
+ * see class names that only appear in a script).
  */
 @utility roll-face {
   grid-area: 1 / 1;
@@ -337,6 +339,16 @@
     transition-timing-function: var(--ease-smooth);
     transition-delay: calc(var(--roll-index, 0) * 30ms);
   }
+}
+
+@utility roll-out {
+  transform: rotateX(90deg);
+  opacity: 0;
+}
+
+@utility roll-in {
+  transform: rotateX(-90deg);
+  opacity: 0;
 }
 
 /*
