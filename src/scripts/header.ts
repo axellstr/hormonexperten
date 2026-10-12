@@ -11,7 +11,7 @@
  *   - the [data-menu-sheet] menu (mobile) is a full-screen sheet behind the header pill: it grows
  *     out of the pill and back into it, and the page behind it is inert while it's open
  *
- * Nav (the [data-nav-track] list): a pill ([data-nav-indicator]) slides to the hovered or
+ * Nav (the [data-nav-track] list): a pill ([data-nav-indicator]) slides to the mouse-hovered or
  * focused item and otherwise rests on the item whose section is on screen.
  *
  * Header ([data-header]): gets `data-scrolled` once the hero ([data-hero]) has scrolled up behind
@@ -358,17 +358,30 @@ if (track && indicator && bar) {
     place(open ?? current);
   };
 
+  // Only a mouse moves the pill. A tap on iOS also fires pointerenter and leaves :hover stuck on
+  // the item until the next tap elsewhere, which pinned the pill to the tapped item; so hover is
+  // tracked here from mouse events rather than read from :hover.
+  let hovering = false;
+
   track.setAttribute('data-enhanced', '');
   for (const item of items) {
-    item.addEventListener('pointerenter', () => place(item));
+    item.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'mouse') place(item);
+    });
     item.addEventListener('focus', () => place(item));
   }
-  track.addEventListener('pointerleave', rest);
+  track.addEventListener('pointerenter', (event) => {
+    if (event.pointerType === 'mouse') hovering = true;
+  });
+  track.addEventListener('pointerleave', (event) => {
+    if (event.pointerType !== 'mouse') return;
+    hovering = false;
+    rest();
+  });
   track.addEventListener('focusout', (event) => {
     if (!track.contains(event.relatedTarget as Node | null)) rest();
   });
-  for (const menu of menus)
-    menu.addEventListener('toggle', () => !track.matches(':hover') && rest());
+  for (const menu of menus) menu.addEventListener('toggle', () => !hovering && rest());
 
   new ResizeObserver(() => place(target)).observe(track);
 
@@ -389,7 +402,7 @@ if (track && indicator && bar) {
       }
       const visibleSection = [...sections.keys()].find((section) => onScreen.has(section));
       current = visibleSection ? sections.get(visibleSection)! : null;
-      if (!track.matches(':hover') && !track.contains(document.activeElement)) rest();
+      if (!hovering && !track.contains(document.activeElement)) rest();
     },
     { rootMargin: '-35% 0px -60% 0px' },
   );
