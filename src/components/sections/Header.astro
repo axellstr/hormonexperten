@@ -49,18 +49,14 @@ const paletteOptions = Object.entries(PALETTES).map(([name, palette]) => ({
   ...palette,
 }));
 
-/** The section a nav item points to, for the scroll-spy highlight. */
-const sectionOf = (href: string) => href.split('#')[1] ?? '';
-
 /** Whether a nav item is the current page (in-page section links never are). */
 const here = Astro.url.pathname.replace(/\/$/, '');
 const isCurrent = (href: string) =>
   !href.includes('#') && localizeHref(href, lang).replace(/\/$/, '') === here;
 const servicesItem = nav.items.find((item) => item.submenu);
 
-// Without JS the hover background is on the link itself; with JS a sliding pill replaces it.
 const navLink =
-  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors xl:px-4';
+  'flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide text-ink/80 uppercase hover:bg-coral-tint hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors xl:px-4';
 // Mobile menu sheet: large rows with a round icon button at the end, like the service cards.
 const sheetLink =
   'group/link flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-field py-4 text-h2 font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:py-5';
@@ -92,22 +88,16 @@ const sheetDelay = [
       <Logo href={localizeHref('/', lang)} label={nav.home} />
 
       <nav aria-label={nav.label} class="hidden header-desktop:block">
-        <span
-          aria-hidden="true"
-          data-nav-indicator
-          class="pointer-events-none absolute start-0 top-0 rounded-full bg-coral-tint opacity-0 motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-out"
-        ></span>
-        <ul
-          class="group/track flex items-center gap-0.5 rounded-full bg-bg/70 p-1 text-base font-medium whitespace-nowrap ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/5 motion-safe:transition-shadow"
-          data-nav-track
-        >
+        <ul class="flex items-center gap-0.5 rounded-full bg-bg/70 p-1 text-base font-medium whitespace-nowrap ring-1 ring-ink/0 group-data-scrolled/header:ring-ink/5 motion-safe:transition-shadow">
           {nav.items.map((item) =>
             item.submenu ? (
               <li>
                 <details class="group/mega" data-menu data-menu-hover>
                   <summary
-                    class:list={[navLink, 'cursor-pointer list-none']}
-                    data-nav-item={sectionOf(item.href)}
+                    class:list={[
+                      navLink,
+                      'cursor-pointer list-none group-open/mega:group-not-data-closed/mega:bg-coral-tint',
+                    ]}
                   >
                     {item.label}
                     <!-- Each arm hinges at the chevron's tip, flattening into a single line. -->
@@ -186,7 +176,6 @@ const sheetDelay = [
                 <a
                   href={localizeHref(item.href, lang)}
                   class={navLink}
-                  data-nav-item={sectionOf(item.href)}
                   aria-current={isCurrent(item.href) ? 'page' : undefined}
                 >
                   {item.label}
@@ -495,12 +484,7 @@ const sheetDelay = [
                         </ul>
                       </div>
                     )}
-                    <LanguageSwitcher
-                      lang={lang}
-                      label={nav.language}
-                      inline
-                      class="shrink-0"
-                    />
+                    <LanguageSwitcher lang={lang} label={nav.language} inline class="shrink-0" />
                   </div>
                   <Button href={BOOKING_URL} class="w-full sm:hidden">
                     {nav.book}
