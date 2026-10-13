@@ -24,9 +24,7 @@ export const siteSchema = z.object({
   nav: z.object({
     label: z.string(),
     home: z.string(),
-    items: z.array(
-      link.extend({ submenu: z.literal('services').optional(), ...needsCheck }),
-    ),
+    items: z.array(link.extend({ submenu: z.literal('services').optional(), ...needsCheck })),
     menu: z.string(),
     close: z.string(),
     book: z.string(),

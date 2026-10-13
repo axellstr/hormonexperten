@@ -6,7 +6,7 @@ import ProvenExpert from '../../assets/icons/provenexpert.svg';
 import Star from '../../assets/icons/star.svg';
 import type { Locale } from '../../config';
 import { getLogo } from '../../lib/assets';
-import { visible } from '../../lib/content';
+import { textLang, visible } from '../../lib/content';
 import { format } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Card from '../ui/Card.astro';
@@ -21,6 +21,11 @@ interface Props {
 
 const { lang, testimonials, reviewProfile } = Astro.props;
 const items = visible(testimonials.items);
+// Untranslated reviews and note fall back to English; say so for screen readers.
+const fallback = (path: string[]) => {
+  const used = textLang('home', lang, ['testimonials', ...path]);
+  return used === lang ? undefined : used;
+};
 const sourceIcons: Record<string, typeof Jameda> = { Jameda, ProvenExpert, Google };
 const platforms = visible(reviewProfile.platforms).map((platform) => ({
   ...platform,
@@ -163,7 +168,10 @@ const cardClass =
     )}
 
     {items.length > 0 && (
-      <Panel class="mt-intro overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]">
+      <Panel
+        lang={fallback(['items'])}
+        class="mt-intro overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]"
+      >
         <!--
           Two centered rows, clipped on both sides. The second row's start margin is one
           pitch, which centering turns into a half-card stagger. grab-scroll.ts makes
@@ -239,7 +247,9 @@ const cardClass =
     )}
 
     {items.length > 0 && testimonials.translation_note && (
-      <p class="mt-4 text-center text-sm text-ink/70">{testimonials.translation_note}</p>
+      <p lang={fallback(['translation_note'])} class="mt-4 text-center text-sm text-ink/70">
+        {testimonials.translation_note}
+      </p>
     )}
   </Section>
 )}

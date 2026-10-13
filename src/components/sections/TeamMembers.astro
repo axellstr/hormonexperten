@@ -33,7 +33,7 @@ const members = visible(team.members).map((member) => ({
   </h1>
 
   <ul class="mt-intro grid gap-14 md:grid-cols-2 md:gap-8 xl:gap-12">
-    {members.map((member) => {
+    {members.map((member, index) => {
       // The photo repeats the button's link for pointer users; keyboards and screen readers skip it.
       const Frame = member.href ? 'a' : 'div';
       return (
@@ -50,6 +50,7 @@ const members = visible(team.members).map((member) => ({
                 alt={member.image_alt ?? ''}
                 widths={[480, 720, 960, 1300]}
                 sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
+                priority={index === 0}
                 class:list={[
                   'aspect-7/6 w-full object-cover object-top',
                   member.href &&
