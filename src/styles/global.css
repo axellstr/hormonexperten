@@ -639,6 +639,58 @@
   }
 }
 
+/*
+ * Page transitions: going from one page to the next, the old page fades out and the new one
+ * rises in, instead of the next page simply appearing. The browser does this (cross-document view
+ * transitions), so it takes no JavaScript and the page scripts load as usual. Browsers without
+ * cross-document view transitions, and reduced motion, just load the next page. The header is
+ * captured on its own (`site-header`) and stays where it is while the page under it changes: the
+ * new header shows at once over the old one, which fades with the old page, so an open menu
+ * (dropdown or the mobile sheet) leaves with the page while the bar stays solid. If the header
+ * was scrolled away it slides back in. The entrance uses the same soft ease-out as the stacked
+ * cards.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+[data-header] {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(root),
+::view-transition-old(site-header) {
+  animation: page-out 150ms ease-in both;
+}
+
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: page-in 450ms cubic-bezier(0.16, 1, 0.3, 1) 50ms both;
+}
+
+::view-transition-group(site-header) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    translate: 0 0.75rem;
+  }
+}
+
 @layer base {
   /* Lets height transition to and from `auto` (used by `size-motion:` disclosures). */
   :root {

@@ -69,6 +69,15 @@ const imagePreload = preloadImage
       />
     )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Chromium browsers render the page behind a link in the background once the pointer rests
+         on it (or a finger presses it), so the click shows it at once. Rules, not a script. -->
+    <script
+      is:inline
+      type="speculationrules"
+      set:html={JSON.stringify({
+        prerender: [{ where: { href_matches: '/*' }, eagerness: 'moderate' }],
+      })}
+    />
     <!-- The surface colour token (--color-surface), as the hero panel. -->
     <meta name="theme-color" content="#fcf8f4" />
   </head>

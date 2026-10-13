@@ -55,8 +55,10 @@ const isCurrent = (href: string) =>
 const servicesItem = navItems.find((item) => item.submenu);
 
 // Without JS the hover background is on the link itself; with JS a sliding pill replaces it.
+// Safari gives the pill its own GPU layer while it slides and draws that over the labels despite
+// their z-index, so the labels get layers of their own (`transform-gpu`) to stay on top.
 const navLink =
-  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide whitespace-nowrap text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
+  'relative z-10 flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium tracking-wide whitespace-nowrap text-ink/80 uppercase hover:text-ink group-not-data-enhanced/track:hover:bg-coral-tint group-data-enhanced/track:transform-gpu focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
 // Mobile menu sheet: large rows with a round icon button at the end, like the service cards.
 const sheetLink =
   'group/link flex w-full cursor-pointer list-none items-center justify-between gap-4 rounded-field py-4 text-h2 font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:py-5';
