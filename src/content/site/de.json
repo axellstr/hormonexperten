@@ -68,7 +68,6 @@
         "items": [
           { "label": "Bioidentische Hormone" },
           { "label": "Behandlungsschwerpunkte" },
-          { "label": "Preise" },
           { "label": "Hormontherapie" },
           { "label": "Metabolic Reset" },
           { "label": "Rimkus-Methode®" },
@@ -81,7 +80,7 @@
           { "label": "Unser Ansatz" },
           { "label": "Unser Team" },
           { "label": "Kontakt" },
-          { "label": "Partner" }
+          { "label": "Preise" }
         ]
       },
       {

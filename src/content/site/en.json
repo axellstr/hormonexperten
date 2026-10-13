@@ -148,11 +148,6 @@
             "href": "/conditions"
           },
           {
-            "label": "Pricing",
-            "href": "/pricing",
-            "needs_check": true
-          },
-          {
             "label": "Hormone Therapy",
             "href": "/services/hormone-therapy"
           },
@@ -187,8 +182,9 @@
             "href": "/contact"
           },
           {
-            "label": "Partners",
-            "href": "/partners"
+            "label": "Pricing",
+            "href": "/pricing",
+            "needs_check": true
           }
         ]
       },

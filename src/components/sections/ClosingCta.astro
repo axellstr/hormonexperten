@@ -19,10 +19,8 @@ const highlightedTitle = closing.title.match(/^(.*\s)(again\.?)$/i);
 ---
 
 <Section aria-labelledby="closing-title">
-  <div class="flex min-h-144 w-full flex-col items-center justify-center gap-8 md:min-h-160 lg:min-h-96 lg:flex-row lg:justify-start lg:gap-12">
-    <!-- Centred above the copy on mobile; the left-hand visual on desktop. -->
-    <canvas data-glass-helix class="size-closing-helix shrink-0" aria-hidden="true"></canvas>
-    <div class="w-full text-center lg:min-w-0 lg:text-start">
+  <div class="rounded-panel flex min-h-96 w-full flex-col items-center justify-center bg-coral-tint px-4 py-16 text-center md:px-12 md:py-20 lg:py-24">
+    <div class="w-full">
       {info.length >= 2 && (
         <div class="mb-5">
           <p class="sr-only">{info.join(' · ')}</p>
@@ -48,7 +46,8 @@ const highlightedTitle = closing.title.match(/^(.*\s)(again\.?)$/i);
             {highlightedTitle[1]}
             <span class="relative inline-block whitespace-nowrap">
               <span
-                class="absolute inset-x-0 bottom-0 h-3 -skew-x-12 bg-coral"
+                class="closing-highlight absolute inset-x-0 bottom-0 h-3 origin-left -skew-x-12 bg-coral"
+                data-closing-highlight
                 aria-hidden="true"
               ></span>
               <span class="relative">{highlightedTitle[2]}</span>
@@ -59,9 +58,7 @@ const highlightedTitle = closing.title.match(/^(.*\s)(again\.?)$/i);
         )}
       </h2>
       {closing.body && (
-        <p class="mx-auto mt-heading max-w-72 text-lead text-ink/80 lg:mx-0 lg:max-w-measure">
-          {closing.body}
-        </p>
+        <p class="mx-auto mt-heading max-w-measure text-lead text-ink/80">{closing.body}</p>
       )}
       <Button href={BOOKING_URL} class="mt-action">
         <RollText text={closing.cta} />
@@ -71,6 +68,28 @@ const highlightedTitle = closing.title.match(/^(.*\s)(again\.?)$/i);
 </Section>
 
 <script>
-  import '../../scripts/glass-helix';
   import '../../scripts/hero-trust-cycler';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll<HTMLElement>('[data-closing-highlight]').forEach((marker) => {
+    if (reduceMotion.matches) return;
+
+    const title = marker.closest('h2');
+    if (!title) return;
+
+    marker.toggleAttribute('data-highlight-pending', true);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.99) return;
+
+        observer.disconnect();
+        requestAnimationFrame(() => marker.toggleAttribute('data-highlighted', true));
+      },
+      { threshold: 0.99 },
+    );
+
+    observer.observe(title);
+  });
 </script>

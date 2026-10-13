@@ -98,7 +98,6 @@
   --container-measure: 54ch;
   --breakpoint-header-desktop: 90rem; /* 1440px */
   --spacing-hero-height: 70vh;
-  --spacing-closing-helix: 17.5rem; /* 280px square */
 
   /* Figma uses 24px for panels, cards, buttons and FAQ items alike. */
   --radius-panel: 1.5rem;
@@ -408,6 +407,23 @@
 @keyframes reveal-word {
   from {
     opacity: 0.2;
+  }
+}
+
+/*
+ * Closing CTA: once the title is fully visible, the coral marker makes one deliberate pass beneath
+ * the final word. Without JavaScript, and under reduced motion, it stays fully drawn.
+ */
+@utility closing-highlight {
+  @media (prefers-reduced-motion: no-preference) {
+    &[data-highlight-pending] {
+      scale: 0 1;
+    }
+
+    &[data-highlight-pending][data-highlighted] {
+      scale: 1;
+      transition: scale 1400ms var(--ease-smooth) 150ms;
+    }
   }
 }
 
