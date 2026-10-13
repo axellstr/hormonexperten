@@ -7,21 +7,26 @@ import LinkedIn from '../../assets/icons/linkedin.svg';
 import Mail from '../../assets/icons/mail.svg';
 import Phone from '../../assets/icons/phone.svg';
 import WhatsApp from '../../assets/icons/whatsapp.svg';
-import { BOOKING_URL } from '../../config';
+import { BOOKING_URL, type Locale } from '../../config';
 import { visible } from '../../lib/content';
+import { localizeHref } from '../../lib/i18n';
 import type { Contact, Site } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 
 interface Props {
+  lang: Locale;
   hero: Contact['hero'];
   channels: Contact['channels'];
+  form: Contact['form'];
+  /** The Privacy Policy link from the page's details, for the consent line. */
+  privacy: Contact['details']['privacy']['link'];
   /** The footer's social links, so both stay in step. */
   social: Site['footer']['social'];
 }
 
-const { hero, channels, social: allSocial } = Astro.props;
+const { lang, hero, channels, form, privacy, social: allSocial } = Astro.props;
 const items = visible(channels.items);
 const social = visible(allSocial);
 const channelIcons = { mail: Mail, phone: Phone };
@@ -32,6 +37,13 @@ const socialIcons = {
   facebook: Facebook,
   jameda: Jameda,
 };
+
+const consent = form.consent.split('{link}');
+if (consent.length !== 2) throw new Error('Contact form: `consent` needs exactly one {link}');
+
+const label = 'block text-base font-medium text-ink';
+const field =
+  'mt-2 block w-full rounded-field border border-ink/50 bg-bg px-5 py-3 text-base text-ink hover:border-ink focus-visible:border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors';
 ---
 
 <!-- Sits below the floating header pill, like the other heroes. -->
@@ -41,39 +53,37 @@ const socialIcons = {
       aria-labelledby="contact-title"
       class="overflow-hidden rounded-panel bg-surface px-6 pt-10 pb-10 md:px-12 lg:pt-14 lg:pb-14 xl:px-16"
     >
-      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
+      <div class="grid items-start gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
         <div class="lg:col-span-5">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
           <h1 id="contact-title" class="mt-eyebrow text-display text-ink">
             {hero.title}
           </h1>
           <p class="mt-heading max-w-measure text-lead text-ink/80">{hero.intro}</p>
-          <Button href={BOOKING_URL} class="mt-action">
+          <Button href={BOOKING_URL} variant="secondary" class="mt-action">
             {hero.cta}
           </Button>
-        </div>
 
-        <div class="lg:col-span-7">
           <h2 class="sr-only">{channels.title}</h2>
           <!--
-            One card per way to reach the practice, the whole card a link. Narrow screens stack the
-            icon row above the text, so an e-mail address gets the card's full width; from sm the
-            icon, text and arrow share one row.
+            One card per way to reach the practice, the whole card a link. A narrow list (phones, and
+            the left column on laptops) stacks the icon row above the text, so an e-mail address gets
+            the card's full width; from 28rem the icon, text and arrow share one row.
           -->
-          <ul class="grid gap-3 sm:gap-4">
+          <ul class="@container mt-10 grid gap-3 sm:gap-4">
             {items.map((channel) => {
               const Icon = channelIcons[channel.icon];
               return (
                 <li>
                   <a
                     href={channel.href}
-                    class="group flex flex-col gap-6 rounded-card bg-bg p-5 ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow sm:flex-row sm:items-center sm:gap-5 sm:p-6 md:p-8"
+                    class="group flex flex-col gap-6 rounded-card bg-bg p-5 ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow sm:p-6 md:p-8 @md:flex-row @md:items-center @md:gap-5"
                   >
-                    <span class="flex items-center justify-between sm:contents">
-                      <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink sm:order-first">
+                    <span class="flex items-center justify-between @md:contents">
+                      <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink @md:order-first">
                         <Icon class="size-6" aria-hidden="true" />
                       </span>
-                      <span class="grid size-10 shrink-0 place-items-center rounded-full bg-surface text-ink group-hover:bg-coral motion-safe:transition-colors motion-safe:duration-300 sm:order-last">
+                      <span class="grid size-10 shrink-0 place-items-center rounded-full bg-surface text-ink group-hover:bg-coral motion-safe:transition-colors motion-safe:duration-300 @md:order-last">
                         <ArrowUpRight
                           class="size-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 rtl:-scale-x-100"
                           aria-hidden="true"
@@ -134,6 +144,96 @@ const socialIcons = {
             </div>
           )}
         </div>
+
+        <!-- No action yet: the submit script comes next. POST keeps what people type out of the URL. -->
+        <form
+          id="contact-form"
+          method="post"
+          aria-labelledby="form-title"
+          class="@container rounded-card bg-bg p-6 ring-1 ring-ink/5 md:p-8 lg:col-span-7 xl:p-10"
+        >
+          <h2 id="form-title" class="text-title text-ink">
+            {form.title}
+          </h2>
+
+          <div class="mt-8 grid gap-5 @lg:grid-cols-2">
+            <div class="@lg:col-span-2">
+              <label for="contact-name" class={label}>
+                {form.name}
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                class:list={[field, 'min-h-13']}
+              />
+            </div>
+            <div>
+              <label for="contact-email" class={label}>
+                {form.email}
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                spellcheck="false"
+                required
+                class:list={[field, 'min-h-13']}
+              />
+            </div>
+            <div>
+              <label for="contact-phone" class={label}>
+                {form.phone} <span class="font-normal text-ink/70">{form.optional}</span>
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                class:list={[field, 'min-h-13 tabular-nums']}
+              />
+            </div>
+            <div class="@lg:col-span-2">
+              <label for="contact-message" class={label}>
+                {form.message}
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="6"
+                required
+                class:list={[field, 'resize-y']}
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-start gap-3">
+            <input
+              id="contact-consent"
+              name="consent"
+              type="checkbox"
+              required
+              class="size-5 shrink-0 cursor-pointer accent-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            />
+            <label for="contact-consent" class="text-sm text-ink/80">
+              {consent[0]}
+              <a
+                href={localizeHref(privacy.href, lang)}
+                class="rounded-sm font-medium text-ink underline decoration-coral decoration-2 underline-offset-4 hover:decoration-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+              >
+                {privacy.label}
+              </a>
+              {consent[1]}
+            </label>
+          </div>
+
+          <Button type="submit" class="mt-action w-full @md:w-auto">
+            {form.submit}
+          </Button>
+        </form>
       </div>
     </section>
   </Container>

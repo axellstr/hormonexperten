@@ -3,7 +3,7 @@ import ApproachHero from '../../components/sections/ApproachHero.astro';
 import ApproachPillars from '../../components/sections/ApproachPillars.astro';
 import ApproachQuote from '../../components/sections/ApproachQuote.astro';
 import ClosingCta from '../../components/sections/ClosingCta.astro';
-import ServiceSteps from '../../components/sections/ServiceSteps.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
 import TeamBrief from '../../components/sections/TeamBrief.astro';
 import { LOCALES, type Locale } from '../../config';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -33,7 +33,7 @@ const approach = getApproach(lang);
   <ApproachHero hero={approach.hero} />
   <ApproachPillars pillars={approach.pillars} />
   <ApproachQuote lang={lang} founder={approach.founder} team={team} />
-  <ServiceSteps how={home.how} />
+  <HowItWorks lang={lang} how={home.how} doctor={home.team.members[0].name} />
   <TeamBrief lang={lang} team={team} more={approach.team.more} />
   <ClosingCta closing={home.closing} />
 </BaseLayout>

@@ -24,6 +24,15 @@
     ],
     "social": "Folgen Sie uns"
   },
+  "form": {
+    "title": "Schreiben Sie uns",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "message": "Nachricht",
+    "optional": "(optional)",
+    "submit": "Nachricht senden"
+  },
   "faq": {
     "title": "Schnelle Antworten",
     "more": {

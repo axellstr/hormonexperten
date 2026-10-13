@@ -39,7 +39,14 @@ const questions = visible(
   title={contact.meta.title}
   description={contact.meta.description}
 >
-  <ContactHero hero={contact.hero} channels={contact.channels} social={site.footer.social} />
+  <ContactHero
+    lang={lang}
+    hero={contact.hero}
+    channels={contact.channels}
+    form={contact.form}
+    privacy={contact.details.privacy.link}
+    social={site.footer.social}
+  />
   <ContactFaq lang={lang} faq={contact.faq} items={questions} />
   <ContactDetails lang={lang} details={contact.details} />
   <ClosingCta closing={getHome(lang).closing} />

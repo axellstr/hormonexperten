@@ -576,6 +576,19 @@ export const contactSchema = z.object({
     /** Heading over the social links (taken from the footer's). */
     social: z.string(),
   }),
+  /** The message form in the hero: field labels and the consent line. */
+  form: z.object({
+    title: z.string(),
+    name: z.string(),
+    email: z.string(),
+    phone: z.string(),
+    message: z.string(),
+    /** Follows the label of a field people may leave empty. */
+    optional: z.string(),
+    /** Agreement to the Privacy Policy; `{link}` marks where its link (from `details`) goes. */
+    consent: z.string(),
+    submit: z.string(),
+  }),
   /** Questions people tend to ask before writing, picked from the FAQ by id. */
   faq: z.object({
     title: z.string(),

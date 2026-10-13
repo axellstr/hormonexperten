@@ -33,6 +33,16 @@
     ],
     "social": "Follow us"
   },
+  "form": {
+    "title": "Send us a message",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "optional": "(optional)",
+    "consent": "TODO: approved consent line for the contact form, linking to our {link}",
+    "submit": "Send message"
+  },
   "faq": {
     "title": "Quick answers",
     "more": {

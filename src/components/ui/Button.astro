@@ -1,8 +1,10 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type Props = HTMLAttributes<'a'> & {
-  href: string;
+/** A link by default; without `href` it renders a `<button>`, e.g. a form's submit. */
+type Props = (
+  (HTMLAttributes<'a'> & { href: string }) | (HTMLAttributes<'button'> & { href?: never })
+) & {
   variant?: 'primary' | 'secondary';
   /** `sm` is the compact header button; `full` fills its card, with room for longer labels. */
   size?: 'md' | 'sm' | 'full';
@@ -22,17 +24,22 @@ const sizes = {
   sm: 'min-h-11 px-6',
   full: 'min-h-13 w-full px-5',
 };
+
+const classes = [
+  'group/button inline-flex items-center justify-center rounded-full py-3 text-center text-base leading-tight font-semibold text-balance hyphens-none',
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition',
+  variants[variant],
+  sizes[size],
+  className,
+];
 ---
 
-<a
-  class:list={[
-    'group/button inline-flex items-center justify-center rounded-full py-3 text-center text-base leading-tight font-semibold text-balance hyphens-none',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition',
-    variants[variant],
-    sizes[size],
-    className,
-  ]}
-  {...rest}
->
-  <slot />
-</a>
+{rest.href !== undefined ? (
+  <a class:list={classes} {...rest}>
+    <slot />
+  </a>
+) : (
+  <button class:list={[classes, 'cursor-pointer']} {...rest}>
+    <slot />
+  </button>
+)}
