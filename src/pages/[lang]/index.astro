@@ -42,7 +42,12 @@ const featuredFaq = visible(faq.categories.flatMap((category) => category.items)
   <Services lang={lang} content={home.services} services={site.services} />
   <TrustLogos trust={home.trust} />
   <Approach lang={lang} approach={home.approach} />
-  <HowItWorks lang={lang} how={home.how} doctor={home.team.members[0].name} />
+  <HowItWorks
+    lang={lang}
+    how={home.how}
+    doctor={home.team.members[0].name}
+    followUpDoctor={home.team.members[1]?.name}
+  />
   <Team lang={lang} team={home.team} />
   <Testimonials lang={lang} testimonials={home.testimonials} reviewProfile={home.review_profile} />
   <Faq lang={lang} title={home.faq.title} contact={home.faq.contact} items={featuredFaq} />

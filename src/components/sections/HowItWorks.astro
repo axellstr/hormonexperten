@@ -15,11 +15,13 @@ import FollowUpScene from './how-scenes/FollowUpScene.astro';
 interface Props {
   lang: Locale;
   how: Home['how'];
-  /** The doctor shown in the call and follow-up scenes. */
+  /** The doctor shown in the video-call scene. */
   doctor: string;
+  /** The doctor shown in the follow-up chat scene (defaults to `doctor`). */
+  followUpDoctor?: string;
 }
 
-const { lang, how, doctor } = Astro.props;
+const { lang, how, doctor, followUpDoctor = doctor } = Astro.props;
 ---
 
 <!-- The steps are a deck of cards: each one sticks below the header and the next slides over it
@@ -74,7 +76,8 @@ const { lang, how, doctor } = Astro.props;
       </div>
     </div>
 
-    <!-- Equal rows, so every card in the deck is the same height. -->
+    <!-- Equal rows, so every card in the deck is the same height. On desktop the measured
+         trailing row gives the final card the same pinned dwell as the cards before it. -->
     <ol
       class="stack-deck mt-10 -mb-(--stack-release) grid auto-rows-fr gap-6 lg:col-span-7 lg:mt-0 lg:mb-(--stack-hold) lg:gap-12"
       data-stack-list
@@ -101,7 +104,9 @@ const { lang, how, doctor } = Astro.props;
                 <div class="absolute inset-0 flex items-center-safe justify-center px-3 pt-3 pb-0.5 md:px-6 lg:px-4 lg:pt-4">
                   {index === 0 && <BookScene lang={lang} labels={step.scene} />}
                   {index === 1 && <CallScene doctor={doctor} labels={step.scene} />}
-                  {index === 2 && <FollowUpScene lang={lang} doctor={doctor} labels={step.scene} />}
+                  {index === 2 && (
+                    <FollowUpScene lang={lang} doctor={followUpDoctor} labels={step.scene} />
+                  )}
                 </div>
               </div>
               <div class="relative m-3 rounded-xl bg-bg p-5 md:p-6 lg:m-4 lg:rounded-lg lg:p-5 xl:p-6">
@@ -121,6 +126,7 @@ const { lang, how, doctor } = Astro.props;
           </div>
         </li>
       ))}
+      <li class="hidden lg:block" aria-hidden="true" data-stack-tail></li>
     </ol>
   </div>
 

@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import { BOOKING_URL } from '../../config';
 import {
   getImage,
@@ -7,6 +7,7 @@ import {
   HERO_IMAGE_SIZES,
   HERO_IMAGE_WIDTH,
   HERO_IMAGE_WIDTHS,
+  PORTRAIT_QUALITY,
 } from '../../lib/assets';
 import { isVisible } from '../../lib/content';
 import { format } from '../../lib/i18n';
@@ -33,6 +34,12 @@ const ratingText = format(trust.rating_label, {
   rating: ratingDisplay,
   max: reviewProfile.rating_max,
 });
+
+/** Affiliation marks above the booking CTA (same in every locale). */
+const affiliations = [
+  { file: 'hormon-netzwerk.png', alt: 'Hormon Netzwerk' },
+  { file: 'daegfa.png', alt: 'DÄGfA' },
+] as const;
 ---
 
 <!-- Sits below the floating header pill rather than under it. -->
@@ -67,8 +74,26 @@ const ratingText = format(trust.rating_label, {
               </div>
             </div>
           )}
-          <h1 class="text-title text-ink md:text-display">{hero.title}</h1>
-          <p class="mt-heading max-w-xl text-body text-ink/80 md:text-lead">{hero.subtitle}</p>
+          <div class="max-w-xl">
+            <h1 class="text-display text-ink">{hero.title}</h1>
+            <p class="mt-heading text-body text-ink/80 md:text-lead">{hero.subtitle}</p>
+          </div>
+          <ul class="mt-8 flex max-w-xl flex-wrap items-center gap-x-8 gap-y-4">
+            {affiliations.map((item) => {
+              const image = getImage(item.file);
+              return (
+                <li class="h-8 md:h-10">
+                  <Image
+                    src={image}
+                    alt={item.alt}
+                    width={image.width}
+                    height={image.height}
+                    class="h-full w-auto object-contain opacity-70"
+                  />
+                </li>
+              );
+            })}
+          </ul>
           <Button href={BOOKING_URL} class="mt-action">
             <RollText text={hero.cta} />
           </Button>
@@ -84,12 +109,15 @@ const ratingText = format(trust.rating_label, {
             data-carousel-track
           >
             {slides.map((slide, index) => (
-              <li class="w-5/6 shrink-0 snap-start">
+              <li class="w-5/6 shrink-0 snap-start hero-slide" data-hero-slide>
+                {/* The second slide peeks in beside the first from the first paint, so it loads
+                    with the page (at low priority) rather than lazily, after layout. */}
                 <Picture
                   src={getImage(slide.image)}
                   alt={slide.image_alt}
                   formats={['avif']}
                   fallbackFormat="webp"
+                  quality={PORTRAIT_QUALITY}
                   widths={HERO_IMAGE_WIDTHS}
                   width={HERO_IMAGE_WIDTH}
                   height={HERO_IMAGE_HEIGHT}
@@ -97,17 +125,18 @@ const ratingText = format(trust.rating_label, {
                   position="top"
                   sizes={HERO_IMAGE_SIZES}
                   priority={index === 0}
+                  loading={index < 2 ? 'eager' : 'lazy'}
                   fetchpriority={index === 0 ? 'high' : 'low'}
-                  class="aspect-7/6 w-full rounded-panel object-cover"
+                  class="aspect-7/6 w-full object-cover"
                 />
               </li>
             ))}
           </ul>
-          <!-- Invisible rather than hidden until the script runs, so the dots' row is reserved
+          <!-- Invisible rather than hidden until a script runs, so the dots' row is reserved
                from the first paint and the images don't jump when it appears. -->
           {slides.length > 1 && (
             <div
-              class="invisible mt-3 flex justify-center gap-1 pe-4 md:pe-12 lg:pe-0"
+              class="invisible mt-3 flex justify-center gap-1 pe-4 hero-dots md:pe-12 lg:pe-0"
               data-carousel-nav
             >
               {slides.map((_, index) => (
@@ -125,6 +154,34 @@ const ratingText = format(trust.rating_label, {
             </div>
           )}
         </div>
+        <!-- Reveals each photo once it is decoded, in order (see hero-slide in global.css), and
+             the dots with the first. Inline, so it starts as the photos arrive rather than after
+             the page's bundled scripts; a photo that fails to load is revealed anyway. The reveal
+             starts in an animation frame: started mid-parse, WebKit can fix its start time before
+             the parser next pauses to render, and the first frame drawn is nearly its last. -->
+        <script is:inline>
+          {
+            const root = document.currentScript.previousElementSibling;
+            const nav = root.querySelector('[data-carousel-nav]');
+            let previous = Promise.resolve();
+            root.querySelectorAll('[data-hero-slide]').forEach((slide, index) => {
+              slide.addEventListener('animationend', (event) => {
+                if (event.animationName === 'hero-window')
+                  slide.toggleAttribute('data-settled', true);
+              });
+              const img = slide.querySelector('img');
+              const decoded = img?.decode ? img.decode().catch(() => {}) : undefined;
+              previous = Promise.all([previous, decoded]).then(() =>
+                requestAnimationFrame(() => {
+                  slide.toggleAttribute('data-revealed', true);
+                  if (index > 0 || !nav) return;
+                  nav.classList.remove('invisible');
+                  nav.toggleAttribute('data-revealed', true);
+                }),
+              );
+            });
+          }
+        </script>
       </div>
     </div>
   </Container>

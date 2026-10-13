@@ -2,7 +2,7 @@
 import ArrowEnd from '../../assets/icons/arrow-end.svg';
 import Quote from '../../assets/icons/quote.svg';
 import type { Locale } from '../../config';
-import { getImage } from '../../lib/assets';
+import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
 import { isVisible, memberLang, textLang } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { ApproachPage, Team } from '../../lib/schemas';
@@ -48,6 +48,7 @@ const roleLang = founder && otherLang(memberLang(lang, founder.id, 'role'));
         <div class="relative w-52 sm:w-60 md:col-span-5 md:w-full md:max-w-sm md:justify-self-center">
           <div class="rounded-full p-2.5 ring-1 ring-coral/50 md:p-3">
             <Photo
+              quality={PORTRAIT_QUALITY}
               src={getImage(quote.image)}
               alt={quote.image_alt}
               widths={[240, 360, 480, 720]}

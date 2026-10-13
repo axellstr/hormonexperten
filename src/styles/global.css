@@ -269,6 +269,7 @@
 
   @variant lg {
     --stack-room: calc(var(--spacing) * 44);
+    grid-template-rows: repeat(3, minmax(0, 1fr)) var(--stack-tail, 0px);
     justify-self: end;
   }
 }
@@ -476,6 +477,114 @@
 @keyframes unveil-photo {
   from {
     scale: 1.1;
+  }
+}
+
+/*
+ * Hero photos (Hero.astro): on load each photo opens from the top of its frame, so the doctors'
+ * faces come first and the picture unrolls down to the dots. The slide (`hero-slide`) is the
+ * frame and clips; the <picture> in it is a rounded window that slides down from above the
+ * frame, and the photo in the window slides the other way, so the photo stays almost still while
+ * the window's rounded edge passes down over it, then settles the last 6% downward. The second
+ * slide follows a beat later and the dots last. It is the scroll unveil's idea (the frame opens,
+ * the photo settles) told once, on load.
+ *   Load-safe: a slide waits, hidden, until the inline script in Hero.astro has decoded its photo
+ *     and set `data-revealed`, so the reveal never shows an empty frame or a photo arriving
+ *     halfway through. Only `translate` moves: the compositor runs it, so it stays smooth while
+ *     the page is still busy loading (a `clip-path` reveal stalls with the main thread, measured
+ *     in Chromium), and no `scale`, which ends with a visible jump when the browser swaps its
+ *     scaled raster for the sharp one.
+ *   The window starts a hair (0.5%) inside the frame, not above it: a photo with no visible area
+ *     isn't counted as painted, which would move LCP to the end of the reveal. That hair, and the
+ *     reveal's leading edge, show the plain studio backdrop above the doctors.
+ *   Keyframes, not transitions: a photo already decoded before the first style pass would
+ *     otherwise have no "before" state to transition from and appear unannounced.
+ *   The frame and window clip only until the photo has settled (`data-settled`, set on the
+ *     window's animationend): three rounded clips on one curve multiply their anti-aliasing into
+ *     a jagged corner, so at rest the photo is rounded by its own corners alone, as without motion.
+ * Without scripting the photos simply show (the hidden state only exists in a scripted page), as
+ * under reduced motion.
+ */
+@utility hero-slide {
+  /*
+   * On phones the photo is inset 16px from the panel's 24px corner, so an 8px radius keeps both
+   * arcs concentric. From md the 48px inset clears the outer curve, so the photo returns to its
+   * independent 24px panel radius.
+   */
+  --hero-radius: calc(var(--radius-panel) - 1rem);
+
+  & img {
+    border-radius: var(--hero-radius);
+  }
+
+  @media (width >= 48rem) {
+    --hero-radius: var(--radius-panel);
+  }
+
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    & picture {
+      display: block;
+    }
+
+    &:not([data-settled]) {
+      overflow: hidden;
+      border-radius: var(--hero-radius);
+
+      & picture {
+        overflow: hidden;
+        border-radius: var(--hero-radius);
+      }
+    }
+
+    &:not([data-revealed]) picture {
+      translate: 0 -99.5%;
+    }
+
+    &[data-revealed] {
+      & picture {
+        animation: hero-window 1000ms var(--ease-smooth) var(--hero-lag, 0ms) backwards;
+      }
+
+      & img {
+        animation: hero-photo 1000ms var(--ease-smooth) var(--hero-lag, 0ms) backwards;
+      }
+    }
+
+    & + & {
+      --hero-lag: 150ms;
+    }
+  }
+}
+
+/* The carousel dots fade in as the first photo's reveal comes to rest. */
+@utility hero-dots {
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    &:not([data-revealed]) {
+      opacity: 0;
+    }
+
+    &[data-revealed] {
+      animation: hero-dots 500ms var(--ease-smooth) 600ms backwards;
+    }
+  }
+}
+
+/* The window's travel and the photo's are equal and opposite, bar the photo's 6% settle. */
+@keyframes hero-window {
+  from {
+    translate: 0 -99.5%;
+  }
+}
+
+@keyframes hero-photo {
+  from {
+    translate: 0 93.5%;
+  }
+}
+
+@keyframes hero-dots {
+  from {
+    opacity: 0;
   }
 }
 

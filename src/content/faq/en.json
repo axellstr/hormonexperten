@@ -7,8 +7,8 @@
   "nav_label": "Topics",
   "contact": {
     "title": "Still have questions?",
-    "image": "contact.jpg",
-    "image_alt": "",
+    "image": "friendly-helpdesk-laptop.png",
+    "image_alt": "Friendly helpdesk portrait with a laptop",
     "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
     "cta": { "label": "Get in touch", "href": "mailto:info@hormonexperten.de" }
   },

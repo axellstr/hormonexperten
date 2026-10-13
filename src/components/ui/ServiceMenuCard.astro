@@ -12,17 +12,20 @@ interface Props {
   service: Service;
   /** The `sizes` attribute for the image, matching the card's width in its menu. */
   sizes: string;
+  /** Nest the card concentrically inside a parent with 12px padding and a 24px radius. */
+  nested?: boolean;
   class?: string;
 }
 
-const { lang, service, sizes, class: className } = Astro.props;
+const { lang, service, sizes, nested = false, class: className } = Astro.props;
 ---
 
 <!-- Image card with the title over a gradient, used by the header's service menus. -->
 <a
   href={localizeHref(service.href, lang)}
   class:list={[
-    'group/card relative block overflow-hidden rounded-card bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink',
+    'group/card relative block overflow-hidden bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink',
+    nested ? 'rounded-xl' : 'rounded-card',
     className,
   ]}
 >

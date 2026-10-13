@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../../config';
-import { getImage } from '../../lib/assets';
+import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
 import { isVisible, memberLang, visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Team } from '../../lib/schemas';
@@ -26,13 +26,13 @@ const members = visible(team.members).map((member) => ({
 }));
 ---
 
-<Section aria-labelledby="team-title">
+<Section aria-labelledby="team-title" class="pt-16! md:pt-12!">
   <Eyebrow>{team.eyebrow}</Eyebrow>
   <h1 id="team-title" class="mt-eyebrow max-w-4xl text-display text-ink">
     {team.title}
   </h1>
 
-  <ul class="mt-intro grid gap-14 md:grid-cols-2 md:gap-8 xl:gap-12">
+  <ul class="mt-intro grid gap-14 md:max-w-4xl md:grid-cols-2 md:gap-8 xl:gap-12">
     {members.map((member, index) => {
       // The photo repeats the button's link for pointer users; keyboards and screen readers skip it.
       const Frame = member.href ? 'a' : 'div';
@@ -46,10 +46,11 @@ const members = visible(team.members).map((member) => ({
           >
             {member.image ? (
               <Photo
+                quality={PORTRAIT_QUALITY}
                 src={getImage(member.image)}
                 alt={member.image_alt ?? ''}
                 widths={[480, 720, 960, 1300]}
-                sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
+                sizes="(min-width: 960px) 432px, (min-width: 768px) 45vw, 90vw"
                 priority={index === 0}
                 class:list={[
                   'aspect-7/6 w-full object-cover object-top',

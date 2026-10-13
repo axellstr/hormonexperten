@@ -1,34 +1,66 @@
 ---
 import Quote from '../../assets/icons/quote.svg';
 import { BOOKING_URL } from '../../config';
+import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
 import type { Profile } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Panel from '../ui/Panel.astro';
+import Photo from '../ui/Photo.astro';
 import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
   story: Profile['story'];
+  image?: string | undefined;
+  imageAlt?: string | undefined;
   /** Booking button label; left out when a closing panel follows. */
   cta?: string | undefined;
 }
 
-const { story, cta } = Astro.props;
+const { story, image, imageAlt, cta } = Astro.props;
 ---
 
 <Section aria-labelledby="story-title">
   <Panel class="px-6 py-14 md:p-12 xl:p-20">
-    <!-- Without a statement beside it, the story reads as one centred column. -->
-    <div class:list={[!story.statement && 'mx-auto max-w-3xl']}>
-      <Quote class="size-12 text-coral lg:size-16" aria-hidden="true" />
-      <h2 id="story-title" class="mt-6 max-w-5xl reveal-text text-h2 text-ink">
-        <RevealText text={story.title} />
-      </h2>
+    <div>
+      <div class:list={[image && 'flex items-center gap-6 md:gap-8']}>
+        {image && (
+          <div class="relative size-24 shrink-0">
+            <div class="rounded-full p-1.5 ring-1 ring-coral/50">
+              <Photo
+                quality={PORTRAIT_QUALITY}
+                src={getImage(image)}
+                alt={imageAlt ?? ''}
+                widths={[96, 192]}
+                sizes="96px"
+                class="aspect-square w-full rounded-full object-cover object-top"
+              />
+            </div>
+            <span
+              aria-hidden="true"
+              class="absolute end-1/7 bottom-1/7 grid size-8 translate-x-1/2 translate-y-1/2 place-items-center rounded-full border-2 border-surface bg-coral text-on-dark rtl:-translate-x-1/2"
+            >
+              <Quote class="size-4" />
+            </span>
+          </div>
+        )}
+
+        <div>
+          {!image && <Quote class="size-12 text-coral lg:size-16" aria-hidden="true" />}
+          <h2
+            id="story-title"
+            class:list={['max-w-5xl reveal-text text-h2 text-ink', !image && 'mt-6']}
+          >
+            <RevealText text={story.title} />
+          </h2>
+        </div>
+      </div>
 
       <div
         class:list={[
           'mt-12 border-t border-ink/10 pt-12 lg:mt-16 lg:pt-16',
           story.statement && 'grid gap-10 lg:grid-cols-12 lg:gap-16',
+          !story.statement && 'mx-auto max-w-3xl',
         ]}
       >
         {story.statement && (

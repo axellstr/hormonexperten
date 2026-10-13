@@ -10,6 +10,7 @@ import {
   HERO_IMAGE_SIZES,
   HERO_IMAGE_WIDTH,
   HERO_IMAGE_WIDTHS,
+  PORTRAIT_QUALITY,
 } from '../lib/assets';
 import { switchLocale } from '../lib/i18n';
 import type { Site } from '../lib/schemas';
@@ -32,8 +33,9 @@ const imagePreload = preloadImage
       widths: HERO_IMAGE_WIDTHS,
       width: HERO_IMAGE_WIDTH,
       height: HERO_IMAGE_HEIGHT,
+      quality: PORTRAIT_QUALITY,
       fit: 'cover',
-      position: 'center',
+      position: 'top',
     })
   : undefined;
 ---

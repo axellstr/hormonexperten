@@ -34,8 +34,8 @@
         "image_alt": "Dr. Isabella Wilden, seated, and Dr. Yvonne Tuszing standing beside her"
       },
       {
-        "image": "wilden-lab-coat.jpg",
-        "image_alt": "Dr. Isabella Wilden in a white doctor’s coat, holding a stethoscope"
+        "image": "031-1.jpg",
+        "image_alt": "Dr. Isabella Wilden in a white sleeveless top, smiling"
       }
     ]
   },
@@ -56,8 +56,8 @@
       "label": "Learn More",
       "href": "/our-approach"
     },
-    "image": "wilden-lab-coat.jpg",
-    "image_alt": "Dr. Isabella Wilden in a white doctor’s coat, holding a stethoscope"
+    "image": "031-1.jpg",
+    "image_alt": "Dr. Isabella Wilden in a white sleeveless top, smiling"
   },
   "trust": {
     "title": "Trusted by patients, backed by partners.",
@@ -285,8 +285,8 @@
     "title": "Frequently asked questions",
     "contact": {
       "title": "Still have questions?",
-      "image": "contact.jpg",
-      "image_alt": "",
+      "image": "friendly-helpdesk-laptop.png",
+      "image_alt": "Friendly helpdesk portrait with a laptop",
       "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
       "cta": {
         "label": "Get in touch",

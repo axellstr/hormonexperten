@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import type { Locale } from '../../config';
-import { getImage } from '../../lib/assets';
+import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Faq } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
@@ -32,7 +32,12 @@ const {
     <Photo
       src={getImage(contact.image)}
       alt={contact.image_alt}
+      quality={PORTRAIT_QUALITY}
       widths={[360, 512, 720, 1024]}
+      width={1024}
+      height={1024}
+      fit="cover"
+      position="center"
       sizes="(min-width: 1440px) 512px, (min-width: 1024px) 36vw, 90vw"
       class="aspect-square w-full max-w-lg rounded-card object-cover"
     />

@@ -30,12 +30,6 @@ const sourceIcons: Record<string, typeof Jameda> = { Jameda, ProvenExpert, Googl
 const platforms = visible(reviewProfile.platforms).map((platform) => ({
   ...platform,
   image: getLogo(platform.logo),
-  // As the platform shows it: 5, 3.9, 4.88 (not 3.90).
-  ratingDisplay: platform.rating.toLocaleString(lang, { maximumFractionDigits: 2 }),
-  ratingText: format(reviewProfile.rating_label, {
-    rating: platform.rating.toLocaleString(lang, { maximumFractionDigits: 2 }),
-    max: reviewProfile.rating_max,
-  }),
   reviewsText: format(reviewProfile.platform_reviews_label, {
     count: platform.reviews,
   }),
@@ -62,7 +56,7 @@ const cardClass =
           {platforms.map((platform) => (
             <li>
               <a href={platform.href} target="_blank" rel="noopener noreferrer">
-                {platform.link_label}: {platform.ratingText}, {platform.reviewsText}
+                {platform.link_label}: {platform.reviewsText}
               </a>
             </li>
           ))}
@@ -107,18 +101,8 @@ const cardClass =
                       decoding="async"
                       class="mx-auto h-7 w-auto max-w-full object-contain"
                     />
-                    <span class="flex flex-col items-center gap-1 text-sm text-ink/80">
-                      <span class="flex items-center gap-1.5">
-                        <span class="flex gap-0.5 text-coral" aria-hidden="true">
-                          {Array.from({ length: reviewProfile.rating_max }, () => (
-                            <Star class="size-2.5" />
-                          ))}
-                        </span>
-                        <span class="tabular-nums font-medium text-ink">
-                          {platform.ratingDisplay}
-                        </span>
-                      </span>
-                      <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
+                    <span class="tabular-nums text-sm text-ink/70">
+                      {platform.reviewsText}
                     </span>
                   </a>
                 </li>
@@ -138,7 +122,7 @@ const cardClass =
                 target="_blank"
                 rel="noopener noreferrer"
                 class={cardClass}
-                aria-label={`${platform.link_label}: ${platform.ratingText}, ${platform.reviewsText}`}
+                aria-label={`${platform.link_label}: ${platform.reviewsText}`}
               >
                 <img
                   src={platform.image.src}
@@ -149,17 +133,7 @@ const cardClass =
                   decoding="async"
                   class="h-7 w-auto max-w-full object-contain md:h-8"
                 />
-                <span class="flex flex-col items-center gap-1 text-sm text-ink/80">
-                  <span class="flex items-center gap-1.5">
-                    <span class="flex gap-0.5 text-coral" aria-hidden="true">
-                      {Array.from({ length: reviewProfile.rating_max }, () => (
-                        <Star class="size-2.5" />
-                      ))}
-                    </span>
-                    <span class="tabular-nums font-medium text-ink">{platform.ratingDisplay}</span>
-                  </span>
-                  <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
-                </span>
+                <span class="tabular-nums text-sm text-ink/70">{platform.reviewsText}</span>
               </a>
             </li>
           ))}

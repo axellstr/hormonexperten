@@ -2,8 +2,8 @@
 import { getImage } from '../../../lib/assets';
 import Photo from '../../ui/Photo.astro';
 
-// A message from the doctor in the follow-up scene: her photo and two abstract lines (no
-// invented words). Pass the display and position classes.
+// A message in the follow-up scene: helpdesk photo and two abstract lines (no invented
+// words). Pass the display and position classes.
 interface Props {
   class?: string;
 }
@@ -18,7 +18,7 @@ const { class: className } = Astro.props;
   ]}
 >
   <Photo
-    src={getImage('wilden-call.jpg')}
+    src={getImage('friendly-helpdesk-laptop.png')}
     alt=""
     widths={[64, 128]}
     sizes="32px"

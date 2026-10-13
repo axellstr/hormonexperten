@@ -51,6 +51,12 @@ function setupStack(root: HTMLElement) {
     const tops = stickAt();
     const span = tops.at(-1)! - tops[0] + height;
     root.style.setProperty('--stack-span', `${span}px`);
+    // A following card naturally keeps the card below it pinned while crossing one card minus
+    // the next sticky peek. On desktop, size the trailing grid row to create the same runway;
+    // the regular row gap supplies the rest of that landing interval.
+    const finalStep = tops.at(-1)! - tops.at(-2)!;
+    const tail = wide.matches ? Math.max(height - finalStep, 0) : 0;
+    root.style.setProperty('--stack-tail', `${tail}px`);
     // From lg the intro column pins beside the deck, in the same grid row. Its room ends with
     // the row, which ends with the deck, so a column taller than the stuck deck would be pushed
     // off while the last card is still landing. The deck's bottom margin lengthens the row by
@@ -132,6 +138,7 @@ function setupStack(root: HTMLElement) {
   resize.observe(cards[0]);
   if (column) resize.observe(column);
   window.addEventListener('resize', measure);
+  measure();
 
   // The header coming or going moves where things stick: at once, or after the glide.
   const header = document.querySelector('[data-header]');

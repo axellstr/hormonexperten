@@ -1,7 +1,7 @@
 ---
 import LinkedIn from '../../assets/icons/linkedin.svg';
 import { BOOKING_URL, type Locale } from '../../config';
-import { getImage } from '../../lib/assets';
+import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Profile, Team, TeamMember } from '../../lib/schemas';
 import Breadcrumb from '../ui/Breadcrumb.astro';
@@ -43,9 +43,9 @@ const portrait =
       <div class="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-12 lg:gap-12 xl:gap-20">
         <!-- Image first on mobile, on the end side from lg up. -->
         <div class="relative lg:order-last lg:col-span-5">
-          <div aria-hidden="true" class="absolute inset-0 rotate-2 rounded-panel bg-coral/40"></div>
           {member.image ? (
             <Photo
+              quality={PORTRAIT_QUALITY}
               src={getImage(member.image)}
               alt={member.image_alt ?? ''}
               widths={[480, 720, 960, 1200]}

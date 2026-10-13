@@ -53,7 +53,12 @@ const contentLang = profileLang === lang ? undefined : profileLang;
     {profile.mission && <ProfileMission mission={profile.mission} />}
     <ProfileMilestones milestones={profile.milestones} />
     <ProfileQualifications qualifications={profile.qualifications} />
-    <ProfileStory story={profile.story} cta={profile.closing_cta ? undefined : profile.cta} />
+    <ProfileStory
+      story={profile.story}
+      image={member.image}
+      imageAlt={member.image_alt}
+      cta={profile.closing_cta ? undefined : profile.cta}
+    />
     {profile.closing_cta && (
       <ClosingCta closing={{ title: profile.closing_cta.title, cta: profile.cta }} />
     )}
