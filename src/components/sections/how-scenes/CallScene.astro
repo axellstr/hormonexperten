@@ -1,0 +1,71 @@
+---
+import { getImage } from '../../../lib/assets';
+import Photo from '../../ui/Photo.astro';
+import CallControls from './CallControls.astro';
+import Results from './Results.astro';
+import SceneSpread from './SceneSpread.astro';
+
+// Step 2 as a picture of what happens: the video call with the doctor, and her lab results
+// beside it. The results are abstract bars on purpose: no values, nothing that reads as an
+// outcome. Decorative: the step's own text says it all.
+// A compact strip for phones and short bands, the full picture once the band has room
+// (scene-spread).
+interface Props {
+  doctor: string;
+  labels: string[];
+}
+
+const { doctor, labels } = Astro.props;
+// Head and shoulders from the studio portrait, framed like a webcam.
+const photo = getImage('wilden-call.jpg');
+---
+
+<div class="contents" aria-hidden="true">
+  <!-- Compact: a call bar with the doctor's video, and the results beside it where there is room. -->
+  <div class="flex items-center gap-3 scene-spread:hidden">
+    <div class="flex items-center gap-3 rounded-xl bg-bg p-2 pe-4 ring-1 ring-ink/5">
+      <Photo
+        src={photo}
+        alt=""
+        widths={[96, 192, 288]}
+        sizes="96px"
+        class="aspect-4/3 h-18 w-auto rounded-lg object-cover"
+      />
+      <span>
+        <span class="block text-sm font-medium text-ink">{doctor}</span>
+        <CallControls class="mt-2" />
+      </span>
+    </div>
+    <div class="hidden w-40 rounded-xl bg-bg p-3 ring-1 ring-ink/5 @md:block">
+      <Results label={labels[0]} />
+    </div>
+  </div>
+
+  <!-- Full: the call filling the window, with the results beside it. -->
+  <SceneSpread>
+    <div slot="main" class="relative h-full bg-surface">
+      <Photo
+        src={photo}
+        alt=""
+        widths={[480, 960]}
+        sizes="(min-width: 1440px) 480px, 45vw"
+        class="absolute inset-0 size-full object-cover"
+      />
+      <span class="absolute start-3 top-3 flex items-center gap-2 rounded-full bg-bg/90 px-3 py-1 text-sm font-medium text-ink">
+        <span class="size-2 rounded-full bg-coral"></span>
+        {doctor}
+      </span>
+      <span class="absolute end-3 top-3 flex aspect-3/4 h-16 items-end justify-center overflow-clip rounded-md bg-surface ring-2 ring-bg">
+        <svg class="w-4/5 text-ink/15" viewBox="0 0 40 36" fill="currentColor">
+          <circle cx="20" cy="13" r="8"></circle>
+          <path d="M4 36a16 14 0 0 1 32 0Z"></path>
+        </svg>
+      </span>
+      <!-- In a short window the bar would cover her face. -->
+      <span class="absolute inset-x-0 bottom-3 hidden scene-tall:block">
+        <CallControls class="justify-center" />
+      </span>
+    </div>
+    <Results slot="aside" label={labels[0]} />
+  </SceneSpread>
+</div>

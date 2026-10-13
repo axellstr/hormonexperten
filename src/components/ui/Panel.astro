@@ -12,6 +12,9 @@ type Props = HTMLAttributes<'div'> & {
 const { class: className, frame = false, ...rest } = Astro.props;
 ---
 
-<div class:list={[frame ? 'rounded-frame p-frame' : 'rounded-panel', 'bg-surface', className]} {...rest}>
+<div
+  class:list={[frame ? 'rounded-frame p-frame' : 'rounded-panel', 'bg-surface', className]}
+  {...rest}
+>
   <slot />
 </div>

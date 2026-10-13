@@ -24,62 +24,6 @@ export {};
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const menus = [...document.querySelectorAll<HTMLDetailsElement>('details[data-menu]')];
 
-type PaletteOption = {
-  name: string;
-  label: string;
-  colors: Record<string, string>;
-};
-
-const picker = document.querySelector<HTMLDetailsElement>('[data-palette-picker]');
-const toggle = picker?.querySelector<HTMLElement>('[data-palette-toggle]');
-
-if (picker && toggle) {
-  const palettes = JSON.parse(picker.dataset.palettes ?? '[]') as PaletteOption[];
-  const currentLabel = picker.querySelector<HTMLElement>('[data-palette-current]');
-  const options = [...picker.querySelectorAll<HTMLButtonElement>('[data-palette-option]')];
-  const storageKey = 'hormonexperten-palette';
-
-  const applyPalette = (palette: PaletteOption) => {
-    for (const [property, value] of Object.entries(palette.colors)) {
-      document.documentElement.style.setProperty(property, value);
-    }
-
-    document.documentElement.dataset.palette = palette.name;
-    picker.dataset.activePalette = palette.name;
-    toggle.setAttribute('aria-label', `Choose colour palette. Current palette: ${palette.label}.`);
-    toggle.title = palette.label;
-    if (currentLabel) currentLabel.textContent = palette.label;
-
-    for (const option of options) {
-      const selected = option.dataset.paletteOption === palette.name;
-      option.setAttribute('aria-pressed', String(selected));
-      option.toggleAttribute('data-active', selected);
-      const check = option.querySelector<HTMLElement>('[data-palette-check]');
-      check?.toggleAttribute('hidden', !selected);
-    }
-
-    const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-    themeColor?.setAttribute('content', palette.colors['--color-surface']);
-  };
-
-  const saved = localStorage.getItem(storageKey);
-  const initial =
-    palettes.find((palette) => palette.name === saved) ??
-    palettes.find((palette) => palette.name === picker.dataset.activePalette);
-  if (initial) applyPalette(initial);
-
-  for (const option of options) {
-    option.addEventListener('click', () => {
-      const palette = palettes.find(({ name }) => name === option.dataset.paletteOption);
-      if (!palette) return;
-      applyPalette(palette);
-      localStorage.setItem(storageKey, palette.name);
-      hide(picker);
-      toggle.focus();
-    });
-  }
-}
-
 const isShown = (menu: HTMLDetailsElement) => menu.open && !menu.hasAttribute('data-closed');
 
 // How long the pointer rests on a hover menu's trigger before it opens, how much longer it may wait

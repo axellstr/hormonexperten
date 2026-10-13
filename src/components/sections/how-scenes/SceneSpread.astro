@@ -1,0 +1,17 @@
+---
+// The full picture of a step once its band has room for it (scene-spread). A main window on the
+// start side fills the band, framed like the text panel below it: the same inset from the card's
+// edges and above the panel, and corners concentric with the card's. A second card overlaps the
+// window's end edge, centred on it and reaching the panel's end edge; an outline in the card's
+// ground colour cuts it out of the window, as there are no shadows. The window's content has to
+// fit the smallest such band (11rem less the frame); `scene-tall:` and `scene-roomy:` add to it.
+---
+
+<div class="absolute inset-x-3 top-3 bottom-0 hidden items-center lg:inset-x-4 lg:top-4 scene-spread:flex">
+  <div class="h-full w-3/5 shrink-0 overflow-clip rounded-xl bg-bg ring-1 ring-ink/5 lg:rounded-lg">
+    <slot name="main" />
+  </div>
+  <div class="relative -ms-6 min-w-0 flex-1 rounded-xl bg-bg p-4 outline-4 outline-ink/4 lg:rounded-lg">
+    <slot name="aside" />
+  </div>
+</div>

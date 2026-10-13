@@ -17,6 +17,7 @@ function setupStack(root: HTMLElement) {
   const markers = [...root.querySelectorAll<HTMLElement>('[data-stack-marker]')];
   const rail = root.querySelector<HTMLElement>('[data-stack-rail]');
   const head = root.querySelector<HTMLElement>('[data-stack-head]');
+  const column = root.querySelector<HTMLElement>('[data-stack-column]');
   // From lg the whole intro column pins instead (CSS).
   const wide = window.matchMedia('(min-width: 64rem)');
   if (!list || cards.length < 2) return;
@@ -48,7 +49,14 @@ function setupStack(root: HTMLElement) {
   /** Sizes that follow where things stick; again once the header has come or gone. */
   function settle() {
     const tops = stickAt();
-    root.style.setProperty('--stack-span', `${tops.at(-1)! - tops[0] + height}px`);
+    const span = tops.at(-1)! - tops[0] + height;
+    root.style.setProperty('--stack-span', `${span}px`);
+    // From lg the intro column pins beside the deck, in the same grid row. Its room ends with
+    // the row, which ends with the deck, so a column taller than the stuck deck would be pushed
+    // off while the last card is still landing. The deck's bottom margin lengthens the row by
+    // the difference (the cards' own room, the list, stays as it is), so both leave together.
+    const hold = wide.matches && column ? Math.max(column.offsetHeight - span, 0) : 0;
+    root.style.setProperty('--stack-hold', `${hold}px`);
     // The pinned heading's room ends where the deck's does, so they leave together.
     if (root.hasAttribute('data-pinned')) {
       const release = Math.max(tops.at(-1)! + height - headEnd(), 0);
@@ -119,7 +127,10 @@ function setupStack(root: HTMLElement) {
   ).observe(root);
 
   // Card height changes with the width and once the font has loaded; `top` with the window.
-  new ResizeObserver(measure).observe(cards[0]);
+  // The intro column's height changes the same way.
+  const resize = new ResizeObserver(measure);
+  resize.observe(cards[0]);
+  if (column) resize.observe(column);
   window.addEventListener('resize', measure);
 
   // The header coming or going moves where things stick: at once, or after the glide.

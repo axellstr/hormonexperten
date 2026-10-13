@@ -4,8 +4,8 @@ import type { HTMLAttributes } from 'astro/types';
 type Props = HTMLAttributes<'a'> & {
   href: string;
   variant?: 'primary' | 'secondary';
-  /** `sm` is the compact header button. */
-  size?: 'md' | 'sm';
+  /** `sm` is the compact header button; `full` fills its card, with room for longer labels. */
+  size?: 'md' | 'sm' | 'full';
 };
 
 const { variant = 'primary', size = 'md', class: className, ...rest } = Astro.props;
@@ -20,6 +20,7 @@ const variants = {
 const sizes = {
   md: 'min-h-13 px-9',
   sm: 'min-h-11 px-6',
+  full: 'min-h-13 w-full px-5',
 };
 ---
 

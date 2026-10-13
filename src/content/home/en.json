@@ -157,15 +157,18 @@
     "steps": [
       {
         "title": "Book an Appointment",
-        "body": "Schedule your appointment online at a time that suits you. Please submit relevant blood work and your completed medical history form at least 48 hours in advance of your initial consultation – both can be done easily via your patient portal."
+        "body": "Schedule your appointment online at a time that suits you. Please submit relevant blood work and your completed medical history form at least 48 hours in advance of your initial consultation – both can be done easily via your patient portal.",
+        "scene": ["Blood work", "Medical history"]
       },
       {
         "title": "Initial Video Consultation",
-        "body": "Your doctor will review your symptoms and laboratory results and discuss treatment options with you in detail. Where appropriate, prescribed medications can be delivered directly to you at home."
+        "body": "Your doctor will review your symptoms and laboratory results and discuss treatment options with you in detail. Where appropriate, prescribed medications can be delivered directly to you at home.",
+        "scene": ["Lab results"]
       },
       {
         "title": "Follow-Up Care",
-        "body": "Your treatment will be reviewed regularly and adjusted as needed. Your patient portal will keep you up-to-date and connected with your doctor between appointments."
+        "body": "Your treatment will be reviewed regularly and adjusted as needed. Your patient portal will keep you up-to-date and connected with your doctor between appointments.",
+        "scene": ["Consultation", "Review", "Next review"]
       }
     ],
     "note": {
@@ -285,12 +288,19 @@
       "image": "contact.jpg",
       "image_alt": "",
       "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
-      "cta": { "label": "Get in touch", "href": "mailto:info@hormonexperten.de" },
-      "more": { "label": "Learn More", "href": "/faq" }
+      "cta": {
+        "label": "Get in touch",
+        "href": "mailto:info@hormonexperten.de"
+      },
+      "more": {
+        "label": "Learn More",
+        "href": "/faq"
+      }
     }
   },
   "closing": {
-    "title": "You don’t have to just live with it.",
+    "info": ["Tiredness · Poor sleep · Mood swings", "Private online consultations"],
+    "title": "Start feeling like yourself again.",
     "body": "Tiredness, poor sleep and mood swings often have a hormonal cause. Let’s look at yours.",
     "cta": "Start with a consultation"
   }

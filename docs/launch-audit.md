@@ -138,7 +138,7 @@ None of these show up in the scores; they are cleanup.
 - [ ] Root language: `/` → `/de/` or `/en/` (`seo-geo-plan.md` §2).
 - [ ] Destinations for About Us, Contact, Partners and Terms: build the pages, or point the links elsewhere.
 - [ ] Impressum and privacy details, and legal sign-off.
-- [ ] Palette: final choice, and whether the tester stays on Preview.
+- [x] Palette: final choice, and whether the tester stays on Preview. (Coral kept, tester removed 2026-10-13.)
 - [ ] "35 years" on the profile.
 - [ ] How it Works images, or a step-card design without images.
 

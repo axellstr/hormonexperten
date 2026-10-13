@@ -1,5 +1,4 @@
 ---
-import { Picture } from 'astro:assets';
 import ArrowEnd from '../../assets/icons/arrow-end.svg';
 import Quote from '../../assets/icons/quote.svg';
 import type { Locale } from '../../config';
@@ -8,6 +7,7 @@ import { isVisible, memberLang, textLang } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { ApproachPage, Team } from '../../lib/schemas';
 import Panel from '../ui/Panel.astro';
+import Photo from '../ui/Photo.astro';
 import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
 
@@ -47,10 +47,9 @@ const roleLang = founder && otherLang(memberLang(lang, founder.id, 'role'));
         -->
         <div class="relative w-52 sm:w-60 md:col-span-5 md:w-full md:max-w-sm md:justify-self-center">
           <div class="rounded-full p-2.5 ring-1 ring-coral/50 md:p-3">
-            <Picture
+            <Photo
               src={getImage(quote.image)}
               alt={quote.image_alt}
-              formats={['avif', 'webp']}
               widths={[240, 360, 480, 720]}
               sizes="(min-width: 768px) 360px, 220px"
               class="aspect-square w-full rounded-full object-cover object-top"

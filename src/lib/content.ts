@@ -7,6 +7,7 @@ import {
   faqSchema,
   homeSchema,
   legalSchema,
+  pricingSchema,
   servicesSchema,
   siteSchema,
   teamSchema,
@@ -136,6 +137,7 @@ export const getLegal = (lang: Locale) => load('legal', legalSchema, lang);
 export const getApproach = (lang: Locale) => load('approach', approachSchema, lang);
 export const getContact = (lang: Locale) => load('contact', contactSchema, lang);
 export const getConditions = (lang: Locale) => load('conditions', conditionsSchema, lang);
+export const getPricing = (lang: Locale) => load('pricing', pricingSchema, lang);
 
 /**
  * The language a team member's `role` or `profile` is written in: the locale when its own file

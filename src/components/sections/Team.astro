@@ -1,11 +1,11 @@
 ---
-import { Picture } from 'astro:assets';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import RollText from '../ui/RollText.astro';
 import Section from '../ui/Section.astro';
@@ -28,10 +28,9 @@ const { lang, team } = Astro.props;
       <li class="flex flex-col md:even:unveil-late">
         <div class="unveil overflow-hidden rounded-panel">
           {member.image ? (
-            <Picture
+            <Photo
               src={getImage(member.image)}
               alt={member.image_alt ?? ''}
-              formats={['avif', 'webp']}
               widths={[480, 720, 960, 1300]}
               sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
               class="unveil-photo aspect-3/2 w-full object-cover object-top lg:aspect-5/4"

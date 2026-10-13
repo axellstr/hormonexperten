@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import LinkedIn from '../../assets/icons/linkedin.svg';
 import { BOOKING_URL, type Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
@@ -8,6 +8,7 @@ import Breadcrumb from '../ui/Breadcrumb.astro';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 
 interface Props {
@@ -44,10 +45,9 @@ const portrait =
         <div class="relative lg:order-last lg:col-span-5">
           <div aria-hidden="true" class="absolute inset-0 rotate-2 rounded-panel bg-coral/40"></div>
           {member.image ? (
-            <Picture
+            <Photo
               src={getImage(member.image)}
               alt={member.image_alt ?? ''}
-              formats={['avif', 'webp']}
               widths={[480, 720, 960, 1200]}
               sizes="(min-width: 1440px) 520px, (min-width: 1024px) 38vw, 90vw"
               loading="eager"
@@ -66,7 +66,7 @@ const portrait =
           </h1>
           <ul class="mt-heading flex flex-wrap gap-2">
             {profile.titles.map((title) => (
-              <li class="rounded-full bg-bg px-4 py-2 text-sm font-medium text-ink ring-1 ring-ink/10 md:text-base">
+              <li class="rounded-full bg-bg px-4 py-2 text-sm font-medium text-ink hyphens-none ring-1 ring-ink/10 md:text-base">
                 {title}
               </li>
             ))}
@@ -75,9 +75,20 @@ const portrait =
           {bio.map((paragraph) => (
             <p class="mt-5 max-w-measure text-body text-ink/80">{paragraph}</p>
           ))}
-          <Button href={BOOKING_URL} class="mt-action">
-            {profile.cta}
-          </Button>
+          <div class="mt-action flex flex-wrap items-center gap-4">
+            <Button href={BOOKING_URL}>{profile.cta}</Button>
+            {member.linkedin && (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="grid size-12 place-items-center rounded-full bg-bg text-ink ring-1 ring-ink/10 hover:bg-coral-tint hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-colors"
+              >
+                <LinkedIn class="size-5" aria-hidden="true" />
+                <span class="sr-only">LinkedIn: {member.name}</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
 

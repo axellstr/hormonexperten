@@ -27,7 +27,10 @@ const piece = `${from > 0 ? `; --reveal-from: ${from}` : ''}${to < 1 ? `; --reve
 {words.map((word, index) => (
   <>
     {index > 0 && ' '}
-    <span class="reveal-word" style={`--reveal-index: ${start + index}; --reveal-total: ${count}${piece}`}>
+    <span
+      class="reveal-word"
+      style={`--reveal-index: ${start + index}; --reveal-total: ${count}${piece}`}
+    >
       {word}
     </span>
   </>

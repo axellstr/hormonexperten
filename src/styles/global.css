@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* The rules and audits quote forbidden classes as examples; don't generate them. */
+@source not '../../CLAUDE.md';
+@source not '../../docs';
+
 /*
  * Manrope, self-hosted (variable, 200–800). The Figma file uses Figtree, which has no Greek
  * or Cyrillic, so Manrope stands in as the closest geometric sans with full coverage.
@@ -72,8 +76,8 @@
 @theme {
   /* Brand colours only: Tailwind's palette is removed. */
   --color-*: initial;
-  --color-coral: #ea8878;
-  --color-coral-tint: #fbe3de;
+  --color-coral: #eb8c75;
+  --color-coral-tint: #fcf8f4;
   --color-ink: #100420;
   --color-text-muted: #707070; /* Figma value; 4.9:1 on white, 4.6:1 on surface */
   --color-surface: #fcf8f4;
@@ -89,11 +93,12 @@
   --container-header: 85rem; /* 1360px */
   /*
    * Reading measure (gives max-w-measure), about 66 characters a line. Use it instead of Tailwind's
-   * max-w-measure: that is a fixed 65ch, and "0" is wide in Manrope, so it sets about 80 characters.
+   * max-w-prose: that is a fixed 65ch, and "0" is wide in Manrope, so it sets about 80 characters.
    */
   --container-measure: 54ch;
   --breakpoint-header-desktop: 90rem; /* 1440px */
   --spacing-hero-height: 70vh;
+  --spacing-closing-helix: 17.5rem; /* 280px square */
 
   /* Figma uses 24px for panels, cards, buttons and FAQ items alike. */
   --radius-panel: 1.5rem;
@@ -137,7 +142,7 @@
   /*
    * Type scale: one token per role (see CLAUDE.md, Typography), each carrying its size, leading,
    * tracking and weight, so a role changes in one place. Sizes are fluid between 360px and 1728px
-   * viewports. The scale is clinical rather than editorial: reading text is the anchor (16 → 18px),
+   * viewports. The scale is clinical rather than editorial: reading text is the anchor (16 → 17px),
    * headings step up from it in moderate ratios, and tracking stays close to the font's own.
    */
   --text-display: clamp(2.125rem, 1.829rem + 1.316vw, 3.25rem); /* 34 → 52px, the page's H1 */
@@ -538,6 +543,36 @@
 @utility stack-progress {
   transform-origin: top;
   scale: 1 var(--stack-progress, 0);
+}
+
+/*
+ * The band above a step card's text, where its scene sits (how-scenes). The band is a short
+ * strip on phones but wide on laptops and tall on tablets and large screens, so it is a size
+ * container: `scene-spread:` swaps the scene's compact strip for the full picture once the band
+ * has room for it, `scene-tall:` adds to the picture where the band is taller, and
+ * `scene-roomy:` adds more where it is large (tablets).
+ * Width steps use the normal `@sm:`/`@md:` container variants.
+ */
+@utility scene-band {
+  container: scene / size;
+}
+
+@custom-variant scene-spread {
+  @container scene (min-width: 32rem) and (min-height: 11rem) {
+    @slot;
+  }
+}
+
+@custom-variant scene-tall {
+  @container scene (min-height: 15rem) {
+    @slot;
+  }
+}
+
+@custom-variant scene-roomy {
+  @container scene (min-width: 36rem) and (min-height: 26rem) {
+    @slot;
+  }
 }
 
 :root {

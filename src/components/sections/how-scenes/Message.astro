@@ -1,0 +1,31 @@
+---
+import { getImage } from '../../../lib/assets';
+import Photo from '../../ui/Photo.astro';
+
+// A message from the doctor in the follow-up scene: her photo and two abstract lines (no
+// invented words). Pass the display and position classes.
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'items-center gap-3 rounded-xl rounded-es-sm bg-bg p-3 ring-1 ring-ink/5',
+    className,
+  ]}
+>
+  <Photo
+    src={getImage('wilden-call.jpg')}
+    alt=""
+    widths={[64, 128]}
+    sizes="32px"
+    class="size-8 shrink-0 rounded-full object-cover"
+  />
+  <span class="space-y-2">
+    <span class="block h-1.5 w-28 rounded-full bg-ink/10"></span>
+    <span class="block h-1.5 w-20 rounded-full bg-ink/10"></span>
+  </span>
+</div>

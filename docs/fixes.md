@@ -14,7 +14,7 @@ How to review: tick the box to approve an item, or add a note under it (`> skip`
   - After the fix the Greek bar may be too wide at 1440px; see F14.
   - ![Greek header at 1440px](fixes/greek-header-1440.png)
 
-- [ ] **F2. The palette tester ships to visitors.** It shows a dot in the header at every width and writes to localStorage (privacy page says nothing is stored).
+- [x] **F2. The palette tester ships to visitors.** It shows a dot in the header at every width and writes to localStorage (privacy page says nothing is stored).
   - Fix: show it only in `astro dev` (or remove it once the palette is final).
   - Where: `src/components/sections/Header.astro:190`, `src/scripts/header.ts`
 

@@ -2,27 +2,75 @@
 import { BOOKING_URL } from '../../config';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
-import Panel from '../ui/Panel.astro';
+import RollPhrase from '../ui/RollPhrase.astro';
+import RollText from '../ui/RollText.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
-  closing: Omit<Home['closing'], 'body'> & { body?: string | undefined };
+  closing: Omit<Home['closing'], 'body' | 'info'> & {
+    body?: string | undefined;
+    info?: string[] | undefined;
+  };
 }
 
 const { closing } = Astro.props;
+const info = closing.info ?? [];
+const highlightedTitle = closing.title.match(/^(.*\s)(again\.?)$/i);
 ---
 
 <Section aria-labelledby="closing-title">
-  <!-- -mx cancels the Container gutters, so the panel is as wide as the footer's dark block. -->
-  <Panel class="-mx-4 px-6 py-12 text-center md:-mx-6 md:px-12 md:py-14 lg:py-16">
-    <div class="mx-auto max-w-2xl">
-      <h2 id="closing-title" class="text-h2 text-ink">
-        {closing.title}
+  <div class="flex min-h-144 w-full flex-col items-center justify-center gap-8 md:min-h-160 lg:min-h-96 lg:flex-row lg:justify-start lg:gap-12">
+    <!-- Centred above the copy on mobile; the left-hand visual on desktop. -->
+    <canvas data-glass-helix class="size-closing-helix shrink-0" aria-hidden="true"></canvas>
+    <div class="w-full text-center lg:min-w-0 lg:text-start">
+      {info.length >= 2 && (
+        <div class="mb-5">
+          <p class="sr-only">{info.join(' · ')}</p>
+          <div data-hero-trust-cycler aria-hidden="true" class="text-sm text-ink/80">
+            <span data-slot class="grid min-h-10 grid-cols-1 grid-rows-1 items-center">
+              <span data-index="0" data-roll class="col-start-1 row-start-1">
+                <RollPhrase text={info[0]} />
+              </span>
+            </span>
+            <template data-pool>
+              {info.map((item, index) => (
+                <span data-index={index} data-roll class="col-start-1 row-start-1">
+                  <RollPhrase text={item} />
+                </span>
+              ))}
+            </template>
+          </div>
+        </div>
+      )}
+      <h2 id="closing-title" class="text-display text-ink lg:whitespace-nowrap">
+        {highlightedTitle ? (
+          <>
+            {highlightedTitle[1]}
+            <span class="relative inline-block whitespace-nowrap">
+              <span
+                class="absolute inset-x-0 bottom-0 h-3 -skew-x-12 bg-coral"
+                aria-hidden="true"
+              ></span>
+              <span class="relative">{highlightedTitle[2]}</span>
+            </span>
+          </>
+        ) : (
+          closing.title
+        )}
       </h2>
-      {closing.body && <p class="mt-heading text-lead text-ink/80">{closing.body}</p>}
+      {closing.body && (
+        <p class="mx-auto mt-heading max-w-72 text-lead text-ink/80 lg:mx-0 lg:max-w-measure">
+          {closing.body}
+        </p>
+      )}
       <Button href={BOOKING_URL} class="mt-action">
-        {closing.cta}
+        <RollText text={closing.cta} />
       </Button>
     </div>
-  </Panel>
+  </div>
 </Section>
+
+<script>
+  import '../../scripts/glass-helix';
+  import '../../scripts/hero-trust-cycler';
+</script>

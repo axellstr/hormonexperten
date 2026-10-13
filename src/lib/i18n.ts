@@ -1,8 +1,14 @@
 import type { Locale } from '../config';
 
-/** Prefix a site-relative href with the locale. External, mailto, tel and #fragment links pass through. */
+/**
+ * Prefix a site-relative href with the locale and end its path in a slash, the form pages are
+ * built and canonicalised in (/en/team/), so links never point at a redirect. External, mailto,
+ * tel and #fragment links pass through.
+ */
 export function localizeHref(href: string, lang: Locale): string {
-  return href.startsWith('/') ? `/${lang}${href}` : href;
+  if (!href.startsWith('/')) return href;
+  const [, path = '', rest = ''] = /^([^?#]*)(.*)$/.exec(href) ?? [];
+  return `/${lang}${path.endsWith('/') ? path : `${path}/`}${rest}`;
 }
 
 /** The current page's path in another locale: /en/foo/ → /de/foo/. */

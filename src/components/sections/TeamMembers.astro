@@ -1,5 +1,4 @@
 ---
-import { Picture } from 'astro:assets';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { isVisible, memberLang, visible } from '../../lib/content';
@@ -7,6 +6,7 @@ import { localizeHref } from '../../lib/i18n';
 import type { Team } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import Section from '../ui/Section.astro';
 
@@ -45,10 +45,9 @@ const members = visible(team.members).map((member) => ({
             class="block overflow-hidden rounded-panel bg-surface"
           >
             {member.image ? (
-              <Picture
+              <Photo
                 src={getImage(member.image)}
                 alt={member.image_alt ?? ''}
-                formats={['avif', 'webp']}
                 widths={[480, 720, 960, 1300]}
                 sizes="(min-width: 1440px) 680px, (min-width: 768px) 45vw, 90vw"
                 class:list={[

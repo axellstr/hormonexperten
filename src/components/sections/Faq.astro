@@ -29,7 +29,13 @@ const { lang, title, contact, items } = Astro.props;
         ))}
       </div>
 
-      <FaqContact id="contact" lang={lang} contact={contact} class="lg:col-span-5" />
+      <FaqContact
+        id="contact"
+        lang={lang}
+        contact={contact}
+        moreContext={title}
+        class="lg:col-span-5"
+      />
     </div>
   </Section>
 )}

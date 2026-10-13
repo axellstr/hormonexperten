@@ -1,0 +1,48 @@
+---
+import ClosingCta from '../../components/sections/ClosingCta.astro';
+import Faq from '../../components/sections/Faq.astro';
+import PricingPackages from '../../components/sections/PricingPackages.astro';
+import { LOCALES, type Locale } from '../../config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getFaq, getHome, getPricing, getSite, isVisible, visible } from '../../lib/content';
+
+// Left out of builds while the prices are unconfirmed (`needs_check` in src/content/pricing/).
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) =>
+    isVisible(getPricing(lang)) ? [{ params: { lang }, props: { lang } }] : [],
+  );
+}
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const site = getSite(lang);
+const home = getHome(lang);
+const pricing = getPricing(lang);
+
+const faqItems = new Map(
+  getFaq(lang)
+    .categories.flatMap((category) => category.items)
+    .map((item) => [item.id, item]),
+);
+const questions = visible(
+  pricing.faq.map((id) => {
+    const item = faqItems.get(id);
+    if (!item) throw new Error(`Pricing page lists unknown FAQ item "${id}"`);
+    return item;
+  }),
+);
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={pricing.meta.title}
+  description={pricing.meta.description}
+>
+  <PricingPackages lang={lang} pricing={pricing} />
+  <Faq lang={lang} title={home.faq.title} contact={home.faq.contact} items={questions} />
+  <ClosingCta closing={home.closing} />
+</BaseLayout>

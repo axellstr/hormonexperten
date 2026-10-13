@@ -1,5 +1,4 @@
 ---
-import { Picture } from 'astro:assets';
 import ArrowEnd from '../../assets/icons/arrow-end.svg';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
@@ -8,6 +7,7 @@ import { localizeHref } from '../../lib/i18n';
 import type { Team } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import Section from '../ui/Section.astro';
 
@@ -64,10 +64,9 @@ const photo = 'aspect-4/5 w-full object-cover object-top';
             >
               <div class="overflow-hidden rounded-card bg-surface sm:w-40 sm:shrink-0">
                 {member.image ? (
-                  <Picture
+                  <Photo
                     src={getImage(member.image)}
                     alt={member.image_alt ?? ''}
-                    formats={['avif', 'webp']}
                     widths={[160, 240, 320, 480]}
                     sizes="(min-width: 640px) 160px, 100px"
                     class:list={[

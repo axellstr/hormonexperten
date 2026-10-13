@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Picture, type LocalImageProps } from 'astro:assets';
+
+// A content photo as AVIF with a WebP <img> fallback. Without `fallbackFormat`, Picture falls
+// back to the original's JPEG or PNG at its full size (up to 6240px, 2 MB a file), which no
+// browser the site supports downloads (Safari 16.4+ reads both AVIF and WebP) but every build
+// encodes and ships. The fallback's `src` is the largest of `widths` the original can give.
+type Props = LocalImageProps & { pictureAttributes?: HTMLAttributes<'picture'> };
+
+const { src, widths, width } = Astro.props;
+// The original's width, read from Astro's copy of the import (as its own <Picture> does): reading
+// the import itself counts as using the file, and Astro then ships the full-size original too.
+// @ts-expect-error `clone` is that hidden copy.
+const original: number = 'then' in src ? Infinity : (src.clone ?? src).width;
+---
+
+<Picture
+  {...Astro.props}
+  width={width ?? (widths && Math.min(Math.max(...widths), original))}
+  formats={['avif']}
+  fallbackFormat="webp"
+/>

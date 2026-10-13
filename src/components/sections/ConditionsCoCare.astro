@@ -1,7 +1,7 @@
 ---
-import { Picture } from 'astro:assets';
 import { getImage } from '../../lib/assets';
 import type { Conditions } from '../../lib/schemas';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import Section from '../ui/Section.astro';
 
@@ -23,11 +23,10 @@ const { coCare, contentLang } = Astro.props;
   >
     <div class="aspect-square w-full max-w-48 justify-self-start overflow-hidden rounded-panel md:h-full md:w-auto md:max-w-none">
       {coCare.image ? (
-        <Picture
+        <Photo
           src={getImage(coCare.image)}
           alt={coCare.image_alt}
-          formats={['avif', 'webp']}
-          widths={[192, 288, 384, 480]}
+          widths={[192, 288, 384, 576]}
           sizes="(min-width: 768px) 160px, 192px"
           class="size-full object-cover"
         />

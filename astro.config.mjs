@@ -26,5 +26,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    // Keep /*! licence notices in minified scripts (the glass helix is a port of MIT code).
+    build: { rolldownOptions: { output: { comments: { legal: true } } } },
   },
 });

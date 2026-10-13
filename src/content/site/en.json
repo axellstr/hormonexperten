@@ -22,6 +22,11 @@
         "href": "/team"
       },
       {
+        "label": "Pricing",
+        "href": "/pricing",
+        "needs_check": true
+      },
+      {
         "label": "Contact",
         "href": "/contact"
       }
@@ -89,8 +94,7 @@
       {
         "name": "Instagram",
         "icon": "instagram",
-        "href": "TODO",
-        "needs_check": true
+        "href": "https://www.instagram.com/hormonexperten.de"
       },
       {
         "name": "WhatsApp",
@@ -142,6 +146,11 @@
           {
             "label": "Conditions we treat",
             "href": "/conditions"
+          },
+          {
+            "label": "Pricing",
+            "href": "/pricing",
+            "needs_check": true
           },
           {
             "label": "Hormone Therapy",

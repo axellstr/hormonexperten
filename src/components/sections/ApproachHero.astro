@@ -1,5 +1,4 @@
 ---
-import { Picture } from 'astro:assets';
 import { BOOKING_URL } from '../../config';
 import { getImage } from '../../lib/assets';
 import { visible } from '../../lib/content';
@@ -7,6 +6,7 @@ import type { ApproachPage } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 
 interface Props {
@@ -48,10 +48,9 @@ const photo = 'aspect-3/4 w-full rounded-panel object-cover object-top';
           {hero.images.map((item, index) => (
             <div class:list={[index === 1 && 'pt-10 sm:pt-16 xl:pt-24']}>
               {item.image ? (
-                <Picture
+                <Photo
                   src={getImage(item.image)}
                   alt={item.image_alt}
-                  formats={['avif', 'webp']}
                   widths={[240, 360, 480, 640]}
                   sizes="(min-width: 1440px) 300px, (min-width: 1024px) 22vw, 45vw"
                   loading="eager"

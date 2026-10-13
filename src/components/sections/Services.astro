@@ -1,11 +1,11 @@
 ---
-import { Picture } from 'astro:assets';
 import ChevronEnd from '../../assets/icons/chevron-end.svg';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Home, Site } from '../../lib/schemas';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import RevealText from '../ui/RevealText.astro';
 import Section from '../ui/Section.astro';
@@ -84,10 +84,9 @@ const cardWidth =
             <h3 class="text-h4 text-ink md:whitespace-nowrap">{service.title}</h3>
             <div class="relative aspect-4/5 overflow-hidden rounded-card">
               {service.image ? (
-                <Picture
+                <Photo
                   src={getImage(service.image)}
                   alt={service.image_alt}
-                  formats={['avif', 'webp']}
                   widths={[320, 480, 640]}
                   sizes="(min-width: 1440px) 330px, (min-width: 1024px) 23vw, (min-width: 768px) 45vw, 80vw"
                   class="size-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105"

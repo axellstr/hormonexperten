@@ -1,10 +1,10 @@
 ---
-import { Picture } from 'astro:assets';
 import ArrowUpRight from '../../assets/icons/arrow-up-right.svg';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Service } from '../../lib/schemas';
+import Photo from './Photo.astro';
 import Placeholder from './Placeholder.astro';
 
 interface Props {
@@ -27,10 +27,9 @@ const { lang, service, sizes, class: className } = Astro.props;
   ]}
 >
   {service.image ? (
-    <Picture
+    <Photo
       src={getImage(service.image)}
       alt={service.image_alt}
-      formats={['avif', 'webp']}
       widths={[320, 480, 720]}
       sizes={sizes}
       class="size-full object-cover group-hover/card:scale-105 motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out"

@@ -25,15 +25,10 @@ const sourceIcons: Record<string, typeof Jameda> = { Jameda, ProvenExpert, Googl
 const platforms = visible(reviewProfile.platforms).map((platform) => ({
   ...platform,
   image: getLogo(platform.logo),
-  ratingDisplay: platform.rating.toLocaleString(lang, {
-    minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
-    maximumFractionDigits: 2,
-  }),
+  // As the platform shows it: 5, 3.9, 4.88 (not 3.90).
+  ratingDisplay: platform.rating.toLocaleString(lang, { maximumFractionDigits: 2 }),
   ratingText: format(reviewProfile.rating_label, {
-    rating: platform.rating.toLocaleString(lang, {
-      minimumFractionDigits: platform.rating % 1 === 0 ? 0 : 2,
-      maximumFractionDigits: 2,
-    }),
+    rating: platform.rating.toLocaleString(lang, { maximumFractionDigits: 2 }),
     max: reviewProfile.rating_max,
   }),
   reviewsText: format(reviewProfile.platform_reviews_label, {
@@ -61,7 +56,7 @@ const cardClass =
         <ul class="sr-only sm:hidden">
           {platforms.map((platform) => (
             <li>
-              <a href={platform.href}>
+              <a href={platform.href} target="_blank" rel="noopener noreferrer">
                 {platform.link_label}: {platform.ratingText}, {platform.reviewsText}
               </a>
             </li>
@@ -88,9 +83,14 @@ const cardClass =
                 <li class="w-36 shrink-0">
                   <a
                     href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     data-index={index % platforms.length}
                     tabindex="-1"
-                    class:list={[cardClass, 'w-full motion-safe:transition-opacity motion-safe:duration-700 motion-safe:ease-smooth']}
+                    class:list={[
+                      cardClass,
+                      'w-full motion-safe:transition-opacity motion-safe:duration-700 motion-safe:ease-smooth',
+                    ]}
                     style={`opacity: ${index % platforms.length === 0 ? 0.8 : 0.35}`}
                   >
                     <img
@@ -109,7 +109,9 @@ const cardClass =
                             <Star class="size-2.5" />
                           ))}
                         </span>
-                        <span class="tabular-nums font-medium text-ink">{platform.ratingDisplay}</span>
+                        <span class="tabular-nums font-medium text-ink">
+                          {platform.ratingDisplay}
+                        </span>
                       </span>
                       <span class="tabular-nums text-ink/70">{platform.reviewsText}</span>
                     </span>
@@ -118,12 +120,8 @@ const cardClass =
               ))}
           </ul>
           <!-- Soft edge fades so side cards ease out instead of cutting off. -->
-          <div
-            class="pointer-events-none absolute inset-y-0 start-0 w-16 bg-linear-to-r from-bg to-transparent"
-          ></div>
-          <div
-            class="pointer-events-none absolute inset-y-0 end-0 w-16 bg-linear-to-l from-bg to-transparent"
-          ></div>
+          <div class="pointer-events-none absolute inset-y-0 start-0 w-16 bg-linear-to-r from-bg to-transparent"></div>
+          <div class="pointer-events-none absolute inset-y-0 end-0 w-16 bg-linear-to-l from-bg to-transparent"></div>
         </div>
 
         <!-- sm+: all three sources in a row (the accessible links at this size). -->
@@ -132,6 +130,8 @@ const cardClass =
             <li>
               <a
                 href={platform.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 class={cardClass}
                 aria-label={`${platform.link_label}: ${platform.ratingText}, ${platform.reviewsText}`}
               >

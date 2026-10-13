@@ -118,8 +118,7 @@
                 "You book appointments in an external booking system, which opens only when you click a booking link."
               ]
             }
-          ],
-          "check_note": "Only true once the colour palette tester in the header (stores the choice in localStorage) is removed before launch."
+          ]
         },
         {
           "id": "verantwortlich",
@@ -270,8 +269,7 @@
           "title": "What is stored on your device",
           "body": [
             "Nothing that would need your consent. There are no advertising, tracking or social media cookies, and no videos, maps, fonts or review widgets that send data to third parties when the page loads."
-          ],
-          "check_note": "Only true once the colour palette tester in the header (localStorage) is removed before launch."
+          ]
         },
         {
           "id": "matomo",

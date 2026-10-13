@@ -1,0 +1,142 @@
+---
+import type { Locale } from '../../../config';
+import Check from './Check.astro';
+import FileIcon from './FileIcon.astro';
+import SceneSpread from './SceneSpread.astro';
+
+// Step 1 as a picture of what happens: the booking calendar with a day and a time chosen, and
+// the two things to send ahead (labels from the content file). Decorative: the step's own text
+// says it all. Names and times are formatted for the locale at build time.
+// A compact strip for phones and short bands, the full picture once the band has room
+// (scene-spread).
+interface Props {
+  lang: Locale;
+  labels: string[];
+}
+
+const { lang, labels } = Astro.props;
+
+// Mondays to Fridays from 9 November 2026; the Thursday of the first week is the chosen day.
+// The full picture shows one week, two once the band is tall, four where it is roomy.
+const weeks = [9, 16, 23, 30].map((monday) =>
+  [0, 1, 2, 3, 4].map((offset) => new Date(Date.UTC(2026, 10, monday + offset))),
+);
+const week = weeks[0];
+const chosenDay = 3;
+const month = new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const weekday = new Intl.DateTimeFormat(lang, { weekday: 'short', timeZone: 'UTC' });
+const time = new Intl.DateTimeFormat(lang, {
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+  timeZone: 'UTC',
+});
+const times = [9, 10.5, 14, 16.5].map((hour) =>
+  time.format(new Date(Date.UTC(2026, 10, 12, Math.floor(hour), (hour % 1) * 60))),
+);
+const chosenTime = 1;
+const dayClass = (chosen: boolean) => [
+  'flex size-8 items-center justify-center rounded-full',
+  chosen ? 'bg-coral font-semibold text-ink' : 'text-ink',
+];
+---
+
+<div class="contents" aria-hidden="true">
+  <!-- Compact: the week, and the checklist beside it where there is room. -->
+  <div class="flex items-center gap-3 scene-spread:hidden">
+    <div class="rounded-xl bg-bg px-3 py-2 ring-1 ring-ink/5">
+      <div class="grid grid-cols-5 justify-items-center gap-x-1 gap-y-1 text-sm tabular-nums">
+        {week.map((day) => (
+          <span class="text-ink/70">{weekday.format(day)}</span>
+        ))}
+        {week.map((day, index) => (
+          <span class:list={[dayClass(index === chosenDay), 'size-9']}>{day.getUTCDate()}</span>
+        ))}
+      </div>
+    </div>
+    <ul class="hidden space-y-2 rounded-xl bg-bg p-3 ring-1 ring-ink/5 @md:block">
+      {labels.map((label) => (
+        <li class="flex items-center gap-2 text-sm text-ink">
+          <Check />
+          {label}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Full: the calendar with its times at the foot, the files sent ahead beside it. -->
+  <SceneSpread>
+    <div slot="main" class="flex h-full flex-col p-4">
+      <div class="flex items-center justify-between gap-3">
+        <span class="text-sm font-semibold text-ink">{month.format(week[0])}</span>
+        <span class="flex gap-1 text-ink/40">
+          <svg
+            class="size-5 rtl:-scale-x-100"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+          <svg
+            class="size-5 rtl:-scale-x-100"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </span>
+      </div>
+      <div class="my-3 grid flex-1 grid-cols-5 content-evenly justify-items-center gap-y-1 text-sm tabular-nums">
+        {week.map((day) => (
+          <span class="text-ink/70">{weekday.format(day)}</span>
+        ))}
+        {weeks.map((days, row) =>
+          days.map((day, index) => (
+            <span
+              class:list={[
+                dayClass(row === 0 && index === chosenDay),
+                row === 1 && 'hidden scene-tall:flex',
+                row > 1 && 'hidden scene-roomy:flex',
+              ]}
+            >
+              {day.getUTCDate()}
+            </span>
+          )),
+        )}
+      </div>
+      <div class="flex flex-wrap gap-2 border-t border-ink/5 pt-3">
+        {times.map((label, index) => (
+          <span
+            class:list={[
+              'rounded-full px-3 py-1 text-sm tabular-nums',
+              index === chosenTime
+                ? 'bg-coral-tint font-medium text-ink ring-1 ring-coral'
+                : 'text-ink/80 ring-1 ring-ink/10',
+            ]}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+    <ul slot="aside" class="divide-y divide-ink/5">
+      {labels.map((label) => (
+        <li class="flex items-center gap-3 py-3 text-sm text-ink first:pt-0 last:pb-0">
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface text-ink/70 ring-1 ring-ink/5">
+            <FileIcon class="size-4" />
+          </span>
+          <span class="min-w-0 flex-1">{label}</span>
+          <Check />
+        </li>
+      ))}
+    </ul>
+  </SceneSpread>
+</div>

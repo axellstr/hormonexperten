@@ -46,7 +46,7 @@ For typography this ruleset takes precedence over the Figma file (the user's dec
 
 - **Manrope** (variable, 200–800), self-hosted in `/public/fonts` with Latin, Latin Extended, Greek and Cyrillic subsets split by `unicode-range`, `font-display: swap`, and the locale's main subset preloaded (`FONT_SUBSET` in `src/config.ts`). It replaces Figma's Figtree, Inter and Fenix, which lack Greek or Cyrillic. Never load fonts from Google's servers (GDPR). A metric-matched local fallback (`Manrope Fallback`: Arial scaled to Manrope) keeps the font swap from shifting the layout; re-measure it if the font changes.
 - Manrope has **no italic** and no small caps. `font-synthesis: none` is set, so never use `italic`/`<em>` for emphasis; emphasise with weight or colour. No second typeface.
-- OpenType: kerning, `liga` and `calt` are on globally. Use `tabular-nums` for anything that lines up or counts (dates, step numbers, years, prices, stats).
+- OpenType: kerning, `liga` and `calt` are on globally. Use `tabular-nums` for anything that lines up or counts (dates, step numbers, years, prices, stats). A single figure set large on its own, such as a price on a pricing card, keeps proportional figures: at heading sizes the tabular “1” leaves a visible gap (“€1 80”).
 
 ### Type roles
 
@@ -180,3 +180,4 @@ Build each section as its own component in `src/components/sections/`, with shar
 - Final booking URL (Pabau) and whether "Book Now" goes straight to booking or to a pricing page first.
 - Which trust logos and testimonials are real and approved.
 - Services list: "Metabolic Reset" and "Chronic Disease Package" were confirmed as services on 12 Oct 2026 (Conditions We Treat v2 doc); their page copy is still missing. "Premium Hormone Package", "Female hormones", "Thyroid therapy", "Micronutrient Therapy", "Gut Health Support" and "Weight management" are linked from condition pages but have no page yet.
+- Pricing (/{lang}/pricing, 13 Oct 2026): packages and prices come from the Figma pricing frame and contradict the live /kosten page (programme names, €490 vs 499 €, secure chat included vs “no ongoing advice by e-mail”). The page and its footer link stay behind `needs_check` until the practice confirms; open points are in `check_notes` in `src/content/pricing/en.json`.

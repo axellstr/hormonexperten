@@ -1,0 +1,121 @@
+---
+import type { Locale } from '../../../config';
+import { getImage } from '../../../lib/assets';
+import Photo from '../../ui/Photo.astro';
+import Check from './Check.astro';
+import Message from './Message.astro';
+import NextNode from './NextNode.astro';
+import SceneSpread from './SceneSpread.astro';
+
+// Step 3 as a picture of what happens: the treatment timeline with the next review coming up,
+// and the conversation with the doctor in the portal (abstract lines: no invented words, no
+// promises). Decorative: the step's own text says it all. Dates are formatted for the locale.
+// A compact strip for phones and short bands, the full picture once the band has room
+// (scene-spread).
+interface Props {
+  lang: Locale;
+  doctor: string;
+  labels: string[];
+}
+
+const { lang, doctor, labels } = Astro.props;
+
+const date = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', timeZone: 'UTC' });
+const dates = [
+  new Date(Date.UTC(2026, 10, 12)),
+  new Date(Date.UTC(2026, 11, 10)),
+  new Date(Date.UTC(2027, 1, 11)),
+].map((day) => date.format(day));
+const next = labels.length - 1;
+
+// The conversation, oldest first: who wrote each message and its lines' lengths. It sits at the
+// foot of the window like a chat, so a short window cuts off the oldest messages first.
+const thread = [
+  { mine: true, lines: ['w-36', 'w-24'] },
+  { mine: false, lines: ['w-44', 'w-32'] },
+  { mine: false, lines: ['w-28'] },
+  { mine: true, lines: ['w-32'] },
+  { mine: false, lines: ['w-40', 'w-28'] },
+  { mine: true, lines: ['w-32'] },
+  { mine: false, lines: ['w-44', 'w-36', 'w-24'] },
+  { mine: true, lines: ['w-36', 'w-20'] },
+  { mine: false, lines: ['w-40', 'w-32'] },
+];
+---
+
+<div class="contents" aria-hidden="true">
+  <!-- Compact: the timeline as a row of nodes over the next review, the message beside it where
+       there is room. -->
+  <div class="flex w-full max-w-xs items-center gap-3 @md:max-w-lg scene-spread:hidden">
+    <div class="min-w-0 flex-1 rounded-xl bg-bg px-4 py-3 ring-1 ring-ink/5">
+      <div class="flex items-center">
+        {labels.map((_, index) =>
+          index === next ? (
+            <NextNode />
+          ) : (
+            <>
+              <Check ring />
+              <span class="h-0.5 flex-1 bg-ink/10" />
+            </>
+          ),
+        )}
+      </div>
+      <div class="mt-2 flex items-baseline justify-between gap-3 text-sm">
+        <span class="font-semibold text-ink">{labels[next]}</span>
+        <span class="text-ink/70 tabular-nums">{dates[next]}</span>
+      </div>
+    </div>
+    <Message class="hidden @md:flex" />
+  </div>
+
+  <!-- Full: the conversation with the doctor, the timeline beside it. -->
+  <SceneSpread>
+    <div slot="main" class="flex h-full flex-col">
+      <div class="flex items-center gap-3 border-b border-ink/5 px-4 py-3">
+        <Photo
+          src={getImage('wilden-call.jpg')}
+          alt=""
+          widths={[64, 128]}
+          sizes="36px"
+          class="size-9 shrink-0 rounded-full object-cover"
+        />
+        <span class="min-w-0 truncate text-sm font-medium text-ink">{doctor}</span>
+        <span class="ms-auto size-2 shrink-0 rounded-full bg-coral"></span>
+      </div>
+      <!-- The end padding keeps the bubbles clear of the timeline card over the window's edge. -->
+      <div class="flex min-h-0 flex-1 flex-col justify-end gap-2 overflow-clip p-4 pe-8">
+        {thread.map((message) => (
+          <div
+            class:list={[
+              'max-w-4/5 shrink-0 space-y-2 rounded-xl px-3 py-2.5',
+              message.mine
+                ? 'self-end rounded-ee-sm bg-coral-tint'
+                : 'self-start rounded-es-sm bg-surface ring-1 ring-ink/5',
+            ]}
+          >
+            {message.lines.map((width) => (
+              <span class:list={['block h-1.5 max-w-full rounded-full bg-ink/10', width]} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+    <ol slot="aside" class="relative space-y-4">
+      <span class="absolute start-2.75 top-3 bottom-3 w-0.5 bg-ink/10"></span>
+      {labels.map((label, index) => (
+        <li class="relative flex items-center gap-3 text-sm">
+          {index === next ? <NextNode /> : <Check ring />}
+          <span
+            class:list={[
+              'min-w-0 flex-1 text-ink',
+              index === next ? 'font-semibold' : 'font-medium',
+            ]}
+          >
+            {label}
+          </span>
+          <span class="text-ink/70 tabular-nums">{dates[index]}</span>
+        </li>
+      ))}
+    </ol>
+  </SceneSpread>
+</div>

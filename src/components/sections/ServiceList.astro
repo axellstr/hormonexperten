@@ -1,10 +1,10 @@
 ---
-import { Picture } from 'astro:assets';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Service, Services } from '../../lib/schemas';
 import Eyebrow from '../ui/Eyebrow.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 import Section from '../ui/Section.astro';
 
@@ -26,7 +26,7 @@ const { lang, services, items } = Astro.props;
   <p class="mt-heading max-w-measure text-lead text-ink/80">{services.intro}</p>
 
   <ul class="mt-intro grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-    {items.map((service) => (
+    {items.map((service, index) => (
       <li>
         <a
           href={localizeHref(service.href, lang)}
@@ -34,12 +34,12 @@ const { lang, services, items } = Astro.props;
         >
           <div class="overflow-hidden rounded-card bg-surface">
             {service.image ? (
-              <Picture
+              <Photo
                 src={getImage(service.image)}
                 alt={service.image_alt}
-                formats={['avif', 'webp']}
                 widths={[360, 480, 720, 960]}
                 sizes="(min-width: 1440px) 450px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, 92vw"
+                priority={index === 0}
                 class="aspect-3/2 w-full object-cover group-hover:scale-105 motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out"
               />
             ) : (

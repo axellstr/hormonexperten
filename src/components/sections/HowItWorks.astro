@@ -1,21 +1,25 @@
 ---
-import { Picture } from 'astro:assets';
-import { BOOKING_URL } from '../../config';
-import { getImage } from '../../lib/assets';
+import Seal from '../../assets/icons/seal.svg';
+import { BOOKING_URL, type Locale } from '../../config';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Note from '../ui/Note.astro';
-import Placeholder from '../ui/Placeholder.astro';
 import RevealText from '../ui/RevealText.astro';
 import RollText from '../ui/RollText.astro';
 import Section from '../ui/Section.astro';
+import BookScene from './how-scenes/BookScene.astro';
+import CallScene from './how-scenes/CallScene.astro';
+import FollowUpScene from './how-scenes/FollowUpScene.astro';
 
 interface Props {
+  lang: Locale;
   how: Home['how'];
+  /** The doctor shown in the call and follow-up scenes. */
+  doctor: string;
 }
 
-const { how } = Astro.props;
+const { lang, how, doctor } = Astro.props;
 ---
 
 <!-- The steps are a deck of cards: each one sticks below the header and the next slides over it
@@ -28,9 +32,13 @@ const { how } = Astro.props;
     class="group/stack pb-(--stack-release) lg:grid lg:grid-cols-12 lg:gap-12 lg:pb-0 xl:gap-16"
     data-stack
   >
-    <!-- From lg as tall as the stacked deck (set by the script), so the two leave together.
+    <!-- From lg at least as tall as the stacked deck (set by the script); when it is taller, the
+         deck's bottom margin (--stack-hold) gives it the room, so the two still leave together.
          Below lg it has no box of its own, so the heading can pin for the whole deck. -->
-    <div class="contents lg:sticky lg:top-28 lg:col-span-5 lg:block lg:min-h-(--stack-span) lg:self-start">
+    <div
+      class="contents lg:sticky lg:top-28 lg:col-span-5 lg:block lg:min-h-(--stack-span) lg:self-start"
+      data-stack-column
+    >
       <div class="group-data-pinned/stack:stack-head" data-stack-head>
         <Eyebrow>{how.eyebrow}</Eyebrow>
         <h2 id="how-title" class="mt-eyebrow max-w-3xl text-h2 text-ink">
@@ -68,7 +76,7 @@ const { how } = Astro.props;
 
     <!-- Equal rows, so every card in the deck is the same height. -->
     <ol
-      class="stack-deck mt-10 -mb-(--stack-release) grid auto-rows-fr gap-6 lg:col-span-7 lg:mt-0 lg:mb-0 lg:gap-12"
+      class="stack-deck mt-10 -mb-(--stack-release) grid auto-rows-fr gap-6 lg:col-span-7 lg:mt-0 lg:mb-(--stack-hold) lg:gap-12"
       data-stack-list
     >
       {how.steps.map((step, index) => (
@@ -77,34 +85,33 @@ const { how } = Astro.props;
           style={`--stack-index: ${index}`}
           data-stack-card
         >
-          <!-- The photo fills the card and the text sits on a panel inset at the bottom, its
-               corners concentric with the card's. An aspect box shares the grid cell with the
-               text (square below lg, 3:2 from lg), so the card grows taller only when the text
-               needs the room. The space above the panel keeps a band of photo in view; it is
-               also all that may tuck under the pinned heading. -->
-          <div class="stack-face grid h-full grid-cols-1 overflow-clip rounded-panel bg-surface ring-1 ring-ink/5">
-            {step.image ? (
-              <Picture
-                src={getImage(step.image)}
-                alt={step.image_alt ?? ''}
-                formats={['avif', 'webp']}
-                widths={[480, 720, 1080]}
-                sizes="(min-width: 1440px) 800px, (min-width: 1024px) 55vw, 95vw"
-                class="absolute inset-0 size-full object-cover"
-              />
-            ) : (
-              <Placeholder class="absolute inset-0" />
-            )}
+          <!-- A scene of the step (how-scenes) fills the band above the text, which sits on a
+               panel inset at the bottom, its corners concentric with the card's. An aspect box
+               shares the grid cell with the text (square below lg, 3:2 from lg), so the card
+               grows taller only when the text needs the room. The scene is out of flow, so it
+               never sizes the card; it has a compact strip for short bands and, for tall ones,
+               a full picture framed like the panel (scene-band, how-scenes/SceneSpread). The band is also all that may tuck under the pinned
+               heading. -->
+          <div class="stack-face grid h-full grid-cols-1 overflow-clip rounded-panel bg-bg ring-1 ring-ink/5">
+            <!-- The tint over an opaque base, so a card never shows the one under it. -->
+            <div class="absolute inset-0 bg-ink/4"></div>
             <div class="col-start-1 row-start-1 aspect-square w-full lg:aspect-3/2"></div>
             <div class="col-start-1 row-start-1 flex flex-col">
-              <div class="min-h-28 flex-1" data-stack-media></div>
-              <div class="relative m-3 rounded-xl bg-surface p-5 md:p-6 lg:m-4 lg:rounded-lg lg:p-5 xl:p-6">
-                <h3 class="flex items-start gap-3 text-h4 text-ink">
+              <div class="relative min-h-28 flex-1 scene-band" data-stack-media>
+                <div class="absolute inset-0 flex items-center-safe justify-center px-3 pt-3 pb-0.5 md:px-6 lg:px-4 lg:pt-4">
+                  {index === 0 && <BookScene lang={lang} labels={step.scene} />}
+                  {index === 1 && <CallScene doctor={doctor} labels={step.scene} />}
+                  {index === 2 && <FollowUpScene lang={lang} doctor={doctor} labels={step.scene} />}
+                </div>
+              </div>
+              <div class="relative m-3 rounded-xl bg-bg p-5 md:p-6 lg:m-4 lg:rounded-lg lg:p-5 xl:p-6">
+                <h3 class="flex items-center gap-3 text-h4 text-ink">
                   <span
-                    class="flex size-7 shrink-0 items-center justify-center rounded-full bg-coral-tint text-sm font-semibold tabular-nums ring-1 ring-coral"
+                    class="relative flex size-[50px] shrink-0 items-center justify-center text-h3 tabular-nums"
                     aria-hidden="true"
                   >
-                    {index + 1}
+                    <Seal class="absolute inset-0 size-full text-coral-tint" />
+                    <span class="relative">{index + 1}</span>
                   </span>
                   {step.title}
                 </h3>

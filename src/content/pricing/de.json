@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "Preise und Pakete | Hormonexperten",
+    "description": "Beginnen Sie mit einer einzelnen Sprechstunde oder wählen Sie ein 12-Wochen-Programm mit enger ärztlicher Begleitung, Folgeterminen und sicherem Chat mit Ihren Ärztinnen."
+  },
+  "eyebrow": "Unsere Pakete",
+  "title": "Fachkundige Betreuung, ganz auf Ihre Ziele abgestimmt",
+  "intro": "Beginnen Sie mit einer einzelnen Sprechstunde oder wählen Sie ein 12-Wochen-Programm mit enger ärztlicher Begleitung, Folgeterminen und sicherem Chat mit Ihren Ärztinnen.",
+  "labels": {
+    "best_for": "Geeignet für",
+    "included": "Das ist enthalten"
+  },
+  "packages": [
+    {
+      "id": "consultation",
+      "kind": "Einzeltermin",
+      "title": "Basis-Hormonsprechstunde",
+      "price_note": "einmalig",
+      "time": "60 Min. Arztzeit",
+      "best_for": "Eine erste Einschätzung durch Expertinnen und einen klaren nächsten Schritt.",
+      "included": [
+        "60-minütige Videosprechstunde",
+        "Durchsicht Ihrer Beschwerden, Vorgeschichte und bisherigen Befunde",
+        "Auswertung Ihrer vorhandenen Laborwerte",
+        "Persönlicher Therapieplan und Empfehlung",
+        "Rezept, wenn medizinisch angezeigt"
+      ],
+      "cta": "Sprechstunde buchen"
+    },
+    {
+      "id": "premium",
+      "kind": "12-Wochen-Programm",
+      "title": "Premium-Hormonpaket",
+      "price_note": "12 Wochen",
+      "time": "60 Min. + 2 × 30 Min. Arztzeit",
+      "best_for": "Perimenopause, Menopause und komplexe hormonelle Ungleichgewichte.",
+      "included": [
+        "60-minütiges ausführliches Erstgespräch",
+        "2 × 30-minütige Folgetermine zur Feinabstimmung Ihrer Therapie",
+        "Schriftlicher Therapieplan innerhalb von 48 Stunden",
+        "Persönliches Laborprofil zu Beginn und zur Verlaufskontrolle",
+        "Rezepte während des gesamten Programms",
+        "Sicherer Chat mit Ihren Ärztinnen"
+      ],
+      "cta": "Premium wählen"
+    },
+    {
+      "id": "metabolic-reset",
+      "kind": "12-Wochen-Programm",
+      "title": "Metabolic Reset",
+      "price_note": "12 Wochen",
+      "time": "60 Min. + 2 × 30 Min. Arztzeit",
+      "best_for": "Insulinresistenz, Prädiabetes und anhaltende Gewichtszunahme.",
+      "included": [
+        "60-minütiges ausführliches Erstgespräch",
+        "2 × 30-minütige Folgetermine zur Verlaufskontrolle",
+        "Stoffwechsel-Laborprofil, festgelegt und ausgewertet",
+        "Persönlicher Ernährungs\u00adleitfaden auf Basis Ihrer Werte",
+        "Messung der Körper\u00adzusammen\u00adsetzung bei jedem Folgetermin",
+        "Optional: 14-tägige Glukose\u00admessung (CGM)",
+        "Medikamente, wenn medizinisch angezeigt",
+        "Sicherer Chat mit Ihren Ärztinnen"
+      ],
+      "cta": "Metabolic Reset wählen"
+    },
+    {
+      "id": "chronic-disease",
+      "kind": "12-Wochen-Programm",
+      "title": "Paket Chronische Erkrankungen",
+      "price_note": "12 Wochen",
+      "time": "90 Min. + 2 × 30 Min. Arztzeit",
+      "best_for": "Langjährige Erkrankungen, die mehrere Organsysteme betreffen, und viele Medikamente.",
+      "included": [
+        "90-minütiges ausführliches Erstgespräch",
+        "Erweitertes Laborprofil über die Standardhormone hinaus",
+        "Überprüfung aller Medikamente und Nahrungsergänzungsmittel",
+        "2 Folgetermine zur Besprechung der Ergebnisse und Anpassung des Plans",
+        "Persönlicher schriftlicher Therapieplan",
+        "Sicherer Chat mit Ihren Ärztinnen"
+      ],
+      "cta": "Paket wählen"
+    }
+  ],
+  "notes": {
+    "title": "Gut zu wissen",
+    "items": [
+      { "text": "Laborkosten rechnet Ihr Labor vor Ort direkt mit Ihnen ab." },
+      { "text": "Kosten für Medikamente und Nahrungsergänzungsmittel sind nicht enthalten." },
+      {
+        "text": "Rezepte stellen wir aus, wenn sie medizinisch angezeigt und in Ihrem Land rechtlich zulässig sind."
+      },
+      {
+        "text": "Alle 12-Wochen-Programme enthalten einen sicheren Chat mit Ihren Ärztinnen – mit Antwort innerhalb von 48 Stunden an Werktagen."
+      }
+    ]
+  }
+}

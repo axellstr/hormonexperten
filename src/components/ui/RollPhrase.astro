@@ -14,17 +14,15 @@ const { text } = Astro.props;
 const words = rollLetters(text);
 ---
 
-{
-  words.map((letters, w) => (
-    <>
-      {w > 0 && ' '}
-      <span class="inline-block whitespace-nowrap">
-        {letters.map(({ char, index }) => (
-          <span class="inline-grid perspective-near" style={`--roll-index: ${index}`}>
-            <span class="roll-face">{char}</span>
-          </span>
-        ))}
-      </span>
-    </>
-  ))
-}
+{words.map((letters, w) => (
+  <>
+    {w > 0 && ' '}
+    <span class="inline-block whitespace-nowrap">
+      {letters.map(({ char, index }) => (
+        <span class="inline-grid perspective-near" style={`--roll-index: ${index}`}>
+          <span class="roll-face">{char}</span>
+        </span>
+      ))}
+    </span>
+  </>
+))}

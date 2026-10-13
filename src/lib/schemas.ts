@@ -24,7 +24,9 @@ export const siteSchema = z.object({
   nav: z.object({
     label: z.string(),
     home: z.string(),
-    items: z.array(link.extend({ submenu: z.literal('services').optional() })),
+    items: z.array(
+      link.extend({ submenu: z.literal('services').optional(), ...needsCheck }),
+    ),
     menu: z.string(),
     close: z.string(),
     book: z.string(),
@@ -179,8 +181,8 @@ export const homeSchema = z.object({
       z.object({
         title: z.string(),
         body: z.string(),
-        image: z.string().optional(),
-        image_alt: z.string().optional(),
+        /** Short labels inside the step's card scene (how-scenes), in the scene's order. */
+        scene: z.array(z.string()).default([]),
       }),
     ),
     note: z.object({ title: z.string(), body: z.string() }),
@@ -223,7 +225,12 @@ export const homeSchema = z.object({
     title: z.string(),
     contact,
   }),
-  closing: z.object({ title: z.string(), body: z.string(), cta: z.string() }),
+  closing: z.object({
+    info: z.array(z.string()).min(2),
+    title: z.string(),
+    body: z.string(),
+    cta: z.string(),
+  }),
 });
 
 export const faqSchema = z.object({
@@ -355,6 +362,8 @@ export const teamSchema = z.object({
       role: z.string(),
       image: z.string().optional(),
       image_alt: z.string().optional(),
+      /** Personal LinkedIn profile URL. */
+      linkedin: z.string().optional(),
       /** Members without one get a card but no profile page. */
       profile: profileSchema.optional(),
       ...needsCheck,
@@ -592,6 +601,61 @@ export const contactSchema = z.object({
   }),
 });
 
+/**
+ * The Pricing page: one card per package, the small print under them, and cost questions picked
+ * from the FAQ. Prices are numbers in euros; the page formats them for each locale.
+ */
+export const pricingSchema = z.object({
+  meta: z.object({ title: z.string(), description: z.string() }),
+  eyebrow: z.string(),
+  title: z.string(),
+  intro: z.string(),
+  labels: z.object({
+    best_for: z.string(),
+    included: z.string(),
+  }),
+  packages: z
+    .array(
+      z.object({
+        id: z.string(),
+        /** The chip above the title, e.g. "Single appointment". */
+        kind: z.string(),
+        title: z.string(),
+        price: z.number().int().positive(),
+        /** Beside the price, e.g. "one-time" or "12 weeks". */
+        price_note: z.string(),
+        /** Doctor time in words, e.g. "60 min + 2 × 30 min doctor time". */
+        time: z.string(),
+        /** The same appointments in minutes, drawn to scale as a bar above `time`. */
+        sessions: z.array(z.number().int().positive()).min(1),
+        best_for: z.string(),
+        included: z.array(z.string()).min(1),
+        /** Booking button label. */
+        cta: z.string(),
+        ...needsCheck,
+        ...checkNote,
+      }),
+    )
+    .min(1),
+  notes: z.object({
+    title: z.string(),
+    items: z
+      .array(
+        z.object({
+          icon: z.enum(['microscope', 'pill', 'stethoscope', 'message-circle']),
+          text: z.string(),
+          ...needsCheck,
+        }),
+      )
+      .min(1),
+  }),
+  /** Ids of FAQ items to show on the page, in order. */
+  faq: z.array(z.string()).default([]),
+  ...needsCheck,
+  /** Open questions for the practice; never rendered. */
+  check_notes: z.array(z.string()).default([]),
+});
+
 /** A run of text in a legal page: plain, or a link (e-mail, phone, web, another page). */
 const legalText = z.union([z.string(), link]);
 
@@ -650,6 +714,7 @@ export type Conditions = z.infer<typeof conditionsSchema>;
 export type ConditionPage = Conditions['pages'][number];
 export type ConditionLink = z.infer<typeof conditionLink>;
 export type Contact = z.infer<typeof contactSchema>;
+export type Pricing = z.infer<typeof pricingSchema>;
 export type Legal = z.infer<typeof legalSchema>;
 export type LegalPage = Legal['pages'][number];
 export type LegalBlock = LegalPage['sections'][number]['body'][number];

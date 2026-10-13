@@ -118,8 +118,7 @@
                 "Termine buchen Sie in einem externen Buchungssystem, das sich erst öffnet, wenn Sie einen Buchungslink anklicken."
               ]
             }
-          ],
-          "check_note": "Stimmt nur, solange der Farbpaletten-Test im Header (speichert die Auswahl im localStorage) vor dem Start entfernt wird."
+          ]
         },
         {
           "id": "verantwortlich",
@@ -270,8 +269,7 @@
           "title": "Was auf Ihrem Gerät gespeichert wird",
           "body": [
             "Nichts, wofür eine Einwilligung nötig wäre. Es gibt keine Werbe-, Tracking- oder Social-Media-Cookies, und keine Videos, Karten, Schriften oder Bewertungs-Widgets, die beim Laden der Seite Daten an Dritte senden."
-          ],
-          "check_note": "Stimmt nur, wenn der Farbpaletten-Test im Header (localStorage) vor dem Start entfernt wird."
+          ]
         },
         {
           "id": "matomo",

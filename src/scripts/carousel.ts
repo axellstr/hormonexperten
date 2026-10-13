@@ -11,7 +11,8 @@
  *     [data-carousel-track]    the scrolling list; its children are the slides
  *     [data-carousel-nav]      controls wrapper, `invisible` until this script runs (it keeps
  *                              its space, so revealing it doesn't shift the layout)
- *       [data-carousel-dot]    one button per slide
+ *       [data-carousel-dot]    one per slide: a button, or a link to the slide (`#id`), which
+ *                              jumps there without the script (the pricing cards' index)
  *       [data-carousel-prev] / [data-carousel-next]   optional arrow buttons
  */
 import { easeInOut, easeOut } from './easing';
@@ -25,7 +26,7 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
   if (!track || !nav || track.children.length < 2) continue;
 
   const slides = [...track.children] as HTMLElement[];
-  const dots = [...nav.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]')];
+  const dots = [...nav.querySelectorAll<HTMLElement>('[data-carousel-dot]')];
   const prev = nav.querySelector<HTMLButtonElement>('[data-carousel-prev]');
   const next = nav.querySelector<HTMLButtonElement>('[data-carousel-next]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -92,7 +93,20 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
     render();
   };
 
-  dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+  dots.forEach((dot, index) =>
+    dot.addEventListener('click', (event) => {
+      goTo(index);
+      // A link dot glides the track to its slide rather than jumping, then scrolls the track into
+      // view.
+      if (dot instanceof HTMLAnchorElement) {
+        event.preventDefault();
+        track.scrollIntoView({
+          block: 'start',
+          behavior: reduceMotion.matches ? 'auto' : 'smooth',
+        });
+      }
+    }),
+  );
   prev?.addEventListener('click', () => goTo(active - 1));
   next?.addEventListener('click', () => goTo(active + 1));
 
@@ -108,6 +122,10 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
 
   track.addEventListener('pointerdown', (event) => {
     if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    // Nothing to drag while every slide fits (a grid on wider screens), and a press on a link or
+    // button in a slide is a click: capturing the pointer would send the click to the track.
+    if (track.scrollWidth <= track.clientWidth + 1) return;
+    if ((event.target as Element).closest('a, button')) return;
     stop();
     dragPointer = event.pointerId;
     dragStartX = event.clientX;
@@ -149,5 +167,10 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
     },
     { passive: true },
   );
+  // A track that stops or starts scrolling (rotating a phone) settles its dots again.
+  new ResizeObserver(() => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(update);
+  }).observe(track);
   update();
 }

@@ -5,7 +5,6 @@ import '../styles/global.css';
 import Footer from '../components/sections/Footer.astro';
 import Header from '../components/sections/Header.astro';
 import { DEFAULT_LOCALE, FONT_SUBSET, LOCALES, SITE_URL, type Locale } from '../config';
-import { ACTIVE_PALETTE, PALETTES } from '../config/palettes';
 import {
   HERO_IMAGE_HEIGHT,
   HERO_IMAGE_SIZES,
@@ -26,10 +25,6 @@ interface Props {
 const { lang, site, title, description, preloadImage } = Astro.props;
 const path = Astro.url.pathname;
 const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
-const palette = PALETTES[ACTIVE_PALETTE];
-const paletteStyles = Object.entries(palette.colors)
-  .map(([property, value]) => `${property}: ${value}`)
-  .join('; ');
 const imagePreload = preloadImage
   ? await getImage({
       src: preloadImage,
@@ -44,12 +39,7 @@ const imagePreload = preloadImage
 ---
 
 <!doctype html>
-<html
-  lang={lang}
-  class="scroll-pt-28 motion-safe:scroll-smooth"
-  data-palette={ACTIVE_PALETTE}
-  style={paletteStyles}
->
+<html lang={lang} class="scroll-pt-28 motion-safe:scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -79,7 +69,8 @@ const imagePreload = preloadImage
       />
     )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content={palette.colors['--color-surface']} />
+    <!-- The surface colour token (--color-surface), as the hero panel. -->
+    <meta name="theme-color" content="#fcf8f4" />
   </head>
   <body class="bg-bg font-sans text-ink antialiased">
     <a

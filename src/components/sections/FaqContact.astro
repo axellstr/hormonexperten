@@ -1,11 +1,11 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { Picture } from 'astro:assets';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Faq } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
+import Photo from '../ui/Photo.astro';
 import Placeholder from '../ui/Placeholder.astro';
 
 type Props = HTMLAttributes<'div'> & {
@@ -13,17 +13,25 @@ type Props = HTMLAttributes<'div'> & {
   contact: Faq['contact'];
   /** Heading level that fits the page outline. */
   heading?: 'h2' | 'h3';
+  /** What the "more" link leads to, for screen readers and search engines ("Learn More" alone says nothing). */
+  moreContext?: string;
 };
 
-const { lang, contact, heading: Heading = 'h3', class: className, ...rest } = Astro.props;
+const {
+  lang,
+  contact,
+  heading: Heading = 'h3',
+  moreContext,
+  class: className,
+  ...rest
+} = Astro.props;
 ---
 
 <div class:list={['flex flex-col items-start text-start', className]} {...rest}>
   {contact.image ? (
-    <Picture
+    <Photo
       src={getImage(contact.image)}
       alt={contact.image_alt}
-      formats={['avif', 'webp']}
       widths={[360, 512, 720, 1024]}
       sizes="(min-width: 1440px) 512px, (min-width: 1024px) 36vw, 90vw"
       class="aspect-square w-full max-w-lg rounded-card object-cover"
@@ -38,6 +46,7 @@ const { lang, contact, heading: Heading = 'h3', class: className, ...rest } = As
     {contact.more && (
       <Button href={localizeHref(contact.more.href, lang)} variant="secondary">
         {contact.more.label}
+        {moreContext && <span class="sr-only">: {moreContext}</span>}
       </Button>
     )}
   </div>

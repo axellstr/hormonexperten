@@ -1,10 +1,10 @@
 ---
-import { Picture } from 'astro:assets';
 import type { Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
+import Photo from '../ui/Photo.astro';
 import RollText from '../ui/RollText.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 import Panel from '../ui/Panel.astro';
@@ -27,10 +27,9 @@ const { lang, approach } = Astro.props;
   -->
   <Panel frame class="grid gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
     <div class="unveil aspect-7/6 w-full overflow-hidden rounded-panel lg:self-stretch">
-      <Picture
+      <Photo
         src={getImage(approach.image)}
         alt={approach.image_alt}
-        formats={['avif', 'webp']}
         widths={[480, 720, 960, 1300]}
         sizes="(min-width: 1440px) 640px, (min-width: 1024px) 45vw, 90vw"
         class="unveil-photo size-full object-cover object-top"
