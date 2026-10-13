@@ -12,14 +12,14 @@ const { title, name, open = false, class: className } = Astro.props;
 
 <!--
   The panel height animates through ::details-content (needs interpolate-size, set on :root).
-  Browsers without support simply open and close instantly.
+  Browsers without support (Safari) open and close instantly: the transition is `size-motion:`.
 -->
 <details
   name={name}
   open={open}
   class:list={[
     'group rounded-field bg-surface details-content:h-0 details-content:overflow-clip open:details-content:h-auto',
-    'motion-safe:details-content:transition-[height,content-visibility] motion-safe:details-content:transition-discrete motion-safe:details-content:duration-300 motion-safe:details-content:ease-smooth',
+    'motion-safe:size-motion:details-content:transition-[height,content-visibility] motion-safe:size-motion:details-content:transition-discrete motion-safe:size-motion:details-content:duration-300 motion-safe:size-motion:details-content:ease-smooth',
     className,
   ]}
 >

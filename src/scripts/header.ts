@@ -3,8 +3,11 @@
  * work without JS, and the nav links have a plain hover background.
  *
  * Menus ([data-menu] <details>):
- *   - open and close with a transition: `data-closed` holds the closed look while the panel
- *     ([data-menu-panel]) animates, and `open` is only dropped once it has finished
+ *   - open and close with a transition: `data-closed` holds the closed look of the panel
+ *     ([data-menu-panel]), and `open` is only dropped once it has animated to it. `data-closed`
+ *     stays on while the menu is closed: a closed <details> doesn't restyle its content, so the
+ *     panel opens from whichever look it was last styled in. Without it at rest, that was the
+ *     open look, and the first opening (in Safari every one) appeared at once
  *   - [data-menu-hover] menus also open on mouse hover after a short rest, and close a moment after
  *     the pointer leaves, unless it is on its way to the panel
  *   - close on an outside click, a link click, Escape, or focus leaving them
@@ -117,8 +120,8 @@ function show(menu: HTMLDetailsElement) {
   fitSheet(menu);
   menu.setAttribute('data-closed', '');
   menu.open = true;
-  // Apply the closed look first so the panel transitions from it.
-  void menu.offsetWidth;
+  // Style the panel (skipped while it was hidden) in the closed look, so it transitions from it.
+  void (menu.querySelector<HTMLElement>('[data-menu-panel]') ?? menu).offsetWidth;
   menu.removeAttribute('data-closed');
 }
 
@@ -131,8 +134,8 @@ function hide(menu: HTMLDetailsElement) {
   const finish = () => {
     // Reopened while closing: leave it open.
     if (!menu.hasAttribute('data-closed')) return;
+    // `data-closed` stays, so the panel rests in the closed look (see the top of the file).
     menu.open = false;
-    menu.removeAttribute('data-closed');
   };
   const running = panel && !reduceMotion.matches ? panel.getAnimations({ subtree: true }) : [];
   if (running.length === 0) finish();
@@ -140,6 +143,10 @@ function hide(menu: HTMLDetailsElement) {
 }
 
 for (const menu of menus) {
+  // Closed menus rest in the closed look, the sheet clipped to the pill (see the top of the file).
+  if (!menu.open) menu.setAttribute('data-closed', '');
+  fitSheet(menu);
+
   const summary = menu.querySelector('summary');
   if (!summary) continue;
 
@@ -382,6 +389,8 @@ if (header && sheet) {
   });
   window.addEventListener('resize', () => {
     if (isShown(sheet) && !sheet.checkVisibility()) hide(sheet);
+    // Keep the closed sheet's resting shape on the pill, which moves as the window resizes.
+    else if (!sheet.open) fitSheet(sheet);
   });
 }
 

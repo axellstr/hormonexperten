@@ -591,6 +591,18 @@
   }
 }
 
+/*
+ * Height to and from `auto` (accordions, the menu's services list, the compact note) only animates
+ * where interpolate-size exists, so their height transition goes behind `size-motion:`. Elsewhere
+ * (Safari) the transition can't interpolate, and with allow-discrete it held the old height for
+ * half the duration and then jumped; there they now open and close at once instead.
+ */
+@custom-variant size-motion {
+  @supports (interpolate-size: allow-keywords) {
+    @slot;
+  }
+}
+
 :root {
   --stack-top: calc(var(--spacing) * 24);
 }
@@ -628,7 +640,7 @@
 }
 
 @layer base {
-  /* Lets height transition to and from `auto` (used by the FAQ accordion). */
+  /* Lets height transition to and from `auto` (used by `size-motion:` disclosures). */
   :root {
     interpolate-size: allow-keywords;
   }
