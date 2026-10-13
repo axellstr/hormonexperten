@@ -112,11 +112,11 @@ const { lang, how, doctor, followUpDoctor = doctor } = Astro.props;
               <div class="relative m-3 rounded-xl bg-bg p-5 md:p-6 lg:m-4 lg:rounded-lg lg:p-5 xl:p-6">
                 <h3 class="flex items-center gap-3 text-h4 text-ink">
                   <span
-                    class="relative flex size-[50px] shrink-0 items-center justify-center text-h3 tabular-nums"
+                    class="relative flex size-10 shrink-0 items-center justify-center text-h4 tabular-nums"
                     aria-hidden="true"
                   >
-                    <Seal class="absolute inset-0 size-full text-coral-tint" />
-                    <span class="relative">{index + 1}</span>
+                    <Seal class="absolute inset-0 size-full text-coral" />
+                    <span class="relative text-on-dark">{index + 1}</span>
                   </span>
                   {step.title}
                 </h3>

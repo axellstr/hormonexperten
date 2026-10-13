@@ -14,7 +14,7 @@ const images = import.meta.glob<ImageMetadata>('../assets/images/*.{png,jpg,jpeg
   import: 'default',
 });
 
-const logos = import.meta.glob<ImageMetadata>('../assets/logos/*.svg', {
+const logos = import.meta.glob<ImageMetadata>('../assets/logos/*.{svg,png}', {
   eager: true,
   import: 'default',
 });
@@ -28,7 +28,7 @@ export function getImage(file: string): ImageMetadata {
 
 /** Resolve a partner or payment logo (a file in src/assets/logos/). */
 export function getLogo(name: string): ImageMetadata {
-  const logo = logos[`../assets/logos/${name}.svg`];
+  const logo = logos[`../assets/logos/${name}.svg`] ?? logos[`../assets/logos/${name}.png`];
   if (!logo) throw new Error(`Unknown logo "${name}": add it to src/assets/logos/`);
   return logo;
 }

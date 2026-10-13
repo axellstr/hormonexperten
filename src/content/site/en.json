@@ -43,14 +43,14 @@
       "id": "menopause",
       "title": "Menopause & Perimenopause",
       "summary": "TODO: short summary for Menopause & Perimenopause",
-      "image": "service-menopause.png",
+      "image": "service-menopause.jpg",
       "image_alt": ""
     },
     {
       "id": "hormone-therapy",
       "title": "Hormone Therapy",
       "summary": "TODO: short summary for Hormone Therapy",
-      "image": "service-hormone-therapy.png",
+      "image": "service-hormone-therapy.jpg",
       "image_alt": ""
     },
     {
@@ -72,12 +72,14 @@
       "id": "metabolic-reset",
       "title": "Metabolic Reset",
       "summary": "TODO: short summary for Metabolic Reset",
+      "image": "service-metabolic-reset.jpg",
       "image_alt": ""
     },
     {
       "id": "chronic-disease",
       "title": "Chronic Disease Package",
       "summary": "TODO: short summary for Chronic Disease Package",
+      "image": "service-chronic-disease.jpg",
       "image_alt": ""
     }
   ],

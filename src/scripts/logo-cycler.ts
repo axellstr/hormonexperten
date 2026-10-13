@@ -1,8 +1,9 @@
 /**
- * Trust logo cycler. Every two seconds the logos in the row turn like a prism, one after another
- * from left to right: the old logo rolls up and away as the next one rolls up into view. Runs only
- * when there are more logos than visible slots, and stays still for reduced motion. It quietly
- * pauses on hover, in a hidden tab and off-screen, and turns soon after the row comes back.
+ * Trust logo cycler. Each `[data-logo-cycler]` row turns on its own. Every two seconds the logos
+ * in that row turn like a prism, one after another from left to right: the old logo rolls up and
+ * away as the next one rolls up into view. Runs only when there are more logos than visible slots,
+ * and stays still for reduced motion. It quietly pauses on hover, in a hidden tab and off-screen,
+ * and turns soon after the row comes back.
  */
 
 const HOLD = 2000; // ms between turns

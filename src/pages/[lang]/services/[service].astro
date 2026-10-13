@@ -1,10 +1,10 @@
 ---
 import ClosingCta from '../../../components/sections/ClosingCta.astro';
 import Faq from '../../../components/sections/Faq.astro';
+import HowItWorks from '../../../components/sections/HowItWorks.astro';
 import RelatedServices from '../../../components/sections/RelatedServices.astro';
 import ServiceAbout from '../../../components/sections/ServiceAbout.astro';
 import ServiceHero from '../../../components/sections/ServiceHero.astro';
-import ServiceSteps from '../../../components/sections/ServiceSteps.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import {
@@ -80,7 +80,12 @@ const contentLang = bodyLang === lang ? undefined : bodyLang;
   <div lang={contentLang}>
     <ServiceAbout about={page.about} focus={page.focus} />
   </div>
-  <ServiceSteps how={home.how} />
+  <HowItWorks
+    lang={lang}
+    how={home.how}
+    doctor={home.team.members[0].name}
+    followUpDoctor={home.team.members[1]?.name}
+  />
   <Faq lang={lang} title={home.faq.title} contact={home.faq.contact} items={questions} />
   <RelatedServices lang={lang} title={services.others_title} items={others} />
   <ClosingCta closing={home.closing} />

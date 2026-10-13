@@ -97,7 +97,7 @@
    */
   --container-measure: 54ch;
   --breakpoint-header-desktop: 90rem; /* 1440px */
-  --spacing-hero-height: 70vh;
+  --spacing-hero-height: 80vh;
 
   /* Figma uses 24px for panels, cards, buttons and FAQ items alike. */
   --radius-panel: 1.5rem;
@@ -367,7 +367,7 @@
 /*
  * Scroll text reveal (RevealText): text fills in word by word as it scrolls up the screen. The
  * element carrying `reveal-text` (a heading, a paragraph, or a block holding both) sets the run:
- * its words (`reveal-word`) start at 20% opacity and reach full colour in reading order while its
+ * its words (`reveal-word`) start at 45% opacity and reach full colour in reading order while its
  * top travels from 90% to 35% of the screen height, whatever the text's length.
  *   Pieces: a piece of text can take part of the run (--reveal-from/--reveal-to, 0–1), so in a
  *     block the heading fills first and the paragraph picks up before it ends, in reading order,
@@ -407,7 +407,7 @@
 
 @keyframes reveal-word {
   from {
-    opacity: 0.2;
+    opacity: 0.45;
   }
 }
 

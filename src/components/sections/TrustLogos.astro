@@ -11,10 +11,10 @@ interface Props {
 const { trust } = Astro.props;
 const logos = visible(trust.logos).map((logo) => ({ ...logo, image: getLogo(logo.logo) }));
 
-// One line: 3 slots on phones, 4 on tablets, 5 on desktop. The other logos wait in the template
+// One line: 3 slots on phones, 4 from tablet up. The other logos wait in the template
 // and roll in a few seconds later (src/scripts/logo-cycler.ts).
-const slots = logos.slice(0, 5);
-const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
+const slots = logos.slice(0, 4);
+const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid'];
 ---
 
 {logos.length > 0 && (
@@ -50,7 +50,7 @@ const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
             data-index={index}
             loading="lazy"
             decoding="async"
-            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-75"
           />
         </div>
       ))}
@@ -63,7 +63,7 @@ const slotClass = ['grid', 'grid', 'grid', 'hidden md:grid', 'hidden lg:grid'];
             alt=""
             data-index={index}
             decoding="async"
-            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-50"
+            class="col-start-1 row-start-1 h-full w-auto max-w-full object-contain opacity-75"
           />
         ))}
       </template>

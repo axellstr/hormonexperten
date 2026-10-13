@@ -33,7 +33,12 @@ const approach = getApproach(lang);
   <ApproachHero hero={approach.hero} />
   <ApproachPillars pillars={approach.pillars} />
   <ApproachQuote lang={lang} founder={approach.founder} team={team} />
-  <HowItWorks lang={lang} how={home.how} doctor={home.team.members[0].name} />
+  <HowItWorks
+    lang={lang}
+    how={home.how}
+    doctor={home.team.members[0].name}
+    followUpDoctor={home.team.members[1]?.name}
+  />
   <TeamBrief lang={lang} team={team} more={approach.team.more} />
   <ClosingCta closing={home.closing} />
 </BaseLayout>

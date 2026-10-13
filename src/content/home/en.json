@@ -34,7 +34,7 @@
         "image_alt": "Dr. Isabella Wilden, seated, and Dr. Yvonne Tuszing standing beside her"
       },
       {
-        "image": "031-1.jpg",
+        "image": "wilden-standing.jpg",
         "image_alt": "Dr. Isabella Wilden in a white sleeveless top, smiling"
       }
     ]
@@ -56,7 +56,7 @@
       "label": "Learn More",
       "href": "/our-approach"
     },
-    "image": "031-1.jpg",
+    "image": "wilden-standing.jpg",
     "image_alt": "Dr. Isabella Wilden in a white sleeveless top, smiling"
   },
   "trust": {
@@ -70,6 +70,16 @@
       {
         "name": "ProvenExpert",
         "logo": "provenexpert"
+      },
+      {
+        "name": "Hormon Netzwerk",
+        "logo": "hormon-netzwerk",
+        "needs_check": true
+      },
+      {
+        "name": "DÄGfA",
+        "logo": "daegfa",
+        "needs_check": true
       },
       {
         "name": "TODO: partner 1",
@@ -94,11 +104,6 @@
       {
         "name": "TODO: partner 5",
         "logo": "partner-5",
-        "needs_check": true
-      },
-      {
-        "name": "TODO: partner 6",
-        "logo": "partner-6",
         "needs_check": true
       }
     ]

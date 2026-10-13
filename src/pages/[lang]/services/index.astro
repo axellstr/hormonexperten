@@ -1,7 +1,7 @@
 ---
 import ClosingCta from '../../../components/sections/ClosingCta.astro';
+import HowItWorks from '../../../components/sections/HowItWorks.astro';
 import ServiceList from '../../../components/sections/ServiceList.astro';
-import ServiceSteps from '../../../components/sections/ServiceSteps.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getHome, getServices, getSite, visible } from '../../../lib/content';
@@ -27,6 +27,11 @@ const services = getServices(lang);
   description={services.meta.description}
 >
   <ServiceList lang={lang} services={services} items={visible(site.services)} />
-  <ServiceSteps how={home.how} />
+  <HowItWorks
+    lang={lang}
+    how={home.how}
+    doctor={home.team.members[0].name}
+    followUpDoctor={home.team.members[1]?.name}
+  />
   <ClosingCta closing={home.closing} />
 </BaseLayout>

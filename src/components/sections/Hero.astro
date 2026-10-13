@@ -3,6 +3,7 @@ import { Image, Picture } from 'astro:assets';
 import { BOOKING_URL } from '../../config';
 import {
   getImage,
+  getLogo,
   HERO_IMAGE_HEIGHT,
   HERO_IMAGE_SIZES,
   HERO_IMAGE_WIDTH,
@@ -37,8 +38,8 @@ const ratingText = format(trust.rating_label, {
 
 /** Affiliation marks above the booking CTA (same in every locale). */
 const affiliations = [
-  { file: 'hormon-netzwerk.png', alt: 'Hormon Netzwerk' },
-  { file: 'daegfa.png', alt: 'DÄGfA' },
+  { logo: 'hormon-netzwerk', alt: 'Hormon Netzwerk' },
+  { logo: 'daegfa', alt: 'DÄGfA' },
 ] as const;
 ---
 
@@ -80,7 +81,7 @@ const affiliations = [
           </div>
           <ul class="mt-8 flex max-w-xl flex-wrap items-center gap-x-8 gap-y-4">
             {affiliations.map((item) => {
-              const image = getImage(item.file);
+              const image = getLogo(item.logo);
               return (
                 <li class="h-8 md:h-10">
                   <Image
