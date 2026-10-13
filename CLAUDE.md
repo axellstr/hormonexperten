@@ -128,7 +128,7 @@ Before calling a page done, check it at 360px in Russian and German (longest wor
 8. **Testimonials:** two rows of review cards (stars, quote title, text, name/age/condition, source).
 9. **FAQ:** accordion on the left (5–6 questions), "Still have questions?" contact card on the right, stacking on mobile. Use `<details>`/`<summary>`, which needs no JavaScript.
 10. **Closing CTA:** warm panel with line-art illustration, H2, subline, CTA.
-11. **Footer:** dark, with a wave top edge. Logo and blurb, social icons, Contact, Services, Company and Legal columns, copyright, payment method icons.
+11. **Footer:** dark (`bg-footer`) panel inside the content width with rounded top corners (`rounded-t-panel`), like the other panels; no wave edge (14 Oct 2026). Logo, blurb (`text-body`) and social icons, then the Contact, Services, Company and Legal columns from `site.footer` in `src/content/site/`, then copyright and payment method icons. From 1440px the logo block sits beside the columns; below that it sits on top, with the columns four across from `lg`, 2×2 from phones up, and Contact full width on phones. Links to pages that don't exist yet carry `needs_check`.
 
 Build each section as its own component in `src/components/sections/`, with shared primitives (`Container`, `Section`, `Button`, `Eyebrow`, `Panel`, `Card`, `Accordion`) in `src/components/ui/`.
 

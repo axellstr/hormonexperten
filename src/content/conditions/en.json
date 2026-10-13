@@ -228,9 +228,7 @@
       ],
       "approach": "We look at your hormones and your metabolism together, including blood sugar and insulin sensitivity and, if suitable, continuous glucose monitoring. Depending on your goals, your plan can include hormonal treatment, metabolic support, weight management, nutrition and cycle tracking.",
       "approach_more": {
-        "text": "PMOS and its metabolic effects are at the centre of Dr. Yvonne Tuszing’s research.",
-        "needs_check": true,
-        "check_note": "Dr. Tuszing’s credentials are unconfirmed (CLAUDE.md); show this once her profile is confirmed."
+        "text": "PMOS and its metabolic effects are at the centre of Dr. Yvonne Tuszing’s research."
       },
       "related": [
         { "label": "Insulin resistance", "condition": "insulin-resistance" },

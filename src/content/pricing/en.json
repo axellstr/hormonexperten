@@ -4,7 +4,6 @@
     "Packages, names, prices and inclusions are from the Figma pricing frame (13 Oct 2026). They differ from the live /kosten page (Basis-Begleitung 380 €, Intensiv-Begleitung 499 €, first consultations 180 €, follow-ups 45/90 €). The Chronic Disease Package is €490 here. Confirm this is the current offer before lifting needs_check.",
     "Secure chat: Figma includes it in every 12-week programme, with a reply within 48 hours on working days; the live site says its programmes include no ongoing medical advice by e-mail or SMS. Confirm.",
     "Figma says “60-minute video consultation in English or German”. The language list is left out until the practice confirms consultation languages (CLAUDE.md).",
-    "“Your doctors” is plural while Dr. Tuszing’s card is still behind its content flag.",
     "Confirm the prices are final consumer prices (PAngV), and whether each package gets its own booking link in Pabau. All buttons use BOOKING_URL for now."
   ],
   "meta": {

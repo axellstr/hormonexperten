@@ -96,6 +96,8 @@ function typeset(text: string, lang: Locale): string {
     .replace(/(^|[\s(])(\p{L})\. (\p{L})\./gu, `$1$2.${NARROW_NBSP}$3.`)
     // "48 hours", "35+ years", "17:00 Uhr": a number stays with the word it counts.
     .replace(/(\d[+%]?) (?=\p{L})/gu, `$1${NBSP}`)
+    // A numeric range stays whole: "9:00–17:00", "1997–2000".
+    .replace(/(\d)–(?=\d)/g, '$1–\u2060')
     // A spaced dash never starts a line: "Wilden – mit", "Вильден — с".
     .replace(/ ([–—]) /g, `${NBSP}$1 `);
   // Russian convention: one- and two-letter words (в, с, и, на, по) don't hang at a line end.

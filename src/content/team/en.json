@@ -245,8 +245,6 @@
       "image": "tuszing-portrait.jpg",
       "image_alt": "Dr. Yvonne Tuszing in a dark top and white trousers, smiling",
       "linkedin": "https://www.linkedin.com/in/yvonne-tuszing-34a8b9287",
-      "needs_check": true,
-      "check_note": "CLAUDE.md: her credentials stay behind a flag until the practice confirms them. Copy is from her CV (About Us – Yvonne Tuszing, M.D. (EN), 8 Oct 2026). Remove needs_check once the profile is approved.",
       "profile": {
         "meta": {
           "title": "Dr. Yvonne Tuszing, M.D. | Hormonexperten",

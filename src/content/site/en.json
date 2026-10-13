@@ -126,8 +126,8 @@
             "href": "mailto:info@hormonexperten.de"
           },
           {
-            "label": "+49 30 23125 456",
-            "href": "tel:+493023125456",
+            "label": "+49 1512 2682 778",
+            "href": "tel:+4915122682778",
             "needs_check": true
           },
           {
@@ -142,7 +142,7 @@
         "title": "Services",
         "items": [
           {
-            "label": "Bioidentical Hormones",
+            "label": "All services",
             "href": "/services"
           },
           {
@@ -180,6 +180,10 @@
             "href": "/team"
           },
           {
+            "label": "FAQ",
+            "href": "/faq"
+          },
+          {
             "label": "Contact",
             "href": "/contact"
           },
@@ -199,7 +203,8 @@
           },
           {
             "label": "Terms of Service",
-            "href": "/terms"
+            "href": "/terms",
+            "needs_check": true
           },
           {
             "label": "Impressum",

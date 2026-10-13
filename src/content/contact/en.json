@@ -28,7 +28,7 @@
         "href": "tel:+4915122682778",
         "detail": "Mon–Fri, 9:00–17:00 (CET)",
         "needs_check": true,
-        "check_note": "Number from the current hormonexperten.de; the footer still shows the mockup’s +49 30 23125 456. Confirm which number patients should call, and its hours."
+        "check_note": "Number from the current hormonexperten.de, also in the footer (src/content/site). Confirm which number patients should call, and its hours."
       }
     ],
     "social": "Follow us"

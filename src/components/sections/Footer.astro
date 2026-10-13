@@ -34,12 +34,17 @@ const link =
 
 <footer>
   <Container class="rounded-t-panel bg-footer pt-12 text-on-dark lg:px-12 lg:pt-14 xl:px-16">
-    <div class="grid gap-14 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
-      <div class="max-w-xl lg:col-span-5 header-desktop:col-span-4">
-        <Logo variant="footer" />
-        <p class="mt-6 max-w-md text-sm text-on-dark/70">{footer.blurb}</p>
+    <div class="grid gap-12 header-desktop:flex header-desktop:justify-between header-desktop:gap-x-12">
+      <div class="md:flex md:items-end md:justify-between md:gap-12 header-desktop:block header-desktop:w-92 header-desktop:shrink-0">
+        <div class="max-w-md">
+          <Logo variant="footer" />
+          <p class="mt-6 text-body text-on-dark/70">{footer.blurb}</p>
+        </div>
         {social.length > 0 && (
-          <ul aria-label={footer.social_label} class="mt-8 flex flex-wrap justify-start gap-3">
+          <ul
+            aria-label={footer.social_label}
+            class="mt-8 flex shrink-0 flex-wrap justify-start gap-3 md:mt-0 header-desktop:mt-8"
+          >
             {social.map((item) => {
               const Icon = socialIcons[item.icon];
               return (
@@ -60,15 +65,23 @@ const link =
         )}
       </div>
 
-      <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-8 lg:col-span-7 header-desktop:col-span-8 header-desktop:flex header-desktop:justify-end header-desktop:gap-x-8">
+      <div class="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:grid-cols-4 header-desktop:min-w-0 header-desktop:flex-1 header-desktop:grid-flow-col header-desktop:auto-cols-auto header-desktop:grid-cols-none header-desktop:justify-end header-desktop:gap-x-8">
         {footer.columns.map((column, index) => (
-          <nav class="min-w-0 header-desktop:shrink-0" aria-labelledby={`footer-column-${index}`}>
+          <nav
+            class:list={[
+              'min-w-0',
+              // The first column (Contact) holds the email address: full width on phones so it
+              // doesn't break mid-address.
+              index === 0 && 'col-span-2 sm:col-span-1',
+            ]}
+            aria-labelledby={`footer-column-${index}`}
+          >
             <h2 id={`footer-column-${index}`} class="text-eyebrow uppercase text-on-dark">
               {column.title}
             </h2>
             <ul class="mt-4 space-y-1 text-sm">
               {visible(column.items).map((item) => (
-                <li class="flex min-h-7 items-center py-1 text-on-dark/70 header-desktop:whitespace-nowrap">
+                <li class="flex min-h-7 items-center py-1 text-on-dark/70">
                   {item.href ? (
                     <a href={localizeHref(item.href, lang)} class:list={[link, 'wrap-anywhere']}>
                       {item.label}

@@ -202,8 +202,7 @@
         "cta": {
           "label": "Learn More",
           "href": "/team/yvonne-tuszing"
-        },
-        "needs_check": true
+        }
       }
     ]
   },
@@ -295,7 +294,7 @@
       "body": "We’re happy to help. Send us a message and we’ll get back to you within 2 working days.",
       "cta": {
         "label": "Get in touch",
-        "href": "mailto:info@hormonexperten.de"
+        "href": "/contact"
       },
       "more": {
         "label": "Learn More",
