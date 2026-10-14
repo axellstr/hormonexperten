@@ -97,11 +97,7 @@ export const homeSchema = z.object({
     slides: z.array(z.object(image)).min(1),
   }),
   services: z.object({
-    title: z.object({
-      prefix: z.string(),
-      emphasis: z.string(),
-      second_line: z.string(),
-    }),
+    title: z.string(),
     /** Labels for the row's arrow buttons. */
     previous: z.string(),
     next: z.string(),
@@ -400,6 +396,35 @@ export const servicesSchema = z.object({
           ...checkNote,
         })
         .optional(),
+      /** Two treatment options side by side, row by row (a table from md, cards on phones). */
+      comparison: z
+        .object({
+          title: z.string(),
+          /** One- or two-sentence opener under the heading. */
+          lead: z.string(),
+          /** The two column heads. */
+          options: z.array(z.string()).length(2),
+          rows: z.array(
+            z.object({
+              label: z.string(),
+              /** One per option, in the order of `options`. */
+              values: z
+                .array(
+                  z.object({
+                    text: z.string(),
+                    /** A phrase appended after a comma that can be gated on its own. */
+                    more: z.object({ text: z.string(), ...needsCheck, ...checkNote }).optional(),
+                  }),
+                )
+                .length(2),
+              ...needsCheck,
+            }),
+          ),
+          /** Closing line at the foot of the table. */
+          summary: z.string(),
+          ...checkNote,
+        })
+        .optional(),
       /** Ids of FAQ items to show on the page, in order. */
       faq: z.array(z.string()).default([]),
       ...needsCheck,
@@ -603,12 +628,6 @@ export const contactSchema = z.object({
       rows: z.array(z.object({ days: z.string(), time: z.string(), ...needsCheck, ...checkNote })),
       note: z.string().optional(),
     }),
-    practice: z.object({
-      title: z.string(),
-      /** Address lines, kept together. */
-      lines: z.array(z.string()).min(1),
-      link,
-    }),
     privacy: z.object({ title: z.string(), body: z.string(), link }),
   }),
 });
@@ -673,15 +692,17 @@ const legalText = z.union([z.string(), link]);
 
 /**
  * One block of a legal section: a paragraph (string), lines kept together like an address
- * (`lines`), or a bulleted list (`list`).
+ * (`lines`), a bulleted list (`list`), or a sub-heading inside the section (`heading`, e.g.
+ * "§ 2.1 Booking process").
  */
 const legalBlock = z.union([
   z.string(),
+  z.object({ heading: z.string() }),
   z.object({ lines: z.array(z.array(legalText).or(legalText)).min(1) }),
   z.object({ list: z.array(z.string()).min(1) }),
 ]);
 
-/** Impressum, privacy policy and cookie settings: required in German, English for the rest. */
+/** Impressum, privacy policy and the terms: required in German, English for the rest. */
 export const legalSchema = z.object({
   updated_label: z.string(),
   contents_label: z.string(),
@@ -690,7 +711,7 @@ export const legalSchema = z.object({
   pages: z.array(
     z.object({
       /** Also the URL slug: /{lang}/{id}. */
-      id: z.enum(['impressum', 'datenschutz', 'cookie-settings']),
+      id: z.enum(['impressum', 'datenschutz', 'terms', 'remote-treatment-terms']),
       meta: z.object({ title: z.string(), description: z.string() }),
       title: z.string(),
       /** ISO date of the last change to the text. */

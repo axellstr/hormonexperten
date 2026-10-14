@@ -144,7 +144,7 @@
           "question": "Kann ich während der Behandlung abnehmen?",
           "answer": "Möglich, ja. Garantiert, nein. Hormone sind nur einer von mehreren Faktoren, die Gewicht und Körperzusammensetzung beeinflussen.\n\nWenn Abnehmen eines Ihrer Ziele ist, erstellen wir einen individuellen Plan, der hormonelle und stoffwechselbedingte Faktoren gemeinsam berücksichtigt.",
           "link": {
-            "label": "Gewichtsmanagement"
+            "label": "Gewicht & Stoffwechselgesundheit"
           }
         }
       ]
@@ -243,17 +243,17 @@
         {
           "id": "video-consultation",
           "question": "Wie läuft eine Video-Sprechstunde ab?",
-          "answer": "TODO: freigegebene Antwort"
+          "answer": "Ganz einfach und bequem von zu Hause aus. Sie buchen einen passenden Termin in Ihrem Patientenportal und nehmen zum Termin direkt dort an der Video-Sprechstunde teil, am Smartphone, Tablet oder Computer. Eine App brauchen Sie nicht. Sie benötigen nur eine stabile Internetverbindung und einen ruhigen Ort, an dem Sie offen sprechen können."
         },
         {
           "id": "blood-tests",
           "question": "Brauche ich vor meinem ersten Termin eine Blutuntersuchung?",
-          "answer": "TODO: freigegebene Antwort"
+          "answer": "Nein. Wenn Sie aktuelle Befunde haben, können Sie diese gern vorab in Ihrem Patientenportal hochladen. Welche weiteren Untersuchungen sinnvoll sind, entscheiden wir gemeinsam in Ihrer Sprechstunde, je nachdem, was wir besprechen. Ihr Blut wird dann in einem Labor in Ihrer Nähe abgenommen; die Laborkosten bezahlen Sie direkt an das Labor."
         },
         {
           "id": "outside-germany",
           "question": "Kann ich auch von außerhalb Deutschlands buchen?",
-          "answer": "TODO: freigegebene Antwort"
+          "answer": "Ja, Sie können von überall auf der Welt buchen. Die Sprechstunden finden online statt, auf Englisch, Deutsch, Griechisch oder Rumänisch. Bitte beachten Sie: Unsere Rezepte sind innerhalb der EU gültig."
         }
       ]
     },
@@ -264,12 +264,12 @@
         {
           "id": "insurance",
           "question": "Übernimmt meine Krankenversicherung die Behandlung?",
-          "answer": "Unsere Leistungen sind privatärztliche Leistungen. Gesetzliche Krankenversicherungen übernehmen unsere Sprechstunden in der Regel nicht. Da sich einzelne Versicherungsverträge unterscheiden können, empfehlen wir Ihnen, bei Ihrer Versicherung nachzufragen. Für in Deutschland versicherte Patientinnen und Patienten stellen wir auf Wunsch eine Rechnung nach GOÄ aus."
+          "answer": "Wir sind eine Privatpraxis. Ob Ihre Versicherung die Kosten übernimmt, hängt daher von Ihrem Vertrag ab. Da unsere Praxis von Zypern aus tätig ist, stellen wir keine Rechnungen nach der deutschen Gebührenordnung für Ärzte (GOÄ) aus. Sie erhalten eine detaillierte Rechnung, die Sie bei Ihrer Versicherung einreichen können."
         },
         {
           "id": "cancel",
           "question": "Was ist, wenn ich einen Termin absagen oder verschieben muss?",
-          "answer": "TODO: freigegebene Antwort"
+          "answer": "Kein Problem. Bis 24 Stunden vor Ihrem Termin können Sie kostenfrei absagen oder verschieben – direkt in Ihrem Patientenportal, per E-Mail oder über WhatsApp unter +357 94 309399. Bei einer Absage weniger als 24 Stunden vor Ihrem Termin berechnen wir eine Gebühr von 20 €."
         }
       ]
     }

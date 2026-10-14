@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Preise und Pakete | Hormonexperten",
-    "description": "Beginnen Sie mit einer einzelnen Sprechstunde oder wählen Sie ein 12-Wochen-Programm mit enger ärztlicher Begleitung, Folgeterminen und sicherem Chat mit Ihren Ärztinnen."
+    "description": "Transparente Preise für bioidentische Hormontherapie – individuell auf Ihre Bedürfnisse abgestimmt. Wählen Sie die passende Begleitung oder Einzelberatung."
   },
   "eyebrow": "Unsere Pakete",
   "title": "Fachkundige Betreuung, ganz auf Ihre Ziele abgestimmt",
-  "intro": "Beginnen Sie mit einer einzelnen Sprechstunde oder wählen Sie ein 12-Wochen-Programm mit enger ärztlicher Begleitung, Folgeterminen und sicherem Chat mit Ihren Ärztinnen.",
+  "intro": "Transparente Preise für bioidentische Hormontherapie – individuell auf Ihre Bedürfnisse abgestimmt. Wählen Sie die passende Begleitung oder Einzelberatung.",
   "labels": {
     "best_for": "Geeignet für",
     "included": "Das ist enthalten"
@@ -14,83 +14,77 @@
     {
       "id": "consultation",
       "kind": "Einzeltermin",
-      "title": "Basis-Hormonsprechstunde",
+      "title": "Allgemeine Hormonsprechstunde",
       "price_note": "einmalig",
       "time": "60 Min. Arztzeit",
-      "best_for": "Eine erste Einschätzung durch Expertinnen und einen klaren nächsten Schritt.",
+      "best_for": "Alle, die eine hormonelle Perspektive auf ihre Beschwerden wünschen.",
       "included": [
         "60-minütige Videosprechstunde",
-        "Durchsicht Ihrer Beschwerden, Vorgeschichte und bisherigen Befunde",
-        "Auswertung Ihrer vorhandenen Laborwerte",
-        "Persönlicher Therapieplan und Empfehlung",
-        "Rezept, wenn medizinisch angezeigt"
+        "Ganzheitliche Anamnese mit Analyse bestehender Befunde",
+        "Checklisten zur Vorbereitung",
+        "Organisation der Blutentnahme"
       ],
       "cta": "Sprechstunde buchen"
     },
     {
-      "id": "premium",
-      "kind": "12-Wochen-Programm",
-      "title": "Premium-Hormonpaket",
-      "price_note": "12 Wochen",
-      "time": "60 Min. + 2 × 30 Min. Arztzeit",
-      "best_for": "Perimenopause, Menopause und komplexe hormonelle Ungleichgewichte.",
+      "id": "basic",
+      "kind": "3-Monats-Begleitung",
+      "title": "Basis-Begleitung",
+      "price_note": "einmalig",
+      "time": "60 + 30 Min. + 2 × 20 Min. Arztzeit",
+      "best_for": "Frauen, die unkompliziert mit einer bioidentischen Hormontherapie beginnen möchten und sich eine strukturierte ärztliche Begleitung wünschen.",
       "included": [
-        "60-minütiges ausführliches Erstgespräch",
-        "2 × 30-minütige Folgetermine zur Feinabstimmung Ihrer Therapie",
-        "Schriftlicher Therapieplan innerhalb von 48 Stunden",
-        "Persönliches Laborprofil zu Beginn und zur Verlaufskontrolle",
-        "Rezepte während des gesamten Programms",
-        "Sicherer Chat mit Ihren Ärztinnen"
+        "Ärztliche Erstanamnese (60 Minuten) mit ausführlicher Analyse Ihrer Beschwerden und Symptome sowie Auswertung vorhandener Laborwerte und Fremdbefunde",
+        "Individuelle Laborplanung, falls ergänzende Untersuchungen notwendig sind",
+        "Ärztliche Folgeanamnese (30 Minuten) zur Besprechung Ihrer Laborwerte und Erstellung Ihres individuellen Therapieplans",
+        "Organisation Ihrer ersten Hormonversorgung inklusive ärztlicher Verordnung",
+        "Zwei 20-minütige Video-Follow-ups innerhalb der ersten drei Monate"
       ],
-      "cta": "Premium wählen"
+      "cta": "Basis-Begleitung wählen"
     },
     {
-      "id": "metabolic-reset",
-      "kind": "12-Wochen-Programm",
-      "title": "Metabolic Reset",
-      "price_note": "12 Wochen",
-      "time": "60 Min. + 2 × 30 Min. Arztzeit",
-      "best_for": "Insulinresistenz, Prädiabetes und anhaltende Gewichtszunahme.",
+      "id": "intensive",
+      "kind": "3-Monats-Begleitung",
+      "title": "Intensiv-Begleitung",
+      "price_note": "einmalig",
+      "time": "60 + 2 × 30 Min. + 4 × 20 Min. Arztzeit",
+      "best_for": "Frauen mit komplexeren Beschwerden, die sich eine intensivere ärztliche Begleitung wünschen.",
       "included": [
-        "60-minütiges ausführliches Erstgespräch",
-        "2 × 30-minütige Folgetermine zur Verlaufskontrolle",
-        "Stoffwechsel-Laborprofil, festgelegt und ausgewertet",
-        "Persönlicher Ernährungs\u00adleitfaden auf Basis Ihrer Werte",
-        "Messung der Körper\u00adzusammen\u00adsetzung bei jedem Folgetermin",
-        "Optional: 14-tägige Glukose\u00admessung (CGM)",
-        "Medikamente, wenn medizinisch angezeigt",
-        "Sicherer Chat mit Ihren Ärztinnen"
+        "Alle Leistungen der Basis-Begleitung",
+        "Insgesamt vier 20-minütige Video-Follow-ups innerhalb der ersten drei Monate",
+        "Separates 30-minütiges Beratungsgespräch per Video zu Ernährung, Gewicht, Stoffwechsel, Darmgesundheit, Schlaf und Stress"
       ],
-      "cta": "Metabolic Reset wählen"
+      "cta": "Intensiv-Begleitung wählen"
     },
     {
-      "id": "chronic-disease",
-      "kind": "12-Wochen-Programm",
-      "title": "Paket Chronische Erkrankungen",
-      "price_note": "12 Wochen",
-      "time": "90 Min. + 2 × 30 Min. Arztzeit",
-      "best_for": "Langjährige Erkrankungen, die mehrere Organsysteme betreffen, und viele Medikamente.",
+      "id": "follow-up",
+      "kind": "Für Bestandspatientinnen",
+      "title": "Folgeanamnese",
+      "price_note": "einmalig",
+      "time": "ca. 30 Min. Arztzeit",
+      "best_for": "Patientinnen, die bereits in Therapie sind.",
       "included": [
-        "90-minütiges ausführliches Erstgespräch",
-        "Erweitertes Laborprofil über die Standardhormone hinaus",
-        "Überprüfung aller Medikamente und Nahrungsergänzungsmittel",
-        "2 Folgetermine zur Besprechung der Ergebnisse und Anpassung des Plans",
-        "Persönlicher schriftlicher Therapieplan",
-        "Sicherer Chat mit Ihren Ärztinnen"
+        "Besprechung aktueller Laborwerte",
+        "Anpassung des Therapieplans",
+        "Erste Rezeptierung und Bestellung der Hormone"
       ],
-      "cta": "Paket wählen"
+      "cta": "Folgetermin buchen"
     }
   ],
   "notes": {
     "title": "Gut zu wissen",
     "items": [
-      { "text": "Laborkosten rechnet Ihr Labor vor Ort direkt mit Ihnen ab." },
-      { "text": "Kosten für Medikamente und Nahrungsergänzungsmittel sind nicht enthalten." },
       {
-        "text": "Rezepte stellen wir aus, wenn sie medizinisch angezeigt und in Ihrem Land rechtlich zulässig sind."
+        "text": "Alle Preise verstehen sich ohne Laborleistungen. Blutentnahme und Analyse erfolgen separat, über Ihre Haus- oder Frauenarztpraxis oder ein von uns empfohlenes Labor."
       },
       {
-        "text": "Alle 12-Wochen-Programme enthalten einen sicheren Chat mit Ihren Ärztinnen – mit Antwort innerhalb von 48 Stunden an Werktagen."
+        "text": "Hormonpräparate sind nicht enthalten. Für Frauen in den Wechseljahren kosten sie erfahrungsgemäß etwa 1,00–1,50 € pro Tag."
+      },
+      {
+        "text": "Erstberatungen nach der Schwangerschaft, in der Perimenopause und zur Schilddrüse kosten ebenfalls 180 € für 60 Minuten. Bestandspatientinnen können eine kurze Videosprechstunde (ca. 20 Minuten) für 45 € buchen."
+      },
+      {
+        "text": "Die Basis- und die Intensiv-Begleitung enthalten keine laufende medizinische Beratung oder Therapieanpassung per E-Mail oder SMS. Medizinische Rückfragen werden in den enthaltenen Video-Follow-ups besprochen."
       }
     ]
   }

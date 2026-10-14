@@ -5,8 +5,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLegal, getSite, legalPageLang } from '../../lib/content';
 import type { LegalPage as Page } from '../../lib/schemas';
 
-// /{lang}/impressum, /{lang}/datenschutz and /{lang}/cookie-settings. The footer links all
-// three from every page (CLAUDE.md, privacy).
+// /{lang}/impressum, /{lang}/datenschutz, /{lang}/terms and /{lang}/remote-treatment-terms, all
+// linked from the footer on every page (CLAUDE.md, privacy).
 export function getStaticPaths() {
   return LOCALES.flatMap((lang) =>
     getLegal(lang).pages.map((page) => ({

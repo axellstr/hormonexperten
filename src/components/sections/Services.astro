@@ -17,37 +17,25 @@ interface Props {
 }
 
 const { lang, content, services } = Astro.props;
-const { title } = content;
-// The heading's three pieces fill in as one sequence.
-const wordCount = (text: string) => text.split(' ').filter(Boolean).length;
-const [prefixWords, emphasisWords] = [wordCount(title.prefix), wordCount(title.emphasis)];
-const titleWords = prefixWords + emphasisWords + wordCount(title.second_line);
 
 const arrow =
   'grid size-11 cursor-pointer place-items-center rounded-full bg-surface text-ink hover:bg-coral-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink aria-disabled:cursor-default aria-disabled:text-ink/30 aria-disabled:hover:bg-surface motion-safe:transition-colors';
 
-const cardWidth =
-  lang === 'ru'
-    ? 'w-4/5 sm:w-2/3 md:w-3/5 lg:w-1/2 xl:w-2/5 header-desktop:w-1/3'
-    : 'w-4/5 sm:w-1/2 lg:w-2/5 xl:w-1/3 header-desktop:w-1/4';
+// German, Greek and Russian service names run long ("Betreuung bei chronischen Erkrankungen"),
+// so their cards are wider and the titles stay on one line.
+const wide = lang !== 'en';
+const cardWidth = wide
+  ? 'w-4/5 sm:w-2/3 md:w-3/5 lg:w-1/2 xl:w-2/5 header-desktop:w-1/3'
+  : 'w-4/5 sm:w-1/2 lg:w-2/5 xl:w-1/3 header-desktop:w-1/4';
+const photoSizes = wide
+  ? '(min-width: 1440px) 450px, (min-width: 1280px) 31vw, (min-width: 1024px) 45vw, (min-width: 768px) 57vw, (min-width: 640px) 64vw, 80vw'
+  : '(min-width: 1440px) 330px, (min-width: 1024px) 23vw, (min-width: 768px) 45vw, 80vw';
 ---
 
 <Section id="services" aria-labelledby="services-title" class="pt-footer!">
   <div class="flex items-end justify-between gap-6">
     <h2 id="services-title" class="min-w-0 flex-1 reveal-text text-h2 text-ink">
-      <span class="block lg:inline">
-        <RevealText text={title.prefix} total={titleWords} />{' '}
-        <span>
-          <RevealText text={title.emphasis} start={prefixWords} total={titleWords} />
-        </span>
-      </span>{' '}
-      <span class="block lg:inline">
-        <RevealText
-          text={title.second_line}
-          start={prefixWords + emphasisWords}
-          total={titleWords}
-        />
-      </span>
+      <RevealText text={content.title} />
     </h2>
 
     <!-- Shown by service-rail.ts once the row overflows. Phones swipe instead. -->
@@ -82,19 +70,24 @@ const cardWidth =
             class="group flex h-full flex-col gap-4 rounded-card focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
           >
             <h3 class="text-h4 text-ink md:whitespace-nowrap">{service.title}</h3>
-            <div class="relative aspect-4/5 overflow-hidden rounded-card">
+            <!--
+              4:5 at least, taller when the summary needs it (phones, longer languages): `overflow-clip`
+              isn't a scroll container, so the aspect ratio still grows to fit its content. `grow`
+              keeps every card in the row as tall as the tallest.
+            -->
+            <div class="relative flex aspect-4/5 grow flex-col justify-end overflow-clip rounded-card">
               {service.image ? (
                 <Photo
                   src={getImage(service.image)}
                   alt={service.image_alt}
                   widths={[320, 480, 640]}
-                  sizes="(min-width: 1440px) 330px, (min-width: 1024px) 23vw, (min-width: 768px) 45vw, 80vw"
-                  class="size-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105"
+                  sizes={photoSizes}
+                  class="absolute inset-0 size-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105"
                 />
               ) : (
-                <Placeholder class="size-full" />
+                <Placeholder class="absolute inset-0" />
               )}
-              <div class="absolute inset-x-0 bottom-0 bg-linear-to-b from-transparent to-footer/70 px-6 pt-16 pb-6">
+              <div class="relative bg-linear-to-b from-transparent via-footer/60 via-30% to-footer/80 px-6 pt-16 pb-6">
                 <p class="text-base text-on-dark">{service.summary}</p>
               </div>
             </div>

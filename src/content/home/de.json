@@ -34,11 +34,7 @@
     ]
   },
   "services": {
-    "title": {
-      "prefix": "Hormongesundheit, ",
-      "emphasis": "abgestimmt",
-      "second_line": "auf Ihre persönlichen Bedürfnisse"
-    },
+    "title": "Unsere Leistungen",
     "previous": "Vorherige Leistung",
     "next": "Nächste Leistung"
   },

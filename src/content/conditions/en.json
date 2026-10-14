@@ -152,11 +152,7 @@
           "needs_check": true,
           "check_note": "No page for this yet. Link it to a service once one exists."
         },
-        {
-          "label": "Micronutrient Therapy",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        }
+        { "label": "Micronutrient medicine", "service": "micronutrient-medicine" }
       ]
     },
     {
@@ -205,12 +201,8 @@
           "needs_check": true,
           "check_note": "No page for this yet. Link it to a service once one exists."
         },
-        {
-          "label": "Gut Health Support",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        },
-        { "label": "Chronic Disease Package", "service": "chronic-disease" }
+        { "label": "Digestive & gut health", "service": "digestive-gut-health" },
+        { "label": "Chronic condition care", "service": "chronic-condition-care" }
       ]
     },
     {
@@ -232,12 +224,7 @@
       },
       "related": [
         { "label": "Insulin resistance", "condition": "insulin-resistance" },
-        {
-          "label": "Weight management",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        },
-        { "label": "Metabolic Reset", "service": "metabolic-reset" }
+        { "label": "Weight & metabolic health", "service": "weight-metabolic-health" }
       ]
     },
     {
@@ -255,12 +242,7 @@
       ],
       "approach": "We look beyond a single blood sugar value: insulin, metabolic markers, body composition and, if suitable, continuous glucose monitoring, so you can see how your body reacts to food, sleep and stress. Your plan combines nutrition, movement and muscle-building, sleep and, if medically appropriate, medication. Because insulin and sex hormones influence each other, we always look at your cycle and hormones too.",
       "related": [
-        { "label": "Metabolic Reset", "service": "metabolic-reset" },
-        {
-          "label": "Weight management",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        },
+        { "label": "Weight & metabolic health", "service": "weight-metabolic-health" },
         { "label": "PMOS (formerly PCOS)", "condition": "pmos-pcos" }
       ]
     },
@@ -325,17 +307,9 @@
       ],
       "approach": "We look at your symptoms systematically and see the whole picture: we review your current medication, look at your hormonal phase, your metabolism, inflammation, micronutrients and gut health, and build a plan that fits around your existing treatment.",
       "related": [
-        { "label": "Chronic Disease Package", "service": "chronic-disease" },
-        {
-          "label": "Micronutrient Therapy",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        },
-        {
-          "label": "Gut Health Support",
-          "needs_check": true,
-          "check_note": "No page for this service yet."
-        }
+        { "label": "Chronic condition care", "service": "chronic-condition-care" },
+        { "label": "Micronutrient medicine", "service": "micronutrient-medicine" },
+        { "label": "Digestive & gut health", "service": "digestive-gut-health" }
       ]
     }
   ]

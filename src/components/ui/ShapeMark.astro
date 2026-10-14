@@ -1,0 +1,37 @@
+---
+import Seal from '../../assets/icons/seal.svg';
+
+// Tells two options apart by outline alone, in the shapes How it Works already uses: a smooth
+// circle (its step tracker) and the scalloped seal (its step numbers), each a white face with a
+// hairline coral edge, so the mark still reads on the comparison panel's coral-tint ground.
+// Decorative: the option's name is always in the text.
+interface Props {
+  shape: 'circle' | 'seal';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const { shape, size = 'md', class: className } = Astro.props;
+// The seal's tips stop short of its box (it spans 21 of 24 units), so the circle is drawn a step
+// smaller to look the same size.
+const sizes = {
+  circle: { md: 'size-5', sm: 'size-3.5' },
+  seal: { md: 'size-5.5', sm: 'size-4' },
+}[shape][size];
+---
+
+{shape === 'circle' ? (
+  <span
+    class:list={[
+      'inline-block shrink-0 rounded-full border border-coral bg-bg',
+      sizes,
+      className,
+    ]}
+    aria-hidden="true"
+  />
+) : (
+  <Seal
+    class:list={['inline-block shrink-0 fill-bg stroke-coral stroke-1', sizes, className]}
+    aria-hidden="true"
+  />
+)}

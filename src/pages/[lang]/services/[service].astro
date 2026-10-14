@@ -4,6 +4,7 @@ import Faq from '../../../components/sections/Faq.astro';
 import HowItWorks from '../../../components/sections/HowItWorks.astro';
 import RelatedServices from '../../../components/sections/RelatedServices.astro';
 import ServiceAbout from '../../../components/sections/ServiceAbout.astro';
+import ServiceComparison from '../../../components/sections/ServiceComparison.astro';
 import ServiceHero from '../../../components/sections/ServiceHero.astro';
 import { LOCALES, type Locale } from '../../../config';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -79,6 +80,7 @@ const contentLang = bodyLang === lang ? undefined : bodyLang;
   />
   <div lang={contentLang}>
     <ServiceAbout about={page.about} focus={page.focus} />
+    {page.comparison && <ServiceComparison comparison={page.comparison} />}
   </div>
   <HowItWorks
     lang={lang}

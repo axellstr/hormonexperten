@@ -20,34 +20,34 @@
   },
   "services": [
     {
-      "id": "menopause",
-      "title": "Wechseljahre & Perimenopause",
-      "summary": "TODO: Kurzbeschreibung für Wechseljahre & Perimenopause"
-    },
-    {
       "id": "hormone-therapy",
       "title": "Hormontherapie",
-      "summary": "TODO: Kurzbeschreibung für Hormontherapie"
+      "summary": "Zugelassene Hormonpräparate in Standarddosierung, etwa als Gel, Pflaster oder Tablette, bei Perimenopause, Wechseljahren, Zyklusbeschwerden und Schilddrüsenerkrankungen. Eine gut erforschte Option, wenn Sie sie bevorzugen oder sie besser zu Ihrer Situation passt."
     },
     {
-      "id": "rimkus",
-      "title": "Hormontherapie nach Rimkus®",
-      "summary": "TODO: Kurzbeschreibung für Hormontherapie nach Rimkus®"
+      "id": "bioidentical-hormone-therapy",
+      "title": "Bioidentische Hormontherapie",
+      "summary": "Hormone, die Molekül für Molekül mit Ihren körpereigenen identisch sind, individuell von einer spezialisierten Apotheke hergestellt und nach Ihren Beschwerden und Blutwerten dosiert. Wir arbeiten nach eigenen Protokollen und auf Wunsch nach der Rimkus-Methode."
     },
     {
-      "id": "check-up",
-      "title": "Hormon-Check-up",
-      "summary": "TODO: Kurzbeschreibung für Hormon-Check-up"
+      "id": "weight-metabolic-health",
+      "title": "Gewicht & Stoffwechselgesundheit",
+      "summary": "Wir betrachten Blutzucker, Insulin, Körperzusammensetzung und Hormone gemeinsam und erstellen einen Plan für Ernährung, Bewegung und, wenn sinnvoll, zugelassene Medikamente zur Gewichtsreduktion unter ärztlicher Begleitung."
     },
     {
-      "id": "metabolic-reset",
-      "title": "Metabolic Reset",
-      "summary": "TODO: Kurzbeschreibung für Metabolic Reset"
+      "id": "micronutrient-medicine",
+      "title": "Mikronährstoffmedizin",
+      "summary": "Ein persönlicher Mikronährstoffplan auf Grundlage Ihrer Beschwerden, Ihrer Laborwerte und der Nahrungsergänzungsmittel, die Sie bereits einnehmen, damit Sie nur das nehmen, was Ihr Körper wirklich braucht."
     },
     {
-      "id": "chronic-disease",
-      "title": "Paket Chronische Erkrankungen",
-      "summary": "TODO: Kurzbeschreibung für Paket Chronische Erkrankungen"
+      "id": "digestive-gut-health",
+      "title": "Verdauung & Darmgesundheit",
+      "summary": "Blähungen, Verstopfung und Verdauungsbeschwerden, die sich mit Ihrem Zyklus oder Ihren Hormonen verändern, betrachtet als Teil Ihrer gesamten Behandlung, nicht isoliert."
+    },
+    {
+      "id": "chronic-condition-care",
+      "title": "Betreuung bei chronischen Erkrankungen",
+      "summary": "Für Frauen mit langjährigen oder Autoimmunerkrankungen: Wir betrachten Ihre gesamte Situation, einschließlich Ihrer aktuellen Medikamente, und erstellen einen Plan, der Hormone, Stoffwechsel und Entzündungen gemeinsam in den Blick nimmt, in Abstimmung mit Ihren Fachärztinnen und Fachärzten."
     }
   ],
   "footer": {
@@ -59,19 +59,18 @@
         "items": [
           {},
           {},
-          { "label": "Mo–Fr, 9:00–17:00 Uhr (MEZ)" },
+          { "label": "Mo–Sa, 9:00–17:00 Uhr (MEZ)" },
           { "label": "100 % online · Kein Wartezimmer" }
         ]
       },
       {
         "title": "Leistungen",
         "items": [
-          { "label": "Alle Leistungen" },
-          { "label": "Behandlungsschwerpunkte" },
           { "label": "Hormontherapie" },
-          { "label": "Metabolic Reset" },
-          { "label": "Rimkus-Methode®" },
-          { "label": "Paket Chronische Erkrankungen" }
+          { "label": "Bioidentische Hormontherapie" },
+          { "label": "Gewicht & Stoffwechselgesundheit" },
+          { "label": "Mikronährstoffmedizin" },
+          { "label": "Alle Leistungen" }
         ]
       },
       {
@@ -88,9 +87,9 @@
         "title": "Rechtliches",
         "items": [
           { "label": "Datenschutz" },
-          { "label": "Nutzungsbedingungen" },
-          { "label": "Impressum" },
-          { "label": "Cookie-Einstellungen" }
+          { "label": "AGB" },
+          { "label": "Nutzungsbedingungen Fernbehandlung" },
+          { "label": "Impressum" }
         ]
       }
     ],

@@ -51,7 +51,7 @@
           "answer": "“Bioidentical” (also called “body-identical”) means the hormone has exactly the same chemical structure as the hormone your body makes.\n\nFor almost all of our patients, we work with specialised compounding pharmacies. Which therapy you receive is always decided individually, based on your symptoms, your medical history, your personal risk factors and how well you tolerated previous treatments.",
           "link": {
             "label": "Conventional vs. bioidentical hormone therapy",
-            "href": "#TODO-conventional-vs-bioidentical-page"
+            "href": "/services/hormone-therapy#comparison-title"
           }
         },
         {
@@ -152,7 +152,10 @@
           "id": "weight-loss",
           "question": "Can I lose weight during treatment?",
           "answer": "Possible, yes. Guaranteed, no. Hormones are only one of several factors that affect weight and body composition.\n\nIf weight loss is one of your goals, we create an individual plan that takes hormonal and metabolic factors into account together.",
-          "link": { "label": "Weight management", "href": "#TODO-weight-management-page" }
+          "link": {
+            "label": "Weight & metabolic health",
+            "href": "/services/weight-metabolic-health"
+          }
         }
       ]
     },
@@ -258,17 +261,17 @@
         {
           "id": "video-consultation",
           "question": "How does a video consultation work?",
-          "answer": "TODO: approved answer"
+          "answer": "Easily and comfortably from home. Book a time that suits you in your patient portal, and at your appointment simply join the video consultation right there in the portal, on your phone, tablet or computer. No app needed. All you need is a stable internet connection and a quiet place where you can talk openly."
         },
         {
           "id": "blood-tests",
           "question": "Do I need blood tests before my first appointment?",
-          "answer": "TODO: approved answer"
+          "answer": "No. If you have recent results, you’re welcome to upload them to your patient portal beforehand. Which further tests make sense is decided together in your consultation, based on what we discuss. You then have your blood taken at a lab near you and pay the lab fees directly to the lab."
         },
         {
           "id": "outside-germany",
           "question": "Can I book from outside Germany?",
-          "answer": "TODO: approved answer"
+          "answer": "Yes, you can book from anywhere in the world. Consultations take place online, in English, German, Greek or Romanian. Please note that our prescriptions are valid within the EU."
         }
       ]
     },
@@ -279,13 +282,13 @@
         {
           "id": "insurance",
           "featured": true,
-          "question": "Is treatment covered by my health insurance?",
-          "answer": "Our services are private medical care. While state or public health insurance policies generally do not cover our consultations, we recommend checking with your provider, as individual policies may vary. For patients insured in Germany, a GOÄ-compliant invoice is available upon request."
+          "question": "Is my treatment covered by health insurance?",
+          "answer": "We are a private clinic, so whether your insurance covers the costs depends on your policy. As our practice operates from Cyprus, we don’t issue invoices according to the German fee schedule (GOÄ). You’ll receive a detailed invoice that you can submit to your insurer."
         },
         {
           "id": "cancel",
           "question": "What if I need to cancel or reschedule?",
-          "answer": "TODO: approved answer"
+          "answer": "No problem. You can cancel or reschedule free of charge up to 24 hours before your appointment, directly in your patient portal, by email or via WhatsApp at +357 94 309399. For cancellations less than 24 hours before your appointment, we charge a fee of €20."
         }
       ]
     }

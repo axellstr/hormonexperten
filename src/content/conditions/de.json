@@ -89,7 +89,7 @@
       ],
       "approach": "Zuerst dokumentieren wir Ihre Symptome über Ihren Zyklus hinweg, damit wir das Muster klar erkennen. Dann betrachten wir Ihre Hormone, Ihren Stoffwechsel und Ihre Mikronährstoffe und entscheiden gemeinsam, welche Möglichkeiten zu Ihnen passen, mit oder ohne Hormone. Bei starken seelischen Beschwerden empfehlen wir zusätzlich psychologische oder psychiatrische Unterstützung.",
       "safety": "Wenn Sie sehr niedergeschlagen sind oder Gedanken haben, sich selbst zu verletzen, suchen Sie bitte sofort Hilfe beim örtlichen Notruf oder bei einer Krisenhotline.",
-      "related": [{ "label": "Weibliche Hormone" }, { "label": "Mikronährstofftherapie" }]
+      "related": [{ "label": "Weibliche Hormone" }, { "label": "Mikronährstoffmedizin" }]
     },
     {
       "id": "amenorrhoea",
@@ -125,8 +125,8 @@
       "approach": "Wir arbeiten ergänzend zu Ihrer gynäkologischen Betreuung oder Ihrem Endometriosezentrum. Wir betrachten Ihre Hormone, Entzündungsprozesse, Ihren Stoffwechsel und Ihre Darmgesundheit und ergänzen unterstützende Maßnahmen wie Mikronährstoffe und Ernährung. Wenn Sie sich einen anderen Ansatz für die Ihnen vorgeschlagene Behandlung wünschen, nehmen wir uns die Zeit, Ihnen Ihre Möglichkeiten zu erklären.",
       "related": [
         { "label": "Weibliche Hormone" },
-        { "label": "Darmgesundheit" },
-        { "label": "Paket Chronische Erkrankungen" }
+        { "label": "Verdauung & Darmgesundheit" },
+        { "label": "Betreuung bei chronischen Erkrankungen" }
       ]
     },
     {
@@ -146,11 +146,7 @@
       "approach_more": {
         "text": "PMOS und seine Auswirkungen auf den Stoffwechsel stehen im Mittelpunkt der Forschung von Dr. Yvonne Tuszing."
       },
-      "related": [
-        { "label": "Insulinresistenz" },
-        { "label": "Gewichtsmanagement" },
-        { "label": "Metabolic Reset" }
-      ]
+      "related": [{ "label": "Insulinresistenz" }, { "label": "Gewicht & Stoffwechselgesundheit" }]
     },
     {
       "id": "insulin-resistance",
@@ -167,8 +163,7 @@
       ],
       "approach": "Wir schauen über einen einzelnen Blutzuckerwert hinaus: Insulin, Stoffwechselwerte, Körperzusammensetzung und, wenn geeignet, eine kontinuierliche Glukosemessung, damit Sie sehen, wie Ihr Körper auf Essen, Schlaf und Stress reagiert. Ihr Plan verbindet Ernährung, Bewegung und Muskelaufbau, Schlaf und, wenn medizinisch sinnvoll, Medikamente. Weil Insulin und Sexualhormone sich gegenseitig beeinflussen, betrachten wir immer auch Ihren Zyklus und Ihre Hormone.",
       "related": [
-        { "label": "Metabolic Reset" },
-        { "label": "Gewichtsmanagement" },
+        { "label": "Gewicht & Stoffwechselgesundheit" },
         { "label": "PMOS (früher PCOS)" }
       ]
     },
@@ -229,9 +224,9 @@
       ],
       "approach": "Wir betrachten Ihre Symptome systematisch und sehen das ganze Bild: Wir prüfen Ihre aktuellen Medikamente, schauen auf Ihre hormonelle Lebensphase, Ihren Stoffwechsel, Entzündungsprozesse, Mikronährstoffe und Ihre Darmgesundheit und erstellen einen Plan, der sich in Ihre bestehende Behandlung einfügt.",
       "related": [
-        { "label": "Paket Chronische Erkrankungen" },
-        { "label": "Mikronährstofftherapie" },
-        { "label": "Darmgesundheit" }
+        { "label": "Betreuung bei chronischen Erkrankungen" },
+        { "label": "Mikronährstoffmedizin" },
+        { "label": "Verdauung & Darmgesundheit" }
       ]
     }
   ]

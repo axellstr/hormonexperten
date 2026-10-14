@@ -1,6 +1,5 @@
 ---
 import ArrowEnd from '../../assets/icons/arrow-end.svg';
-import Building from '../../assets/icons/building.svg';
 import Clock from '../../assets/icons/clock.svg';
 import ShieldCheck from '../../assets/icons/shield-check.svg';
 import type { Locale } from '../../config';
@@ -15,7 +14,7 @@ interface Props {
 }
 
 const { lang, details } = Astro.props;
-const { hours, practice, privacy } = details;
+const { hours, privacy } = details;
 const rows = visible(hours.rows);
 
 const card = 'flex flex-col rounded-card bg-surface p-6 md:p-8 xl:p-10';
@@ -31,8 +30,9 @@ const arrow =
     {details.title}
   </h2>
 
-  <!-- Three cards from lg; on tablets the third spans the row below the first two. -->
-  <div class="mt-intro grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+  <!-- Two cards side by side from tablets. The practice address is only in the Impressum and the
+       Privacy Policy, at the practice's request (14 Oct 2026). -->
+  <div class="mt-intro grid gap-4 md:grid-cols-2 lg:gap-6">
     <section aria-labelledby="hours-title" class={card}>
       <span class={icon}>
         <Clock class="size-6" aria-hidden="true" />
@@ -51,28 +51,7 @@ const arrow =
       {hours.note && <p class="mt-auto pt-6 text-sm text-ink/70">{hours.note}</p>}
     </section>
 
-    <section aria-labelledby="practice-title" class={card}>
-      <span class={icon}>
-        <Building class="size-6" aria-hidden="true" />
-      </span>
-      <h3 id="practice-title" class="mt-6 text-h4 text-ink">
-        {practice.title}
-      </h3>
-      <address class="mt-label text-body text-ink/80 not-italic">
-        {practice.lines.map((line, index) => (
-          <>
-            {index > 0 && <br />}
-            {line}
-          </>
-        ))}
-      </address>
-      <a href={localizeHref(practice.link.href, lang)} class={more}>
-        {practice.link.label}
-        <ArrowEnd class={arrow} aria-hidden="true" />
-      </a>
-    </section>
-
-    <section aria-labelledby="privacy-title" class:list={[card, 'md:col-span-2 lg:col-span-1']}>
+    <section aria-labelledby="privacy-title" class={card}>
       <span class={icon}>
         <ShieldCheck class="size-6" aria-hidden="true" />
       </span>

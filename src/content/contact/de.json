@@ -19,7 +19,7 @@
       {
         "id": "phone",
         "label": "Telefon",
-        "detail": "Mo–Fr, 9:00–17:00 Uhr (MEZ)"
+        "detail": "Mo–Sa, 9:00–17:00 Uhr (MEZ)"
       }
     ],
     "social": "Folgen Sie uns"
@@ -45,18 +45,11 @@
       "title": "Praxiszeiten",
       "rows": [
         {
-          "days": "Montag–Freitag",
+          "days": "Montag–Samstag",
           "time": "9:00–17:00 Uhr"
-        },
-        {
-          "days": "Samstag und Sonntag",
-          "time": "Geschlossen"
         }
       ],
       "note": "Mitteleuropäische Zeit (MEZ)"
-    },
-    "practice": {
-      "title": "Praxis"
     },
     "privacy": {
       "title": "Ihre Daten",

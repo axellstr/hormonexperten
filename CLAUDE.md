@@ -120,7 +120,7 @@ Before calling a page done, check it at 360px in Russian and German (longest wor
 
 1. **Header:** logo (mark + HORMONEXPERTEN wordmark, no "Dr. Wilden" line), nav (About Us, Services ▾, Our Team, Contact), language switcher (globe + code), "Book Now" button. Sticky on scroll, mobile menu below 1024px.
 2. **Hero:** warm panel. Trust line, H1, subline, primary CTA, three small icon features, image carousel on the right.
-3. **Services:** H2 and four image cards (Menopause & Perimenopause, Hormone Therapy, Hormone Therapy by Rimkus®, Hormone Check-Up) with title and short text over a gradient at the bottom. Each card links to its service page.
+3. **Services:** H2 (“Our services”) and a row of image cards with title and short text over a gradient at the bottom, one per entry in `site.services`. Each card links to its service page. The six services (14 Oct 2026, Services: Short Summaries doc) are Hormone therapy, Bioidentical hormone therapy, Weight & metabolic health, Micronutrient medicine, Digestive & gut health and Chronic condition care. Menopause and the Hormone Check-Up are no longer services; menopause is covered by Conditions.
 4. **Trust logos:** heading and logo marquee. If it animates, it must respect `prefers-reduced-motion` and pause on hover.
 5. **Our Approach:** warm panel, image left, eyebrow, H2, paragraph, secondary CTA.
 6. **How it Works:** eyebrow, H2, intro, three numbered steps alternating text/image in a warm panel, then an "Important information" note.
@@ -128,7 +128,7 @@ Before calling a page done, check it at 360px in Russian and German (longest wor
 8. **Testimonials:** two rows of review cards (stars, quote title, text, name/age/condition, source).
 9. **FAQ:** accordion on the left (5–6 questions), "Still have questions?" contact card on the right, stacking on mobile. Use `<details>`/`<summary>`, which needs no JavaScript.
 10. **Closing CTA:** warm panel with line-art illustration, H2, subline, CTA.
-11. **Footer:** dark (`bg-footer`) panel inside the content width with rounded top corners (`rounded-t-panel`), like the other panels; no wave edge (14 Oct 2026). Logo, blurb (`text-body`) and social icons, then the Contact, Services, Company and Legal columns from `site.footer` in `src/content/site/`, then copyright and payment method icons. From 1440px the logo block sits beside the columns; below that it sits on top, with the columns four across from `lg`, 2×2 from phones up, and Contact full width on phones. Links to pages that don't exist yet carry `needs_check`.
+11. **Footer:** dark (`bg-footer`) panel inside the content width with rounded top corners (`rounded-t-panel`), like the other panels; no wave edge (14 Oct 2026). Logo, blurb (`text-body`) and social icons, then the Contact, Services (the first four services, then “All services”; 14 Oct 2026), Company and Legal columns from `site.footer` in `src/content/site/`, then copyright and payment method icons. From 1440px the logo block sits beside the columns; below that it sits on top, with the columns four across from `lg`, 2×2 from phones up, and Contact full width on phones. Links to pages that don't exist yet carry `needs_check`.
 
 Build each section as its own component in `src/components/sections/`, with shared primitives (`Container`, `Section`, `Button`, `Eyebrow`, `Panel`, `Card`, `Accordion`) in `src/components/ui/`.
 
@@ -152,11 +152,11 @@ Build each section as its own component in `src/components/sections/`, with shar
 ## Content rules (these are hard rules)
 
 - **Never call Dr. Wilden an endocrinologist** anywhere: copy, alt text, meta, schema.org or comments. Her title is "Specialist in General Medicine with a focus on bioidentical hormone therapy".
-- **Russian is a website translation only.** Never state or imply that consultations, care or support are offered in Russian (or any language list) until the practice confirms consultation languages.
+- **Russian is a website translation only.** Never state or imply that consultations, care or support are offered in Russian. The practice confirmed the consultation languages on 14 Oct 2026 (booking FAQ): English, German, Greek and Romanian. Don't list any others.
 - **No placeholder or borrowed copy in production.** The mockup's "Our Approach" text describes a different clinic and doctor and must be replaced. Lorem ipsum, "Title" and grey placeholders must fail the build (add a check).
 - **Claims must be verifiable.** "35+ years of experience", "5,000+ patients treated", star ratings, testimonials and partner logos only go live once the practice confirms them with a source. Testimonials must be real and attributed to their platform (e.g. Jameda). German medical advertising law (HWG) applies, so no promises of results.
-- **Rimkus®:** use the name and the ® mark only once the practice confirms the certification is current.
-- **Payment icons:** show only the methods the booking system actually accepts.
+- **Rimkus®:** the practice’s approved copy (14 Oct 2026) says bioidentical therapy is offered “on request, with the Rimkus method”, so the name may appear in that form. Keep the ® mark and any separate Rimkus page or certification claim off until the practice confirms the certification is current.
+- **Payment icons:** show only the methods the booking system actually accepts. On 14 Oct 2026 the user confirmed Visa, Mastercard, Diners Club, SEPA and Klarna; AGB § 4.3 names the same.
 - **Second doctor (Dr. Yvonne Tuszing):** credentials are unconfirmed. Keep her card behind a content flag until they are.
 - Brand name is written **Hormonexperten** in running text (not "Hormon Experten"). Use British English spelling in the English master (personalised, specialised, gynaecologist), as in the FAQ.
 - FAQ answers come from `src/content/faq/{lang}.json`. Items with `needs_check: true` are not rendered.
@@ -164,8 +164,9 @@ Build each section as its own component in `src/components/sections/`, with shar
 ## Privacy and third parties
 
 - No third-party scripts, iframes, fonts or embeds that load before consent. That includes YouTube, maps, review widgets and the Pabau widget script; use plain links instead.
-- Analytics is self-hosted Matomo in cookieless mode. Nothing else.
-- Every page links Impressum, Datenschutz and Cookie Settings in the footer. Legal pages exist in German at minimum.
+- Analytics is Vercel Web Analytics (cookieless, first-party script, 14 Oct 2026), loaded only in Vercel builds and only once a prerendered page is shown. Nothing else; enable it in the Vercel project settings.
+- The practice address is the doctors’ home: it appears only in the Impressum and the Privacy Policy (practice’s request, 14 Oct 2026). Never on the contact page, footer, schema.org or meta.
+- Every page links Impressum and Datenschutz in the footer. Legal pages exist in German at minimum. There is no cookie banner or Cookie Settings page, because the site sets no cookies (14 Oct 2026). Anything that would need consent brings both back first.
 - Old site URLs are kept in `src/redirects` and must 301 to their new pages.
 
 ## Working agreements
@@ -179,5 +180,5 @@ Build each section as its own component in `src/components/sections/`, with shar
 
 - Final booking URL (Pabau) and whether "Book Now" goes straight to booking or to a pricing page first.
 - Which trust logos and testimonials are real and approved.
-- Services list: "Metabolic Reset" and "Chronic Disease Package" were confirmed as services on 12 Oct 2026 (Conditions We Treat v2 doc); their page copy is still missing. "Premium Hormone Package", "Female hormones", "Thyroid therapy", "Micronutrient Therapy", "Gut Health Support" and "Weight management" are linked from condition pages but have no page yet.
-- Pricing (/{lang}/pricing, 13 Oct 2026): packages and prices come from the Figma pricing frame and contradict the live /kosten page (programme names, €490 vs 499 €, secure chat included vs “no ongoing advice by e-mail”). The page and its footer link stay behind `needs_check` until the practice confirms; open points are in `check_notes` in `src/content/pricing/en.json`.
+- Services: the six service pages (14 Oct 2026) have card summaries but no page copy yet (intro, about, meta). On condition pages, "Premium Hormone Package", "Female hormones" and "Thyroid therapy" still have no page to link to.
+- Pricing (/{lang}/pricing): live since 14 Oct 2026 with the packages and prices of the old hormonexperten.de/kosten page (user’s call), replacing the Figma pricing frame. AGB § 3 still lists the older Starter/Comfort/Premium packages and must be aligned before the AGB are approved.

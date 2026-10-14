@@ -9,7 +9,8 @@
  *     panel opens from whichever look it was last styled in. Without it at rest, that was the
  *     open look, and the first opening (in Safari every one) appeared at once
  *   - [data-menu-hover] menus also open on mouse hover after a short rest, and close a moment after
- *     the pointer leaves, unless it is on its way to the panel
+ *     the pointer leaves, unless it is on its way to the panel. A click on the trigger follows its
+ *     overview link instead of toggling (the mega menu is hover-only)
  *   - close on an outside click, a link click, Escape, or focus leaving them
  *   - the [data-menu-sheet] menu (mobile) is a full-screen sheet behind the header pill: it grows
  *     out of the pill and back into it, and the page behind it is inert while it's open
@@ -152,6 +153,19 @@ for (const menu of menus) {
 
   summary.addEventListener('click', (event) => {
     event.preventDefault();
+
+    // Desktop services: click follows the overview link; the mega menu is hover-only.
+    if (menu.hasAttribute('data-menu-hover')) {
+      const link = summary.querySelector(':scope > a[href]');
+      if (!(link instanceof HTMLAnchorElement)) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey) {
+        window.open(link.href, '_blank', 'noopener,noreferrer');
+      } else {
+        window.location.assign(link.href);
+      }
+      return;
+    }
+
     if (!isShown(menu)) {
       show(menu);
       menu.dataset.via = 'click';

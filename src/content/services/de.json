@@ -11,39 +11,39 @@
   "others_title": "Weitere Leistungen",
   "pages": [
     {
-      "id": "menopause",
-      "meta": {
-        "title": "Wechseljahre & Perimenopause | Hormonexperten"
-      }
-    },
-    {
       "id": "hormone-therapy",
       "meta": {
         "title": "Hormontherapie | Hormonexperten"
       }
     },
     {
-      "id": "rimkus",
+      "id": "bioidentical-hormone-therapy",
       "meta": {
-        "title": "Hormontherapie nach Rimkus® | Hormonexperten"
+        "title": "Bioidentische Hormontherapie | Hormonexperten"
       }
     },
     {
-      "id": "check-up",
+      "id": "weight-metabolic-health",
       "meta": {
-        "title": "Hormon-Check-up | Hormonexperten"
+        "title": "Gewicht & Stoffwechselgesundheit | Hormonexperten"
       }
     },
     {
-      "id": "metabolic-reset",
+      "id": "micronutrient-medicine",
       "meta": {
-        "title": "Metabolic Reset | Hormonexperten"
+        "title": "Mikronährstoffmedizin | Hormonexperten"
       }
     },
     {
-      "id": "chronic-disease",
+      "id": "digestive-gut-health",
       "meta": {
-        "title": "Paket Chronische Erkrankungen | Hormonexperten"
+        "title": "Verdauung & Darmgesundheit | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-condition-care",
+      "meta": {
+        "title": "Betreuung bei chronischen Erkrankungen | Hormonexperten"
       }
     }
   ]

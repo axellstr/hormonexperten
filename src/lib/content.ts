@@ -57,7 +57,12 @@ function merge(base: unknown, override: unknown, path = ''): unknown {
   if (isObject(base) && isObject(override)) {
     const merged: Json = { ...base };
     for (const [key, value] of Object.entries(override)) {
-      merged[key] = merge(base[key], value, path ? `${path}.${key}` : key);
+      // A translated legal section is its own text: its blocks don't line up with the English
+      // ones (a list there may be lines here), so it replaces the English body whole.
+      merged[key] =
+        path.startsWith('legal/') && key === 'body'
+          ? value
+          : merge(base[key], value, path ? `${path}.${key}` : key);
     }
     return merged;
   }
@@ -94,8 +99,10 @@ function typeset(text: string, lang: Locale): string {
     .replace(/(\blit\.\u00a0\p{L}) (?=\p{Lu}{2,})/gu, `$1${NBSP}`)
     // "z. B.", "d. h.", "т. е.": abbreviation pairs are one unit, set with a narrow space.
     .replace(/(^|[\s(])(\p{L})\. (\p{L})\./gu, `$1$2.${NARROW_NBSP}$3.`)
-    // "48 hours", "35+ years", "17:00 Uhr": a number stays with the word it counts.
-    .replace(/(\d[+%]?) (?=\p{L})/gu, `$1${NBSP}`)
+    // "48 hours", "35+ years", "17:00 Uhr", "20 €": a number stays with the word or currency it counts.
+    .replace(/(\d[+%]?) (?=[\p{L}€])/gu, `$1${NBSP}`)
+    // "+357 94 309399": a phone number never breaks across lines.
+    .replace(/\+\d[\d ]*\d/g, (phone) => phone.replaceAll(' ', NBSP))
     // A numeric range stays whole: "9:00–17:00", "1997–2000".
     .replace(/(\d)–(?=\d)/g, '$1–\u2060')
     // A spaced dash never starts a line: "Wilden – mit", "Вильден — с".
@@ -120,8 +127,14 @@ function load<S extends z.ZodType>(collection: string, schema: S, lang: Locale):
   const english = files[`../content/${collection}/en.json`];
   if (!english) throw new Error(`Missing src/content/${collection}/en.json`);
   const translated = files[`../content/${collection}/${lang}.json`] ?? {};
-  const merged = merge(english, translated, `${collection}/${lang}`);
-  const result = schema.safeParse(typesetAll(merged, lang));
+  // Each side is set by its own language's rules, so English that fills a gap in a translation
+  // doesn't get Russian non-breaking spaces ("on EU prescription" as one unbreakable run).
+  const merged = merge(
+    typesetAll(english, 'en'),
+    typesetAll(translated, lang),
+    `${collection}/${lang}`,
+  );
+  const result = schema.safeParse(merged);
   if (!result.success) {
     throw new Error(
       `Invalid content in src/content/${collection}/${lang}.json:\n${z.prettifyError(result.error)}`,

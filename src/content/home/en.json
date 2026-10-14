@@ -40,11 +40,7 @@
     ]
   },
   "services": {
-    "title": {
-      "prefix": "Hormone Health ",
-      "emphasis": "tailored,",
-      "second_line": "to your personal needs."
-    },
+    "title": "Our services",
     "previous": "Previous service",
     "next": "Next service"
   },

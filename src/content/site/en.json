@@ -23,8 +23,7 @@
       },
       {
         "label": "Pricing",
-        "href": "/pricing",
-        "needs_check": true
+        "href": "/pricing"
       },
       {
         "label": "Contact",
@@ -40,46 +39,45 @@
   },
   "services": [
     {
-      "id": "menopause",
-      "title": "Menopause & Perimenopause",
-      "summary": "TODO: short summary for Menopause & Perimenopause",
-      "image": "service-menopause.jpg",
-      "image_alt": ""
-    },
-    {
       "id": "hormone-therapy",
-      "title": "Hormone Therapy",
-      "summary": "TODO: short summary for Hormone Therapy",
+      "title": "Hormone therapy",
+      "summary": "Approved hormone preparations in standard doses, such as gels, patches or tablets, for perimenopause, menopause, cycle problems and thyroid disorders. A well-studied option when you prefer it or when it suits your situation better.",
       "image": "service-hormone-therapy.jpg",
       "image_alt": ""
     },
     {
-      "id": "rimkus",
-      "title": "Hormone Therapy by Rimkus®",
-      "summary": "TODO: short summary for Hormone Therapy by Rimkus®",
-      "image": "service-rimkus.png",
-      "image_alt": "",
-      "needs_check": true
-    },
-    {
-      "id": "check-up",
-      "title": "Hormone Check-Up",
-      "summary": "TODO: short summary for Hormone Check-Up",
-      "image": "service-check-up.jpg",
+      "id": "bioidentical-hormone-therapy",
+      "title": "Bioidentical hormone therapy",
+      "summary": "Hormones molecule for molecule identical to your body’s own, individually prepared by a specialised compounding pharmacy and dosed according to your symptoms and blood values. We work with our own protocols and, on request, with the Rimkus method.",
+      "image": "service-bioidentical-hormone-therapy.png",
       "image_alt": ""
     },
     {
-      "id": "metabolic-reset",
-      "title": "Metabolic Reset",
-      "summary": "TODO: short summary for Metabolic Reset",
-      "image": "service-metabolic-reset.jpg",
+      "id": "weight-metabolic-health",
+      "title": "Weight & metabolic health",
+      "summary": "We look at blood sugar, insulin, body composition and hormones together, and build a plan for nutrition, movement and, if appropriate, approved weight-loss medication under medical supervision.",
+      "image": "service-weight-metabolic-health.jpg",
       "image_alt": ""
     },
     {
-      "id": "chronic-disease",
-      "title": "Chronic Disease Package",
-      "summary": "TODO: short summary for Chronic Disease Package",
-      "image": "service-chronic-disease.jpg",
+      "id": "micronutrient-medicine",
+      "title": "Micronutrient medicine",
+      "summary": "A personal micronutrient plan based on your symptoms, your lab results and the supplements you already take, so you only take what your body really needs.",
+      "image": "service-micronutrient-medicine.jpg",
+      "image_alt": ""
+    },
+    {
+      "id": "digestive-gut-health",
+      "title": "Digestive & gut health",
+      "summary": "Bloating, constipation and digestive problems that change with your cycle or hormones, looked at as part of your whole treatment, not in isolation.",
+      "image": "service-digestive-gut-health.jpg",
+      "image_alt": ""
+    },
+    {
+      "id": "chronic-condition-care",
+      "title": "Chronic condition care",
+      "summary": "For women living with long-standing or autoimmune conditions: we review your whole situation, including your current medication, and build a plan that looks at hormones, metabolism and inflammation together, alongside your specialists.",
+      "image": "service-chronic-condition-care.jpg",
       "image_alt": ""
     }
   ],
@@ -90,8 +88,7 @@
       {
         "name": "LinkedIn",
         "icon": "linkedin",
-        "href": "TODO",
-        "needs_check": true
+        "href": "https://www.linkedin.com/in/dr-isabella-wilden"
       },
       {
         "name": "Instagram",
@@ -99,22 +96,9 @@
         "href": "https://www.instagram.com/hormonexperten.de"
       },
       {
-        "name": "WhatsApp",
-        "icon": "whatsapp",
-        "href": "TODO",
-        "needs_check": true
-      },
-      {
-        "name": "Facebook",
-        "icon": "facebook",
-        "href": "TODO",
-        "needs_check": true
-      },
-      {
         "name": "Jameda",
         "icon": "jameda",
-        "href": "TODO",
-        "needs_check": true
+        "href": "https://www.jameda.de/profil/isabella-wilden"
       }
     ],
     "columns": [
@@ -127,11 +111,10 @@
           },
           {
             "label": "+49 1512 2682 778",
-            "href": "tel:+4915122682778",
-            "needs_check": true
+            "href": "tel:+4915122682778"
           },
           {
-            "label": "Mon–Fri, 9:00–17:00 (CET)"
+            "label": "Mon–Sat, 9:00–17:00 (CET)"
           },
           {
             "label": "100% online · No waiting room"
@@ -142,29 +125,24 @@
         "title": "Services",
         "items": [
           {
-            "label": "All services",
-            "href": "/services"
-          },
-          {
-            "label": "Conditions we treat",
-            "href": "/conditions"
-          },
-          {
-            "label": "Hormone Therapy",
+            "label": "Hormone therapy",
             "href": "/services/hormone-therapy"
           },
           {
-            "label": "Metabolic Reset",
-            "href": "/services/metabolic-reset"
+            "label": "Bioidentical hormone therapy",
+            "href": "/services/bioidentical-hormone-therapy"
           },
           {
-            "label": "Rimkus-Method®",
-            "href": "/services/rimkus",
-            "needs_check": true
+            "label": "Weight & metabolic health",
+            "href": "/services/weight-metabolic-health"
           },
           {
-            "label": "Chronic Disease Package",
-            "href": "/services/chronic-disease"
+            "label": "Micronutrient medicine",
+            "href": "/services/micronutrient-medicine"
+          },
+          {
+            "label": "All services",
+            "href": "/services"
           }
         ]
       },
@@ -189,8 +167,7 @@
           },
           {
             "label": "Pricing",
-            "href": "/pricing",
-            "needs_check": true
+            "href": "/pricing"
           }
         ]
       },
@@ -202,17 +179,16 @@
             "href": "/datenschutz"
           },
           {
-            "label": "Terms of Service",
-            "href": "/terms",
-            "needs_check": true
+            "label": "Terms and Conditions",
+            "href": "/terms"
+          },
+          {
+            "label": "Remote Treatment Terms",
+            "href": "/remote-treatment-terms"
           },
           {
             "label": "Impressum",
             "href": "/impressum"
-          },
-          {
-            "label": "Cookie Settings",
-            "href": "/cookie-settings"
           }
         ]
       }
@@ -221,28 +197,23 @@
     "payments": [
       {
         "name": "Visa",
-        "logo": "visa",
-        "needs_check": true
+        "logo": "visa"
       },
       {
         "name": "Diners Club",
-        "logo": "diners",
-        "needs_check": true
+        "logo": "diners"
       },
       {
         "name": "SEPA",
-        "logo": "sepa",
-        "needs_check": true
+        "logo": "sepa"
       },
       {
         "name": "Klarna",
-        "logo": "klarna",
-        "needs_check": true
+        "logo": "klarna"
       },
       {
         "name": "Mastercard",
-        "logo": "mastercard",
-        "needs_check": true
+        "logo": "mastercard"
       }
     ],
     "copyright": "© {year} Hormonexperten. All rights reserved."

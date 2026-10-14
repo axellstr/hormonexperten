@@ -11,39 +11,39 @@
   "others_title": "Другие услуги",
   "pages": [
     {
-      "id": "menopause",
-      "meta": {
-        "title": "Менопауза и перименопауза | Hormonexperten"
-      }
-    },
-    {
       "id": "hormone-therapy",
       "meta": {
         "title": "Гормональная терапия | Hormonexperten"
       }
     },
     {
-      "id": "rimkus",
+      "id": "bioidentical-hormone-therapy",
       "meta": {
-        "title": "Гормональная терапия по методу Rimkus® | Hormonexperten"
+        "title": "Биоидентичная гормональная терапия | Hormonexperten"
       }
     },
     {
-      "id": "check-up",
+      "id": "weight-metabolic-health",
       "meta": {
-        "title": "Гормональное обследование | Hormonexperten"
+        "title": "Вес и метаболическое здоровье | Hormonexperten"
       }
     },
     {
-      "id": "metabolic-reset",
+      "id": "micronutrient-medicine",
       "meta": {
-        "title": "Metabolic Reset | Hormonexperten"
+        "title": "Микронутриентная медицина | Hormonexperten"
       }
     },
     {
-      "id": "chronic-disease",
+      "id": "digestive-gut-health",
       "meta": {
-        "title": "Пакет «Хронические заболевания» | Hormonexperten"
+        "title": "Пищеварение и здоровье кишечника | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-condition-care",
+      "meta": {
+        "title": "Помощь при хронических заболеваниях | Hormonexperten"
       }
     }
   ]

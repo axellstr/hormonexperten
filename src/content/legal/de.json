@@ -10,21 +10,23 @@
         "description": "Impressum von Hormonexperten: Anbieter, Kontakt und berufsrechtliche Angaben."
       },
       "title": "Impressum",
-      "updated": "2026-10-09",
+      "updated": "2026-10-14",
       "sections": [
         {
           "id": "anbieter",
-          "title": "Angaben gemäß § 5 DDG",
+          "title": "Anbieter",
           "body": [
             {
+              "lines": ["Endoone Limited", "Lerou 5", "7080 Pyla", "Zypern"]
+            },
+            "Vertreten durch: TODO: Name(n) der Director(s) der Endoone Limited",
+            {
               "lines": [
-                "TODO: Name der Praxis bzw. des Unternehmens mit Rechtsform",
-                "TODO: Name und Titel der Inhaberin bzw. der vertretungsberechtigten Person",
-                "TODO: Straße und Hausnummer",
-                "TODO: Postleitzahl und Ort",
-                "TODO: Staat"
+                "Eingetragen beim Department of Registrar of Companies and Intellectual Property, Nikosia, Zypern",
+                "Registernummer: TODO: HE …"
               ]
-            }
+            },
+            "Umsatzsteuer-Identifikationsnummer: CY60026970H"
           ]
         },
         {
@@ -34,10 +36,19 @@
             {
               "lines": [
                 [
-                  "E-Mail: ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                  "Telefon: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
                 ],
-                "Telefon: TODO: bestätigte Telefonnummer"
+                [
+                  "E-Mail: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ]
               ]
             }
           ]
@@ -46,53 +57,61 @@
           "id": "berufsrecht",
           "title": "Berufsrechtliche Angaben",
           "body": [
+            "Die ärztlichen Leistungen erbringt Dr. Isabella Wilden.",
             {
-              "lines": [
-                "Gesetzliche Berufsbezeichnung: TODO: z. B. Ärztin bzw. Fachärztin für Allgemeinmedizin",
-                "Verliehen in: TODO: Staat der Approbation bzw. Facharztanerkennung",
-                "Zuständige Ärztekammer: TODO: Name und Anschrift"
+              "list": [
+                "Gesetzliche Berufsbezeichnung: Ärztin, Fachärztin für Allgemeinmedizin",
+                "Verliehen in: Bundesrepublik Deutschland (Bayern)",
+                "Akademischer Grad: TODO: genaue zulässige Form des Grades bestätigen (bisher angegeben: „Doctor medic, IMF Bukarest“)",
+                "Zuständige Ärztekammer: TODO: bestätigen, z. B. Bayerische Landesärztekammer, Mühlbaurstraße 16, 81677 München, www.blaek.de, und ggf. Cyprus Medical Council",
+                "Berufsrechtliche Regelungen: TODO: bestätigen, z. B. Berufsordnung für die Ärzte Bayerns und Heilberufe-Kammergesetz (HKaG), abrufbar unter www.blaek.de"
               ]
             },
-            "Es gelten folgende berufsrechtliche Regelungen: TODO: Berufsordnung der zuständigen Ärztekammer und Heilberufe-Kammergesetz des Landes, jeweils mit Link."
-          ]
-        },
-        {
-          "id": "register",
-          "title": "Register und Umsatzsteuer",
-          "body": [
-            {
-              "lines": [
-                "Registergericht und Registernummer: TODO: nur bei einer Gesellschaft, sonst Zeile entfernen",
-                "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: TODO: falls vorhanden, sonst Zeile entfernen"
-              ]
-            }
+            "TODO: berufsrechtliche Angaben für Dr. Yvonne Tuszing ergänzen, da sie auf der Website als Ärztin des Teams erscheint, oder bestätigen, dass sie keine Patientinnen behandelt."
           ]
         },
         {
           "id": "versicherung",
           "title": "Berufshaftpflichtversicherung",
-          "body": [
-            {
-              "lines": ["Versicherer: TODO: Name und Anschrift", "Räumlicher Geltungsbereich: TODO"]
-            }
-          ]
+          "body": ["TODO: Name und Anschrift der Versicherung, räumlicher Geltungsbereich"]
         },
         {
           "id": "verantwortlich",
-          "title": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
-          "body": [{ "lines": ["TODO: Name", "TODO: Anschrift (wie oben, falls identisch)"] }]
+          "title": "Verantwortlich für journalistisch-redaktionelle Inhalte",
+          "body": [
+            {
+              "lines": [
+                "Dr. Isabella Wilden",
+                "Lerou 5",
+                "7080 Pyla",
+                "Zypern",
+                [
+                  "E-Mail: ",
+                  {
+                    "label": "wilden@hormonexperten.de",
+                    "href": "mailto:wilden@hormonexperten.de"
+                  }
+                ]
+              ]
+            }
+          ]
         },
         {
           "id": "streitbeilegung",
           "title": "Verbraucherstreitbeilegung",
           "body": [
-            "TODO: Erklärung nach § 36 VSBG, ob die Praxis an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilnimmt (Pflicht ab mehr als zehn Beschäftigten), oder Abschnitt entfernen."
+            "TODO: eine Fassung wählen, passend zu § 11.4 der AGB. Entweder „Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.“ oder die zuständige Schlichtungsstelle nennen."
           ]
         },
         {
           "id": "bildnachweise",
           "title": "Bildnachweise",
-          "body": ["TODO: Quellen der verwendeten Fotos und Illustrationen."]
+          "body": ["TODO: Quelle und Lizenz je Bild (Fotos, Illustrationen, Stockmaterial)"]
+        },
+        {
+          "id": "gestaltung",
+          "title": "Gestaltung und Umsetzung",
+          "body": ["TODO: Name und Link eintragen oder Abschnitt streichen"]
         }
       ]
     },
@@ -100,138 +119,184 @@
       "id": "datenschutz",
       "meta": {
         "title": "Datenschutzerklärung | Hormonexperten",
-        "description": "Wie Hormonexperten beim Besuch dieser Website mit Ihren Daten umgeht und welche Rechte Sie haben."
+        "description": "Wie Hormonexperten beim Besuch dieser Website und in der Online-Sprechstunde mit Ihren Daten umgeht und welche Rechte Sie haben."
       },
       "title": "Datenschutzerklärung",
-      "updated": "2026-10-09",
-      "intro": "Hier erfahren Sie, welche Daten beim Besuch dieser Website verarbeitet werden, wozu und welche Rechte Sie haben.",
+      "updated": "2026-10-14",
+      "intro": "In dieser Datenschutzerklärung erfahren Sie, welche personenbezogenen Daten wir beim Besuch dieser Website und bei der Nutzung unserer Online-Sprechstunde verarbeiten, wofür und auf welcher Rechtsgrundlage.",
       "sections": [
+        {
+          "id": "verantwortlich",
+          "title": "Verantwortlicher",
+          "body": [
+            {
+              "lines": [
+                "Endoone Limited",
+                "Lerou 5",
+                "7080 Pyla",
+                "Zypern",
+                "Vertreten durch: TODO: Name(n) der Director(s)",
+                [
+                  "Telefon: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
+                ],
+                [
+                  "E-Mail: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ]
+              ]
+            },
+            "TODO: bestätigen, dass kein Datenschutzbeauftragter benannt werden muss. Falls doch: Kontaktdaten hier ergänzen."
+          ]
+        },
         {
           "id": "kurz",
           "title": "Das Wichtigste in Kürze",
           "body": [
             {
               "list": [
-                "Diese Website setzt keine Cookies.",
-                "Sie lädt keine Inhalte, Schriften oder Skripte von Dritten. Auch die Schrift kommt von unserem eigenen Server.",
-                "Es gibt auf der Website keine Formulare und keine Benutzerkonten.",
-                "Termine buchen Sie in einem externen Buchungssystem, das sich erst öffnet, wenn Sie einen Buchungslink anklicken."
+                "Diese Website ist eine reine Informationsseite. Sie setzt keine Cookies.",
+                "Terminbuchung, Fragebögen, Patientenportal, Videosprechstunde und Zahlung laufen über Pabau, ein externes Praxisverwaltungssystem. Wenn Sie auf „Termin buchen“ klicken, verlassen Sie diese Website.",
+                "Ihre Gesundheitsdaten verarbeiten wir ausschließlich zur Behandlung und unter ärztlicher Schweigepflicht."
               ]
             }
           ]
         },
         {
-          "id": "verantwortlich",
-          "title": "Verantwortliche Stelle",
+          "id": "hosting",
+          "title": "Hosting und Server-Logfiles",
           "body": [
-            "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:",
+            "Diese Website wird gehostet bei Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA.",
+            "Beim Aufruf einer Seite verarbeitet Vercel automatisch technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Referrer-URL, Browser und Betriebssystem. Diese Daten sind nötig, um die Website auszuliefern, sie stabil und sicher zu betreiben und Angriffe abzuwehren. Wir führen sie nicht mit anderen Daten zusammen.",
+            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer sicheren und schnellen Bereitstellung der Website.",
+            "Mit Vercel besteht ein Auftragsverarbeitungsvertrag (Art. 28 DSGVO). Vercel kann Daten in den USA verarbeiten. Die Übermittlung stützt sich auf die Zertifizierung von Vercel unter dem EU-U.S. Data Privacy Framework (Angemessenheitsbeschluss, Art. 45 DSGVO) und ergänzend auf Standardvertragsklauseln. TODO: DPF-Zertifizierung unter dataprivacyframework.gov prüfen und AVV mit Vercel abschließen.",
             {
               "lines": [
-                "TODO: Name der Praxis bzw. des Unternehmens",
-                "TODO: Anschrift",
                 [
-                  "E-Mail: ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
+                  "Weitere Informationen: ",
+                  {
+                    "label": "vercel.com/legal/privacy-policy",
+                    "href": "https://vercel.com/legal/privacy-policy"
+                  }
                 ]
               ]
             }
           ]
         },
         {
-          "id": "datenschutzbeauftragte",
-          "title": "Datenschutzbeauftragte",
+          "id": "cookies",
+          "title": "Cookies und ähnliche Technologien",
           "body": [
-            "TODO: Kontakt der oder des Datenschutzbeauftragten, oder Abschnitt entfernen, wenn keine Benennungspflicht besteht."
+            "Diese Website setzt keine Cookies und liest keine Informationen von Ihrem Endgerät aus, die dafür nicht technisch erforderlich sind. Deshalb zeigen wir keinen Cookie-Banner.",
+            "Schriftarten werden von unserem eigenen Server geladen. Beim Seitenaufruf wird keine Verbindung zu Google Fonts oder anderen Schriftanbietern hergestellt.",
+            "Pabau setzt auf seinen eigenen Seiten (Buchung, Patientenportal) eigene, für den Betrieb erforderliche Cookies. Dazu informiert Pabau auf diesen Seiten selbst."
           ]
         },
         {
-          "id": "hosting",
-          "title": "Hosting und Server-Logdateien",
+          "id": "statistik",
+          "title": "Reichweitenmessung mit Vercel Web Analytics",
           "body": [
-            "Diese Website wird bei TODO: Name und Sitz des Hosting-Anbieters betrieben. Bei jedem Seitenaufruf verarbeitet der Server automatisch Daten, die Ihr Browser übermittelt:",
-            {
-              "list": [
-                "IP-Adresse",
-                "Datum und Uhrzeit des Abrufs",
-                "aufgerufene Seite und übertragene Datenmenge",
-                "zuvor besuchte Seite (Referrer), soweit Ihr Browser sie übermittelt",
-                "Browsertyp, Browserversion und Betriebssystem"
-              ]
-            },
-            "Diese Daten sind technisch nötig, um die Website auszuliefern und ihre Sicherheit und Stabilität zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt im sicheren und fehlerfreien Betrieb der Website. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Die Logdateien werden nach TODO: Anzahl Tage gelöscht."
-          ],
-          "check_note": "Auftragsverarbeitungsvertrag mit dem Hoster bestätigen; Speicherort (EU?) ergänzen."
-        },
-        {
-          "id": "verschluesselung",
-          "title": "Verschlüsselung",
-          "body": [
-            "Die Verbindung zu dieser Website ist per TLS verschlüsselt. Sie erkennen das an „https://“ in der Adresszeile Ihres Browsers."
+            "Wir nutzen Vercel Web Analytics, um die Nutzung unserer Website statistisch auszuwerten, etwa welche Seiten wie oft aufgerufen werden. Dabei werden keine Cookies gesetzt und keine Daten auf Ihrem Endgerät gespeichert. Erfasst werden: aufgerufene Seite, Referrer, Land, Browser, Betriebssystem und Gerätetyp. Besucher werden nur über einen Hashwert aus Anfragedaten unterschieden, der täglich wechselt und nach 24 Stunden verworfen wird. Ein Rückschluss auf Ihre Person ist uns nicht möglich, und es entstehen keine Profile über mehrere Tage oder Websites hinweg.",
+            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt darin, unser Angebot anhand anonymer Statistiken zu verbessern. Anbieter, Auftragsverarbeitung und Drittlandübermittlung: siehe „Hosting und Server-Logfiles“."
           ]
         },
         {
           "id": "kontakt",
           "title": "Kontakt per E-Mail oder Telefon",
           "body": [
-            "Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage eine Behandlung betrifft oder vorbereitet, sonst Art. 6 Abs. 1 lit. f DSGVO. Gesundheitsangaben verarbeiten wir nach Art. 9 Abs. 2 lit. h DSGVO. Wir löschen Ihre Anfrage, sobald sie erledigt ist, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
-            "E-Mails werden in der Regel nicht Ende-zu-Ende-verschlüsselt übertragen. Bitte senden Sie uns deshalb keine ausführlichen Gesundheitsangaben per E-Mail."
-          ],
-          "check_note": "Empfehlung zu Gesundheitsangaben per E-Mail mit der Praxis abstimmen."
-        },
-        {
-          "id": "buchung",
-          "title": "Terminbuchung und Bezahlung",
-          "body": [
-            "Für Terminbuchung und Bezahlung nutzen wir das Praxisverwaltungssystem Pabau (TODO: Anbieter mit Anschrift). Die Buchungsseite öffnet sich erst, wenn Sie einen Buchungslink anklicken; vorher werden keine Daten an Pabau übertragen. Pabau verarbeitet Ihre Daten in unserem Auftrag nach Art. 28 DSGVO.",
-            "TODO: Welche Daten bei der Buchung erhoben werden, Rechtsgrundlage, Speicherdauer und ggf. Übermittlung in ein Drittland (Vereinigtes Königreich) mit Grundlage."
-          ],
-          "check_note": "Vertrag mit Pabau, Serverstandort und Zahlungsanbieter prüfen."
-        },
-        {
-          "id": "behandlung",
-          "title": "Daten aus der Behandlung",
-          "body": [
-            "Daten, die in einer Behandlung entstehen, etwa in der Videosprechstunde oder in Befunden, erhebt diese Website nicht. Darüber informieren wir Sie gesondert in unserer Patienteninformation zum Datenschutz (TODO: Link)."
+            "Wenn Sie uns per E-Mail oder Telefon kontaktieren, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Inhalt der Nachricht), um Ihre Anfrage zu beantworten.",
+            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einer Behandlung oder deren Anbahnung zusammenhängt, sonst Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Soweit Sie uns von sich aus Gesundheitsdaten mitteilen, verarbeiten wir sie nach Art. 9 Abs. 2 lit. h DSGVO.",
+            "Unsere E-Mail-Postfächer werden bei STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin, Deutschland, betrieben (Auftragsverarbeitung nach Art. 28 DSGVO). TODO: Firmierung und AVV mit Strato prüfen.",
+            "Bitte beachten Sie: Eine normale E-Mail ist nicht Ende-zu-Ende-verschlüsselt. Senden Sie Befunde und andere medizinische Unterlagen deshalb bitte über das Patientenportal von Pabau und nicht per E-Mail.",
+            "Wir löschen Anfragen, sobald sie erledigt sind, sofern keine gesetzlichen Aufbewahrungspflichten bestehen."
           ]
         },
         {
-          "id": "matomo",
-          "title": "Reichweitenmessung mit Matomo",
+          "id": "kontaktformular",
+          "title": "Kontaktformular",
           "body": [
-            "Wir messen die Nutzung dieser Website mit Matomo, das auf TODO: Server bzw. Anbieter läuft. Matomo setzt dabei keine Cookies und speichert nichts auf Ihrem Gerät. IP-Adressen werden vor der Speicherung gekürzt, sodass wir Sie nicht identifizieren können. Die Daten werden nicht an Dritte weitergegeben und nach TODO: Speicherdauer gelöscht.",
-            "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt darin, die Website zu verbessern."
-          ],
-          "needs_check": true,
-          "check_note": "Erst anzeigen, wenn Matomo live ist; cookielose Konfiguration, IP-Kürzung und Speicherdauer bestätigen."
+            "TODO: Abschnitt zum Kontaktformular auf der Kontaktseite (Name, E-Mail, Telefon, Nachricht): welcher Dienst die Nachrichten empfängt und weiterleitet (Anbieter, Sitz, Auftragsverarbeitung, Drittland), Rechtsgrundlage (Art. 9 DSGVO, falls Gesundheitsangaben), Speicherdauer. Das Formular sendet noch nicht; der Dienst steht noch nicht fest."
+          ]
+        },
+        {
+          "id": "buchung",
+          "title": "Terminbuchung, Patientenportal und Videosprechstunde (Pabau)",
+          "body": [
+            "Für Terminbuchung, Anamnese- und Einwilligungsformulare, das Hochladen von Befunden, Terminerinnerungen, Videosprechstunden, Rechnungen und die Patientenakte nutzen wir die Praxissoftware Pabau.",
+            "Anbieter: Pabau Ltd, TODO: Anschrift laut Auftragsverarbeitungsvertrag, Vereinigtes Königreich.",
+            "Der Button „Termin buchen“ auf dieser Website ist ein einfacher Link. Erst wenn Sie darauf klicken, öffnet sich die von Pabau betriebene Seite. Vorher werden keine Daten an Pabau übertragen.",
+            "Verarbeitet werden insbesondere:",
+            {
+              "list": [
+                "Stammdaten: Name, Geburtsdatum, Anschrift, E-Mail-Adresse, Telefonnummer",
+                "Termindaten: gebuchte Leistung, Datum, Uhrzeit, Erinnerungen",
+                "Gesundheitsdaten: Angaben in Fragebögen, hochgeladene Befunde, Behandlungsdokumentation, Rezepte",
+                "Daten der Videosprechstunde: technische Verbindungsdaten (z. B. IP-Adresse, Gerätetyp), Beginn und Dauer. Videosprechstunden werden nicht aufgezeichnet. TODO: bestätigen, dass KI-Funktionen von Pabau (z. B. Transkription/„Scribe“) ausgeschaltet bleiben. Sonst eigener Absatz und ggf. Einwilligung.",
+                "Rechnungs- und Zahlungsdaten"
+              ]
+            },
+            "Terminbestätigungen und Erinnerungen per E-Mail oder SMS enthalten keine Gesundheitsangaben.",
+            "Rechtsgrundlagen: Art. 6 Abs. 1 lit. b DSGVO (Behandlungsvertrag), für Gesundheitsdaten Art. 9 Abs. 2 lit. h und Abs. 3 DSGVO (Gesundheitsversorgung durch ärztliches, zur Verschwiegenheit verpflichtetes Personal) sowie Art. 6 Abs. 1 lit. c DSGVO, soweit wir gesetzlich zur Dokumentation und Aufbewahrung verpflichtet sind.",
+            "Mit Pabau besteht ein Auftragsverarbeitungsvertrag (Art. 28 DSGVO). TODO: Speicherort der Daten (EU oder UK) bei Pabau schriftlich bestätigen lassen. Bei Speicherung im Vereinigten Königreich stützt sich die Übermittlung auf den Angemessenheitsbeschluss der EU-Kommission für das Vereinigte Königreich (Art. 45 DSGVO). TODO: Gültigkeit des Beschlusses zum Veröffentlichungsdatum prüfen. Unterauftragsverarbeiter von Pabau: TODO: Link auf Pabaus Subprozessorenliste.",
+            "Speicherdauer: Die ärztliche Dokumentation bewahren wir 10 Jahre nach Abschluss der Behandlung auf, Rechnungsdaten für die Dauer der steuerrechtlichen Aufbewahrungsfristen. TODO: Fristen nach dem anwendbaren Recht (Zypern/Deutschland) bestätigen."
+          ]
+        },
+        {
+          "id": "zahlung",
+          "title": "Zahlungsabwicklung",
+          "body": [
+            "TODO: bestätigen, über welchen Dienst Pabau Zahlungen abwickelt (geplant: Stripe). Bei anderem Anbieter anpassen.",
+            "Zahlungen bei der Buchung werden über Stripe abgewickelt: Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, D02 H210, Irland. Stripe erhält dafür die nötigen Zahlungsdaten (z. B. Name, Betrag, Karten- oder Kontodaten) und ist für die Zahlungsabwicklung teilweise selbst verantwortlich, etwa zur Betrugsprävention und zur Erfüllung gesetzlicher Pflichten. Gesundheitsdaten erhält Stripe nicht. Wir selbst sehen keine vollständigen Kartendaten.",
+            {
+              "lines": [
+                [
+                  "Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Weitere Informationen: ",
+                  {
+                    "label": "stripe.com/de/privacy",
+                    "href": "https://stripe.com/de/privacy"
+                  }
+                ]
+              ]
+            }
+          ]
         },
         {
           "id": "links",
           "title": "Links zu anderen Websites",
           "body": [
-            "Links zu sozialen Netzwerken und anderen Websites sind einfache Links ohne eingebundene Inhalte. Erst wenn Sie einen anklicken, verlassen Sie unsere Website; dort gilt die Datenschutzerklärung des jeweiligen Anbieters."
+            "Diese Website enthält Links zu anderen Anbietern, z. B. zu Pabau und TODO: weitere (Bewertungsplattform, soziale Netzwerke). Diese Seiten werden erst beim Anklicken geladen. Für die Datenverarbeitung dort ist der jeweilige Anbieter verantwortlich."
           ]
         },
         {
           "id": "rechte",
           "title": "Ihre Rechte",
           "body": [
-            "Sie haben das Recht",
+            "Sie haben jederzeit das Recht auf:",
             {
               "list": [
-                "auf Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO),",
-                "auf Berichtigung unrichtiger Daten (Art. 16 DSGVO),",
-                "auf Löschung (Art. 17 DSGVO),",
-                "auf Einschränkung der Verarbeitung (Art. 18 DSGVO),",
-                "auf Datenübertragbarkeit (Art. 20 DSGVO) und",
-                "eine Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen (Art. 7 Abs. 3 DSGVO)."
+                "Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO)",
+                "Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
+                "Löschung (Art. 17 DSGVO), soweit keine gesetzliche Aufbewahrungspflicht besteht",
+                "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+                "Datenübertragbarkeit (Art. 20 DSGVO)",
+                "Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)"
               ]
             },
-            "Verarbeiten wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, können Sie dem aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).",
+            "Widerspruchsrecht (Art. 21 DSGVO): Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.",
             {
               "lines": [
                 [
-                  "Schreiben Sie uns dazu an ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" },
+                  "Für alle Anliegen genügt eine E-Mail an ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  },
                   "."
                 ]
               ]
@@ -240,64 +305,1556 @@
         },
         {
           "id": "beschwerde",
-          "title": "Beschwerderecht",
+          "title": "Beschwerderecht bei einer Aufsichtsbehörde",
           "body": [
-            "Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), insbesondere in dem EU-Staat, in dem Sie wohnen oder arbeiten. Für uns zuständig ist TODO: Aufsichtsbehörde am Sitz der Praxis mit Anschrift."
+            "Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren, insbesondere in dem EU-Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des mutmaßlichen Verstoßes (Art. 77 DSGVO). Für uns zuständig ist:",
+            {
+              "lines": [
+                "Office of the Commissioner for Personal Data Protection",
+                "Iasonos 1, 1082 Nikosia, Zypern",
+                [
+                  {
+                    "label": "www.dataprotection.gov.cy",
+                    "href": "https://www.dataprotection.gov.cy"
+                  }
+                ]
+              ]
+            },
+            "TODO: Anschrift der Behörde vor Veröffentlichung prüfen."
+          ]
+        },
+        {
+          "id": "verschluesselung",
+          "title": "SSL/TLS-Verschlüsselung",
+          "body": [
+            "Diese Website und die Seiten von Pabau werden ausschließlich verschlüsselt über HTTPS übertragen."
           ]
         },
         {
           "id": "aenderungen",
           "title": "Änderungen",
           "body": [
-            "Wir passen diese Datenschutzerklärung an, wenn sich die Website oder die Rechtslage ändert. Es gilt die hier veröffentlichte Fassung."
+            "Wir passen diese Datenschutzerklärung an, wenn sich die Website oder unsere Dienste ändern. Es gilt die jeweils hier veröffentlichte Fassung."
           ]
         }
       ]
     },
     {
-      "id": "cookie-settings",
+      "id": "terms",
       "meta": {
-        "title": "Cookie-Einstellungen | Hormonexperten",
-        "description": "Diese Website setzt keine Cookies und bindet keine Inhalte von Dritten ein."
+        "title": "Allgemeine Geschäftsbedingungen (AGB) | Hormonexperten",
+        "description": "Allgemeine Geschäftsbedingungen von Hormonexperten für ärztliche Fernbehandlungen per Videosprechstunde."
       },
-      "title": "Cookie-Einstellungen",
-      "updated": "2026-10-09",
-      "intro": "Diese Website setzt keine Cookies und bindet keine Inhalte von Dritten ein. Deshalb gibt es kein Cookie-Banner und hier nichts einzustellen.",
+      "title": "Allgemeine Geschäftsbedingungen (AGB)",
+      "updated": "2026-10-14",
       "sections": [
         {
-          "id": "geraet",
-          "title": "Was auf Ihrem Gerät gespeichert wird",
+          "id": "p1",
+          "title": "§ 1 Geltungsbereich und Anbieter",
           "body": [
-            "Nichts, wofür eine Einwilligung nötig wäre. Es gibt keine Werbe-, Tracking- oder Social-Media-Cookies, und keine Videos, Karten, Schriften oder Bewertungs-Widgets, die beim Laden der Seite Daten an Dritte senden."
+            {
+              "heading": "§ 1.1 Anbieter"
+            },
+            "Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge über medizinische Fernbehandlungen zwischen:",
+            {
+              "lines": [
+                "Endoone Limited",
+                "Dr. Isabella Wilden",
+                "Lerou 5",
+                "7080 Pyla",
+                "Zypern",
+                [
+                  "Telefon: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
+                ],
+                [
+                  "E-Mail: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ],
+                "EU-USt-IdNr.: CY60026970H"
+              ]
+            },
+            "(nachfolgend „Ärztin“ oder „Hormonexperten“ genannt) und ihren Patientinnen und Patienten (nachfolgend „Patient“ genannt).",
+            {
+              "heading": "§ 1.2 Geltungsbereich"
+            },
+            "Diese AGB gelten zusammen mit den „Nutzungsbedingungen für Fernbehandlung“ für:",
+            {
+              "list": [
+                "Alle medizinischen Fernbehandlungen via Videosprechstunde",
+                "Beratungsleistungen im Bereich bioidentische Hormonersatztherapie und Schilddrüsenberatung",
+                "Rezeptausstellungen und medizinische Dokumentation",
+                "Alle über die Website www.hormonexperten.de oder über unser Online-Buchungsportal gebuchten Leistungen"
+              ]
+            },
+            "Wichtig: Die Nutzungsbedingungen für Fernbehandlung enthalten die medizinische Aufklärung zur Hormonersatztherapie (Risiken, Kontrollpflichten, Patientenpflichten) und sind integraler Bestandteil dieser AGB. Beide Dokumente bilden zusammen die Vertragsgrundlage.",
+            {
+              "heading": "§ 1.3 Patientenzielgruppe und Abrechnung"
+            },
+            "Die Leistungen richten sich ausschließlich an Selbstzahler. Der Patient ist alleiniger Vertragspartner und Kostenschuldner.",
+            "Abrechnung mit Krankenversicherungen:",
+            {
+              "list": [
+                "Eine Abrechnung über gesetzliche Krankenversicherungen (GKV) ist nicht möglich.",
+                "Eine Abrechnung über private Krankenversicherungen (PKV) ist nur mittels GOÄ-Analog-Ziffern möglich, wobei eine Kostenerstattung durch die PKV nicht garantiert werden kann.",
+                "Es liegt in der alleinigen Verantwortung des Patienten, eine etwaige Kostenerstattung vor Vertragsschluss mit seiner Krankenversicherung zu klären."
+              ]
+            },
+            {
+              "heading": "§ 1.4 Geschäftsfähigkeit und Mindestalter"
+            },
+            "Der Patient muss zum Zeitpunkt der Buchung mindestens 18 Jahre alt und voll geschäftsfähig sein, um einen rechtsverbindlichen Behandlungsvertrag abzuschließen.",
+            "Die Behandlung mit bioidentischen Hormonen erfolgt ausschließlich bei volljährigen Patienten (ab 18 Jahren). Minderjährige können nicht behandelt werden."
           ]
         },
         {
-          "id": "matomo",
-          "title": "Statistik ohne Cookies",
+          "id": "p2",
+          "title": "§ 2 Vertragsschluss",
           "body": [
-            "Für die Besucherstatistik nutzen wir Matomo ohne Cookies und ohne Daten auf Ihrem Gerät zu speichern. Einzelheiten stehen in der Datenschutzerklärung."
-          ],
-          "needs_check": true,
-          "check_note": "Erst anzeigen, wenn Matomo live ist."
-        },
-        {
-          "id": "aenderungen",
-          "title": "Wenn sich das ändert",
-          "body": [
-            "Sollten wir später Dienste einbinden, die eine Einwilligung brauchen, fragen wir Sie vorher. Ihre Auswahl können Sie dann jederzeit auf dieser Seite ändern."
+            {
+              "heading": "§ 2.1 Vertragsanbahnung"
+            },
+            "Die Darstellung der Leistungen auf der Website stellt kein verbindliches Angebot dar, sondern eine Einladung zur Abgabe eines Angebots durch den Patienten.",
+            {
+              "heading": "§ 2.2 Buchungsprozess"
+            },
+            {
+              "list": [
+                "Der Patient öffnet über den Button „Termin buchen“ auf der Website das Online-Buchungsportal und wählt die gewünschte Leistung und einen Termin aus.",
+                "Der Patient akzeptiert diese AGB und die Nutzungsbedingungen für Fernbehandlung durch Setzen des entsprechenden Häkchens.",
+                "Durch Klicken auf den Button „TODO: genaue Beschriftung im Pabau-Portal, z. B. Zahlungspflichtig buchen“ gibt der Patient ein verbindliches Angebot ab und bezahlt die Gebühr für die gebuchte Leistung.",
+                "Die Ärztin bestätigt den Termin per E-Mail (Vertragsannahme)."
+              ]
+            },
+            "Mit der Terminbestätigung kommt der Behandlungsvertrag zustande.",
+            {
+              "heading": "§ 2.3 Vertragssprache"
+            },
+            "Die Vertragssprache ist ausschließlich Deutsch. Übersetzungen dieser AGB dienen der Information; im Zweifel gilt die deutsche Fassung.",
+            {
+              "heading": "§ 2.4 Eignungsprüfung und Ablehnung von Behandlungsanfragen"
+            },
+            "Die Ärztin prüft bei jeder Anfrage, ob eine Fernbehandlung medizinisch geeignet und vertretbar ist. Die Ärztin behält sich das Recht vor, eine Behandlung abzulehnen, wenn:",
+            {
+              "list": [
+                "Medizinische Kontraindikationen vorliegen",
+                "Eine Fernbehandlung nicht indiziert ist und eine persönliche Untersuchung vor Ort medizinisch erforderlich wäre",
+                "Die Behandlung außerhalb des Fachgebiets der Ärztin liegt",
+                "Der Patient die erforderlichen Voruntersuchungen oder Laborwerte nicht beibringt"
+              ]
+            },
+            "Bei Ablehnung einer Behandlungsanfrage erhält der Patient eine schriftliche Begründung sowie ggf. eine Empfehlung für das weitere Vorgehen (z. B. Durchführung von Voruntersuchungen, Konsultation eines anderen Facharztes). Bereits gezahlte Gebühren für nicht erbrachte Leistungen werden erstattet.",
+            "Die Ärztin ist bestrebt, möglichst alle Behandlungen via Fernbehandlung durchzuführen, sofern dies medizinisch vertretbar ist. Eine Ablehnung erfolgt ausschließlich aus medizinischen oder rechtlichen Gründen."
           ]
         },
         {
-          "id": "mehr",
-          "title": "Mehr erfahren",
+          "id": "p3",
+          "title": "§ 3 Leistungsbeschreibung",
           "body": [
+            "TODO: Leistungen, Dauer und Preise in § 3 mit der Preisseite (Basis-Begleitung 380 €, Intensiv-Begleitung 499 €, wie auf der bisherigen Kostenseite) und den in Pabau angelegten Leistungen abgleichen.",
+            {
+              "heading": "§ 3.1 Hormon-Pakete"
+            },
+            {
+              "heading": "§ 3.1.1 Hormon-Starter-Paket (380 €)"
+            },
+            {
+              "list": [
+                "Erstanamnese (60 Minuten Videosprechstunde) mit Analyse von Befunden und Symptomen",
+                "Folgeanamnese zur Besprechung der Laborwerte und Erstellung des Therapieplans",
+                "Organisation der ersten Bestellung & Rezeptierung der Hormone",
+                "4 x Video-Follow-Ups (je 20 Minuten) in den ersten 3 Monaten",
+                "Gültigkeit: 6 Monate ab Therapiebeginn"
+              ]
+            },
+            "Nicht enthalten: Rezept-Folgebestellungen bei Anpassung",
+            "Ideal für: Frauen, die unkompliziert mit der bioidentischen Hormonersatztherapie beginnen möchten und regelmäßige Rückmeldungen wünschen.",
+            {
+              "heading": "§ 3.1.2 Hormon-Komfort-Paket (490 €)"
+            },
+            {
+              "list": [
+                "Alle Leistungen des Hormon-Starter-Pakets inklusive",
+                "6 statt 4 x Video-Follow-Ups (je 20 Minuten) in den ersten 6 Monaten",
+                "Organisation und Rezeptierung der Folgebestellungen für 6 Monate",
+                "Ergänzende Mikronährstoff- und Lebensstilberatung (60 Minuten)",
+                "Gültigkeit: 6 Monate ab Therapiebeginn"
+              ]
+            },
+            "Nicht enthalten: Rückfragen und Beratung per E-Mail oder Telefon",
+            "Ideal für: Frauen, die unkompliziert mit der bioidentischen Hormonersatztherapie beginnen und die Ergebnisse durch zusätzliche Beratungen verbessern möchten.",
+            {
+              "heading": "§ 3.1.3 Hormon-Premium-Paket (590 €/Monat)"
+            },
+            {
+              "list": [
+                "Alle Leistungen des Hormon-Komfort-Pakets inklusive",
+                "Unbegrenzter E-Mail- und SMS-Kontakt über eigene Rufnummer (nur während der Sprechzeiten)",
+                "Unbegrenzte Rezeptierung und Folgebestellungen",
+                "priorisierte Terminvergabe",
+                "Mindestlaufzeit: 3 Monate",
+                "Monatlich kündbar mit 14-tägiger Frist",
+                "Zahlbar monatlich im Voraus"
+              ]
+            },
+            "Ideal für Frauen mit komplexen hormonellen Themen (starke Blutungen, Östrogendominanz, Myome, Kinderwunsch, Haarausfall, Hitzewallungen, Verstimmungen, Osteoporose, Brain-Fog).",
+            "Fair-Use-Grundsatz:",
+            "Der unbegrenzte E-Mail- und SMS-Kontakt ist für eine medizinisch sinnvolle therapeutische Begleitung gedacht. Eine angemessene Nutzung umfasst in der Regel:",
+            {
+              "list": [
+                "Bis zu 10 medizinische Anfragen pro Monat",
+                "Antwortzeit: 48 Stunden an Werktagen",
+                "Keine medizinischen Notfälle (diese erfordern sofortige ärztliche Versorgung vor Ort)",
+                "Keine exzessive Inanspruchnahme, die andere Patientinnen benachteiligt",
+                "Antworten nur während unserer Sprechzeiten"
+              ]
+            },
+            "Bei erheblicher Überschreitung dieser Richtwerte oder bei Missbrauch der Leistung (z.B. mehr als 20 Anfragen pro Monat, täglich mehrfache Kontaktaufnahmen) behält sich die Ärztin vor:",
+            {
+              "list": [
+                "Die Patientin schriftlich auf die angemessene Nutzung hinzuweisen",
+                "Bei fortgesetztem Missbrauch zusätzliche Anfragen mit dem regulären Einzeltarif (45 € je Videosprechstunde) zu berechnen",
+                "Im Extremfall den Vertrag außerordentlich zu kündigen (siehe § 10.4)"
+              ]
+            },
+            {
+              "heading": "§ 3.2 Kennenlerngespräche & Erstberatungen"
+            },
+            "Alle Erstberatungen dienen dem Kennenlernen und der ersten Einschätzung Ihrer individuellen Situation. In einem ausführlichen Gespräch klären wir, ob eine bioidentische Hormonersatztherapie für Sie sinnvoll ist und welche nächsten Schritte empfehlenswert sind.",
+            {
+              "heading": "§ 3.2.1 Erstberatung nach Schwangerschaft (180 €, 60 Minuten)"
+            },
+            "Kennenlerngespräch, ob eine ergänzende Hormonersatztherapie nach der Schwangerschaft für Sie infrage kommt. Geeignet bei Symptomen wie:",
+            {
+              "list": [
+                "Ausbleibende Periode, Gewichtszunahme, Stimmungsschwankungen",
+                "Depression, Ängste, Haarausfall",
+                "Libido- oder Energieverlust nach der Geburt"
+              ]
+            },
+            "Leistungen:",
+            {
+              "list": [
+                "Umfassende Hormonanalyse nach Schwangerschaft (Postpartum)",
+                "Bewertung von Symptomen und Befunden",
+                "Individuelle Empfehlungen für den Hormonhaushalt",
+                "Organisation der erforderlichen Laboruntersuchungen"
+              ]
+            },
+            "Empfohlener nächster Schritt: Hormon-Starter-Paket zur Betreuung der 6-monatigen Hormonersatztherapie.",
+            {
+              "heading": "§ 3.2.2 Erstberatung in der Perimenopause (180 €, 60 Minuten)"
+            },
+            "Viele Frauen ab 35 Jahren erleben hormonelle Veränderungen, obwohl die Periode noch regelmäßig ist und der Frauenarzt nichts findet.",
+            "Leistungen:",
+            {
+              "list": [
+                "Feinfühlige Unterstützung während der hormonellen Veränderungen",
+                "Analyse auch bei normalen Laborwerten",
+                "Je früher Defizite erkannt werden, desto leichter bleibt die Balance",
+                "Erstellung eines individuellen Behandlungsplans"
+              ]
+            },
+            "Empfohlener nächster Schritt: Hormon-Starter-Paket zur Betreuung der 6-monatigen Hormonersatztherapie.",
+            {
+              "heading": "§ 3.2.3 Allgemeine Hormonsprechstunde (180 €, 60 Minuten)"
+            },
+            "Ganzheitliche Anamnese mit Analyse bestehender Befunde, Checklisten zur Vorbereitung und Organisation der Blutentnahme.",
+            "Geeignet für:",
+            {
+              "list": [
+                "Frauen und Männer mit hormonellen Beschwerden",
+                "Zweite Meinung bei bestehenden Diagnosen",
+                "Frauen mit Endometriose und PCOS-Syndrom",
+                "Männer, die eine natürliche, bioidentische Hormonergänzung wünschen – statt Potenzmittel"
+              ]
+            },
+            "Empfohlener nächster Schritt: Hormon-Starter-Paket zur Betreuung der 6-monatigen Hormonersatztherapie.",
+            {
+              "heading": "§ 3.2.4 Schilddrüsen-Beratung (180 €, 60 Minuten)"
+            },
+            "Individuelle, ausführliche Anamnese mit Analyse bestehender Befunde, detaillierte Symptomaufnahme, Organisation der Blutentnahme (inkl. digitalem Überweisungsschein per E-Mail).",
+            "Geeignet bei:",
+            {
+              "list": [
+                "Verdacht auf Schilddrüsenfunktionsstörung",
+                "Auch wenn Laborwerte als normal gelten",
+                "Frauen unter SD-Medikation ohne Besserung",
+                "Gewichtszunahme, Haarausfall, Energiemangel, Verdauungsproblemen"
+              ]
+            },
+            {
+              "heading": "§ 3.2.5 Für Bestandspatientinnen"
+            },
+            "Kurze Videosprechstunde (45 €, ca. 20 Minuten)",
+            "Für Bestandspatientinnen, die bereits in Therapie sind und eine neue Rezeptbestellung oder Dosierungsanpassung benötigen.",
+            "Folgeanamnese (90 €, ca. 30 Minuten)",
+            "Besprechung aktueller Laborwerte, Anpassung des Therapieplans, erste Rezeptierung & Bestellung der Hormone.",
+            {
+              "heading": "§ 3.2.6 Rezeptierung und Bestellungen"
+            },
+            {
+              "list": [
+                "1 Präparat: 15 €",
+                "2 Präparate: 20 €",
+                "3 Präparate: 25 €",
+                "4 Präparate: 30 €"
+              ]
+            },
+            {
+              "heading": "§ 3.3 Zusätzliche Kosten"
+            },
+            {
+              "list": [
+                "Laborkosten: Werden separat nach tatsächlichem Aufwand berechnet",
+                "Hormonkosten: ca. 1,00–1,50 € pro Tag (individuelle Rezepturen aus der Apotheke)",
+                "Kostenfreie Kommunikation: Erste E-Mail-Anfrage zur Eignungsfeststellung, Terminvereinbarungen, administrative Fragen",
+                "Kostenpflichtige Beratungen: Medizinische E-Mail-Beratungen außerhalb gebuchter Pakete sind kostenpflichtig (nur im Rahmen von Videosprechstunden möglich, siehe § 13.4)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "title": "§ 4 Preise und Zahlungsbedingungen",
+          "body": [
+            {
+              "heading": "§ 4.1 Preise und GOÄ-Abrechnung"
+            },
+            "Alle angegebenen Preise verstehen sich als Endpreise. Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ). Da bestimmte moderne Behandlungsverfahren in der GOÄ von 1982/1999 nicht wörtlich aufgeführt sind, werden entsprechend § 6 Abs. 2 GOÄ analoge Gebührenziffern angewandt.",
+            "Unter Berücksichtigung der Schwierigkeit, des Zeitaufwandes und der spezialisierten Expertise im Bereich bioidentische Hormonersatztherapie werden gemäß § 2 Abs. 1 und 2 GOÄ (Abweichende Vereinbarung) Steigerungsfaktoren von 5,0 bis 7,0 vereinbart. Diese Faktoren sind begründet durch:",
+            {
+              "list": [
+                "Spezialisierte Ausbildung und langjährige Expertise in bioidentischer Hormonersatztherapie",
+                "Individualisierte Therapiekonzepte basierend auf umfangreicher Labordiagnostik",
+                "Zeitintensive Anamnese und Verlaufskontrollen",
+                "Fernbehandlung mit erhöhtem Koordinationsaufwand"
+              ]
+            },
+            "Mit Akzeptanz dieser AGB stimmt der Patient dieser abweichenden Vereinbarung ausdrücklich zu.",
+            {
+              "heading": "§ 4.2 Zahlungsfrist"
+            },
+            "Die Gebühr für einen gebuchten Termin oder ein Paket ist bei der Buchung fällig und wird vollständig über das Online-Buchungsportal bezahlt. Beim Hormon-Premium-Paket ist die Monatsgebühr jeweils zu Monatsbeginn im Voraus fällig. Laborkosten und sonstige gesondert in Rechnung gestellte Leistungen sind innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug fällig.",
+            {
+              "heading": "§ 4.3 Zahlungsmethoden"
+            },
+            "Die Zahlung bei der Buchung erfolgt per Visa, Mastercard, Diners Club, SEPA oder Klarna. Gesondert gestellte Rechnungen werden per Banküberweisung bezahlt. Weitere Zahlungsmethoden können im Einzelfall vereinbart werden.",
+            {
+              "heading": "§ 4.4 Zahlungsverzug"
+            },
+            "Bei Zahlungsverzug werden Verzugszinsen in Höhe von 8 Prozentpunkten über dem Basiszinssatz berechnet. Zusätzlich fallen Mahngebühren an:",
+            {
+              "list": ["1. Mahnung: 5 €", "2. Mahnung: 10 €", "3. Mahnung: 15 €"]
+            },
+            {
+              "heading": "§ 4.5 Behandlungssperre"
+            },
+            "Bei offenen Rechnungen behält sich die Ärztin vor, weitere Behandlungstermine bis zur vollständigen Begleichung der Außenstände auszusetzen.",
+            {
+              "heading": "§ 4.6 Zurückbehaltungsrecht"
+            },
+            "Ein Zurückbehaltungsrecht des Patienten bezüglich medizinischer Leistungen ist ausgeschlossen.",
+            {
+              "heading": "§ 4.7 Kostenvoranschlag"
+            },
+            "Bei umfangreicheren Behandlungen wird auf Wunsch vorab ein Kostenvoranschlag erstellt."
+          ]
+        },
+        {
+          "id": "p5",
+          "title": "§ 5 Terminvereinbarung und Absagen",
+          "body": [
+            {
+              "heading": "§ 5.1 Terminbuchung"
+            },
+            "Termine werden über das Online-Buchungsportal (Link „Termin buchen“ auf der Website) oder nach telefonischer Absprache gebucht.",
+            {
+              "heading": "§ 5.2 Absagefrist"
+            },
             {
               "lines": [
                 [
-                  "Wie wir mit Ihren Daten umgehen, lesen Sie in unserer ",
-                  { "label": "Datenschutzerklärung", "href": "/datenschutz" },
+                  "Termine müssen mindestens 48 Stunden vor dem vereinbarten Termin über das Patientenportal oder per E-Mail an ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  },
+                  " abgesagt oder verschoben werden. Bei rechtzeitiger Absage wird die gezahlte Gebühr nach Wahl des Patienten vollständig erstattet oder einem neuen Termin gutgeschrieben."
+                ]
+              ]
+            },
+            {
+              "heading": "§ 5.3 Ausfallgebühr"
+            },
+            "Bei nicht rechtzeitiger Absage oder Nichterscheinen wird die Gebühr für den reservierten Zeitslot in voller Höhe einbehalten, sofern der Termin nicht anderweitig vergeben werden kann.",
+            {
+              "heading": "§ 5.4 Kulanzregelung"
+            },
+            "Bei nachgewiesenen Notfällen oder unverschuldeten Verzögerungen (z. B. plötzliche schwere Erkrankung mit ärztlichem Attest) kann die Gebühr im Einzelfall aus Kulanz erstattet werden.",
+            {
+              "heading": "§ 5.5 Technische Störungen"
+            },
+            "Bei technischen Störungen auf Seiten der Ärztin wird kostenfrei ein Ersatztermin angeboten."
+          ]
+        },
+        {
+          "id": "p6",
+          "title": "§ 6 Fernbehandlung und technische Voraussetzungen",
+          "body": [
+            {
+              "heading": "§ 6.1 Videoplattform"
+            },
+            "Die Videosprechstunden finden über die Videofunktion unserer Praxissoftware Pabau statt. Der Patient erhält den Zugangslink in der Terminbestätigung und im Patientenportal.",
+            {
+              "heading": "§ 6.2 Technische Voraussetzungen"
+            },
+            "Der Patient stellt sicher, dass folgende technische Voraussetzungen erfüllt sind:",
+            {
+              "list": [
+                "Stabile Internetverbindung (mind. 2 Mbit/s)",
+                "Aktueller Webbrowser (Chrome, Firefox, Safari oder Edge)",
+                "Funktionsfähige Webcam und Mikrofon",
+                "Ruhige, störungsfreie und vertrauliche Umgebung"
+              ]
+            },
+            {
+              "heading": "§ 6.3 Grenzen der Fernbehandlung"
+            },
+            "Der Patient wird darauf hingewiesen, dass:",
+            {
+              "list": [
+                "Eine Fernbehandlung eine persönliche Untersuchung nicht vollständig ersetzen kann",
+                "Bei bestimmten Beschwerden eine Vor-Ort-Untersuchung notwendig sein kann",
+                "In Notfällen lokale Notdienste aufzusuchen sind",
+                "Die Ärztin kann bei Bedarf an lokale Fachärzte verweisen"
+              ]
+            },
+            {
+              "heading": "§ 6.4 Technische Verantwortung"
+            },
+            "Der Patient trägt die Verantwortung für seine eigene technische Ausstattung und Internetverbindung.",
+            {
+              "heading": "§ 6.5 Wartezeit"
+            },
+            "Bei verspätetem Erscheinen des Patienten wartet die Ärztin maximal 5 Minuten. Danach verfällt der Termin und wird als nicht wahrgenommen berechnet."
+          ]
+        },
+        {
+          "id": "p7",
+          "title": "§ 7 Datenschutz",
+          "body": [
+            {
+              "heading": "§ 7.1 Datenverarbeitung"
+            },
+            "Die Verarbeitung personenbezogener und medizinischer Daten erfolgt ausschließlich DSGVO-konform und unter Beachtung der ärztlichen Schweigepflicht.",
+            {
+              "heading": "§ 7.2 Verschlüsselung"
+            },
+            "Alle Videosprechstunden werden verschlüsselt übertragen.",
+            {
+              "heading": "§ 7.3 Speicherdauer"
+            },
+            "Medizinische Unterlagen werden entsprechend der gesetzlichen Aufbewahrungsfrist von 10 Jahren gespeichert.",
+            {
+              "heading": "§ 7.4 Patientenrechte"
+            },
+            "Der Patient hat jederzeit das Recht auf:",
+            {
+              "list": [
+                "Auskunft über seine gespeicherten Daten",
+                "Berichtigung unrichtiger Daten",
+                "Löschung (soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen)",
+                "Datenportabilität",
+                "Widerspruch gegen die Datenverarbeitung"
+              ]
+            },
+            {
+              "heading": "§ 7.5 Videoaufzeichnungen"
+            },
+            "Videosprechstunden werden grundsätzlich nicht aufgezeichnet. Eine Aufzeichnung erfolgt nur mit expliziter schriftlicher Einwilligung des Patienten zu Dokumentationszwecken.",
+            {
+              "heading": "§ 7.6 Weitere Informationen"
+            },
+            {
+              "lines": [
+                [
+                  "Weitere Informationen zum Datenschutz finden sich in unserer ",
+                  {
+                    "label": "Datenschutzerklärung",
+                    "href": "/datenschutz"
+                  },
                   "."
                 ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "title": "§ 8 Haftungsbeschränkung",
+          "body": [
+            {
+              "heading": "§ 8.1 Grundsätze der ärztlichen Leistung"
+            },
+            "Die medizinische Beratung und Therapieempfehlung erfolgt nach bestem Wissen und Gewissen sowie auf Grundlage der vom Patienten zur Verfügung gestellten Informationen, insbesondere zur Anamnese, zu Befunden und Laborwerten. Die Qualität und Richtigkeit der Beratung ist maßgeblich abhängig von der Vollständigkeit und Wahrheitsgemäßheit der Patientenangaben.",
+            {
+              "heading": "§ 8.2 Patientenverantwortung und Haftungsausschluss"
+            },
+            "Für die Umsetzung der empfohlenen Maßnahmen – insbesondere die korrekte Einnahme von Medikamenten, Nahrungsergänzungsmitteln oder die Einhaltung von Lebensstilveränderungen – ist der Patient eigenverantwortlich. Die Ärztin kann keine Kontrolle darüber ausüben, ob und wie die Empfehlungen befolgt werden.",
+            "Eine Haftung für gesundheitliche Schäden oder sonstige Beeinträchtigungen, die aus falscher Anwendung, eigenmächtiger Änderung oder Unterlassung der Therapie durch den Patienten entstehen, ist ausgeschlossen. Ebenso übernimmt die Ärztin keine Haftung für Folgen, die durch unvollständige, unrichtige oder verspätete Angaben des Patienten entstehen.",
+            "Die Ärztin haftet unter keinen Umständen für mittelbare Schäden, insbesondere (aber ohne Einschränkung) für Mangelfolgeschäden, entgangenen Gewinn oder sonstige indirekte Vermögensschäden, die dem Patienten durch die Nutzung der medizinischen Leistungen entstehen.",
+            "Jeder Patient wird ausführlich über die Behandlung sowie über empfohlene Präparate aufgeklärt. Etwaige Nebenwirkungen, Begleiterscheinungen oder Folgeerscheinungen können niemals vollständig für jeden Menschen ausgeschlossen werden. Für die Sicherheit und Verträglichkeit der von externen Apotheken zubereiteten Präparate sowie für andere pharmazeutische Mittel kann keinerlei Haftung übernommen werden.",
+            {
+              "heading": "§ 8.3 Haftungsbegrenzung bei leichter Fahrlässigkeit"
+            },
+            "Die Haftung der Ärztin ist – außer in Fällen von Vorsatz oder grober Fahrlässigkeit – auf die Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) beschränkt. Kardinalpflichten sind solche Pflichten, deren Erfüllung die ordnungsgemäße Durchführung des Vertrages überhaupt erst ermöglicht und auf deren Einhaltung der Patient regelmäßig vertrauen darf.",
+            "Im Fall der Verletzung von Kardinalpflichten durch leichte Fahrlässigkeit ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt.",
+            {
+              "heading": "§ 8.4 Technische Störungen"
+            },
+            "Für Ausfälle oder Störungen der Videoplattform, technische Probleme der Datenübertragung oder sonstige technische Beeinträchtigungen, die nicht im Verantwortungsbereich der Ärztin liegen, wird keine Haftung übernommen. Dies gilt insbesondere für Störungen, die durch den Internetdienstanbieter, die Endgeräte des Patienten oder externe Plattformanbieter verursacht werden.",
+            {
+              "heading": "§ 8.5 Zwingende gesetzliche Haftung"
+            },
+            "Die vorstehenden Haftungsausschlüsse und -beschränkungen gelten nicht, soweit zwingende gesetzliche Haftungsvorschriften entgegenstehen. Dies betrifft insbesondere Ansprüche aus zwingenden gesetzlichen Bestimmungen bei der schuldhaften Verletzung von Leben, Körper oder Gesundheit sowie Ansprüche nach dem Produkthaftungsgesetz. Die Haftung im Rahmen dieser zwingenden gesetzlichen Vorschriften beschränkt sich auf die zutreffenden gesetzlichen Mindeststandards.",
+            {
+              "heading": "§ 8.6 Versicherungsschutz"
+            },
+            "Die Ärztin verfügt über eine angemessene Berufshaftpflichtversicherung gemäß den Anforderungen ihrer Berufsordnung. Einzelheiten zum Versicherungsschutz werden auf Anfrage mitgeteilt.",
+            {
+              "heading": "§ 8.7 Höhere Gewalt und unvorhersehbare Ereignisse"
+            },
+            "Die Ärztin haftet nicht für Leistungsverzögerungen, Leistungsausfälle oder die Unmöglichkeit der Leistungserbringung, die sich aus Umständen oder Ereignissen ergeben, die außerhalb ihrer zumutbaren Kontrolle liegen.",
+            "Höhere Gewalt umfasst insbesondere:",
+            {
+              "list": [
+                "Naturkatastrophen (Erdbeben, Überschwemmungen, Stürme)",
+                "Pandemien, Epidemien und behördliche Quarantäneanordnungen",
+                "Kriege, Terroranschläge, politische Unruhen",
+                "Streiks, Aussperrungen, Arbeitskämpfe",
+                "Gesetzgeberische oder behördliche Maßnahmen",
+                "Ausfall von Telekommunikationsnetzen oder Internetverbindungen",
+                "Ausfall oder Störung der Videoplattform oder des Buchungssystems",
+                "Stromausfälle oder andere Infrastrukturausfälle",
+                "Cyberangriffe, Hackerangriffe oder sonstige technische Störungen"
+              ]
+            },
+            "Rechtsfolgen bei höherer Gewalt:",
+            {
+              "list": [
+                "Die Ärztin wird den Patienten unverzüglich über den Eintritt eines solchen Ereignisses informieren",
+                "Es wird kostenlos ein Ersatztermin angeboten, sobald die Leistungserbringung wieder möglich ist",
+                "Bei dauerhafter Unmöglichkeit erfolgt eine Rückerstattung bereits gezahlter Beträge für nicht erbrachte Leistungen",
+                "Eine weitergehende Haftung (z.B. Schadensersatz für entgangenen Nutzen) ist ausgeschlossen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "title": "§ 9 Widerrufsrecht",
+          "body": [
+            {
+              "heading": "§ 9.1 Ausschluss des Widerrufsrechts"
+            },
+            "Das Widerrufsrecht besteht nicht bei Verträgen zur Erbringung von Dienstleistungen im Bereich Gesundheit, wenn die Ärztin die Dienstleistung vollständig erbracht und mit der Ausführung der Dienstleistung erst begonnen hat, nachdem der Patient seine ausdrückliche Zustimmung gegeben und gleichzeitig seine Kenntnis davon bestätigt hat, dass er sein Widerrufsrecht bei vollständiger Vertragserfüllung verliert (TODO: korrekte Rechtsgrundlage, siehe agb-review.md Punkt A6; bisher § 312g Abs. 2 Nr. 9 BGB).",
+            {
+              "heading": "§ 9.2 Information vor Vertragsschluss"
+            },
+            "Der Patient wird vor Vertragsschluss ausdrücklich auf den Ausschluss des Widerrufsrechts hingewiesen."
+          ]
+        },
+        {
+          "id": "p10",
+          "title": "§ 10 Vertragslaufzeit und Kündigung",
+          "body": [
+            {
+              "heading": "§ 10.1 Einzeltermine"
+            },
+            "Einzeltermine enden mit der Erbringung der gebuchten Leistung.",
+            {
+              "heading": "§ 10.2 Paketverträge"
+            },
+            {
+              "list": [
+                "Das Hormon-Starter- und das Hormon-Komfort-Paket sind 6 Monate ab Therapiebeginn gültig",
+                "Nicht in Anspruch genommene Leistungen verfallen nach Ablauf der Gültigkeit",
+                "Eine Rückerstattung für nicht genutzte Leistungen erfolgt nicht"
+              ]
+            },
+            {
+              "heading": "§ 10.3 Hormon-Premium-Paket"
+            },
+            {
+              "list": [
+                "Mindestlaufzeit: 3 Monate",
+                "Nach Ablauf der Mindestlaufzeit monatlich kündbar",
+                "Kündigungsfrist: 14 Tage zum Monatsende",
+                "Die Kündigung bedarf der Textform (E-Mail ausreichend)"
+              ]
+            },
+            {
+              "heading": "§ 10.4 Außerordentliche Kündigung"
+            },
+            "Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt. Ein wichtiger Grund liegt insbesondere vor bei:",
+            {
+              "list": [
+                "Zahlungsverzug trotz Mahnung",
+                "falschen Angaben zu medizinisch relevanten Sachverhalten",
+                "beleidigendem oder aggressivem Verhalten",
+                "Missbrauch der Leistungen",
+                "Anhaltender Missbrauch des unbegrenzten Kontakts im Premium-Paket trotz schriftlicher Abmahnung (siehe § 3.1.3 Fair-Use-Grundsatz)"
+              ]
+            },
+            {
+              "heading": "§ 10.5 Rückerstattung bei Kündigung"
+            },
+            "Bei vorzeitiger Kündigung von Paketverträgen aus wichtigem Grund, den der Patient zu vertreten hat, erfolgt keine Rückerstattung. Bei Kündigung aus wichtigem Grund, den die Ärztin zu vertreten hat, erfolgt eine anteilige Rückerstattung."
+          ]
+        },
+        {
+          "id": "p11",
+          "title": "§ 11 Anwendbares Recht und Gerichtsstand",
+          "body": [
+            {
+              "heading": "§ 11.1 Anwendbares Recht"
+            },
+            "Es gilt das Recht der Republik Zypern unter Ausschluss des UN-Kaufrechts. EU-Verbraucherschutzrechte bleiben unberührt.",
+            {
+              "heading": "§ 11.2 Gerichtsstand"
+            },
+            "Bei Streitigkeiten mit Patienten, die Verbraucher mit Wohnsitz in einem Mitgliedstaat der Europäischen Union sind, gilt ergänzend zu § 11.1 der Gerichtsstand am Wohnsitz des Patienten gemäß den zwingenden verbraucherschutzrechtlichen Vorschriften. Der Patient kann die Ärztin auch vor den Gerichten in Pyla, Zypern, verklagen.",
+            "Für alle anderen Fälle – insbesondere bei Patienten ohne Wohnsitz in der EU – ist ausschließlicher Gerichtsstand Pyla, Zypern.",
+            {
+              "heading": "§ 11.3 Verbraucherschutz"
+            },
+            "Für Verbraucher mit Wohnsitz in der EU gelten die zwingenden Verbraucherschutzvorschriften des jeweiligen Aufenthaltslandes.",
+            {
+              "heading": "§ 11.4 Alternative Streitbeilegung"
+            },
+            "Bei Streitigkeiten im Zusammenhang mit diesem Behandlungsvertrag sind beide Parteien grundsätzlich bereit, vor Einleitung eines Gerichtsverfahrens eine außergerichtliche Streitbeilegung zu versuchen.",
+            "Die Parteien können sich auf eine unabhängige Schlichtungsstelle für grenzüberschreitende Gesundheitsdienstleistungen einigen. Die Teilnahme an einem Schlichtungsverfahren ist freiwillig und berührt nicht das Recht beider Parteien, zu jedem Zeitpunkt vor, während oder nach der Schlichtung Klage vor Gericht zu erheben.",
+            "Die Ärztin ist nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen, erklärt sich aber bereit, im Einzelfall eine Teilnahme zu prüfen."
+          ]
+        },
+        {
+          "id": "p12",
+          "title": "§ 12 Medizinische Aufklärung und Nutzungsbedingungen",
+          "body": [
+            {
+              "heading": "§ 12.1 Verweis auf Nutzungsbedingungen für Fernbehandlung"
+            },
+            "Die detaillierte medizinische Aufklärung zur bioidentischen Hormonersatztherapie, einschließlich:",
+            {
+              "list": [
+                "Risiken und Nebenwirkungen der Hormonersatztherapie",
+                "Kontraindikationen und Wechselwirkungen",
+                "Monitoring- und Kontrolluntersuchungspflichten",
+                "Patientenpflichten und Mitwirkung"
+              ]
+            },
+            {
+              "lines": [
+                [
+                  "ist in den ",
+                  {
+                    "label": "Nutzungsbedingungen für Fernbehandlung",
+                    "href": "/remote-treatment-terms"
+                  },
+                  " ausführlich geregelt, die integraler Bestandteil dieser AGB sind."
+                ]
+              ]
+            },
+            {
+              "heading": "§ 12.2 Verbindlichkeit beider Dokumente"
+            },
+            "Mit Akzeptanz dieser AGB erkennt der Patient auch die Nutzungsbedingungen für Fernbehandlung vollumfänglich an. Beide Dokumente bilden zusammen die rechtsverbindliche Vertragsgrundlage für die medizinische Behandlung.",
+            {
+              "heading": "§ 12.3 Wichtigste Patientenpflichten im Überblick"
+            },
+            "Der Patient verpflichtet sich insbesondere zu:",
+            {
+              "list": [
+                "Vor Therapiebeginn: Aktuelle gynäkologische (Frauen) bzw. urologische (Männer) Untersuchung durchführen",
+                "Während der Therapie: Jährliche Kontrolluntersuchungen wahrnehmen",
+                "Dokumentation: Untersuchungsergebnisse im Patientenportal hochladen",
+                "Anamnese: Vollständige und wahrheitsgemäße Angaben zu Vorerkrankungen und Medikamenten",
+                "Therapiewunsch: Bestätigung des Therapiewunsches trotz aufgeklärter Risiken"
+              ]
+            },
+            "Die Nichteinhaltung dieser Pflichten kann zur Beendigung der Behandlung führen und beeinträchtigt ggf. den Versicherungsschutz der Ärztin.",
+            {
+              "heading": "§ 12.4 Aufklärung verstanden"
+            },
+            "Mit Buchung eines Termins bestätigt der Patient ausdrücklich:",
+            {
+              "list": [
+                "Die medizinische Aufklärung in den Nutzungsbedingungen gelesen und verstanden zu haben",
+                "Alle Fragen zur Hormonersatztherapie beantwortet bekommen zu haben",
+                "Die bioidentische Hormonersatztherapie trotz der aufgeklärten Risiken ausdrücklich zu wünschen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "title": "§ 13 Schlussbestimmungen",
+          "body": [
+            {
+              "heading": "§ 13.1 Salvatorische Klausel"
+            },
+            "Sollten einzelne Bestimmungen dieser AGB unwirksam oder undurchführbar sein oder werden, berührt dies die Wirksamkeit der übrigen Bestimmungen nicht. An die Stelle der unwirksamen oder undurchführbaren Bestimmung tritt diejenige wirksame und durchführbare Regelung, deren Wirkungen der wirtschaftlichen Zielsetzung am nächsten kommen.",
+            {
+              "heading": "§ 13.2 Schriftformerfordernis"
+            },
+            "Änderungen und Ergänzungen dieser AGB bedürfen der Textform. Dies gilt auch für die Änderung dieser Schriftformklausel.",
+            {
+              "heading": "§ 13.3 Aktuelle Version"
+            },
+            "Die jeweils aktuelle Version dieser AGB ist auf der Website www.hormonexperten.de einsehbar.",
+            {
+              "heading": "§ 13.4 Kontakt"
+            },
+            "Bei Fragen zu diesen AGB oder bei sonstigen Anliegen wenden Sie sich bitte an:",
+            {
+              "list": ["E-Mail: info@hormonexperten.de", "Telefon: +49 1512 2682 778"]
+            },
+            "Hinweis: Medizinische Fragen können nur im Rahmen einer gebuchten Videosprechstunde beantwortet werden. Eine medizinische Beratung per E-Mail ist nicht möglich und wird nicht angeboten."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "remote-treatment-terms",
+      "meta": {
+        "title": "Nutzungsbedingungen für Fernbehandlung | Hormonexperten",
+        "description": "Medizinische und technische Regeln der Fernbehandlung bei Hormonexperten: Aufklärung, Patientenpflichten und Ablauf der Videosprechstunde."
+      },
+      "title": "Nutzungsbedingungen für Fernbehandlung",
+      "updated": "2025-11-15",
+      "intro": "TODO: an die neue Praxisorganisation anpassen wie die AGB: Pabau statt Whereby (§ 5.1.1, § 5.2), Paketnamen statt „Premium-Queen“ (§ 6.2, § 7.4), Rezeptgebühren wie in AGB § 3.2.6 (§ 7.3), Befunde über das Patientenportal statt per E-Mail (§ 4.2.1), kostenpflichtige E-Mail-Beratung (§ 6.1.2) gegenüber AGB § 13.4.",
+      "sections": [
+        {
+          "id": "p1",
+          "title": "§ 1 Einführung und Geltungsbereich",
+          "body": [
+            "Diese Nutzungsbedingungen regeln die medizinischen und technischen Aspekte der Fernbehandlung bei Hormonexperten und ergänzen die Allgemeinen Geschäftsbedingungen (AGB). Mit der Buchung einer Videosprechstunde akzeptiert der Patient diese Bedingungen."
+          ]
+        },
+        {
+          "id": "p2",
+          "title": "§ 2 Medizinische Grundlagen der Behandlung",
+          "body": [
+            {
+              "heading": "§ 2.1 Behandlungsschwerpunkte"
+            },
+            "Die Fernbehandlung bei Hormonexperten fokussiert sich auf:",
+            {
+              "heading": "§ 2.1.1 Bioidentische Hormonersatztherapie"
+            },
+            {
+              "list": [
+                "Individuelle Hormonsubstitution mit bioidentischen Hormonen",
+                "Anpassung basierend auf Laborwerten und klinischer Symptomatik",
+                "Behandlung von Wechseljahresbeschwerden",
+                "Hormonelle Balance nach Schwangerschaft",
+                "Prävention altersbedingter Hormonmangelerscheinungen"
+              ]
+            },
+            {
+              "heading": "§ 2.1.2 Schilddrüsenberatung"
+            },
+            {
+              "list": [
+                "Diagnostik von Schilddrüsenfunktionsstörungen",
+                "Optimierung der Schilddrüsenmedikation",
+                "Beratung zu Hashimoto-Thyreoiditis",
+                "Ganzheitlicher Behandlungsansatz"
+              ]
+            },
+            {
+              "heading": "§ 2.2 Behandlungsmethodik"
+            },
+            "Die Behandlung erfolgt nach aktuellen wissenschaftlichen Erkenntnissen und kombiniert schulmedizinische mit komplementärmedizinischen Ansätzen. Die Therapie wird individuell auf jeden Patienten abgestimmt.",
+            {
+              "heading": "§ 2.3 Labordiagnostik"
+            },
+            {
+              "list": [
+                "Umfassende Hormonanalysen erforderlich",
+                "Kooperation mit zertifizierten Laboren",
+                "Regelmäßige Verlaufskontrollen",
+                "Interpretation und Besprechung der Laborwerte"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "title": "§ 3 Patientenaufklärung",
+          "body": [
+            {
+              "heading": "§ 3.1 Bioidentische Hormonersatztherapie – Nutzen und Risiken"
+            },
+            {
+              "heading": "§ 3.1.1 Erwarteter Nutzen"
+            },
+            {
+              "list": [
+                "Linderung von Wechseljahresbeschwerden (Hitzewallungen, Schlafstörungen, Stimmungsschwankungen)",
+                "Verbesserung der Lebensqualität",
+                "Erhaltung der Knochendichte",
+                "Positive Effekte auf Haut und Schleimhäute",
+                "Stabilisierung der psychischen Verfassung",
+                "Verbesserung der kognitiven Funktionen"
+              ]
+            },
+            {
+              "heading": "§ 3.1.2 Mögliche Risiken und Nebenwirkungen"
+            },
+            "Häufig (bei mehr als 10 % der Behandelten):",
+            {
+              "list": [
+                "Brustspannen in der Einstellungsphase",
+                "Zwischenblutungen bei Östrogengabe",
+                "Leichte Gewichtsschwankungen"
+              ]
+            },
+            "Gelegentlich (bei 1–10 % der Behandelten):",
+            {
+              "list": [
+                "Kopfschmerzen",
+                "Übelkeit",
+                "Wassereinlagerungen",
+                "Stimmungsschwankungen in der Anpassungsphase"
+              ]
+            },
+            "Selten (bei weniger als 1 % der Behandelten):",
+            {
+              "list": [
+                "Allergische Reaktionen auf Trägerstoffe",
+                "Leberwerterhöhungen",
+                "Thromboserisiko (geringer als bei synthetischen Hormonen)"
+              ]
+            },
+            {
+              "heading": "§ 3.1.3 Langzeitrisiken"
+            },
+            "Obwohl bioidentische Hormone ein geringeres Risikoprofil als synthetische Hormone aufweisen, kann ein minimal erhöhtes Risiko für folgende Erkrankungen nicht vollständig ausgeschlossen werden:",
+            {
+              "list": [
+                "Bestimmte hormonabhängige Tumore",
+                "Thromboembolische Ereignisse",
+                "Gallenblasenerkrankungen"
+              ]
+            },
+            "Wichtig: Diese Risiken sind deutlich geringer als bei synthetischen Hormonpräparaten und müssen gegen die Risiken eines unbehandelten Hormonmangels abgewogen werden.",
+            {
+              "heading": "§ 3.2 Kontraindikationen"
+            },
+            {
+              "heading": "§ 3.2.1 Absolute Kontraindikationen"
+            },
+            "Eine Hormonersatztherapie darf NICHT durchgeführt werden bei:",
+            {
+              "list": [
+                "Bestehenden oder vermuteten hormonabhängigen Tumoren (Brust, Gebärmutter)",
+                "Ungeklärten vaginalen Blutungen",
+                "Akuten thromboembolischen Erkrankungen",
+                "Akuten Lebererkrankungen",
+                "Porphyrie",
+                "Bekannte Überempfindlichkeit gegen die Wirkstoffe"
+              ]
+            },
+            {
+              "heading": "§ 3.2.2 Relative Kontraindikationen"
+            },
+            "Eine besonders sorgfältige Nutzen-Risiko-Abwägung ist erforderlich bei:",
+            {
+              "list": [
+                "Vorgeschichte von Thrombosen",
+                "Familiäre Belastung mit Brustkrebs",
+                "Endometriose",
+                "Migräne",
+                "Epilepsie",
+                "Diabetes mellitus",
+                "Bluthochdruck"
+              ]
+            },
+            {
+              "heading": "§ 3.3 Wechselwirkungen"
+            },
+            "Bioidentische Hormone können Wechselwirkungen haben mit:",
+            {
+              "list": [
+                "Antikoagulantien (Blutverdünner)",
+                "Antiepileptika",
+                "Antibiotika (besonders Rifampicin)",
+                "Johanniskraut",
+                "bestimmten Antidepressiva",
+                "bestimmten Schilddrüsenhormonen"
+              ]
+            },
+            {
+              "heading": "§ 3.4 Monitoring und Kontrollen"
+            },
+            {
+              "heading": "§ 3.4.1 Vor Therapiebeginn"
+            },
+            {
+              "list": [
+                "Ausführliche Anamnese",
+                "Aktuelle gynäkologische/urologische Untersuchung (nicht älter als 12 Monate)",
+                "Basislaborwerte",
+                "Blutdruckmessung",
+                "ggf. Mammografie/Sonografie"
+              ]
+            },
+            {
+              "heading": "§ 3.4.2 Während der Therapie"
+            },
+            {
+              "list": [
+                "Kontrolle nach 3 Monaten",
+                "Danach halbjährliche bis jährliche Kontrollen",
+                "Regelmäßige Laborkontrollen",
+                "Anpassung der Dosierung nach Bedarf"
+              ]
+            },
+            {
+              "heading": "§ 3.4.3 Abbruchkriterien"
+            },
+            "Die Therapie muss sofort beendet werden bei:",
+            {
+              "list": [
+                "Auftreten von Kontraindikationen",
+                "schweren Nebenwirkungen",
+                "Verdacht auf thromboembolische Ereignisse",
+                "Ungeklärte Blutungen",
+                "Gelbsucht oder Verschlechterung der Leberwerte",
+                "Deutlichem Blutdruckanstieg",
+                "Schwangerschaft"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "title": "§ 4 Patientenpflichten und Mitwirkung",
+          "body": [
+            {
+              "heading": "§ 4.1 Informationspflichten"
+            },
+            "Der Patient verpflichtet sich zu:",
+            {
+              "list": [
+                "Vollständigen und wahrheitsgemäßen Angaben zur Krankengeschichte",
+                "Information über alle eingenommenen Medikamente und Nahrungsergänzungsmittel",
+                "Mitteilung von Allergien und Unverträglichkeiten",
+                "Sofortige Information bei Auftreten von Nebenwirkungen",
+                "Mitteilung von Schwangerschaft oder Schwangerschaftswunsch"
+              ]
+            },
+            {
+              "heading": "§ 4.2 Kontrolluntersuchungen"
+            },
+            {
+              "heading": "§ 4.2.1 Jährliche Pflichtuntersuchungen"
+            },
+            "Der Patient verpflichtet sich zu jährlichen:",
+            {
+              "lines": [
+                "Gynäkologischen/urologischen Kontrolluntersuchungen",
+                "Brustkrebsvorsorgeuntersuchungen (ab 40 Jahren)",
+                [
+                  "Übermittlung der Befunde per E-Mail an ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ]
+              ]
+            },
+            {
+              "heading": "§ 4.2.2 Dokumentation"
+            },
+            "Der Patient führt bei Bedarf ein Symptomtagebuch zur Verlaufskontrolle.",
+            {
+              "heading": "§ 4.3 Therapietreue (Compliance)"
+            },
+            {
+              "list": [
+                "Einnahme der Medikamente gemäß ärztlicher Anweisung",
+                "Keine eigenmächtige Dosisänderung",
+                "Regelmäßige Einnahme für optimale Wirkung",
+                "Information bei Einnahmeproblemen"
+              ]
+            },
+            {
+              "heading": "§ 4.4 Lebensstilmaßnahmen"
+            },
+            "Für optimale Therapieergebnisse werden empfohlen:",
+            {
+              "list": [
+                "Gesunde Ernährung",
+                "Regelmäßige Bewegung",
+                "Stressreduktion",
+                "Ausreichend Schlaf",
+                "Verzicht auf Nikotin",
+                "Moderater Alkoholkonsum"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "title": "§ 5 Technische Durchführung der Videosprechstunde",
+          "body": [
+            {
+              "heading": "§ 5.1 Terminvorbereitung"
+            },
+            {
+              "heading": "§ 5.1.1 Technische Vorbereitung"
+            },
+            {
+              "list": [
+                "Funktionstest von Kamera und Mikrofon",
+                "Stabilen Internetzugang prüfen",
+                "Browser aktualisieren",
+                "Whereby-Link bereithalten"
+              ]
+            },
+            {
+              "heading": "§ 5.1.2 Medizinische Vorbereitung"
+            },
+            {
+              "list": [
+                "Aktuelle Laborwerte bereithalten",
+                "Medikamentenliste vorbereiten",
+                "Symptome notieren",
+                "Fragen vorbereiten"
+              ]
+            },
+            {
+              "heading": "§ 5.1.3 Umgebungsvorbereitung"
+            },
+            {
+              "list": [
+                "Ruhiger, privater Raum",
+                "Gute Beleuchtung",
+                "Keine Störungen während der Sprechstunde",
+                "Vertraulichkeit gewährleisten"
+              ]
+            },
+            {
+              "heading": "§ 5.2 Ablauf der Videosprechstunde"
+            },
+            "Anmeldung (5 Minuten vor Termin)",
+            {
+              "list": [
+                "Whereby-Link öffnen",
+                "Kamera und Mikrofon freigeben",
+                "Im Warteraum warten"
+              ]
+            },
+            "Begrüßung und Identifikation",
+            {
+              "list": ["Identitätsprüfung durch Ärztin", "Technische Verbindung prüfen"]
+            },
+            "Konsultation",
+            {
+              "list": ["Anamnese und Besprechung", "Befundbesprechung", "Therapieplanung"]
+            },
+            "Dokumentation",
+            {
+              "list": [
+                "Zusammenfassung der Besprechung",
+                "Rezeptausstellung bei Bedarf",
+                "Terminvereinbarung für Folgetermin"
+              ]
+            },
+            {
+              "heading": "§ 5.3 Pünktlichkeit und Wartezeiten"
+            },
+            {
+              "list": [
+                "Anmeldung 5 Minuten vor Terminbeginn",
+                "Maximale Wartezeit der Ärztin: 5 Minuten bei Verspätung",
+                "Bei technischen Problemen: Kontakt per Telefon"
+              ]
+            },
+            {
+              "heading": "§ 5.4 Technische Störungen"
+            },
+            "Bei technischen Störungen:",
+            {
+              "list": [
+                "1. Browser neu starten",
+                "2. Internetverbindung prüfen",
+                "3. Alternative Browser versuchen",
+                "4. Telefonischen Kontakt aufnehmen",
+                "5. Ersatztermin vereinbaren"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "title": "§ 6 Kommunikationsregeln",
+          "body": [
+            {
+              "heading": "§ 6.1 E-Mail-Kommunikation"
+            },
+            {
+              "heading": "§ 6.1.1 Kostenfreie Kommunikation"
+            },
+            {
+              "list": [
+                "Erste Anfrage zur Eignungsfeststellung",
+                "Terminvereinbarungen",
+                "Übermittlung von Laborwerten",
+                "Administrative Fragen"
+              ]
+            },
+            {
+              "heading": "§ 6.1.2 Kostenpflichtige medizinische E-Mail-Beratung"
+            },
+            {
+              "list": [
+                "Medizinische Fragen zwischen Terminen",
+                "Dosisanpassungen",
+                "Befundinterpretationen",
+                "Zweitmeinungen"
+              ]
+            },
+            {
+              "heading": "§ 6.2 Premium-Queen-Kommunikation"
+            },
+            "Für Premium-Queen-Kunden gilt:",
+            {
+              "list": [
+                "E-Mail/SMS-Antwort innerhalb von 48 Stunden",
+                "Antwortzeit bezieht sich auf Werktage (Mo-Fr)",
+                "Wochenenden und Feiertage ausgenommen",
+                "Priorisierte Bearbeitung"
+              ]
+            },
+            {
+              "heading": "§ 6.3 Notfälle"
+            },
+            "WICHTIG: Diese Praxis bietet KEINE Notfallversorgung!",
+            "Bei medizinischen Notfällen:",
+            {
+              "list": [
+                "Sofort lokale Notdienste kontaktieren",
+                "Notrufnummer 112 (EU-weit)",
+                "Nächste Notaufnahme aufsuchen",
+                "Hausarzt oder ärztlichen Bereitschaftsdienst"
+              ]
+            },
+            {
+              "heading": "§ 6.4 Kommunikationsstandards"
+            },
+            {
+              "list": [
+                "Respektvoller Umgangston",
+                "Sachliche Darstellung von Beschwerden",
+                "Keine beleidigenden oder aggressiven Nachrichten",
+                "Vertraulicher Umgang mit Informationen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "title": "§ 7 Rezeptierung und Medikamentenversorgung",
+          "body": [
+            {
+              "heading": "§ 7.1 Rezeptausstellung"
+            },
+            {
+              "list": [
+                "Nach ärztlicher Prüfung und Indikationsstellung",
+                "Ausstellung als Privatrezept",
+                "Versand per E-Mail (PDF) oder Post",
+                "Gültigkeit nach lokalen Apothekenbestimmungen"
+              ]
+            },
+            {
+              "heading": "§ 7.2 Hormonpräparate"
+            },
+            {
+              "list": [
+                "Individuelle Rezepturen aus der Apotheke",
+                "Kosten ca. 1,00-1,50 € pro Tag",
+                "Bezug über spezialisierte Apotheken",
+                "Liste empfohlener Apotheken auf Anfrage"
+              ]
+            },
+            {
+              "heading": "§ 7.3 Rezeptgebühren"
+            },
+            {
+              "list": [
+                "Bis 2 Produkte: 15 €",
+                "Ab 3 Produkten: 30 €",
+                "Bei Paketbuchungen teilweise inklusive"
+              ]
+            },
+            {
+              "heading": "§ 7.4 Nachbestellungen"
+            },
+            {
+              "list": [
+                "Rechtzeitige Anforderung (mind. 1 Woche vor Aufbrauchen)",
+                "Bei Premium-Queen: 6 Monate inklusive",
+                "Voraussetzung: Aktuelle Kontrollwerte"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "title": "§ 8 Qualitätssicherung",
+          "body": [
+            {
+              "heading": "§ 8.1 Medizinische Standards"
+            },
+            {
+              "list": [
+                "Behandlung nach aktuellem Stand der Wissenschaft",
+                "Regelmäßige Fortbildung der Ärztin",
+                "Evidenzbasierte Medizin",
+                "Individuelle Therapiekonzepte"
+              ]
+            },
+            {
+              "heading": "§ 8.2 Dokumentation"
+            },
+            {
+              "list": [
+                "Vollständige Behandlungsdokumentation",
+                "Sichere Datenspeicherung",
+                "10-jährige Aufbewahrungsfrist",
+                "Einsichtsrecht für Patienten"
+              ]
+            },
+            {
+              "heading": "§ 8.3 Feedback und Beschwerden"
+            },
+            {
+              "list": [
+                "Feedback erwünscht zur Qualitätsverbesserung",
+                "Beschwerden an: info@hormonexperten.de",
+                "innerhalb von 14 Tagen",
+                "Bearbeitung",
+                "Konstruktive Lösungsfindung"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "title": "§ 9 Besondere Hinweise",
+          "body": [
+            {
+              "heading": "§ 9.1 Schwangerschaft und Stillzeit"
+            },
+            {
+              "list": [
+                "Hormonersatztherapie muss bei Schwangerschaft sofort beendet werden",
+                "Während der Stillzeit nur nach Rücksprache",
+                "Verhütung während fruchtbarer Jahre besprechen"
+              ]
+            },
+            {
+              "heading": "§ 9.2 Reisen"
+            },
+            {
+              "list": [
+                "Ausreichend Medikamente mitnehmen",
+                "Ärztliches Attest für Zoll bei Bedarf",
+                "Zeitzonenumstellung bei Einnahme beachten",
+                "Lagerungsbedingungen beachten"
+              ]
+            },
+            {
+              "heading": "§ 9.3 Operationen"
+            },
+            {
+              "list": [
+                "Hormonersatztherapie vor geplanten OPs mit Operateur besprechen",
+                "ggf. temporäres Absetzen erforderlich",
+                "Information an Anästhesisten"
+              ]
+            },
+            {
+              "heading": "§ 9.4 Wechsel zu anderen Ärzten"
+            },
+            {
+              "list": [
+                "Digitale Karteikarte wird auf schriftlichen Antrag und gegen Unterschrift übermittelt",
+                "Die Karteikarte enthält Diagnosen, Behandlungsverlauf und Laborwerte",
+                "Ärztliche Konzepte, persönliche Notizen und therapeutisches Know-how sind hiervon ausgenommen und werden nicht weitergegeben",
+                "Laborwerte sind zusätzlich digital beim jeweiligen Labor verfügbar",
+                "Übergangszeitraum für Medikamentenversorgung beachten",
+                "Abschlussgespräch empfohlen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "title": "§ 10 Grenzen der Fernbehandlung",
+          "body": [
+            {
+              "heading": "§ 10.1 Nicht durchführbare Leistungen"
+            },
+            "Folgende Leistungen können NICHT per Videosprechstunde erfolgen:",
+            {
+              "list": [
+                "Körperliche Untersuchungen",
+                "Ultraschalluntersuchungen",
+                "Blutentnahmen",
+                "Injektionen",
+                "Akutversorgung"
+              ]
+            },
+            {
+              "heading": "§ 10.2 Verweis an Präsenzmedizin"
+            },
+            "Die Ärztin verweist bei Bedarf an:",
+            {
+              "list": [
+                "Lokale Fachärzte",
+                "Diagnostikzentren",
+                "Notfalleinrichtungen",
+                "Speziallabore"
+              ]
+            },
+            {
+              "heading": "§ 10.3 Kooperation mit anderen Ärzten"
+            },
+            {
+              "list": [
+                "Befundaustausch mit Einverständnis",
+                "Interdisziplinäre Zusammenarbeit",
+                "Zweitmeinungen respektiert"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "title": "§ 11 Datenschutz und Vertraulichkeit",
+          "body": [
+            {
+              "heading": "§ 11.1 Ärztliche Schweigepflicht"
+            },
+            "Alle Mitarbeiter unterliegen der ärztlichen Schweigepflicht. Informationen werden nur weitergegeben mit:",
+            {
+              "list": [
+                "Ausdrücklicher Einwilligung",
+                "Gesetzlicher Verpflichtung",
+                "Vitaler Indikation"
+              ]
+            },
+            {
+              "heading": "§ 11.2 Datensicherheit"
+            },
+            {
+              "list": [
+                "Verschlüsselte Datenübertragung",
+                "Sichere Serverstandorte",
+                "Regelmäßige Sicherheitsupdates",
+                "Zugangskontrolle"
+              ]
+            },
+            {
+              "heading": "§ 11.3 Patientenakte"
+            },
+            {
+              "list": [
+                "Digitale Führung",
+                "Vollständige Dokumentation",
+                "Einsichtsrecht gewährleistet",
+                "Kopien auf Anfrage"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "title": "§ 12 Beendigung der Behandlung",
+          "body": [
+            {
+              "heading": "§ 12.1 Durch den Patienten"
+            },
+            {
+              "list": [
+                "Jederzeit ohne Angabe von Gründen",
+                "Schriftliche Mitteilung empfohlen",
+                "Übergabe der Unterlagen",
+                "Abschlussrezept bei Bedarf"
+              ]
+            },
+            {
+              "heading": "§ 12.2 Durch die Ärztin"
+            },
+            "Beendigung möglich bei:",
+            {
+              "list": [
+                "Verlust des Vertrauensverhältnisses",
+                "Non-Compliance des Patienten",
+                "Aggressive oder beleidigende Kommunikation",
+                "Zahlungsverzug",
+                "Medizinische Gründe"
+              ]
+            },
+            {
+              "heading": "§ 12.3 Übergangsregelung"
+            },
+            {
+              "list": [
+                "4-wöchige Übergangsfrist für Medikamentenversorgung",
+                "Unterstützung bei Arztsuche",
+                "Übergabe der Behandlungsunterlagen"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "title": "§ 13 Wissenschaftlicher Hintergrund",
+          "body": [
+            {
+              "heading": "§ 13.1 Evidenzbasierte Medizin"
+            },
+            "Die Behandlung basiert auf:",
+            {
+              "list": [
+                "europäischen medizinischen Leitlinien",
+                "Peer-reviewten Studien",
+                "Internationalen Konsensuspapieren",
+                "Klinischer Erfahrung"
+              ]
+            },
+            {
+              "heading": "§ 13.2 Fortbildung"
+            },
+            {
+              "list": [
+                "Regelmäßige Teilnahme an Fachkongressen",
+                "Kontinuierliche medizinische Fortbildung",
+                "Austausch mit Fachkollegen",
+                "Integration neuer Erkenntnisse"
+              ]
+            },
+            {
+              "heading": "§ 13.3 Studienteilnahme"
+            },
+            {
+              "list": [
+                "Information über relevante Studien",
+                "Freiwillige Teilnahme möglich",
+                "Separate Einwilligung erforderlich",
+                "Keine Nachteile bei Ablehnung"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "title": "§ 14 Schlussbestimmungen",
+          "body": [
+            {
+              "heading": "§ 14.1 Ergänzung zu den AGB"
+            },
+            "Diese Nutzungsbedingungen ergänzen die Allgemeinen Geschäftsbedingungen und gelten gemeinsam mit diesen.",
+            {
+              "heading": "§ 14.2 Aktualität"
+            },
+            "Die Nutzungsbedingungen werden regelmäßig aktualisiert und dem Stand der medizinischen Wissenschaft angepasst.",
+            {
+              "heading": "§ 14.3 Einwilligung"
+            },
+            "Mit der Buchung einer Videosprechstunde bestätigt der Patient:",
+            {
+              "list": [
+                "Die Nutzungsbedingungen gelesen und verstanden zu haben",
+                "Mit der beschriebenen Behandlungsmethodik einverstanden zu sein",
+                "Die Grenzen der Fernbehandlung zu akzeptieren",
+                "Die Patientenpflichten zu erfüllen"
+              ]
+            },
+            {
+              "heading": "§ 14.4 Fragen und Unklarheiten"
+            },
+            "Bei Fragen oder Unklarheiten zu diesen Nutzungsbedingungen wenden Sie sich bitte an:",
+            {
+              "lines": [
+                [
+                  "E-Mail: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ],
+                [
+                  "Telefon: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "anhang",
+          "title": "Anhang: Wichtige Informationen auf einen Blick",
+          "body": [
+            {
+              "heading": "Checkliste vor dem ersten Termin"
+            },
+            {
+              "list": [
+                "[ ] Aktuelle Laborwerte (nicht älter als 3 Monate)",
+                "[ ] Gynäkologischer/urologischer Befund (nicht älter als 12 Monate)",
+                "[ ] Medikamentenliste",
+                "[ ] Allergiepass (falls vorhanden)",
+                "[ ] Vorbefunde (falls vorhanden)",
+                "[ ] Versichertenkarte (für Information, keine Abrechnung möglich)"
+              ]
+            },
+            {
+              "heading": "Notfallkontakte"
+            },
+            {
+              "list": [
+                "Europaweiter Notruf: 112",
+                "Ärztlicher Bereitschaftsdienst Deutschland: 116 117",
+                "Giftnotruf: Lokale Nummer erfragen"
+              ]
+            },
+            {
+              "heading": "Empfohlene Kontrollintervalle"
+            },
+            {
+              "list": [
+                "Ersteinstellung: Nach 3 Monaten",
+                "Stabile Einstellung: Alle 6-12 Monate",
+                "Laborkontrollen: Alle 3-6 Monate",
+                "Gynäkologische Kontrolle: Jährlich",
+                "Mammographie: Ab 40 Jahren alle 2 Jahre"
               ]
             }
           ]

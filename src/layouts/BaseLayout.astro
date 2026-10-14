@@ -25,6 +25,8 @@ interface Props {
 
 const { lang, site, title, description, preloadImage } = Astro.props;
 const path = Astro.url.pathname;
+// The analytics script exists only on Vercel's servers, so local and preview builds leave it out.
+const analytics = import.meta.env.PROD && process.env.VERCEL === '1';
 const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
 const imagePreload = preloadImage
   ? await getImage({
@@ -82,6 +84,25 @@ const imagePreload = preloadImage
     />
     <!-- The surface colour token (--color-surface), as the hero panel. -->
     <meta name="theme-color" content="#fcf8f4" />
+    <!-- Vercel Web Analytics: first-party and cookieless (privacy policy). A page Chromium
+         prerenders on hover loads it only once the page is shown, so it counts real visits. -->
+    {analytics && (
+      <script is:inline>
+        (() => {
+          const load = () => {
+            const script = document.createElement('script');
+            script.src = '/_vercel/insights/script.js';
+            script.defer = true;
+            document.head.append(script);
+          };
+          if (document.prerendering) {
+            document.addEventListener('prerenderingchange', load, { once: true });
+          } else {
+            load();
+          }
+        })();
+      </script>
+    )}
   </head>
   <body class="bg-bg font-sans text-ink antialiased">
     <a

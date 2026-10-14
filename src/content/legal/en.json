@@ -10,89 +10,47 @@
         "description": "Legal notice for Hormonexperten: provider, contact details and professional information."
       },
       "title": "Legal notice (Impressum)",
-      "updated": "2026-10-09",
+      "updated": "2026-10-14",
       "sections": [
         {
           "id": "anbieter",
-          "title": "Information under Section 5 DDG",
-          "body": [
-            {
-              "lines": [
-                "TODO: name of the practice or company, with legal form",
-                "TODO: name and title of the owner or authorised representative",
-                "TODO: street and number",
-                "TODO: postcode and town",
-                "TODO: country"
-              ]
-            }
-          ]
+          "title": "Provider",
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "kontakt",
           "title": "Contact",
-          "body": [
-            {
-              "lines": [
-                [
-                  "Email: ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
-                ],
-                "Phone: TODO: confirmed phone number"
-              ]
-            }
-          ]
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "berufsrecht",
           "title": "Professional information",
-          "body": [
-            {
-              "lines": [
-                "Statutory professional title: TODO: e.g. physician or specialist in General Medicine",
-                "Awarded in: TODO: country of licence or specialist recognition",
-                "Responsible medical association: TODO: name and address"
-              ]
-            },
-            "Professional regulations: TODO: professional code of the responsible medical association and the state’s Heilberufe-Kammergesetz, each with a link."
-          ]
-        },
-        {
-          "id": "register",
-          "title": "Register and VAT",
-          "body": [
-            {
-              "lines": [
-                "Register court and number: TODO: only for a company, otherwise remove this line",
-                "VAT identification number under Section 27a UStG: TODO: if there is one, otherwise remove this line"
-              ]
-            }
-          ]
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "versicherung",
           "title": "Professional liability insurance",
-          "body": [
-            {
-              "lines": ["Insurer: TODO: name and address", "Territorial scope: TODO"]
-            }
-          ]
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "verantwortlich",
-          "title": "Responsible for content under Section 18 (2) MStV",
-          "body": [{ "lines": ["TODO: name", "TODO: address (as above, if the same)"] }]
+          "title": "Responsible for editorial content",
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "streitbeilegung",
           "title": "Consumer dispute resolution",
-          "body": [
-            "TODO: statement under Section 36 VSBG on whether the practice takes part in dispute resolution before a consumer arbitration board (required above ten employees), or remove this section."
-          ]
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         },
         {
           "id": "bildnachweise",
-          "title": "Image credits",
-          "body": ["TODO: sources of the photos and illustrations used."]
+          "title": "Picture credits",
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
+        },
+        {
+          "id": "gestaltung",
+          "title": "Design and development",
+          "body": ["TODO: English text from impressum.en.md. The German version is binding."]
         }
       ]
     },
@@ -100,138 +58,536 @@
       "id": "datenschutz",
       "meta": {
         "title": "Privacy policy | Hormonexperten",
-        "description": "How Hormonexperten handles your data when you visit this website, and your rights."
+        "description": "How Hormonexperten handles your data on this website and in online consultations, and your rights."
       },
       "title": "Privacy policy",
-      "updated": "2026-10-09",
-      "intro": "This page explains which data is processed when you visit this website, why, and what rights you have.",
+      "updated": "2026-10-14",
+      "intro": "TODO: English intro from privacy.en.md.",
       "sections": [
-        {
-          "id": "kurz",
-          "title": "In brief",
-          "body": [
-            {
-              "list": [
-                "This website sets no cookies.",
-                "It loads no content, fonts or scripts from third parties. Even the font comes from our own server.",
-                "There are no forms and no user accounts on the website.",
-                "You book appointments in an external booking system, which opens only when you click a booking link."
-              ]
-            }
-          ]
-        },
         {
           "id": "verantwortlich",
           "title": "Controller",
-          "body": [
-            "The controller for data processing on this website under the General Data Protection Regulation (GDPR) is:",
-            {
-              "lines": [
-                "TODO: name of the practice or company",
-                "TODO: address",
-                [
-                  "Email: ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" }
-                ]
-              ]
-            }
-          ]
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
-          "id": "datenschutzbeauftragte",
-          "title": "Data protection officer",
-          "body": [
-            "TODO: contact details of the data protection officer, or remove this section if none has to be appointed."
-          ]
+          "id": "kurz",
+          "title": "In brief",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
           "id": "hosting",
           "title": "Hosting and server log files",
-          "body": [
-            "This website is hosted by TODO: name and location of the hosting provider. Each time a page is requested, the server automatically processes data that your browser sends:",
-            {
-              "list": [
-                "IP address",
-                "date and time of the request",
-                "the page requested and the amount of data transferred",
-                "the page you came from (referrer), if your browser sends it",
-                "browser type, browser version and operating system"
-              ]
-            },
-            "This data is technically necessary to deliver the website and keep it secure and stable. The legal basis is Art. 6(1)(f) GDPR; our legitimate interest is running the website securely and without errors. A data processing agreement under Art. 28 GDPR is in place with the hosting provider. Log files are deleted after TODO: number of days."
-          ],
-          "check_note": "Confirm the data processing agreement with the host; add where the data is stored (EU?)."
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
-          "id": "verschluesselung",
-          "title": "Encryption",
-          "body": [
-            "The connection to this website is encrypted with TLS. You can tell by the “https://” in your browser’s address bar."
-          ]
+          "id": "cookies",
+          "title": "Cookies and similar technologies",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        },
+        {
+          "id": "statistik",
+          "title": "Statistics with Vercel Web Analytics",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
           "id": "kontakt",
-          "title": "Contacting us by email or phone",
-          "body": [
-            "If you contact us by email or phone, we process your details to answer your enquiry. The legal basis is Art. 6(1)(b) GDPR if your enquiry concerns or prepares a treatment, otherwise Art. 6(1)(f) GDPR. We process health information under Art. 9(2)(h) GDPR. We delete your enquiry once it has been dealt with, unless statutory retention periods apply.",
-            "Emails are usually not end-to-end encrypted. Please don’t send us detailed health information by email."
-          ],
-          "check_note": "Agree the advice on health information by email with the practice."
+          "title": "Contact by email or phone",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        },
+        {
+          "id": "kontaktformular",
+          "title": "Contact form",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
           "id": "buchung",
-          "title": "Booking and payment",
-          "body": [
-            "We use the practice management system Pabau (TODO: provider and address) for booking and payment. The booking page opens only when you click a booking link; no data is sent to Pabau before then. Pabau processes your data on our behalf under Art. 28 GDPR.",
-            "TODO: which data is collected when booking, legal basis, retention period and any transfer to a third country (United Kingdom) with its basis."
-          ],
-          "check_note": "Check the Pabau contract, server location and payment provider."
+          "title": "Booking, patient portal and video consultation (Pabau)",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
-          "id": "behandlung",
-          "title": "Data from your treatment",
-          "body": [
-            "This website does not collect data that arises during treatment, for example in video consultations or test results. We inform you about that separately in our patient privacy notice (TODO: link)."
-          ]
-        },
-        {
-          "id": "matomo",
-          "title": "Visitor statistics with Matomo",
-          "body": [
-            "We measure how this website is used with Matomo, running on TODO: server or provider. Matomo sets no cookies and stores nothing on your device. IP addresses are shortened before they are stored, so we cannot identify you. The data is not passed on to third parties and is deleted after TODO: retention period.",
-            "The legal basis is Art. 6(1)(f) GDPR; our legitimate interest is improving the website."
-          ],
-          "needs_check": true,
-          "check_note": "Show only once Matomo is live; confirm the cookieless setup, IP shortening and retention period."
+          "id": "zahlung",
+          "title": "Payment processing",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
           "id": "links",
           "title": "Links to other websites",
-          "body": [
-            "Links to social networks and other websites are plain links with no embedded content. Only when you click one do you leave our website; the other provider’s privacy policy then applies."
-          ]
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
         },
         {
           "id": "rechte",
           "title": "Your rights",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        },
+        {
+          "id": "beschwerde",
+          "title": "Right to complain to a supervisory authority",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        },
+        {
+          "id": "verschluesselung",
+          "title": "SSL/TLS encryption",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        },
+        {
+          "id": "aenderungen",
+          "title": "Changes",
+          "body": ["TODO: English text from privacy.en.md. The German version is binding."]
+        }
+      ]
+    },
+    {
+      "id": "terms",
+      "meta": {
+        "title": "General terms and conditions | Hormonexperten",
+        "description": "General terms and conditions of Hormonexperten for medical remote treatment by video consultation."
+      },
+      "title": "General terms and conditions",
+      "updated": "2026-10-14",
+      "sections": [
+        {
+          "id": "p1",
+          "title": "§ 1 Scope of application and provider",
           "body": [
-            "You have the right",
             {
-              "list": [
-                "to access the data we hold about you (Art. 15 GDPR),",
-                "to have incorrect data corrected (Art. 16 GDPR),",
-                "to have your data erased (Art. 17 GDPR),",
-                "to restrict processing (Art. 18 GDPR),",
-                "to data portability (Art. 20 GDPR), and",
-                "to withdraw consent at any time, with effect for the future (Art. 7(3) GDPR)."
+              "heading": "§ 1.1 Provider"
+            },
+            "These General Terms and Conditions (GTC) apply to all contracts for medical remote treatment between:",
+            {
+              "lines": [
+                "Endoone Limited",
+                "Dr. Isabella Wilden",
+                "Lerou 5",
+                "7080 Pyla",
+                "Cyprus",
+                [
+                  "Phone: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
+                ],
+                [
+                  "Email: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ],
+                "EU VAT ID: CY60026970H"
               ]
             },
-            "Where we process data under Art. 6(1)(f) GDPR, you can object at any time on grounds relating to your particular situation (Art. 21 GDPR).",
+            "(hereinafter the “Physician” or “Hormonexperten”)",
+            "and her patients (hereinafter the “Patient”).",
+            {
+              "heading": "§ 1.2 Scope"
+            },
+            "These GTC apply, together with the Terms of Use for Remote Treatment, to:",
+            {
+              "list": [
+                "all medical remote treatments via video consultation",
+                "consultations in the field of bioidentical hormone therapy and thyroid counselling",
+                "the issuing of prescriptions and medical documentation",
+                "all services booked via the website www.hormonexperten.de or via our online booking portal"
+              ]
+            },
+            "Important: The Terms of Use for Remote Treatment contain the medical information on hormone therapy (including risks, monitoring obligations and patient obligations) and form an integral part of these GTC. Both documents together form the contractual basis.",
+            {
+              "heading": "§ 1.3 Patients and billing"
+            },
+            "All services are provided exclusively on a self-pay basis. The Patient is the sole contracting party and debtor.",
+            "Billing with health insurers:",
+            {
+              "list": [
+                "Billing via statutory health insurance (GKV) is not possible.",
+                "Billing via private health insurance (PKV) is only possible using analogous GOÄ codes. Reimbursement by the PKV cannot be guaranteed."
+              ]
+            },
+            "It is solely the Patient’s responsibility to clarify any reimbursement with their insurer before concluding the contract.",
+            {
+              "heading": "§ 1.4 Legal capacity and minimum age"
+            },
+            "At the time of booking, the Patient must be at least 18 years old and have full legal capacity to enter into a binding treatment contract.",
+            "Treatment with bioidentical hormones is provided exclusively to adults (18 and over). Minors cannot be treated."
+          ]
+        },
+        {
+          "id": "p2",
+          "title": "§ 2 Conclusion of contract",
+          "body": [
+            {
+              "heading": "§ 2.1 Invitation to make an offer"
+            },
+            "The presentation of services on the website is not a binding offer, but an invitation to the Patient to submit a binding offer.",
+            {
+              "heading": "§ 2.2 Booking process"
+            },
+            "The contract is concluded as follows:",
+            {
+              "list": [
+                "The Patient opens the online booking portal via the “Book now” button on the website and selects the desired service and an appointment.",
+                "The Patient accepts these GTC and the Terms of Use for Remote Treatment by ticking the corresponding checkbox.",
+                "By clicking the button “TODO: exact button label in the Pabau portal, e.g. Book and pay”, the Patient submits a binding offer and pays the fee for the booked service.",
+                "The Physician confirms the appointment by email (acceptance of the contract)."
+              ]
+            },
+            "The treatment contract is concluded upon confirmation of the appointment.",
+            {
+              "heading": "§ 2.3 Contract language"
+            },
+            "The contract language is German only. Translations of these GTC are provided for information; in case of doubt, the German version prevails.",
+            {
+              "heading": "§ 2.4 Suitability assessment and refusal of treatment"
+            },
+            "For each request, the Physician assesses whether remote treatment is medically suitable and justifiable. The Physician reserves the right to refuse treatment if:",
+            {
+              "list": [
+                "medical contraindications exist",
+                "remote treatment is not indicated and an in-person examination is medically required",
+                "the requested treatment lies outside the Physician’s field of expertise",
+                "the Patient fails to provide required preliminary examinations or laboratory results"
+              ]
+            },
+            "In the event of refusal, the Patient receives a written explanation and, where applicable, a recommendation for further steps (e.g. preliminary examinations or consultation with another specialist). Fees already paid for services not provided are refunded.",
+            "The Physician will make every reasonable effort to provide treatment by remote consultation where medically justifiable. Refusals are made solely for medical or legal reasons."
+          ]
+        },
+        {
+          "id": "p3",
+          "title": "§ 3 Description of services",
+          "body": [
+            "TODO: align the services, durations and prices in § 3 with the pricing page (Basic Medical Support €380, Intensive Medical Support €499, as on the old costs page) and the services set up in Pabau.",
+            {
+              "heading": "§ 3.1 Hormone packages"
+            },
+            {
+              "heading": "§ 3.1.1 Hormone Starter Package (€380)"
+            },
+            {
+              "list": [
+                "Initial medical history (60-minute video consultation) with analysis of findings and symptoms",
+                "Follow-up consultation to discuss laboratory results and establish the therapy plan",
+                "Organisation of the first order and prescription of hormones",
+                "4 video follow-ups (20 minutes each) within the first 3 months",
+                "Validity: 6 months from the start of therapy"
+              ]
+            },
+            "Not included: follow-up prescriptions when dosage adjustments are required.",
+            "Ideal for: women who wish to start bioidentical hormone therapy easily and value regular feedback.",
+            {
+              "heading": "§ 3.1.2 Hormone Comfort Package (€490)"
+            },
+            "Includes all services of the Hormone Starter Package, plus:",
+            {
+              "list": [
+                "6 instead of 4 video follow-ups (20 minutes each) within the first 6 months",
+                "organisation and prescription of follow-up orders for 6 months",
+                "additional micronutrient and lifestyle counselling (60 minutes)",
+                "Validity: 6 months from the start of therapy"
+              ]
+            },
+            "Not included: questions and advice by email or phone.",
+            "Ideal for: women who want to start bioidentical hormone therapy easily and enhance results through additional counselling.",
+            {
+              "heading": "§ 3.1.3 Hormone Premium Package (€590/month)"
+            },
+            "Includes all services of the Hormone Comfort Package, plus:",
+            {
+              "list": [
+                "unlimited email and SMS contact via a dedicated number (during consultation hours only)",
+                "unlimited prescriptions and follow-up orders",
+                "priority appointment scheduling"
+              ]
+            },
+            "Minimum term: 3 months. Cancellable monthly with 14 days’ notice. Payable monthly in advance.",
+            "Ideal for women with complex hormonal issues (e.g. heavy bleeding, oestrogen dominance, fibroids, fertility concerns, hair loss, hot flushes, mood disturbances, osteoporosis, brain fog).",
+            "Fair use policy: Unlimited email and SMS contact is intended for medically meaningful therapeutic support. Reasonable use generally means:",
+            {
+              "list": [
+                "up to 10 medical inquiries per month",
+                "response within 48 hours on working days",
+                "no medical emergencies (these require immediate local medical care)",
+                "no excessive use that disadvantages other patients",
+                "responses only during consultation hours"
+              ]
+            },
+            "In the event of significant overuse or misuse (e.g. more than 20 inquiries per month or several contacts a day), the Physician reserves the right to:",
+            {
+              "list": [
+                "inform the Patient in writing about appropriate use",
+                "charge additional inquiries at the regular individual rate (€45 per video consultation)",
+                "in extreme cases, terminate the contract without notice (see § 10.4)"
+              ]
+            },
+            {
+              "heading": "§ 3.2 Introductory consultations and initial assessments"
+            },
+            "All initial consultations serve to get acquainted and to give an initial assessment of the individual situation. An in-depth consultation clarifies whether bioidentical hormone therapy is appropriate and which next steps are advisable.",
+            {
+              "heading": "§ 3.2.1 Post-pregnancy initial consultation (€180, 60 minutes)"
+            },
+            "Introductory consultation to assess whether supplementary hormone therapy after pregnancy may be suitable, for symptoms such as:",
+            {
+              "list": [
+                "absent menstruation, weight gain, mood swings",
+                "depression, anxiety, hair loss",
+                "loss of libido or energy after childbirth"
+              ]
+            },
+            "Services include:",
+            {
+              "list": [
+                "comprehensive postpartum hormone analysis",
+                "evaluation of symptoms and findings",
+                "individual hormone balance recommendations",
+                "organisation of required laboratory tests"
+              ]
+            },
+            "Recommended next step: Hormone Starter Package for 6-month therapy support.",
+            {
+              "heading": "§ 3.2.2 Perimenopause initial consultation (€180, 60 minutes)"
+            },
+            "Many women aged 35 and over experience hormonal changes despite regular menstruation and unremarkable gynaecological findings.",
+            "Services include:",
+            {
+              "list": [
+                "sensitive support during hormonal transitions",
+                "analysis even with normal laboratory values",
+                "early detection of deficiencies to maintain balance",
+                "an individual treatment plan"
+              ]
+            },
+            "Recommended next step: Hormone Starter Package.",
+            {
+              "heading": "§ 3.2.3 General hormone consultation (€180, 60 minutes)"
+            },
+            "Comprehensive medical history with analysis of existing findings, preparation checklists and organisation of blood sampling.",
+            "Suitable for:",
+            {
+              "list": [
+                "women and men with hormonal complaints",
+                "second opinions on existing diagnoses",
+                "women with endometriosis or PCOS",
+                "men seeking natural, bioidentical hormone supplementation instead of potency medication"
+              ]
+            },
+            "Recommended next step: Hormone Starter Package.",
+            {
+              "heading": "§ 3.2.4 Thyroid consultation (€180, 60 minutes)"
+            },
+            "Individual, detailed medical history with analysis of findings, comprehensive symptom assessment and organisation of blood sampling (including digital referral by email).",
+            "Suitable for:",
+            {
+              "list": [
+                "suspected thyroid dysfunction",
+                "symptoms despite “normal” laboratory values",
+                "women on thyroid medication without improvement",
+                "weight gain, hair loss, fatigue, digestive issues"
+              ]
+            },
+            {
+              "heading": "§ 3.2.5 For existing patients"
+            },
+            {
+              "list": [
+                "Short video consultation (€45, approx. 20 minutes): for patients already in therapy who need a new prescription or a dosage adjustment.",
+                "Follow-up consultation (€90, approx. 30 minutes): review of current laboratory results, therapy adjustment, initial prescription and hormone ordering."
+              ]
+            },
+            {
+              "heading": "§ 3.2.6 Prescriptions and orders"
+            },
+            {
+              "list": [
+                "1 preparation: €15",
+                "2 preparations: €20",
+                "3 preparations: €25",
+                "4 preparations: €30"
+              ]
+            },
+            {
+              "heading": "§ 3.3 Additional costs"
+            },
+            {
+              "list": [
+                "Laboratory costs: charged separately at actual cost",
+                "Hormone costs: approx. €1.00–€1.50 per day (individually compounded by the pharmacy)",
+                "Free of charge: initial suitability inquiry by email, appointment scheduling, administrative questions",
+                "Chargeable: medical consultations outside booked packages are only possible within video consultations (see § 13.4)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "title": "§ 4 Prices and payment terms",
+          "body": [
+            {
+              "heading": "§ 4.1 Prices and GOÄ billing"
+            },
+            "All stated prices are final prices. Billing is carried out in accordance with the German Medical Fee Schedule (GOÄ). As certain modern treatment methods are not explicitly listed in the GOÄ (1982/1999), analogous fee codes are applied pursuant to § 6(2) GOÄ.",
+            "Taking into account the complexity, time required and specialised expertise in bioidentical hormone therapy, fee multipliers of 5.0 to 7.0 are agreed pursuant to § 2(1) and (2) GOÄ (deviating agreement), justified by:",
+            {
+              "list": [
+                "specialised training and long-standing expertise",
+                "individualised therapy concepts based on extensive laboratory diagnostics",
+                "time-intensive medical histories and follow-up monitoring",
+                "remote treatment with increased coordination effort"
+              ]
+            },
+            "By accepting these GTC, the Patient expressly agrees to this deviating agreement.",
+            {
+              "heading": "§ 4.2 Payment due date"
+            },
+            "The fee for a booked appointment or package is due at booking and is paid in full through the online booking portal. For the Hormone Premium Package, the monthly fee is due in advance at the start of each month. Laboratory costs and other services invoiced separately are due within 14 days of the invoice date without deduction.",
+            {
+              "heading": "§ 4.3 Payment methods"
+            },
+            "Payment at booking is made by Visa, Mastercard, Diners Club, SEPA or Klarna. Invoices issued separately are paid by bank transfer. Other payment methods may be agreed in individual cases.",
+            {
+              "heading": "§ 4.4 Default of payment"
+            },
+            "In the event of default, interest of 8 percentage points above the applicable base interest rate will be charged. The following reminder fees apply:",
+            {
+              "list": ["1st reminder: €5", "2nd reminder: €10", "3rd reminder: €15"]
+            },
+            {
+              "heading": "§ 4.5 Suspension of treatment"
+            },
+            "If invoices are outstanding, the Physician reserves the right to suspend further appointments until they are settled in full.",
+            {
+              "heading": "§ 4.6 Right of retention"
+            },
+            "The Patient’s right of retention with respect to medical services is excluded.",
+            {
+              "heading": "§ 4.7 Cost estimate"
+            },
+            "For more extensive treatments, a cost estimate is provided on request."
+          ]
+        },
+        {
+          "id": "p5",
+          "title": "§ 5 Appointments and cancellations",
+          "body": [
+            {
+              "heading": "§ 5.1 Booking"
+            },
+            "Appointments are booked through the online booking portal (link “Book now” on the website) or by phone.",
+            {
+              "heading": "§ 5.2 Cancellation period"
+            },
             {
               "lines": [
                 [
-                  "To do so, write to ",
-                  { "label": "info@hormonexperten.de", "href": "mailto:info@hormonexperten.de" },
+                  "Appointments must be cancelled or rescheduled at least 48 hours before the scheduled time, through the patient portal or by email to ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  },
+                  ". If an appointment is cancelled in time, the fee paid is refunded in full or credited to a new appointment, at the Patient’s choice."
+                ]
+              ]
+            },
+            {
+              "heading": "§ 5.3 Late cancellation and no-show"
+            },
+            "If an appointment is not cancelled in time or not attended, the fee for the reserved time slot is retained in full, unless the slot can be given to another patient.",
+            {
+              "heading": "§ 5.4 Goodwill"
+            },
+            "In proven emergencies or unavoidable events (e.g. sudden serious illness with a medical certificate), the fee may be refunded in individual cases as a gesture of goodwill.",
+            {
+              "heading": "§ 5.5 Technical problems"
+            },
+            "If technical problems on the Physician’s side prevent the appointment, a replacement appointment is offered free of charge."
+          ]
+        },
+        {
+          "id": "p6",
+          "title": "§ 6 Remote treatment and technical requirements",
+          "body": [
+            {
+              "heading": "§ 6.1 Video platform"
+            },
+            "Video consultations take place via the video function of our practice software Pabau. The Patient receives the access link in the appointment confirmation and in the patient portal.",
+            {
+              "heading": "§ 6.2 Technical requirements"
+            },
+            "The Patient must ensure:",
+            {
+              "list": [
+                "a stable internet connection (at least 2 Mbit/s)",
+                "a current web browser (Chrome, Firefox, Safari or Edge)",
+                "a working camera and microphone",
+                "a quiet, uninterrupted and confidential environment"
+              ]
+            },
+            {
+              "heading": "§ 6.3 Limits of remote treatment"
+            },
+            "The Patient is informed that:",
+            {
+              "list": [
+                "remote treatment cannot fully replace a physical examination",
+                "certain complaints may require an in-person examination",
+                "in emergencies, local emergency services must be contacted immediately",
+                "the Physician may refer the Patient to local specialists if necessary"
+              ]
+            },
+            {
+              "heading": "§ 6.4 Technical responsibility"
+            },
+            "The Patient is responsible for their own technical equipment and internet connection.",
+            {
+              "heading": "§ 6.5 Waiting time"
+            },
+            "If the Patient is late, the Physician waits a maximum of 5 minutes. After that, the appointment is forfeited and treated as not attended."
+          ]
+        },
+        {
+          "id": "p7",
+          "title": "§ 7 Data protection",
+          "body": [
+            {
+              "heading": "§ 7.1 Data processing"
+            },
+            "Personal and medical data are processed exclusively in compliance with the GDPR and medical confidentiality.",
+            {
+              "heading": "§ 7.2 Encryption"
+            },
+            "All video consultations are transmitted in encrypted form.",
+            {
+              "heading": "§ 7.3 Retention"
+            },
+            "Medical records are kept for 10 years in accordance with statutory retention periods.",
+            {
+              "heading": "§ 7.4 Patient rights"
+            },
+            "The Patient has the right to:",
+            {
+              "list": [
+                "access their stored data",
+                "rectification of incorrect data",
+                "erasure (where no statutory retention obligations apply)",
+                "data portability",
+                "object to data processing"
+              ]
+            },
+            {
+              "heading": "§ 7.5 Video recordings"
+            },
+            "Video consultations are not recorded as a matter of principle. Recording only takes place with the Patient’s explicit written consent and solely for documentation purposes.",
+            {
+              "heading": "§ 7.6 Further information"
+            },
+            {
+              "lines": [
+                [
+                  "More information on data protection is in our ",
+                  {
+                    "label": "privacy policy",
+                    "href": "/datenschutz"
+                  },
                   "."
                 ]
               ]
@@ -239,65 +595,1048 @@
           ]
         },
         {
-          "id": "beschwerde",
-          "title": "Right to complain",
+          "id": "p8",
+          "title": "§ 8 Limitation of liability",
           "body": [
-            "You can complain to a data protection supervisory authority (Art. 77 GDPR), in particular in the EU country where you live or work. The authority responsible for us is TODO: supervisory authority where the practice is based, with address."
+            {
+              "heading": "§ 8.1 Principles of medical services"
+            },
+            "Medical advice and therapy recommendations are given to the best of knowledge and belief, based on the information supplied by the Patient. The quality and accuracy of advice depend significantly on the completeness and truthfulness of that information.",
+            {
+              "heading": "§ 8.2 Patient responsibility and exclusion of liability"
+            },
+            "Carrying out recommended measures, particularly correct intake of medication or supplements and lifestyle changes, is the Patient’s responsibility. The Physician cannot monitor compliance.",
+            "Liability for damage to health or other harm resulting from incorrect use, unauthorised changes or discontinuation of therapy by the Patient is excluded. No liability is assumed for consequences of incomplete, incorrect or late information from the Patient.",
+            "The Physician is under no circumstances liable for indirect damage, including consequential damage, loss of profit or other indirect financial losses.",
+            "Patients are thoroughly informed about treatments and recommended preparations. Side effects cannot be completely ruled out for every individual. No liability is assumed for the safety or tolerability of preparations compounded by external pharmacies or other pharmaceutical products.",
+            {
+              "heading": "§ 8.3 Limitation of liability for slight negligence"
+            },
+            "Except in cases of intent or gross negligence, liability is limited to breach of essential contractual obligations (cardinal obligations). In cases of slight negligence, liability is limited to foreseeable damage typical for this type of contract.",
+            {
+              "heading": "§ 8.4 Technical disruptions"
+            },
+            "No liability is assumed for failures or disruptions of the video platform, data transmission problems or other technical impairments outside the Physician’s responsibility, in particular those caused by internet providers, patient devices or third-party platforms.",
+            {
+              "heading": "§ 8.5 Mandatory statutory liability"
+            },
+            "The above exclusions do not apply where mandatory statutory liability applies, in particular for culpable injury to life, body or health, or under product liability law.",
+            {
+              "heading": "§ 8.6 Insurance"
+            },
+            "The Physician holds appropriate professional liability insurance in accordance with professional regulations. Details are available on request.",
+            {
+              "heading": "§ 8.7 Force majeure"
+            },
+            "The Physician is not liable for delays, failures or impossibility of performance due to events beyond reasonable control, including:",
+            {
+              "list": [
+                "natural disasters",
+                "pandemics, epidemics, official quarantine orders",
+                "war, terrorism, political unrest",
+                "strikes, lockouts, labour disputes",
+                "legislative or governmental measures",
+                "failure of telecommunications networks or the internet",
+                "failure or disruption of the video platform or the booking system",
+                "power outages or infrastructure failures",
+                "cyberattacks or similar events"
+              ]
+            },
+            "Legal consequences:",
+            {
+              "list": [
+                "immediate notification of the Patient",
+                "a free replacement appointment where possible",
+                "refund of prepaid fees for services not provided in case of permanent impossibility",
+                "no further liability (e.g. compensation for lost benefits)"
+              ]
+            }
           ]
         },
         {
-          "id": "aenderungen",
-          "title": "Changes",
+          "id": "p9",
+          "title": "§ 9 Right of withdrawal",
           "body": [
-            "We update this privacy policy when the website or the law changes. The version published here applies."
+            {
+              "heading": "§ 9.1 Exclusion of the right of withdrawal"
+            },
+            "The right of withdrawal does not apply to contracts for health services where the service has been fully provided and performance began only after the Patient gave explicit consent and acknowledged that they lose the right of withdrawal on full performance (TODO: correct legal citation, see agb-review.md item A6; old text cited § 312g(2) No. 9 BGB).",
+            {
+              "heading": "§ 9.2 Pre-contractual information"
+            },
+            "The Patient is expressly informed of the exclusion of the right of withdrawal before the contract is concluded."
+          ]
+        },
+        {
+          "id": "p10",
+          "title": "§ 10 Term and termination",
+          "body": [
+            {
+              "heading": "§ 10.1 Individual appointments"
+            },
+            "Individual appointments end when the booked service has been provided.",
+            {
+              "heading": "§ 10.2 Package contracts"
+            },
+            {
+              "list": [
+                "The Hormone Starter and Hormone Comfort packages are valid for 6 months from the start of therapy.",
+                "Unused services expire at the end of the validity period.",
+                "Unused services are not refunded."
+              ]
+            },
+            {
+              "heading": "§ 10.3 Hormone Premium Package"
+            },
+            {
+              "list": [
+                "Minimum term: 3 months",
+                "Monthly cancellation thereafter",
+                "Notice period: 14 days to the end of the month",
+                "Cancellation must be in text form (email is sufficient)"
+              ]
+            },
+            {
+              "heading": "§ 10.4 Termination for good cause"
+            },
+            "The right to terminate for good cause remains unaffected. Good cause includes in particular:",
+            {
+              "list": [
+                "payment default despite reminders",
+                "false information on medically relevant facts",
+                "insulting or aggressive behaviour",
+                "abuse of services",
+                "persistent misuse of unlimited contact in the Premium Package despite a written warning (see § 3.1.3)"
+              ]
+            },
+            {
+              "heading": "§ 10.5 Refunds on termination"
+            },
+            "If the contract is terminated for good cause attributable to the Patient, no refund is made. If attributable to the Physician, fees are refunded pro rata."
+          ]
+        },
+        {
+          "id": "p11",
+          "title": "§ 11 Applicable law and jurisdiction",
+          "body": [
+            {
+              "heading": "§ 11.1 Applicable law"
+            },
+            "The law of the Republic of Cyprus applies, excluding the UN Convention on Contracts for the International Sale of Goods. EU consumer protection rights remain unaffected.",
+            {
+              "heading": "§ 11.2 Jurisdiction"
+            },
+            "For disputes with Patients who are consumers residing in an EU member state, the courts at the Patient’s place of residence have jurisdiction in accordance with mandatory consumer protection law. The Patient may also sue before the courts of Pyla, Cyprus.",
+            "For all other cases, the exclusive place of jurisdiction is Pyla, Cyprus.",
+            {
+              "heading": "§ 11.3 Consumer protection"
+            },
+            "For EU consumers, the mandatory consumer protection provisions of their country of residence apply.",
+            {
+              "heading": "§ 11.4 Out-of-court dispute resolution"
+            },
+            "The parties are generally willing to attempt out-of-court dispute resolution before going to court. Participation is voluntary and does not affect the right to go to court at any time."
+          ]
+        },
+        {
+          "id": "p12",
+          "title": "§ 12 Medical information and Terms of Use",
+          "body": [
+            {
+              "heading": "§ 12.1 Terms of Use for Remote Treatment"
+            },
+            {
+              "lines": [
+                [
+                  "Detailed medical information on bioidentical hormone therapy, including risks, contraindications, monitoring obligations and patient duties, is set out in the ",
+                  {
+                    "label": "Terms of Use for Remote Treatment",
+                    "href": "/remote-treatment-terms"
+                  },
+                  ", which form an integral part of these GTC."
+                ]
+              ]
+            },
+            {
+              "heading": "§ 12.2 Binding nature of both documents"
+            },
+            "By accepting these GTC, the Patient also accepts the Terms of Use for Remote Treatment in full. Both documents together form the binding basis for treatment.",
+            {
+              "heading": "§ 12.3 Key patient obligations"
+            },
+            "The Patient undertakes in particular to:",
+            {
+              "list": [
+                "before therapy: have a current gynaecological (women) or urological (men) examination",
+                "during therapy: attend annual follow-up examinations",
+                "documentation: upload examination results to the patient portal",
+                "medical history: provide complete and truthful information",
+                "therapy request: confirm the wish for therapy despite the risks explained"
+              ]
+            },
+            "Failure to comply may lead to termination of treatment and may affect the Physician’s insurance cover.",
+            {
+              "heading": "§ 12.4 Acknowledgement"
+            },
+            "By booking an appointment, the Patient expressly confirms:",
+            {
+              "list": [
+                "having read and understood the medical information",
+                "having had all questions answered",
+                "explicitly wishing to proceed with bioidentical hormone therapy despite the risks"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "title": "§ 13 Final provisions",
+          "body": [
+            {
+              "heading": "§ 13.1 Severability"
+            },
+            "If any provision of these GTC is or becomes invalid or unenforceable, the remaining provisions remain valid.",
+            {
+              "heading": "§ 13.2 Text form"
+            },
+            "Amendments and additions to these GTC require text form. This also applies to any amendment of this clause.",
+            {
+              "heading": "§ 13.3 Current version"
+            },
+            "The current version of these GTC is available at www.hormonexperten.de.",
+            {
+              "heading": "§ 13.4 Contact"
+            },
+            {
+              "lines": [
+                "For questions about these GTC:",
+                [
+                  "Email: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ],
+                [
+                  "Phone: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
+                ]
+              ]
+            },
+            "Note: medical questions can only be answered within booked video consultations. Medical advice is not given by email."
           ]
         }
       ]
     },
     {
-      "id": "cookie-settings",
+      "id": "remote-treatment-terms",
       "meta": {
-        "title": "Cookie settings | Hormonexperten",
-        "description": "This website sets no cookies and embeds no third-party content."
+        "title": "Terms of use for remote treatment | Hormonexperten",
+        "description": "Medical and technical rules for remote treatment at Hormonexperten: patient information, obligations and how video consultations work."
       },
-      "title": "Cookie settings",
-      "updated": "2026-10-09",
-      "intro": "This website sets no cookies and embeds no third-party content. That’s why there is no cookie banner and nothing to set here.",
+      "title": "Terms of use for remote treatment",
+      "updated": "2025-11-15",
+      "intro": "TODO: update for the new setup as in the GTC: Pabau instead of Whereby (§ 5.1.1, § 5.2), package names instead of “Premium-Queen” (§ 6.2, § 7.4), prescription fees as in GTC § 3.2.6 (§ 7.3), findings via the patient portal instead of email (§ 4.2.1), paid email advice (§ 6.1.2) against GTC § 13.4.",
       "sections": [
         {
-          "id": "geraet",
-          "title": "What is stored on your device",
+          "id": "p1",
+          "title": "§ 1 Introduction and scope",
           "body": [
-            "Nothing that would need your consent. There are no advertising, tracking or social media cookies, and no videos, maps, fonts or review widgets that send data to third parties when the page loads."
+            "These Terms of Use govern the medical and technical aspects of telemedical treatment at Hormonexperten and supplement the General Terms and Conditions (GTC). By booking a video consultation, the patient accepts these terms."
           ]
         },
         {
-          "id": "matomo",
-          "title": "Statistics without cookies",
+          "id": "p2",
+          "title": "§ 2 Medical basis of treatment",
           "body": [
-            "For visitor statistics we use Matomo without cookies and without storing anything on your device. The privacy policy has the details."
-          ],
-          "needs_check": true,
-          "check_note": "Show only once Matomo is live."
-        },
-        {
-          "id": "aenderungen",
-          "title": "If this changes",
-          "body": [
-            "If we ever add services that need your consent, we will ask you first. You will then be able to change your choice on this page at any time."
+            {
+              "heading": "§ 2.1 Focus of Treatment"
+            },
+            "Telemedical treatment at Hormonexperten focuses on:",
+            {
+              "heading": "§ 2.1.1 Bioidentical Hormone Therapy"
+            },
+            {
+              "list": [
+                "Individualized hormone replacement with bioidentical hormones",
+                "Adjustment based on laboratory values and clinical symptoms",
+                "Treatment of menopausal symptoms",
+                "Hormonal balance after pregnancy",
+                "Prevention of age-related hormone deficiencies"
+              ]
+            },
+            {
+              "heading": "§ 2.1.2 Thyroid Consultation"
+            },
+            {
+              "list": [
+                "Diagnosis of thyroid dysfunction",
+                "Optimization of thyroid medication",
+                "Consultation regarding Hashimoto’s thyroiditis",
+                "Holistic treatment approach"
+              ]
+            },
+            {
+              "heading": "§ 2.2 Treatment Methodology"
+            },
+            "Treatment is provided in accordance with current scientific knowledge and combines conventional medical and complementary medical approaches. Therapy is tailored individually to each patient.",
+            {
+              "heading": "§ 2.3 Laboratory Diagnostics"
+            },
+            {
+              "list": [
+                "Comprehensive hormone analyses required",
+                "Cooperation with certified laboratories",
+                "Regular follow-up monitoring",
+                "Interpretation and discussion of laboratory results"
+              ]
+            }
           ]
         },
         {
-          "id": "mehr",
-          "title": "Find out more",
+          "id": "p3",
+          "title": "§ 3 Patient information",
           "body": [
+            {
+              "heading": "§ 3.1 Bioidentical Hormone Therapy – Benefits and Risks"
+            },
+            {
+              "heading": "§ 3.1.1 Expected Benefits"
+            },
+            {
+              "list": [
+                "Relief of menopausal symptoms (hot flashes, sleep disturbances, mood swings)",
+                "Improved quality of life",
+                "Preservation of bone density",
+                "Positive effects on skin and mucous membranes",
+                "Stabilization of mental well-being",
+                "Improvement of cognitive functions"
+              ]
+            },
+            {
+              "heading": "§ 3.1.2 Possible Risks and Side Effects"
+            },
+            "Common (more than 10% of treated patients):",
+            {
+              "list": [
+                "Breast tenderness during the adjustment phase",
+                "Breakthrough bleeding with estrogen therapy",
+                "Mild weight fluctuations"
+              ]
+            },
+            "Occasional (1–10% of treated patients):",
+            {
+              "list": [
+                "Headaches",
+                "Nausea",
+                "Fluid retention",
+                "Mood fluctuations during the adjustment phase"
+              ]
+            },
+            "Rare (less than 1% of treated patients):",
+            {
+              "list": [
+                "Allergic reactions to excipients",
+                "Elevated liver enzymes",
+                "Risk of thrombosis (lower than with synthetic hormones)"
+              ]
+            },
+            {
+              "heading": "§ 3.1.3 Long-Term Risks"
+            },
+            "Although bioidentical hormones have a lower risk profile than synthetic hormones, a minimally increased risk of the following conditions cannot be completely excluded:",
+            {
+              "list": [
+                "Certain hormone-dependent tumors",
+                "Thromboembolic events",
+                "Gallbladder disease"
+              ]
+            },
+            "Important: These risks are significantly lower than with synthetic hormone preparations and must be weighed against the risks of untreated hormone deficiency.",
+            {
+              "heading": "§ 3.2 Contraindications"
+            },
+            {
+              "heading": "§ 3.2.1 Absolute Contraindications"
+            },
+            "Hormone therapy must NOT be performed in cases of:",
+            {
+              "list": [
+                "Existing or suspected hormone-dependent tumors (breast, uterus)",
+                "Unexplained vaginal bleeding",
+                "Acute thromboembolic disease",
+                "Acute liver disease",
+                "Porphyria",
+                "Known hypersensitivity to active ingredients"
+              ]
+            },
+            {
+              "heading": "§ 3.2.2 Relative Contraindications"
+            },
+            "Particularly careful risk-benefit assessment is required in cases of:",
+            {
+              "list": [
+                "History of thrombosis",
+                "Family history of breast cancer",
+                "Endometriosis",
+                "Migraine",
+                "Epilepsy",
+                "Diabetes mellitus",
+                "Hypertension"
+              ]
+            },
+            {
+              "heading": "§ 3.3 Drug Interactions"
+            },
+            "Bioidentical hormones may interact with:",
+            {
+              "list": [
+                "Anticoagulants",
+                "Antiepileptic drugs",
+                "Antibiotics, especially rifampicin",
+                "St. John’s wort",
+                "Certain antidepressants",
+                "Certain thyroid hormones"
+              ]
+            },
+            {
+              "heading": "§ 3.4 Monitoring and Follow-Up"
+            },
+            {
+              "heading": "§ 3.4.1 Before Initiation of Therapy"
+            },
+            {
+              "list": [
+                "Detailed medical history",
+                "Current gynecological or urological examination, not older than 12 months",
+                "Baseline laboratory values",
+                "Blood pressure measurement",
+                "Mammography or ultrasound if indicated"
+              ]
+            },
+            {
+              "heading": "§ 3.4.2 During Therapy"
+            },
+            {
+              "list": [
+                "Follow-up after 3 months",
+                "Thereafter every 6 to 12 months",
+                "Regular laboratory monitoring",
+                "Dose adjustment as needed"
+              ]
+            },
+            {
+              "heading": "§ 3.4.3 Criteria for Discontinuation"
+            },
+            "Therapy must be stopped immediately in the event of:",
+            {
+              "list": [
+                "Occurrence of contraindications",
+                "Severe side effects",
+                "Suspected thromboembolic events",
+                "Unexplained bleeding",
+                "Jaundice or worsening liver values",
+                "Significant increase in blood pressure",
+                "Pregnancy"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "title": "§ 4 Patient obligations and cooperation",
+          "body": [
+            {
+              "heading": "§ 4.1 Duty to Provide Information"
+            },
+            "The patient undertakes to:",
+            {
+              "list": [
+                "Provide complete and truthful information regarding medical history",
+                "Inform about all medications and dietary supplements taken",
+                "Report allergies and intolerances",
+                "Inform immediately of any side effects",
+                "Inform about pregnancy or intention to become pregnant"
+              ]
+            },
+            {
+              "heading": "§ 4.2 Follow-Up Examinations"
+            },
+            {
+              "heading": "§ 4.2.1 Annual Mandatory Examinations"
+            },
+            "The patient undertakes to undergo annually:",
+            {
+              "list": [
+                "Gynecological or urological check-ups",
+                "Breast cancer screening from the age of 40",
+                "Submission of findings by email to info@hormonexperten.de"
+              ]
+            },
+            {
+              "heading": "§ 4.2.2 Documentation"
+            },
+            "If necessary, the patient shall keep a symptom diary for monitoring purposes.",
+            {
+              "heading": "§ 4.3 Adherence to Therapy (Compliance)"
+            },
+            {
+              "list": [
+                "Take medication as prescribed",
+                "No independent dose adjustments",
+                "Regular intake for optimal effect",
+                "Inform the physician in case of intake problems"
+              ]
+            },
+            {
+              "heading": "§ 4.4 Lifestyle Measures"
+            },
+            "For optimal therapy results, the following are recommended:",
+            {
+              "list": [
+                "Healthy diet",
+                "Regular physical activity",
+                "Stress reduction",
+                "Adequate sleep",
+                "Avoidance of nicotine",
+                "Moderate alcohol consumption"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "title": "§ 5 Technical conduct of the video consultation",
+          "body": [
+            {
+              "heading": "§ 5.1 Appointment Preparation"
+            },
+            {
+              "heading": "§ 5.1.1 Technical Preparation"
+            },
+            {
+              "list": [
+                "Test camera and microphone",
+                "Check stable internet connection",
+                "Update browser",
+                "Have the Whereby link ready"
+              ]
+            },
+            {
+              "heading": "§ 5.1.2 Medical Preparation"
+            },
+            {
+              "list": [
+                "Have current laboratory values available",
+                "Prepare medication list",
+                "Note symptoms",
+                "Prepare questions"
+              ]
+            },
+            {
+              "heading": "§ 5.1.3 Environment Preparation"
+            },
+            {
+              "list": [
+                "Quiet, private room",
+                "Good lighting",
+                "No disturbances during consultation",
+                "Ensure confidentiality"
+              ]
+            },
+            {
+              "heading": "§ 5.2 Procedure of the Video Consultation"
+            },
+            {
+              "list": [
+                "Log in 5 minutes before the appointment",
+                "Open the Whereby link",
+                "Enable camera and microphone",
+                "Wait in the waiting room",
+                "Greeting and identification",
+                "Identity verification by the physician",
+                "Technical connection check",
+                "Consultation including medical history and discussion",
+                "Review of findings",
+                "Therapy planning",
+                "Documentation",
+                "Summary of the discussion",
+                "Prescription issuance if required",
+                "Scheduling of follow-up appointment"
+              ]
+            },
+            {
+              "heading": "§ 5.3 Punctuality and Waiting Times"
+            },
+            {
+              "list": [
+                "Log in 5 minutes before the appointment",
+                "Maximum waiting time for the physician: 5 minutes in case of delay",
+                "In case of technical problems: contact by telephone"
+              ]
+            },
+            {
+              "heading": "§ 5.4 Technical Disruptions"
+            },
+            "In case of technical disruptions:",
+            {
+              "list": [
+                "Restart the browser",
+                "Check internet connection",
+                "Try an alternative browser",
+                "Establish telephone contact",
+                "Arrange a replacement appointment"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "title": "§ 6 Communication rules",
+          "body": [
+            {
+              "heading": "§ 6.1 Email Communication"
+            },
+            {
+              "heading": "§ 6.1.1 Free Communication"
+            },
+            {
+              "list": [
+                "Initial inquiry to assess suitability",
+                "Appointment scheduling",
+                "Submission of laboratory values",
+                "Administrative questions"
+              ]
+            },
+            {
+              "heading": "§ 6.1.2 Paid Medical Email Consultation"
+            },
+            {
+              "list": [
+                "Medical questions between appointments",
+                "Dose adjustments",
+                "Interpretation of findings",
+                "Second opinions"
+              ]
+            },
+            {
+              "heading": "§ 6.2 Premium-Queen Communication"
+            },
+            "For Premium-Queen clients:",
+            {
+              "list": [
+                "Email or SMS response within 48 hours",
+                "Response time applies to business days, Monday to Friday",
+                "Weekends and public holidays excluded",
+                "Prioritized processing"
+              ]
+            },
+            {
+              "heading": "§ 6.3 Emergencies"
+            },
+            "IMPORTANT: This practice does NOT provide emergency care.",
+            "In case of medical emergencies:",
+            {
+              "list": [
+                "Contact local emergency services immediately",
+                "Emergency number 112, throughout the EU",
+                "Visit the nearest emergency department",
+                "Contact your general practitioner or out-of-hours medical service"
+              ]
+            },
+            {
+              "heading": "§ 6.4 Communication Standards"
+            },
+            {
+              "list": [
+                "Respectful tone",
+                "Objective description of complaints",
+                "No insulting or aggressive messages",
+                "Confidential handling of information"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "title": "§ 7 Prescriptions and medication supply",
+          "body": [
+            {
+              "heading": "§ 7.1 Issuance of Prescriptions"
+            },
+            {
+              "list": [
+                "After medical review and indication",
+                "Issued as a private prescription",
+                "Sent by email, PDF, or by post",
+                "Validity according to local pharmacy regulations"
+              ]
+            },
+            {
+              "heading": "§ 7.2 Hormone Preparations"
+            },
+            {
+              "list": [
+                "Individual formulations prepared by pharmacies",
+                "Costs approximately €1.00 to €1.50 per day",
+                "Supply through specialized pharmacies",
+                "List of recommended pharmacies available upon request"
+              ]
+            },
+            {
+              "heading": "§ 7.3 Prescription Fees"
+            },
+            {
+              "list": [
+                "Up to 2 products: €15",
+                "From 3 products: €30",
+                "Partially included in package bookings"
+              ]
+            },
+            {
+              "heading": "§ 7.4 Repeat Prescriptions"
+            },
+            {
+              "list": [
+                "Request in good time, at least 1 week before depletion",
+                "For Premium-Queen: 6 months included",
+                "Requirement: Current follow-up values"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "title": "§ 8 Quality assurance",
+          "body": [
+            {
+              "heading": "§ 8.1 Medical Standards"
+            },
+            {
+              "list": [
+                "Treatment according to current scientific standards",
+                "Regular continuing education of the physician",
+                "Evidence-based medicine",
+                "Individualized therapy concepts"
+              ]
+            },
+            {
+              "heading": "§ 8.2 Documentation"
+            },
+            {
+              "list": [
+                "Complete treatment documentation",
+                "Secure data storage",
+                "Retention period of 10 years",
+                "Right of access for patients"
+              ]
+            },
+            {
+              "heading": "§ 8.3 Feedback and Complaints"
+            },
+            {
+              "list": [
+                "Feedback welcomed for quality improvement",
+                "Complaints to: info@hormonexperten.de within 14 days",
+                "Review and constructive resolution"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "title": "§ 9 Special notices",
+          "body": [
+            {
+              "heading": "§ 9.1 Pregnancy and Breastfeeding"
+            },
+            {
+              "list": [
+                "Hormone therapy must be discontinued immediately in case of pregnancy",
+                "During breastfeeding only after consultation",
+                "Contraception to be discussed during fertile years"
+              ]
+            },
+            {
+              "heading": "§ 9.2 Travel"
+            },
+            {
+              "list": [
+                "Bring sufficient medication",
+                "Medical certificate for customs if required",
+                "Consider time zone changes when taking medication",
+                "Observe storage conditions"
+              ]
+            },
+            {
+              "heading": "§ 9.3 Surgical Procedures"
+            },
+            {
+              "list": [
+                "Discuss hormone therapy with the surgeon before planned operations",
+                "Temporary discontinuation may be required",
+                "Inform the anesthesiologist"
+              ]
+            },
+            {
+              "heading": "§ 9.4 Change to Other Physicians"
+            },
+            {
+              "list": [
+                "Digital medical record provided upon written request and signature",
+                "Record includes diagnoses, treatment history and laboratory values",
+                "Medical concepts, personal notes and therapeutic know-how are excluded and will not be disclosed",
+                "Laboratory values are additionally available digitally from the respective laboratory",
+                "Observe transition period for medication supply",
+                "Final consultation recommended"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "title": "§ 10 Limitations of telemedicine",
+          "body": [
+            {
+              "heading": "§ 10.1 Services Not Possible via Video Consultation"
+            },
+            "The following services cannot be provided via video consultation:",
+            {
+              "list": [
+                "Physical examinations",
+                "Ultrasound examinations",
+                "Blood sampling",
+                "Injections",
+                "Acute care"
+              ]
+            },
+            {
+              "heading": "§ 10.2 Referral to In-Person Care"
+            },
+            "If necessary, the physician refers to:",
+            {
+              "list": [
+                "Local specialists",
+                "Diagnostic centers",
+                "Emergency facilities",
+                "Specialized laboratories"
+              ]
+            },
+            {
+              "heading": "§ 10.3 Cooperation with Other Physicians"
+            },
+            {
+              "list": [
+                "Exchange of findings with consent",
+                "Interdisciplinary collaboration",
+                "Respect for second opinions"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "title": "§ 11 Data protection and confidentiality",
+          "body": [
+            {
+              "heading": "§ 11.1 Medical Confidentiality"
+            },
+            "All staff are subject to medical confidentiality. Information will only be disclosed with:",
+            {
+              "list": ["Express consent", "Legal obligation", "Vital indication"]
+            },
+            {
+              "heading": "§ 11.2 Data Security"
+            },
+            {
+              "list": [
+                "Encrypted data transmission",
+                "Secure server locations",
+                "Regular security updates",
+                "Access control"
+              ]
+            },
+            {
+              "heading": "§ 11.3 Medical Records"
+            },
+            {
+              "list": [
+                "Maintained digitally",
+                "Complete documentation",
+                "Right of access guaranteed",
+                "Copies upon request"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "title": "§ 12 Termination of treatment",
+          "body": [
+            {
+              "heading": "§ 12.1 By the Patient"
+            },
+            {
+              "list": [
+                "At any time without stating reasons",
+                "Written notice recommended",
+                "Transfer of records",
+                "Final prescription if required"
+              ]
+            },
+            {
+              "heading": "§ 12.2 By the Physician"
+            },
+            "Termination possible in case of:",
+            {
+              "list": [
+                "Loss of trust",
+                "Patient non-compliance",
+                "Aggressive or insulting communication",
+                "Payment default",
+                "Medical reasons"
+              ]
+            },
+            {
+              "heading": "§ 12.3 Transitional Arrangement"
+            },
+            {
+              "list": [
+                "4-week transition period for medication supply",
+                "Assistance in finding a new physician",
+                "Transfer of medical records"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "title": "§ 13 Scientific background",
+          "body": [
+            {
+              "heading": "§ 13.1 Evidence-Based Medicine"
+            },
+            "Treatment is based on:",
+            {
+              "list": [
+                "European medical guidelines",
+                "Peer-reviewed studies",
+                "International consensus papers",
+                "Clinical experience"
+              ]
+            },
+            {
+              "heading": "§ 13.2 Continuing Education"
+            },
+            {
+              "list": [
+                "Regular participation in professional congresses",
+                "Continuous medical education",
+                "Exchange with professional colleagues",
+                "Integration of new findings"
+              ]
+            },
+            {
+              "heading": "§ 13.3 Participation in Studies"
+            },
+            {
+              "list": [
+                "Information about relevant studies",
+                "Voluntary participation possible",
+                "Separate consent required",
+                "No disadvantages in case of refusal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "title": "§ 14 Final provisions",
+          "body": [
+            {
+              "heading": "§ 14.1 Supplement to the GTC"
+            },
+            "These Terms of Use supplement the General Terms and Conditions and apply in conjunction with them.",
+            {
+              "heading": "§ 14.2 Updates"
+            },
+            "The Terms of Use are regularly updated and adapted to the current state of medical science.",
+            {
+              "heading": "§ 14.3 Consent"
+            },
+            "By booking a video consultation, the patient confirms:",
+            {
+              "list": [
+                "Having read and understood these Terms of Use",
+                "Agreeing to the described treatment methodology",
+                "Accepting the limitations of telemedical treatment",
+                "Fulfilling the patient obligations"
+              ]
+            },
+            {
+              "heading": "§ 14.4 Questions and Clarifications"
+            },
+            "For questions or uncertainties regarding these Terms of Use, please contact:",
             {
               "lines": [
                 [
-                  "To learn how we handle your data, read our ",
-                  { "label": "privacy policy", "href": "/datenschutz" },
-                  "."
+                  "Email: ",
+                  {
+                    "label": "info@hormonexperten.de",
+                    "href": "mailto:info@hormonexperten.de"
+                  }
+                ],
+                [
+                  "Phone: ",
+                  {
+                    "label": "+49 1512 2682 778",
+                    "href": "tel:+4915122682778"
+                  }
                 ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "anhang",
+          "title": "Appendix: important information at a glance",
+          "body": [
+            {
+              "heading": "Checklist Before the First Appointment"
+            },
+            {
+              "list": [
+                "Current laboratory values, not older than 3 months",
+                "Gynecological or urological findings, not older than 12 months",
+                "Medication list",
+                "Allergy card, if available",
+                "Previous findings, if available",
+                "Health insurance card, for information purposes only, no billing possible"
+              ]
+            },
+            {
+              "heading": "Emergency Contacts"
+            },
+            {
+              "lines": [
+                "Europe-wide emergency number: 112",
+                "On-call medical service Germany: 116 117",
+                "Poison control: Request local number"
+              ]
+            },
+            {
+              "heading": "Recommended Monitoring Intervals"
+            },
+            {
+              "lines": [
+                "Initial adjustment: After 3 months",
+                "Stable adjustment: Every 6 to 12 months",
+                "Laboratory monitoring: Every 3 to 6 months",
+                "Gynecological examination: Annually",
+                "Mammography: From age 40 every 2 years"
               ]
             }
           ]

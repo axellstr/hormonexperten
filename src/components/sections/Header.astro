@@ -105,31 +105,36 @@ const sheetDelay = [
             item.submenu ? (
               <li>
                 <details class="group/mega" data-menu data-menu-hover>
-                  <summary
-                    class:list={[navLink, 'cursor-pointer list-none']}
-                    data-nav-item={sectionOf(item.href)}
-                  >
-                    {item.label}
-                    <!-- Each arm hinges at the chevron's tip, flattening into a single line. -->
-                    <svg
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="size-4 shrink-0 group-open/mega:group-not-data-closed/mega:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
-                      aria-hidden="true"
+                  <!-- Click goes to the services overview; hover still opens the mega menu. -->
+                  <summary class="list-none [&::-webkit-details-marker]:hidden">
+                    <a
+                      href={localizeHref(item.href, lang)}
+                      class:list={[navLink, 'cursor-pointer']}
+                      data-nav-item={sectionOf(item.href)}
+                      aria-current={isCurrent(item.href) ? 'page' : undefined}
                     >
-                      <path
-                        d="M4 7l6 6"
-                        class="origin-bottom-right transform-fill group-open/mega:group-not-data-closed/mega:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
-                      />
-                      <path
-                        d="m10 13 6-6"
-                        class="origin-bottom-left transform-fill group-open/mega:group-not-data-closed/mega:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
-                      />
-                    </svg>
+                      {item.label}
+                      <!-- Each arm hinges at the chevron's tip, flattening into a single line. -->
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="size-4 shrink-0 group-open/mega:group-not-data-closed/mega:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M4 7l6 6"
+                          class="origin-bottom-right transform-fill group-open/mega:group-not-data-closed/mega:-rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
+                        />
+                        <path
+                          d="m10 13 6-6"
+                          class="origin-bottom-left transform-fill group-open/mega:group-not-data-closed/mega:rotate-45 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-smooth"
+                        />
+                      </svg>
+                    </a>
                   </summary>
 
                   <!-- Moves as one piece, in step with the chevron: in and out the same way, over the

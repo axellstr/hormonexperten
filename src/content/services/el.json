@@ -11,39 +11,39 @@
   "others_title": "Άλλες υπηρεσίες",
   "pages": [
     {
-      "id": "menopause",
-      "meta": {
-        "title": "Εμμηνόπαυση & Περιεμμηνόπαυση | Hormonexperten"
-      }
-    },
-    {
       "id": "hormone-therapy",
       "meta": {
         "title": "Ορμονοθεραπεία | Hormonexperten"
       }
     },
     {
-      "id": "rimkus",
+      "id": "bioidentical-hormone-therapy",
       "meta": {
-        "title": "Ορμονοθεραπεία κατά Rimkus® | Hormonexperten"
+        "title": "Βιοταυτόσημη ορμονοθεραπεία | Hormonexperten"
       }
     },
     {
-      "id": "check-up",
+      "id": "weight-metabolic-health",
       "meta": {
-        "title": "Ορμονικός έλεγχος | Hormonexperten"
+        "title": "Βάρος & μεταβολική υγεία | Hormonexperten"
       }
     },
     {
-      "id": "metabolic-reset",
+      "id": "micronutrient-medicine",
       "meta": {
-        "title": "Metabolic Reset | Hormonexperten"
+        "title": "Ιατρική μικροθρεπτικών συστατικών | Hormonexperten"
       }
     },
     {
-      "id": "chronic-disease",
+      "id": "digestive-gut-health",
       "meta": {
-        "title": "Πακέτο χρόνιων παθήσεων | Hormonexperten"
+        "title": "Πέψη & υγεία του εντέρου | Hormonexperten"
+      }
+    },
+    {
+      "id": "chronic-condition-care",
+      "meta": {
+        "title": "Φροντίδα χρόνιων παθήσεων | Hormonexperten"
       }
     }
   ]

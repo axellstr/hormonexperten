@@ -28,7 +28,13 @@ const link =
 type Run = string | { label: string; href: string };
 const runs = (line: Run | Run[]): Run[] => (Array.isArray(line) ? line : [line]);
 const kind = (block: LegalBlock) =>
-  typeof block === 'string' ? 'paragraph' : 'lines' in block ? 'lines' : 'list';
+  typeof block === 'string'
+    ? 'paragraph'
+    : 'lines' in block
+      ? 'lines'
+      : 'heading' in block
+        ? 'heading'
+        : 'list';
 ---
 
 <Section aria-labelledby="legal-title" lang={contentLang}>
@@ -62,6 +68,14 @@ const kind = (block: LegalBlock) =>
               {section.body.map((block) => {
                 const type = kind(block);
                 if (type === 'paragraph') return <p>{block as string}</p>;
+                // A clause heading: the paragraph gap again above it, so it sits closer to its
+                // own text than to the clause before.
+                if (type === 'heading')
+                  return (
+                    <h3 class="pt-paragraph text-h4 text-ink first:pt-0">
+                      {(block as { heading: string }).heading}
+                    </h3>
+                  );
                 if (type === 'list')
                   return (
                     <ul class="list-disc space-y-2 ps-5 marker:text-coral">
