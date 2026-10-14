@@ -89,22 +89,24 @@ const imagePreload = preloadImage
          when its element joins the page, so it waits in a template until a page Chromium
          prerenders on hover is shown: only real visits are counted. -->
     {analytics && (
-      <template id="analytics">
-        <Analytics />
-      </template>
-      <script is:inline>
-        (() => {
-          const load = () => {
-            const template = document.getElementById('analytics');
-            template.replaceWith(template.content);
-          };
-          if (document.prerendering) {
-            document.addEventListener('prerenderingchange', load, { once: true });
-          } else {
-            load();
-          }
-        })();
-      </script>
+      <>
+        <template id="analytics">
+          <Analytics />
+        </template>
+        <script is:inline>
+          (() => {
+            const load = () => {
+              const template = document.getElementById('analytics');
+              template.replaceWith(template.content);
+            };
+            if (document.prerendering) {
+              document.addEventListener('prerenderingchange', load, { once: true });
+            } else {
+              load();
+            }
+          })();
+        </script>
+      </>
     )}
   </head>
   <body class="bg-bg font-sans text-ink antialiased">
