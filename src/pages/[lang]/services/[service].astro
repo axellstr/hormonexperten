@@ -66,8 +66,10 @@ const others = visible(site.services).filter(
 );
 
 // Untranslated page text falls back to English; say so for screen readers.
-const bodyLang = servicePageLang(lang, page.id);
-const contentLang = bodyLang === lang ? undefined : bodyLang;
+const fallbackLang = (key?: 'comparison') => {
+  const contentLang = servicePageLang(lang, page.id, key);
+  return contentLang === lang ? undefined : contentLang;
+};
 ---
 
 <BaseLayout
@@ -77,10 +79,14 @@ const contentLang = bodyLang === lang ? undefined : bodyLang;
   description={page.meta.description ?? service.summary}
 >
   <ServiceHero lang={lang} services={services} service={service} />
-  <div lang={contentLang}>
+  <div lang={fallbackLang()}>
     <ServiceAbout about={page.about} focus={page.focus} />
-    {page.comparison && <ServiceComparison comparison={page.comparison} />}
   </div>
+  {page.comparison && (
+    <div lang={fallbackLang('comparison')}>
+      <ServiceComparison comparison={page.comparison} />
+    </div>
+  )}
   <HowItWorks
     lang={lang}
     how={home.how}

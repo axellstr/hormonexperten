@@ -1,6 +1,7 @@
 {
   "meta": {
-    "title": "Leistungen | Hormonexperten"
+    "title": "Leistungen | Hormonexperten",
+    "description": "Spezialisierte Hormonmedizin bei Wechseljahren, Perimenopause und Stoffwechselthemen. Fachkundige ärztliche Betreuung bequem von zu Hause aus."
   },
   "eyebrow": "Leistungen",
   "title": "Hormongesundheit, abgestimmt auf Ihre persönlichen Bedürfnisse.",
@@ -14,36 +15,104 @@
       "id": "hormone-therapy",
       "meta": {
         "title": "Hormontherapie | Hormonexperten"
+      },
+      "about": {
+        "title": "Eine gut erforschte Option, gemeinsam mit Ihnen gewählt",
+        "body": [
+          "Die Hormontherapie mit zugelassenen Präparaten ist eine gut erforschte Option bei Perimenopause, Wechseljahren, Zyklusbeschwerden und Schilddrüsenerkrankungen. Dabei kommen Präparate in Standarddosierung zum Einsatz, erhältlich in jeder Apotheke, etwa als Gel, Pflaster, Spray oder Tablette.",
+          "Ob sie zu Ihnen passt, entscheiden wir gemeinsam in Ihrer Sprechstunde: anhand Ihrer Beschwerden, Ihrer Krankengeschichte, Ihrer persönlichen Risikofaktoren und der Frage, wie Sie frühere Behandlungen vertragen haben. Manche Frauen bevorzugen sie, bei anderen passt sie einfach besser zu ihrer Situation als bioidentische Hormone.",
+          "Keine Hormontherapie ist völlig risikofrei. Deshalb wägen wir Nutzen und Risiken für Sie persönlich ab, passen Ihre Behandlung Schritt für Schritt an und kontrollieren Ihren Verlauf regelmäßig."
+        ]
+      },
+      "focus": {
+        "title": "Worauf Ihre Therapie aufbaut",
+        "items": [
+          "Ihre Beschwerden",
+          "Ihre Krankengeschichte",
+          "Ihre persönlichen Risikofaktoren",
+          "Wie Sie frühere Behandlungen vertragen haben"
+        ]
       }
     },
     {
       "id": "bioidentical-hormone-therapy",
       "meta": {
         "title": "Bioidentische Hormontherapie | Hormonexperten"
+      },
+      "about": {
+        "title": "Hormone, identisch mit Ihren körpereigenen",
+        "body": [
+          "„Bioidentisch“ (auch „körperidentisch“) bedeutet, dass ein Hormon genau dieselbe chemische Struktur hat wie das Hormon, das Ihr Körper selbst bildet. Dazu gehören Estradiol, Estriol, Progesteron, DHEA und Testosteron. Eine spezialisierte Apotheke stellt sie individuell für Sie her, etwa als Kapseln, Cremes, Gele, Salben oder Zäpfchen.",
+          "Eine bioidentische Hormontherapie kann in der Perimenopause ebenso sinnvoll sein wie nach der Menopause, wenn Ihre Beschwerden Ihre Lebensqualität beeinträchtigen und Ihre persönliche Nutzen-Risiko-Abwägung dafür spricht. Notwendig ist sie nicht für jede Frau.",
+          "Ihre Dosis ist keine Standarddosis: Sie richtet sich nach Ihren Beschwerden und Blutwerten und wird Schritt für Schritt angepasst, bis sie zu Ihnen passt. Manche Frauen spüren schon nach Tagen oder Wochen einen Unterschied, bei anderen dauert es zwei bis drei Monate, bis die passende Dosis gefunden ist.",
+          "Wir arbeiten nach eigenen Protokollen und auf Wunsch nach der Rimkus-Methode. Unsere Rezepte sind innerhalb der EU gültig."
+        ]
       }
     },
     {
       "id": "weight-metabolic-health",
       "meta": {
         "title": "Gewicht & Stoffwechselgesundheit | Hormonexperten"
+      },
+      "about": {
+        "title": "Ihr Gewicht als Teil Ihres Stoffwechsels",
+        "body": [
+          "Hormone beeinflussen, wo Ihr Körper Fett einlagert. Mit den Wechseljahren lagern viele Frauen mehr Fett am Bauch ein, oft sogar dann, wenn sich ihr Gewicht kaum verändert. Auch Alter, Muskelmasse, Insulinempfindlichkeit, Ernährung und Bewegung spielen eine wichtige Rolle.",
+          "Deshalb schauen wir nicht nur auf die Zahl auf der Waage. Wir betrachten Blutzucker, Insulin, Schilddrüse, Körperzusammensetzung und Ihre Hormone gemeinsam und nutzen, wenn geeignet, eine kontinuierliche Glukosemessung, damit Sie sehen, wie Ihr Körper auf Essen, Schlaf und Stress reagiert.",
+          "Ihr Plan verbindet Ernährung, Bewegung und Muskelaufbau, Schlaf und, wenn medizinisch sinnvoll, zugelassene Medikamente zur Gewichtsreduktion unter ärztlicher Begleitung. Abnehmen ist möglich, aber nie garantiert: Hormone sind nur einer von mehreren Faktoren."
+        ]
+      },
+      "focus": {
+        "title": "Worauf wir schauen",
+        "items": [
+          "Blutzucker und Insulinempfindlichkeit",
+          "Schilddrüse",
+          "Körperzusammensetzung",
+          "Ernährung",
+          "Bewegung"
+        ]
       }
     },
     {
       "id": "micronutrient-medicine",
       "meta": {
         "title": "Mikronährstoffmedizin | Hormonexperten"
+      },
+      "about": {
+        "title": "Nur das, was Ihr Körper wirklich braucht",
+        "body": [
+          "Bevor wir etwas empfehlen, sehen wir uns Ihre Beschwerden, Ihre Laborwerte und die Nahrungsergänzungsmittel an, die Sie bereits einnehmen. Daraus erstellen wir einen persönlichen Mikronährstoffplan, damit Sie nur das nehmen, was Ihr Körper wirklich braucht.",
+          "Dabei sehen wir uns zuerst Ihre vorhandenen Befunde an. Sind weitere Werte nötig, erhalten Sie von uns eine gezielte Laborempfehlung und lassen sich das Blut in einem Labor in Ihrer Nähe abnehmen.",
+          "Eine Mikronährstofftherapie ist oft ein Teil eines umfassenderen Plans, zum Beispiel ergänzend zur Behandlung von Schilddrüsenerkrankungen, PMS, Endometriose oder chronischen Erkrankungen."
+        ]
       }
     },
     {
       "id": "digestive-gut-health",
       "meta": {
         "title": "Verdauung & Darmgesundheit | Hormonexperten"
+      },
+      "about": {
+        "title": "Ihr Darm als Teil des Gesamtbilds",
+        "body": [
+          "Blähungen, Verstopfung und andere Verdauungsbeschwerden verändern sich oft mit Ihrem Zyklus oder Ihren Hormonen. Sie können auch mit Erkrankungen wie Endometriose, PMS oder Autoimmunerkrankungen einhergehen.",
+          "Deshalb betrachten wir Ihren Darm nicht isoliert. Wir schauen auf Ihre Beschwerden im Verlauf Ihres Zyklus, auf Ihre Hormone, Ihren Stoffwechsel, Entzündungsprozesse, Ernährung und Mikronährstoffe und beziehen das Ergebnis in Ihre gesamte Behandlung ein.",
+          "Wenn weitere Untersuchungen oder eine fachärztliche Meinung nötig sind, überweisen wir Sie."
+        ]
       }
     },
     {
       "id": "chronic-condition-care",
       "meta": {
         "title": "Betreuung bei chronischen Erkrankungen | Hormonexperten"
+      },
+      "about": {
+        "title": "Das ganze Bild sehen, ergänzend zu Ihrer fachärztlichen Betreuung",
+        "body": [
+          "Autoimmunerkrankungen wie rheumatoide Arthritis und das Sjögren-Syndrom sind bei Frauen weit häufiger, und viele Frauen bemerken, dass sich ihre Symptome mit dem Zyklus, in der Schwangerschaft oder in den Wechseljahren verändern. Auch Arthrose wird nach der Menopause häufiger.",
+          "Wir betrachten Ihre Symptome systematisch: Wir prüfen Ihre aktuellen Medikamente und schauen auf Ihre hormonelle Lebensphase, Ihren Stoffwechsel, Entzündungsprozesse, Mikronährstoffe und Ihre Darmgesundheit. Dann erstellen wir einen Plan, der sich in Ihre bestehende Behandlung einfügt.",
+          "Ihre bestehende Betreuung bleibt erhalten: Wir arbeiten ergänzend zu Ihren Fachärztinnen und Fachärzten, nicht an ihrer Stelle. Bitte ändern oder beenden Sie Medikamente nicht ohne ärztliche Begleitung."
+        ]
       }
     }
   ]

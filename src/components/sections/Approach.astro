@@ -25,18 +25,18 @@ const { lang, approach } = Astro.props;
     round it. On desktop it fills the row's height, so the gap holds when the text is the taller
     column; the text keeps its own, larger padding.
   -->
-  <Panel frame class="grid gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-    <div class="unveil aspect-7/6 w-full overflow-hidden rounded-panel lg:self-stretch">
+  <Panel frame class="grid gap-10 md:grid-cols-2 md:gap-12 xl:gap-16">
+    <div class="unveil aspect-7/6 w-full overflow-hidden rounded-panel md:self-stretch">
       <Photo
         quality={PORTRAIT_QUALITY}
         src={getImage(approach.image)}
         alt={approach.image_alt}
         widths={[480, 720, 960, 1300]}
-        sizes="(min-width: 1440px) 640px, (min-width: 1024px) 45vw, 90vw"
+        sizes="(min-width: 1440px) 640px, (min-width: 768px) 45vw, 90vw"
         class="unveil-photo size-full object-cover object-top"
       />
     </div>
-    <div class="reveal-text md:px-6 md:pb-6 lg:self-center lg:py-6 lg:ps-0 xl:py-14 xl:pe-14">
+    <div class="reveal-text pb-6 md:self-center md:px-6 md:py-6 md:ps-0 xl:py-14 xl:pe-14">
       <Eyebrow>{approach.eyebrow}</Eyebrow>
       <h2 id="approach-title" class="mt-eyebrow text-h2 text-ink">
         <RevealText text={approach.title} to={0.55} />

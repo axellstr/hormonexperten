@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Services | Hormonexperten",
-    "description": "TODO: approved meta description for the services page"
+    "description": "Specialised hormone care for menopause, perimenopause, and metabolic health. Expert medical supervision from the comfort of your home."
   },
   "eyebrow": "Services",
   "title": "Hormone health, tailored to your personal needs.",
@@ -17,9 +17,11 @@
         "title": "Hormone Therapy | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Hormone Therapy",
+        "title": "A well-studied option, chosen with you",
         "body": [
-          "TODO: approved text describing Hormone Therapy: who it is for, what it involves and what patients can expect."
+          "Hormone therapy with approved preparations is a well-studied option for perimenopause, menopause, cycle problems and thyroid disorders. It uses licensed products in standard doses, available from any pharmacy, for example as gels, patches, sprays or tablets.",
+          "Whether it suits you is decided together in your consultation, based on your symptoms, your medical history, your personal risk factors and how well you tolerated previous treatments. Some women prefer it; for others, it simply fits their situation better than bioidentical hormones.",
+          "No hormone therapy is completely risk-free. That’s why we weigh the benefits and risks for you personally, adjust your treatment step by step and monitor your progress regularly."
         ]
       },
       "focus": {
@@ -161,9 +163,12 @@
         "title": "Bioidentical Hormone Therapy | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Bioidentical Hormone Therapy",
+        "title": "Hormones identical to your body’s own",
         "body": [
-          "TODO: approved text describing Bioidentical Hormone Therapy: who it is for, what it involves and what patients can expect."
+          "“Bioidentical” (also called “body-identical”) means a hormone has exactly the same chemical structure as the hormone your body makes. This includes estradiol, estriol, progesterone, DHEA and testosterone. A specialised compounding pharmacy prepares them individually for you, for example as capsules, creams, gels, ointments or suppositories.",
+          "Bioidentical hormone therapy can make sense in perimenopause as well as after menopause, if your symptoms affect your quality of life and your personal benefit-risk assessment supports it. It is not necessary for every woman.",
+          "Your dose is not a standard one: it is based on your symptoms and blood values and adjusted step by step until it fits you. Some women feel a difference within days or weeks; for others, finding the right dose takes two to three months.",
+          "We work with our own protocols and, on request, with the Rimkus method. Our prescriptions are valid within the EU."
         ]
       },
       "faq": ["bioidentical-meaning", "time-to-effect", "risks"]
@@ -174,9 +179,11 @@
         "title": "Weight & Metabolic Health | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Weight & Metabolic Health",
+        "title": "Your weight, seen as part of your metabolism",
         "body": [
-          "TODO: approved text describing Weight & Metabolic Health: who it is for, what it involves and what patients can expect."
+          "Hormones influence where your body stores fat. With menopause, many women store more fat around the belly, often even when their weight barely changes. Age, muscle mass, insulin sensitivity, nutrition and exercise also play an important role.",
+          "That’s why we don’t only look at the number on the scale. We look at blood sugar, insulin, thyroid, body composition and your hormones together and, where suitable, use continuous glucose monitoring, so you can see how your body reacts to food, sleep and stress.",
+          "Your plan combines nutrition, movement and muscle-building, sleep and, if medically appropriate, approved weight-loss medication under medical supervision. Weight loss is possible, but never guaranteed: hormones are only one of several factors."
         ]
       },
       "focus": {
@@ -199,9 +206,11 @@
         "title": "Micronutrient Medicine | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Micronutrient Medicine",
+        "title": "Only what your body really needs",
         "body": [
-          "TODO: approved text describing Micronutrient Medicine: who it is for, what it involves and what patients can expect."
+          "Before we recommend anything, we look at your symptoms, your lab results and the supplements you already take. From that, we build a personal micronutrient plan, so you only take what your body really needs.",
+          "We review the results you already have first. If further values are needed, you receive a targeted lab recommendation from us and have your blood taken at a lab near you.",
+          "Micronutrient therapy is often one part of a wider plan, for example alongside the treatment of thyroid problems, PMS, endometriosis or chronic conditions."
         ]
       },
       "faq": []
@@ -212,9 +221,11 @@
         "title": "Digestive & Gut Health | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Digestive & Gut Health",
+        "title": "Your gut, as part of the whole picture",
         "body": [
-          "TODO: approved text describing Digestive & Gut Health: who it is for, what it involves and what patients can expect."
+          "Bloating, constipation and other digestive problems often change with your cycle or your hormones. They can also come with conditions such as endometriosis, PMS or autoimmune disease.",
+          "That’s why we don’t look at your gut in isolation. We look at your symptoms across your cycle, your hormones, metabolism, inflammation, nutrition and micronutrients together, and build what we find into your treatment as a whole.",
+          "If further tests or a specialist opinion are needed, we refer you."
         ]
       },
       "faq": []
@@ -225,9 +236,11 @@
         "title": "Chronic Condition Care | Hormonexperten"
       },
       "about": {
-        "title": "TODO: section heading for Chronic Condition Care",
+        "title": "Seeing the whole picture, alongside your specialists",
         "body": [
-          "TODO: approved text describing Chronic Condition Care: who it is for, what it involves and what patients can expect."
+          "Autoimmune conditions such as rheumatoid arthritis and Sjögren’s syndrome are far more common in women, and many women notice their symptoms change with their cycle, pregnancy or menopause. Osteoarthritis also becomes more common after menopause.",
+          "We look at your symptoms systematically: we review your current medication and look at your hormonal phase, your metabolism, inflammation, micronutrients and gut health. Then we build a plan that fits around your existing treatment.",
+          "Your existing care stays in place: we work alongside your specialists, not instead of them. Please don’t change or stop any medication without medical supervision."
         ]
       },
       "faq": []

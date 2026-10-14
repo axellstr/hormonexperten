@@ -167,11 +167,18 @@ export function memberLang(lang: Locale, id: string, key: 'role' | 'profile'): L
   return translated ? lang : DEFAULT_LOCALE;
 }
 
-/** The language a service page's body is written in: the locale when its file has one, else English. */
-export function servicePageLang(lang: Locale, id: string): Locale {
+/**
+ * The language a part of a service page is written in (its about text by default): the locale
+ * when its file has that part, else English.
+ */
+export function servicePageLang(
+  lang: Locale,
+  id: string,
+  key: 'about' | 'comparison' = 'about',
+): Locale {
   const pages = files[`../content/services/${lang}.json`]?.pages;
   const translated =
-    Array.isArray(pages) && pages.some((page) => hasId(page) && page.id === id && 'about' in page);
+    Array.isArray(pages) && pages.some((page) => hasId(page) && page.id === id && key in page);
   return translated ? lang : DEFAULT_LOCALE;
 }
 
