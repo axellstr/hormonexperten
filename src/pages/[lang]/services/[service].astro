@@ -70,14 +70,13 @@ const bodyLang = servicePageLang(lang, page.id);
 const contentLang = bodyLang === lang ? undefined : bodyLang;
 ---
 
-<BaseLayout lang={lang} site={site} title={page.meta.title} description={page.meta.description}>
-  <ServiceHero
-    lang={lang}
-    contentLang={contentLang}
-    services={services}
-    service={service}
-    page={page}
-  />
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={page.meta.title}
+  description={page.meta.description ?? service.summary}
+>
+  <ServiceHero lang={lang} services={services} service={service} />
   <div lang={contentLang}>
     <ServiceAbout about={page.about} focus={page.focus} />
     {page.comparison && <ServiceComparison comparison={page.comparison} />}

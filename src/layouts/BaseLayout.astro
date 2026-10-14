@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
+import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 import Footer from '../components/sections/Footer.astro';
 import Header from '../components/sections/Header.astro';
@@ -84,16 +85,18 @@ const imagePreload = preloadImage
     />
     <!-- The surface colour token (--color-surface), as the hero panel. -->
     <meta name="theme-color" content="#fcf8f4" />
-    <!-- Vercel Web Analytics: first-party and cookieless (privacy policy). A page Chromium
-         prerenders on hover loads it only once the page is shown, so it counts real visits. -->
+    <!-- Vercel Web Analytics: first-party and cookieless (privacy policy). The component starts
+         when its element joins the page, so it waits in a template until a page Chromium
+         prerenders on hover is shown: only real visits are counted. -->
     {analytics && (
+      <template id="analytics">
+        <Analytics />
+      </template>
       <script is:inline>
         (() => {
           const load = () => {
-            const script = document.createElement('script');
-            script.src = '/_vercel/insights/script.js';
-            script.defer = true;
-            document.head.append(script);
+            const template = document.getElementById('analytics');
+            template.replaceWith(template.content);
           };
           if (document.prerendering) {
             document.addEventListener('prerenderingchange', load, { once: true });

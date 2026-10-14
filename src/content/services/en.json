@@ -14,10 +14,8 @@
     {
       "id": "hormone-therapy",
       "meta": {
-        "title": "Hormone Therapy | Hormonexperten",
-        "description": "TODO: approved meta description for the Hormone Therapy page"
+        "title": "Hormone Therapy | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Hormone Therapy",
       "about": {
         "title": "TODO: section heading for Hormone Therapy",
         "body": [
@@ -160,10 +158,8 @@
     {
       "id": "bioidentical-hormone-therapy",
       "meta": {
-        "title": "Bioidentical Hormone Therapy | Hormonexperten",
-        "description": "TODO: approved meta description for the Bioidentical Hormone Therapy page"
+        "title": "Bioidentical Hormone Therapy | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Bioidentical Hormone Therapy",
       "about": {
         "title": "TODO: section heading for Bioidentical Hormone Therapy",
         "body": [
@@ -175,10 +171,8 @@
     {
       "id": "weight-metabolic-health",
       "meta": {
-        "title": "Weight & Metabolic Health | Hormonexperten",
-        "description": "TODO: approved meta description for the Weight & Metabolic Health page"
+        "title": "Weight & Metabolic Health | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Weight & Metabolic Health",
       "about": {
         "title": "TODO: section heading for Weight & Metabolic Health",
         "body": [
@@ -202,10 +196,8 @@
     {
       "id": "micronutrient-medicine",
       "meta": {
-        "title": "Micronutrient Medicine | Hormonexperten",
-        "description": "TODO: approved meta description for the Micronutrient Medicine page"
+        "title": "Micronutrient Medicine | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Micronutrient Medicine",
       "about": {
         "title": "TODO: section heading for Micronutrient Medicine",
         "body": [
@@ -217,10 +209,8 @@
     {
       "id": "digestive-gut-health",
       "meta": {
-        "title": "Digestive & Gut Health | Hormonexperten",
-        "description": "TODO: approved meta description for the Digestive & Gut Health page"
+        "title": "Digestive & Gut Health | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Digestive & Gut Health",
       "about": {
         "title": "TODO: section heading for Digestive & Gut Health",
         "body": [
@@ -232,10 +222,8 @@
     {
       "id": "chronic-condition-care",
       "meta": {
-        "title": "Chronic Condition Care | Hormonexperten",
-        "description": "TODO: approved meta description for the Chronic Condition Care page"
+        "title": "Chronic Condition Care | Hormonexperten"
       },
-      "intro": "TODO: one- or two-sentence opener for Chronic Condition Care",
       "about": {
         "title": "TODO: section heading for Chronic Condition Care",
         "body": [

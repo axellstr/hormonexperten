@@ -2,7 +2,7 @@
 import { BOOKING_URL, type Locale } from '../../config';
 import { getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
-import type { Service, ServicePage, Services } from '../../lib/schemas';
+import type { Service, Services } from '../../lib/schemas';
 import Breadcrumb from '../ui/Breadcrumb.astro';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
@@ -11,14 +11,11 @@ import Placeholder from '../ui/Placeholder.astro';
 
 interface Props {
   lang: Locale;
-  /** Set when the page body falls back to another language than the page's. */
-  contentLang?: Locale | undefined;
   services: Services;
   service: Service;
-  page: ServicePage;
 }
 
-const { lang, contentLang, services, service, page } = Astro.props;
+const { lang, services, service } = Astro.props;
 const image = 'aspect-4/3 w-full rounded-panel object-cover lg:aspect-4/5';
 ---
 
@@ -59,9 +56,8 @@ const image = 'aspect-4/3 w-full rounded-panel object-cover lg:aspect-4/5';
           <h1 id="service-title" class="text-display text-ink">
             {service.title}
           </h1>
-          <p lang={contentLang} class="mt-heading max-w-measure text-lead text-ink/80">
-            {page.intro}
-          </p>
+          <!-- The approved summary from the home page's service card, in the page's own language. -->
+          <p class="mt-heading max-w-measure text-lead text-ink/80">{service.summary}</p>
           <Button href={BOOKING_URL} class="mt-action">
             {services.cta}
           </Button>

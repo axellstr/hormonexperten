@@ -97,7 +97,11 @@ export const homeSchema = z.object({
     slides: z.array(z.object(image)).min(1),
   }),
   services: z.object({
-    title: z.string(),
+    title: z.object({
+      prefix: z.string(),
+      emphasis: z.string(),
+      second_line: z.string(),
+    }),
     /** Labels for the row's arrow buttons. */
     previous: z.string(),
     next: z.string(),
@@ -383,9 +387,8 @@ export const servicesSchema = z.object({
     z.object({
       /** Matches a service in `site.services`. */
       id: z.string(),
-      meta: z.object({ title: z.string(), description: z.string() }),
-      /** One- or two-sentence opener under the H1. */
-      intro: z.string(),
+      /** The description defaults to the service's `summary` in `site.services`. */
+      meta: z.object({ title: z.string(), description: z.string().optional() }),
       about: z.object({ title: z.string(), body: z.array(z.string()).min(1) }),
       /** Short items shown as chips beside the about text, e.g. symptoms. */
       focus: z
