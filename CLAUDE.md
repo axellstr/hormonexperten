@@ -12,6 +12,12 @@ Marketing website for Hormonexperten, a private telemedicine practice (Dr. Isabe
 - Languages: `en` (master), `de`, `el`, `ru`. Routes are `/{lang}/...`. Every page exists in all four; missing translations fall back to English content.
 - Target: Lighthouse 95+ in every category on mobile. Ship no JavaScript by default.
 
+## CMS (EmDash, branch `emdash-cms`, 15 Oct 2026)
+
+- Content can come from EmDash (`/_emdash/admin`): `CONTENT_SOURCE=emdash` makes pages read published entries instead of `src/content/`; JSON stays the default until go-live. Pages stay prerendered; only the admin runs on Vercel functions (Frankfurt). Publishing triggers a Vercel rebuild (deploy hook). Setup and status: `docs/emdash-setup.md`.
+- The EmDash content model is generated from the Zod schemas (`src/lib/cms/`); `.emdash/seed.json` is regenerated on every build. A schema change must still pass `npm run cms:check` (EmDash nests at most list → list). A field added after go-live also has to be added to the live database's schema (admin → Content Types).
+- Read content only through `src/lib/content.ts` (async). The site plugin (`src/lib/cms/plugin.ts`) refuses to publish entries that break `src/lib/content-rules.ts` or the schemas.
+
 ## Design tokens
 
 Define these once in the `@theme` block of `src/styles/global.css`. Tailwind turns each one into utilities (`--color-coral` gives `bg-coral`, `text-coral`, `border-coral`, and so on).

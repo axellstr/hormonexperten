@@ -2,6 +2,10 @@
 
 A plain-language guide to what we're doing, why, and in what order. Written 15 Oct 2026.
 
+> **Update, later on 15 Oct 2026:** built on branch `emdash-cms`. What changed from this plan
+> (pages are rebuilt on publish instead of cached; logins live in Supabase, so no Upstash;
+> photo storage comes later) and your next steps are in **`docs/emdash-setup.md`**.
+
 ---
 
 ## 1. The short version
