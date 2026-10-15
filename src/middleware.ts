@@ -18,8 +18,10 @@ const SETUP_PAGE = '/_emdash/admin/setup';
 
 /** Requests that can make someone the first admin. The wizard reads its step from `status`. */
 function createsFirstAdmin(pathname: string): boolean {
-  if (pathname.startsWith('/_emdash/api/setup')) return pathname !== '/_emdash/api/setup/status';
-  return pathname.startsWith('/_emdash/api/auth/oauth/');
+  // Vercel adds a trailing slash to every path (vercel.json `trailingSlash`).
+  const path = pathname.replace(/\/+$/, '');
+  if (path.startsWith('/_emdash/api/setup')) return path !== '/_emdash/api/setup/status';
+  return path.startsWith('/_emdash/api/auth/oauth/');
 }
 
 const digest = (value: string) => createHash('sha256').update(value).digest();

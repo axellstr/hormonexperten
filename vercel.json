@@ -13,7 +13,7 @@
   ],
   "crons": [
     {
-      "path": "/api/cron/housekeeping",
+      "path": "/api/cron/housekeeping/",
       "schedule": "0 * * * *"
     }
   ],
