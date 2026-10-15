@@ -8,7 +8,7 @@ Marketing website for Hormonexperten, a private telemedicine practice (Dr. Isabe
 
 - Astro (static output) with **Tailwind CSS v4**, set up with `npx astro add tailwind` (Vite plugin, CSS-first config, no `tailwind.config.js`). Install `prettier-plugin-tailwindcss` so class order stays consistent.
 - No UI kit or component library (no daisyUI, shadcn, Flowbite). No client-side framework unless a component truly needs interactivity, and then the smallest island possible.
-- Content lives in files (`src/content/`), never hard-coded in components. One file per locale.
+- Content lives in the CMS (EmDash admin), never hard-coded in components. **Text on the site is changed in the admin, not in `src/content/`** (15 Oct 2026, the user's call): those JSON files (one per locale) are only the seed for a fresh database, a snapshot that goes stale.
 - Languages: `en` (master), `de`, `el`, `ru`. Routes are `/{lang}/...`. Every page exists in all four; missing translations fall back to English content.
 - Target: Lighthouse 95+ in every category on mobile. Ship no JavaScript by default.
 
@@ -166,7 +166,7 @@ Build each section as its own component in `src/components/sections/`, with shar
 - **Payment icons:** show only the methods the booking system actually accepts. On 14 Oct 2026 the user confirmed Visa, Mastercard, Diners Club, SEPA and Klarna; AGB § 4.3 names the same.
 - **Second doctor (Dr. Yvonne Tuszing):** credentials are unconfirmed. Keep her card behind a content flag until they are.
 - Brand name is written **Hormonexperten** in running text (not "Hormon Experten"). Use British English spelling in the English master (personalised, specialised, gynaecologist), as in the FAQ.
-- FAQ answers come from `src/content/faq/{lang}.json`. Items with `needs_check: true` are not rendered.
+- FAQ answers are the FAQ questions in the admin (seeded from `src/content/faq/{lang}.json`). Items with `needs_check: true` are not rendered.
 
 ## Privacy and third parties
 
@@ -180,7 +180,7 @@ Build each section as its own component in `src/components/sections/`, with shar
 
 - Before building a section, list which Figma frames it comes from and any token it needs that doesn't exist yet.
 - Don't add new colours, font sizes or shadows. If the design seems to need one, ask.
-- Don't write new marketing or medical copy. Use content files; if text is missing, insert a clearly marked `TODO:` that the build check will catch.
+- Don't write new marketing or medical copy. Use the content in the CMS; if text is missing, the practice adds it in the admin. A component that needs a new text gets a schema field, a clearly marked `TODO:` in the seed files and the field in the live database (admin → Content Types); the build check and, after launch, the publish check catch the `TODO:`.
 - Check every page at 360px, 768px, 1280px and 1440px, and in German (longest strings) before calling it done.
 
 ## Open questions (resolve before launch)

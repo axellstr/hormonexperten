@@ -4,6 +4,14 @@ Status 15 Oct 2026: **live on production.** https://hormonexperten.vercel.app (`
 content from EmDash; the admin is at `/_emdash/admin`. hormonexperten.de is still the old site on
 another Vercel project. Read with `docs/emdash-plan.md` (the why).
 
+## Editing content from now on
+
+**All text is changed in the admin**, by the practice or by us. The JSON files in `src/content/`
+no longer reach the site: production builds from the database. They stay in the repo only as the
+seed for a fresh database (a snapshot of 15 Oct 2026) and go stale from here on. Code changes
+(layout, design, new sections) still go through Git; a new text field also needs adding in the
+admin under Content Types.
+
 ## Open items
 
 1. **"View" links in the admin still 404.** The page addresses are in the code and the seed, but
@@ -47,9 +55,7 @@ another Vercel project. Read with `docs/emdash-plan.md` (the why).
    users. Not in `CONTENT_CONFIRMERS` unless she confirms content.
 7. **Local testing of “Needs check”:** add `CONTENT_CONFIRMERS=<your admin email>` to `.env`, then
    restart the dev server.
-8. **Uncommitted work** in the working tree (image quality, `ConditionsHero`, three icons) isn't on
-   production; commit or drop it.
-9. **Before launch:** remove `CONTENT_CHECK=warn` (it shows unconfirmed content, e.g. “5,000+
+8. **Before launch:** remove `CONTENT_CHECK=warn` (it shows unconfirmed content, e.g. “5,000+
    patients treated”), add the nightly backup, and see “Later” below for the domain move.
 
 ## What's built and tested
@@ -223,8 +229,6 @@ Action).
 
 ## Notes
 
-- **The database is the source now.** Edits to `src/content/*.json` no longer reach production
-  (it builds with `CONTENT_SOURCE=emdash`); they only feed the seed. Change content in the admin.
 - **Seed:** `.emdash/seed.json` is generated from `src/content/` on every build
   (`npm run cms:seed`). The setup wizard applies it once, to an empty database; later changes to
   collection settings (like `urlPattern`) have to be made in the live database as well.
