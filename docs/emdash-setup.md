@@ -41,21 +41,15 @@ admin under Content Types.
      'pricing', 'legal_texts', 'legal_pages');
    ```
 
-2. **Undo the test edit:** the English home hero title reads “333Specialist hormone care, without
-   the waiting room.” Remove the “333” and publish.
-3. **Local `package.json`:** an install on 15 Oct at 15:25 (not committed) downgraded
-   `@astrojs/vercel` from 11 to 8.0.4, which doesn't support Astro 7, and added
-   `@supabase/supabase-js`, which the site doesn't use. Unless that was on purpose:
-   `git checkout package.json package-lock.json && npm install`.
-4. **Vercel variables:** delete `SUPABASE_URL` and `SUPABASE_KEY` (unused; left over from the
+2. **Vercel variables:** delete `SUPABASE_URL` and `SUPABASE_KEY` (unused; left over from the
    deleted Ireland project). `EMDASH_SETUP_KEY` can go too: setup is done and can't run again.
-5. **Secrets on disk:** store `~/hormonexperten-live.env` in your password manager (above all
+3. **Secrets on disk:** store `~/hormonexperten-live.env` in your password manager (above all
    `EMDASH_ENCRYPTION_KEY`), then delete it and `~/hormonexperten-setup-link.txt`.
-6. **Invite Yvonne** (Users → Invite user, Administrator), and add her Gmail to Google's test
+4. **Invite Yvonne** (Users → Invite user, Administrator), and add her Gmail to Google's test
    users. Not in `CONTENT_CONFIRMERS` unless she confirms content.
-7. **Local testing of “Needs check”:** add `CONTENT_CONFIRMERS=<your admin email>` to `.env`, then
+5. **Local testing of “Needs check”:** add `CONTENT_CONFIRMERS=<your admin email>` to `.env`, then
    restart the dev server.
-8. **Before launch:** remove `CONTENT_CHECK=warn` (it shows unconfirmed content, e.g. “5,000+
+6. **Before launch:** remove `CONTENT_CHECK=warn` (it shows unconfirmed content, e.g. “5,000+
    patients treated”), add the nightly backup, and see “Later” below for the domain move.
 
 ## What's built and tested
@@ -233,8 +227,10 @@ Action).
   (`npm run cms:seed`). The setup wizard applies it once, to an empty database; later changes to
   collection settings (like `urlPattern`) have to be made in the live database as well.
 - **Trailing slashes:** `vercel.json` sets `trailingSlash: true`, which redirects every path,
-  `/_emdash/api/*` included, to its slashed form. Paths are matched slash-insensitively in
-  `src/middleware.ts`, cron paths carry the slash (Vercel Cron doesn't follow redirects), and
+  `/_emdash/api/*` included, to its slashed form. EmDash expects its API paths without the slash
+  (with it, inviting a user failed with "Admin privileges required"), so
+  `src/lib/cms/api-slash.ts` takes it off before EmDash sees them. Paths are matched
+  slash-insensitively in `src/middleware.ts`, cron paths carry the slash (Vercel Cron doesn't follow redirects), and
   redirect sources use `:rest(.*)`, not `:rest*` (Vercel matches sources strictly; test new rules
   with `getTransformedRoutes` from `@vercel/routing-utils`).
 - **Local:** `npm run dev` also starts the admin at `http://localhost:4321/_emdash/admin` with a

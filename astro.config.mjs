@@ -66,6 +66,8 @@ export default defineConfig({
       // No editor pill on the public pages: they stay identical for everyone and script-free.
       toolbar: false,
       mcp: false,
+      // Takes Vercel's trailing slash off API paths before EmDash matches them (the file says why).
+      middleware: { outer: './src/lib/cms/api-slash.ts' },
     }),
   ],
   env: {
