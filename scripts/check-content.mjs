@@ -1,23 +1,13 @@
 // Fails the build when placeholder or forbidden copy reaches the built site (CLAUDE.md, content rules).
-// Runs after `astro build` over every HTML file in dist/.
+// Runs after `astro build` over every HTML file of the deployed site (see output-dirs.mjs).
 import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+import { PAGE_RULES, STRAIGHT_QUOTE, TEXT_RULES } from '../src/lib/content-rules.ts';
+import { servedDir as dist } from './output-dirs.mjs';
 
-const rules = [
-  { name: 'TODO marker (missing content)', pattern: /TODO/ },
-  { name: 'Lorem ipsum', pattern: /lorem ipsum/i },
-  { name: 'Placeholder "Title"', pattern: />\s*Title\s*</ },
-  { name: 'Grey image placeholder', pattern: /data-placeholder/ },
-  { name: 'Copy borrowed from another clinic', pattern: /Sheila de Liz|Hormone Online Clinic/i },
-  {
-    name: '"Endocrinologist": Dr. Wilden must never be called one',
-    pattern: /endocrinolog|endokrinolog|ενδοκρινολόγ|эндокринолог/i,
-  },
-  { name: 'Brand written "Hormon Experten" (use Hormonexperten)', pattern: /Hormon Experten/i },
-];
+const rules = [...TEXT_RULES, ...PAGE_RULES];
 
 async function* htmlFiles(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -57,12 +47,10 @@ function* strings(value) {
 }
 for await (const file of jsonFiles(content)) {
   for (const text of strings(JSON.parse(await readFile(file, 'utf8')))) {
-    const match = /["']/.exec(text);
+    const match = STRAIGHT_QUOTE.pattern.exec(text);
     if (match) {
       const excerpt = text.slice(Math.max(0, match.index - 40), match.index + 40);
-      problems.push(
-        `  ${relative(content, file)}  Straight quote (use ’ “ ” „ « »)\n    …${excerpt}…`,
-      );
+      problems.push(`  ${relative(content, file)}  ${STRAIGHT_QUOTE.name}\n    …${excerpt}…`);
     }
   }
 }

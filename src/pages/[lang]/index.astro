@@ -22,9 +22,9 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const faq = getFaq(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const faq = await getFaq(lang);
 const heroImage = getImage(home.hero.slides[0].image);
 const featuredFaq = visible(faq.categories.flatMap((category) => category.items)).filter(
   (item) => item.featured,

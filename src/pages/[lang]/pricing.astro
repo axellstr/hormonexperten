@@ -7,10 +7,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getFaq, getHome, getPricing, getSite, isVisible, visible } from '../../lib/content';
 
 // Left out of builds while the prices are unconfirmed (`needs_check` in src/content/pricing/).
-export function getStaticPaths() {
-  return LOCALES.flatMap((lang) =>
-    isVisible(getPricing(lang)) ? [{ params: { lang }, props: { lang } }] : [],
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    LOCALES.map(async (lang) =>
+      isVisible(await getPricing(lang)) ? [{ params: { lang }, props: { lang } }] : [],
+    ),
   );
+  return paths.flat();
 }
 
 interface Props {
@@ -18,13 +21,13 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const pricing = getPricing(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const pricing = await getPricing(lang);
 
 const faqItems = new Map(
-  getFaq(lang)
-    .categories.flatMap((category) => category.items)
+  (await getFaq(lang)).categories
+    .flatMap((category) => category.items)
     .map((item) => [item.id, item]),
 );
 const questions = visible(

@@ -15,9 +15,9 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const services = getServices(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const services = await getServices(lang);
 ---
 
 <BaseLayout

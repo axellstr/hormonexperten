@@ -15,12 +15,15 @@ import {
 } from '../../../lib/content';
 import type { ConditionPage } from '../../../lib/schemas';
 
-export function getStaticPaths() {
-  return LOCALES.flatMap((lang) =>
-    getConditions(lang)
-      .pages.filter(isVisible)
-      .map((page) => ({ params: { lang, condition: page.id }, props: { lang, page } })),
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    LOCALES.map(async (lang) =>
+      (await getConditions(lang)).pages
+        .filter(isVisible)
+        .map((page) => ({ params: { lang, condition: page.id }, props: { lang, page } })),
+    ),
   );
+  return paths.flat();
 }
 
 interface Props {
@@ -29,17 +32,17 @@ interface Props {
 }
 
 const { lang, page } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const conditions = getConditions(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const conditions = await getConditions(lang);
 
-const related = resolveLinks(page.related, lang);
-const listLinks = (page.list?.items ?? []).map((item) =>
-  item.link ? resolveLink(item.link, lang) : null,
+const related = await resolveLinks(page.related, lang);
+const listLinks = await Promise.all(
+  (page.list?.items ?? []).map((item) => (item.link ? resolveLink(item.link, lang) : null)),
 );
 
 // Untranslated page text falls back to English; say so for screen readers.
-const bodyLang = conditionPageLang(lang, page.id);
+const bodyLang = await conditionPageLang(lang, page.id);
 const contentLang = bodyLang === lang ? undefined : bodyLang;
 ---
 

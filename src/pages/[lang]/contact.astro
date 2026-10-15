@@ -16,12 +16,13 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const contact = getContact(lang);
+const site = await getSite(lang);
+const contact = await getContact(lang);
+const home = await getHome(lang);
 
 const faqItems = new Map(
-  getFaq(lang)
-    .categories.flatMap((category) => category.items)
+  (await getFaq(lang)).categories
+    .flatMap((category) => category.items)
     .map((item) => [item.id, item]),
 );
 const questions = visible(
@@ -49,5 +50,5 @@ const questions = visible(
   />
   <ContactFaq lang={lang} faq={contact.faq} items={questions} />
   <ContactDetails lang={lang} details={contact.details} />
-  <ClosingCta closing={getHome(lang).closing} />
+  <ClosingCta closing={home.closing} />
 </BaseLayout>

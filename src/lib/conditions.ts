@@ -13,10 +13,10 @@ export interface ResolvedLink {
  * A condition's link to another condition or a service, or null when it shouldn't show: the link
  * itself is unconfirmed, or its target page isn't built. Unknown ids fail the build.
  */
-export function resolveLink(link: ConditionLink, lang: Locale): ResolvedLink | null {
+export async function resolveLink(link: ConditionLink, lang: Locale): Promise<ResolvedLink | null> {
   if (!isVisible(link)) return null;
   if (link.condition) {
-    const page = getConditions(lang).pages.find((item) => item.id === link.condition);
+    const page = (await getConditions(lang)).pages.find((item) => item.id === link.condition);
     if (!page)
       throw new Error(`Condition link “${link.label}” names unknown page "${link.condition}"`);
     return isVisible(page)
@@ -24,8 +24,8 @@ export function resolveLink(link: ConditionLink, lang: Locale): ResolvedLink | n
       : null;
   }
   if (link.service) {
-    const service = getSite(lang).services.find((item) => item.id === link.service);
-    const page = getServices(lang).pages.find((item) => item.id === link.service);
+    const service = (await getSite(lang)).services.find((item) => item.id === link.service);
+    const page = (await getServices(lang)).pages.find((item) => item.id === link.service);
     if (!service || !page)
       throw new Error(`Condition link “${link.label}” names unknown service "${link.service}"`);
     return isVisible(service) && isVisible(page)
@@ -35,6 +35,7 @@ export function resolveLink(link: ConditionLink, lang: Locale): ResolvedLink | n
   return { label: link.label };
 }
 
-export function resolveLinks(links: ConditionLink[], lang: Locale): ResolvedLink[] {
-  return links.flatMap((link) => resolveLink(link, lang) ?? []);
+export async function resolveLinks(links: ConditionLink[], lang: Locale): Promise<ResolvedLink[]> {
+  const resolved = await Promise.all(links.map((link) => resolveLink(link, lang)));
+  return resolved.flatMap((link) => link ?? []);
 }

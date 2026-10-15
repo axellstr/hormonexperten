@@ -21,17 +21,20 @@ import type { Service, ServicePage } from '../../../lib/schemas';
 
 // One page per visible service whose page is visible too. Every service needs a page, since the
 // header, home row and footer all link to it.
-export function getStaticPaths() {
-  return LOCALES.flatMap((lang) => {
-    const pages = getServices(lang).pages;
-    return visible(getSite(lang).services).flatMap((service) => {
-      const page = pages.find((item) => item.id === service.id);
-      if (!page) throw new Error(`Service "${service.id}" has no page in src/content/services/`);
-      return isVisible(page)
-        ? [{ params: { lang, service: service.id }, props: { lang, service, page } }]
-        : [];
-    });
-  });
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    LOCALES.map(async (lang) => {
+      const pages = (await getServices(lang)).pages;
+      return visible((await getSite(lang)).services).flatMap((service) => {
+        const page = pages.find((item) => item.id === service.id);
+        if (!page) throw new Error(`Service "${service.id}" has no page in src/content/services/`);
+        return isVisible(page)
+          ? [{ params: { lang, service: service.id }, props: { lang, service, page } }]
+          : [];
+      });
+    }),
+  );
+  return paths.flat();
 }
 
 interface Props {
@@ -41,13 +44,13 @@ interface Props {
 }
 
 const { lang, service, page } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const services = getServices(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const services = await getServices(lang);
 
 const faqItems = new Map(
-  getFaq(lang)
-    .categories.flatMap((category) => category.items)
+  (await getFaq(lang)).categories
+    .flatMap((category) => category.items)
     .map((item) => [item.id, item]),
 );
 const questions = visible(
@@ -66,8 +69,12 @@ const others = visible(site.services).filter(
 );
 
 // Untranslated page text falls back to English; say so for screen readers.
-const fallbackLang = (key?: 'comparison') => {
-  const contentLang = servicePageLang(lang, page.id, key);
+const contentLangs = {
+  about: await servicePageLang(lang, page.id),
+  comparison: await servicePageLang(lang, page.id, 'comparison'),
+};
+const fallbackLang = (key: 'about' | 'comparison' = 'about') => {
+  const contentLang = contentLangs[key];
   return contentLang === lang ? undefined : contentLang;
 };
 ---

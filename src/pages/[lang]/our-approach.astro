@@ -18,10 +18,10 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const team = getTeam(lang);
-const approach = getApproach(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const team = await getTeam(lang);
+const approach = await getApproach(lang);
 ---
 
 <BaseLayout

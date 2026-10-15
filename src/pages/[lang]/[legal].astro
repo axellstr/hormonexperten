@@ -7,13 +7,16 @@ import type { LegalPage as Page } from '../../lib/schemas';
 
 // /{lang}/impressum, /{lang}/datenschutz, /{lang}/terms and /{lang}/remote-treatment-terms, all
 // linked from the footer on every page (CLAUDE.md, privacy).
-export function getStaticPaths() {
-  return LOCALES.flatMap((lang) =>
-    getLegal(lang).pages.map((page) => ({
-      params: { lang, legal: page.id },
-      props: { lang, page },
-    })),
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    LOCALES.map(async (lang) =>
+      (await getLegal(lang)).pages.map((page) => ({
+        params: { lang, legal: page.id },
+        props: { lang, page },
+      })),
+    ),
   );
+  return paths.flat();
 }
 
 interface Props {
@@ -22,11 +25,11 @@ interface Props {
 }
 
 const { lang, page } = Astro.props;
-const site = getSite(lang);
-const legal = getLegal(lang);
+const site = await getSite(lang);
+const legal = await getLegal(lang);
 
 // Untranslated text falls back to English; say so for screen readers.
-const bodyLang = legalPageLang(lang, page.id);
+const bodyLang = await legalPageLang(lang, page.id);
 const contentLang = bodyLang === lang ? undefined : bodyLang;
 ---
 

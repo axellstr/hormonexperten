@@ -15,8 +15,8 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const faq = getFaq(lang);
+const site = await getSite(lang);
+const faq = await getFaq(lang);
 const categories = faq.categories
   .map((category) => ({ ...category, items: visible(category.items) }))
   .filter((category) => category.items.length > 0);

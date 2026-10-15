@@ -19,14 +19,16 @@ interface Props {
 }
 
 const { lang, team, more } = Astro.props;
-const members = visible(team.members).map((member) => ({
-  ...member,
-  href:
-    member.profile && isVisible(member.profile)
-      ? localizeHref(`/team/${member.id}`, lang)
-      : undefined,
-  roleLang: memberLang(lang, member.id, 'role'),
-}));
+const members = await Promise.all(
+  visible(team.members).map(async (member) => ({
+    ...member,
+    href:
+      member.profile && isVisible(member.profile)
+        ? localizeHref(`/team/${member.id}`, lang)
+        : undefined,
+    roleLang: await memberLang(lang, member.id, 'role'),
+  })),
+);
 const photo = 'aspect-4/5 w-full object-cover object-top';
 ---
 

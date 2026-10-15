@@ -11,15 +11,18 @@ import { getSite, getTeam, isVisible, memberLang, visible } from '../../../lib/c
 import type { Profile, Team, TeamMember } from '../../../lib/schemas';
 
 // One page per visible team member whose profile is visible too.
-export function getStaticPaths() {
-  return LOCALES.flatMap((lang) => {
-    const team = getTeam(lang);
-    return visible(team.members).flatMap(({ profile, ...member }) =>
-      profile && isVisible(profile)
-        ? [{ params: { lang, member: member.id }, props: { lang, team, member, profile } }]
-        : [],
-    );
-  });
+export async function getStaticPaths() {
+  const paths = await Promise.all(
+    LOCALES.map(async (lang) => {
+      const team = await getTeam(lang);
+      return visible(team.members).flatMap(({ profile, ...member }) =>
+        profile && isVisible(profile)
+          ? [{ params: { lang, member: member.id }, props: { lang, team, member, profile } }]
+          : [],
+      );
+    }),
+  );
+  return paths.flat();
 }
 
 interface Props {
@@ -30,9 +33,9 @@ interface Props {
 }
 
 const { lang, team, member, profile } = Astro.props;
-const site = getSite(lang);
+const site = await getSite(lang);
 // Untranslated profiles fall back to English; say so for screen readers.
-const profileLang = memberLang(lang, member.id, 'profile');
+const profileLang = await memberLang(lang, member.id, 'profile');
 const contentLang = profileLang === lang ? undefined : profileLang;
 ---
 

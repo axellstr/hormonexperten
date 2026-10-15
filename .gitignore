@@ -10,3 +10,8 @@ node_modules/
 # Working files at the root (stock photos, logo drafts), not part of the site
 /*.jpg
 /new-logo.svg
+
+# EmDash local working data (the seed in .emdash/seed.json is committed)
+/.emdash/*
+!/.emdash/seed.json
+/emdash-env.d.ts

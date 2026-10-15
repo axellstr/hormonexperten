@@ -22,10 +22,14 @@ interface Props {
 const { lang, testimonials, reviewProfile } = Astro.props;
 const items = visible(testimonials.items);
 // Untranslated reviews and note fall back to English; say so for screen readers.
-const fallback = (path: string[]) => {
-  const used = textLang('home', lang, ['testimonials', ...path]);
+const fallback = async (path: string[]) => {
+  const used = await textLang('home', lang, ['testimonials', ...path]);
   return used === lang ? undefined : used;
 };
+const [itemsLang, noteLang] = await Promise.all([
+  fallback(['items']),
+  fallback(['translation_note']),
+]);
 const sourceIcons: Record<string, typeof Jameda> = { Jameda, ProvenExpert, Google };
 const platforms = visible(reviewProfile.platforms).map((platform) => ({
   ...platform,
@@ -101,9 +105,7 @@ const cardClass =
                       decoding="async"
                       class="mx-auto h-7 w-auto max-w-full object-contain"
                     />
-                    <span class="tabular-nums text-sm text-ink/70">
-                      {platform.reviewsText}
-                    </span>
+                    <span class="tabular-nums text-sm text-ink/70">{platform.reviewsText}</span>
                   </a>
                 </li>
               ))}
@@ -143,7 +145,7 @@ const cardClass =
 
     {items.length > 0 && (
       <Panel
-        lang={fallback(['items'])}
+        lang={itemsLang}
         class="mt-intro overflow-hidden py-12 [--review-pitch:calc(18rem+0.5rem)] lg:py-20 lg:[--review-pitch:calc(var(--container-md)+2.5rem)]"
       >
         <!--
@@ -221,7 +223,7 @@ const cardClass =
     )}
 
     {items.length > 0 && testimonials.translation_note && (
-      <p lang={fallback(['translation_note'])} class="mt-4 text-center text-sm text-ink/70">
+      <p lang={noteLang} class="mt-4 text-center text-sm text-ink/70">
         {testimonials.translation_note}
       </p>
     )}

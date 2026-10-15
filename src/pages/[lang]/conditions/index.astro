@@ -16,9 +16,9 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const home = getHome(lang);
-const conditions = getConditions(lang);
+const site = await getSite(lang);
+const home = await getHome(lang);
+const conditions = await getConditions(lang);
 
 const groups = conditions.groups
   .map((group) => ({
@@ -32,10 +32,15 @@ const groups = conditions.groups
   .filter((group) => group.pages.length > 0);
 
 // Untranslated text falls back to English; say so for screen readers.
-const fallback = (path: string[]) => {
-  const used = textLang('conditions', lang, path);
+const fallback = async (path: string[]) => {
+  const used = await textLang('conditions', lang, path);
   return used === lang ? undefined : used;
 };
+const [introLang, pagesLang, coCareLang] = await Promise.all([
+  fallback(['intro']),
+  fallback(['pages']),
+  fallback(['co_care']),
+]);
 ---
 
 <BaseLayout
@@ -51,14 +56,9 @@ const fallback = (path: string[]) => {
       title: group.title,
       count: group.pages.length,
     }))}
-    contentLang={fallback(['intro'])}
+    contentLang={introLang}
   />
-  <ConditionGroups
-    lang={lang}
-    conditions={conditions}
-    groups={groups}
-    contentLang={fallback(['pages'])}
-  />
-  <ConditionsCoCare coCare={conditions.co_care} contentLang={fallback(['co_care'])} />
+  <ConditionGroups lang={lang} conditions={conditions} groups={groups} contentLang={pagesLang} />
+  <ConditionsCoCare coCare={conditions.co_care} contentLang={coCareLang} />
   <ClosingCta closing={{ ...home.closing, cta: conditions.cta }} />
 </BaseLayout>

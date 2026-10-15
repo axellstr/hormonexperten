@@ -29,8 +29,8 @@ const profileHref =
     : undefined;
 // Untranslated text falls back to English; say so for screen readers.
 const otherLang = (text: Locale) => (text === lang ? undefined : text);
-const quoteLang = otherLang(textLang('approach', lang, ['founder', 'quote']));
-const roleLang = founder && otherLang(memberLang(lang, founder.id, 'role'));
+const quoteLang = otherLang(await textLang('approach', lang, ['founder', 'quote']));
+const roleLang = founder && otherLang(await memberLang(lang, founder.id, 'role'));
 ---
 
 <!--

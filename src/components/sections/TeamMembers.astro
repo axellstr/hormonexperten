@@ -16,14 +16,16 @@ interface Props {
 }
 
 const { lang, team } = Astro.props;
-const members = visible(team.members).map((member) => ({
-  ...member,
-  href:
-    member.profile && isVisible(member.profile)
-      ? localizeHref(`/team/${member.id}`, lang)
-      : undefined,
-  roleLang: memberLang(lang, member.id, 'role'),
-}));
+const members = await Promise.all(
+  visible(team.members).map(async (member) => ({
+    ...member,
+    href:
+      member.profile && isVisible(member.profile)
+        ? localizeHref(`/team/${member.id}`, lang)
+        : undefined,
+    roleLang: await memberLang(lang, member.id, 'role'),
+  })),
+);
 ---
 
 <Section aria-labelledby="team-title" class="pt-16! md:pt-12!">

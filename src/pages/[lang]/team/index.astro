@@ -14,11 +14,12 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const site = getSite(lang);
-const team = getTeam(lang);
+const site = await getSite(lang);
+const team = await getTeam(lang);
+const home = await getHome(lang);
 ---
 
 <BaseLayout lang={lang} site={site} title={team.meta.title} description={team.meta.description}>
   <TeamMembers lang={lang} team={team} />
-  <ClosingCta closing={getHome(lang).closing} />
+  <ClosingCta closing={home.closing} />
 </BaseLayout>
