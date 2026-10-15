@@ -11,8 +11,8 @@
       "permanent": false
     },
     {
-      "source": "/:page(faq|team|services|conditions|our-approach|contact|pricing|impressum|datenschutz|terms|remote-treatment-terms)/:rest*",
-      "destination": "/en/:page/:rest*",
+      "source": "/:page(faq|team|services|conditions|our-approach|contact|pricing|impressum|datenschutz|terms|remote-treatment-terms)/:rest(.*)",
+      "destination": "/en/:page/:rest",
       "permanent": false
     }
   ],
