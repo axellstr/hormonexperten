@@ -6,14 +6,22 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import emdash, { local, s3 } from 'emdash/astro';
+import { google } from 'emdash/auth/providers/google';
+import { loadEnv } from 'vite';
 import { postgres, sqlite } from 'emdash/db';
 
 // The CMS (docs/emdash-plan.md). On Vercel the content lives in Supabase: Postgres reached through
 // the PG* variables and Storage through the S3_* ones. Both are read when the server runs, never
 // written into the build. Without them (local work) EmDash uses a SQLite file and a folder in
 // .emdash/. Public pages stay prerendered; only the admin and its API run on the server.
-const postgresConfigured = Boolean(process.env.PGHOST);
-const storageConfigured = Boolean(process.env.S3_ENDPOINT);
+// Variables from the environment (Vercel) or, locally, from .env.
+const env = { ...loadEnv('', process.cwd(), ''), ...process.env };
+const postgresConfigured = Boolean(env.PGHOST);
+const storageConfigured = Boolean(env.S3_ENDPOINT);
+// "Sign in with Google" for the admin, once the OAuth client is set (docs/emdash-setup.md). EmDash
+// reads its ID and secret when the site is built, so add them before deploying. Passkeys stay
+// available beside it.
+const googleConfigured = Boolean(env.EMDASH_OAUTH_GOOGLE_CLIENT_ID);
 
 export default defineConfig({
   site: 'https://hormonexperten.de',
@@ -41,6 +49,7 @@ export default defineConfig({
         ? s3()
         : local({ directory: './.emdash/uploads', baseUrl: '/_emdash/api/media/file' }),
       // The public origin comes from EMDASH_SITE_URL on Vercel; locally EmDash uses localhost.
+      authProviders: googleConfigured ? [google()] : [],
       admin: { siteName: 'Hormonexperten', locales: ['en', 'de'] },
       // The site's own plugin: checks entries before they're published and has Vercel rebuild the
       // site afterwards (src/lib/cms/plugin.ts).

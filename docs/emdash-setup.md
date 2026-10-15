@@ -28,6 +28,41 @@ Status 15 Oct 2026, branch `emdash-cms`. Read with `docs/emdash-plan.md` (the wh
 | Upstash Redis for logins | Logins in Supabase | One account less |
 | Supabase Storage for photos | Later | The site doesn't use uploaded photos yet; photos stay in the code for now |
 
+### Sign in with Google (instead of a passkey)
+
+The admin offers **Sign in with Google** once a Google OAuth client is set up. Passkeys stay
+available, but you don't have to use them. EmDash only signs in Google accounts whose address it
+already knows (the first admin, created in the setup wizard, and people you invite), so a random
+Google account can't get in.
+
+1. Go to [console.cloud.google.com](https://console.cloud.google.com), create a project
+   `Hormonexperten admin`.
+2. **Google Auth Platform → Branding:** app name `Hormonexperten admin`, your email as support
+   and developer contact.
+3. **Audience:** *External*, and leave it in **Testing**. Under **Test users** add your Gmail
+   address and Yvonne's. (In Testing, only these accounts can sign in at all: a second lock.)
+4. **Clients → Create client → Web application.** Under **Authorized redirect URIs** add:
+   - `http://localhost:4321/_emdash/api/auth/oauth/google/callback` (your computer)
+   - `https://<preview address>/_emdash/api/auth/oauth/google/callback` (the preview, step 3 below)
+   - `https://hormonexperten.de/_emdash/api/auth/oauth/google/callback` (later, the live site)
+5. Copy the **Client ID** and **Client secret** and set them as:
+
+   | Name | Value |
+   |---|---|
+   | `EMDASH_OAUTH_GOOGLE_CLIENT_ID` | the client ID |
+   | `EMDASH_OAUTH_GOOGLE_CLIENT_SECRET` | the client secret |
+
+   - **On your computer:** put both lines in the `.env` file in the project folder
+     (`NAME=value`, one per line; `.env` is never committed), then restart the dev server:
+     `npx astro dev stop` and `npm run dev`.
+   - **On Vercel:** add both under Settings → Environment Variables, then redeploy. EmDash reads
+     them when the site is built, so a redeploy is needed after adding or changing them.
+6. In the setup wizard, enter **the same Gmail address** on the account step, then choose
+   **Google** instead of *Create passkey*.
+
+To let Yvonne in: Users → **Invite user** with her Gmail address, copy the invite link, send it to
+her; she opens it and chooses **Google**.
+
 ## What you do: test on a preview first
 
 You need about 20 minutes. Nothing here touches the live site.
@@ -77,7 +112,8 @@ asks for it).
    - Site title `Hormonexperten`, choose **Sample content**. (That's the real site content, not
      demo posts.)
    - Your email and name.
-   - **Create passkey** (fingerprint, face or device PIN).
+   - **Google** (if you set it up, see "Sign in with Google" above), or **Create passkey**
+     (unlocked with your device PIN, password manager or fingerprint).
 3. You land on the dashboard. Look around: FAQ questions, Team members, Page texts…
 
 ### 5. Switch the site to read from the CMS
@@ -93,8 +129,7 @@ asks for it).
 2. Within a minute a new deployment appears in Vercel; when it's ready, the preview shows the change.
 3. Try publishing "endocrinologist" in an answer: it's refused with the reason.
 4. Users → **Invite user** for Yvonne (role: Administrator). No email is set up, so copy the
-   invite link and send it to her. Ask her to add a second passkey (phone + laptop) under
-   Security, so losing one device doesn't lock her out.
+   invite link and send it to her; she signs in with Google (or a passkey).
 
 Tell me what you see. If anything looks off, send a screenshot.
 
