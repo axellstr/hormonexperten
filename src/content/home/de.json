@@ -45,7 +45,7 @@
   "approach": {
     "eyebrow": "Unser Ansatz",
     "title": "Hormonmedizin, die Frauen ernst nimmt.",
-    "body": "Wir nehmen uns Zeit, Sie kennenzulernen: Ihre Geschichte, Ihr Leben und das, was Sie bisher mit sich getragen haben – nicht nur Ihre Symptome. Weil Hormone, Stoffwechsel und Mikronährstoffe ein zusammenhängendes System bilden, betrachten wir das Gesamtbild. Sie gehen verstanden, informiert und voller Zuversicht.",
+    "body": "Wir nehmen uns Zeit, Sie kennenzulernen: Ihre Geschichte, Ihr Leben und das, was Sie bisher mit sich getragen haben – nicht nur Ihre Symptome. Weil Hormone, Stoffwechsel und Mikronährstoffe ein zusammenhängendes System bilden, betrachten wir das Gesamtbild. Sie gehen verstanden, informiert und gestärkt.",
     "cta": {
       "label": "Mehr erfahren"
     },
@@ -87,12 +87,12 @@
     "steps": [
       {
         "title": "Termin buchen",
-        "body": "Buchen Sie Ihren Termin online zu einer Zeit, die Ihnen passt. Bitte reichen Sie relevante Blutwerte und den ausgefüllten Anamnesebogen spätestens 48 Stunden vor Ihrem Erstgespräch ein – beides geht ganz einfach über Ihr Patientenportal.",
+        "body": "Wählen Sie einen Termin, der Ihnen passt, und buchen Sie online mit wenigen Klicks. Wenn Sie aktuelle Blutwerte haben oder Ihren Anamnesebogen ausfüllen möchten, können Sie beides vorab über Ihr Patientenportal mit uns teilen.",
         "scene": ["Blutwerte", "Anamnesebogen"]
       },
       {
         "title": "Erstgespräch per Video",
-        "body": "Ihre Ärztin bespricht Ihre Beschwerden und Laborwerte und erläutert Ihnen ausführlich die Behandlungsmöglichkeiten. Wenn es sinnvoll ist, können verordnete Medikamente direkt zu Ihnen nach Hause geliefert werden.",
+        "body": "Ihre Ärztin bespricht Ihre Beschwerden und, falls vorhanden, Ihre Laborwerte, entscheidet mit Ihnen, welche Untersuchungen nötig sind, und erläutert Ihnen ausführlich die Behandlungsmöglichkeiten. Wenn es sinnvoll ist, können verordnete Medikamente direkt zu Ihnen nach Hause geliefert werden.",
         "scene": ["Laborwerte"]
       },
       {

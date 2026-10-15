@@ -23,10 +23,14 @@
         },
         "eyebrow": "Meet your doctor",
         "name": "Dr. medic. Isabella Wilden",
-        "titles": ["Hormone Expert", "Specialist in Orthomolecular Medicine"],
+        "titles": [
+          "Hormone Expert",
+          "Certified in Bioidentical Hormone Therapy",
+          "Certified in Orthomolecular Medicine"
+        ],
         "bio": [
-          "Dr. Isabella Wilden has worked as a physician for more than 35 years. Her practice is dedicated entirely to bioidentical hormone therapy and orthomolecular medicine.",
-          "Licensed to practise medicine in four EU countries (Romania, Greece, Germany and Cyprus), she has cared for women from many cultures, backgrounds and stages of life. As a specialist in General Medicine and a certified Hormone Expert (Germany), she combines a broad medical view with deep expertise in women’s hormones. In 2023, she founded Hormonexperten to make this care available to women online, wherever they live."
+          "Dr. Isabella Wilden has worked as a physician for more than 35 years. Her practice is dedicated entirely to bioidentical hormone therapy and orthomolecular medicine, and she is certified in both.",
+          "Licensed to practise medicine in four EU countries (Romania, Greece, Germany and Cyprus), she has cared for women from many cultures, backgrounds and stages of life. As a specialist in General Medicine and a certified Hormone Expert (Germany), she combines a broad medical view with deep expertise in women’s hormones. She has run her own practice since 2009, and in 2023 she took it fully online as Hormonexperten, so that women can receive this care wherever they live."
         ],
         "cta": "Book your consultation",
         "mission": {
@@ -97,8 +101,8 @@
             {
               "date": "2009",
               "items": [
-                "Specialist in General Medicine, Germany, and her own practice in Regensburg",
-                "Opening of first medical practice in Regensburg (Germany)"
+                "Specialist in General Medicine, Germany",
+                "Opening of her own practice in Regensburg (Germany)"
               ]
             },
             {
@@ -110,7 +114,7 @@
             },
             {
               "date": "2023",
-              "items": ["Founder of Hormonexperten, an online practice for women’s hormone health"]
+              "items": ["Her practice moves fully online as Hormonexperten, for women’s hormone health"]
             },
             {
               "date": "2026",
@@ -138,7 +142,11 @@
                   "date": "2018"
                 },
                 {
-                  "title": "Specialist in Orthomolecular Medicine",
+                  "title": "Certified in Bioidentical Hormone Therapy",
+                  "check_note": "Confirmed by the user on 2026-10-15. Issuing body and year still to add; if it is the Rimkus certification, the name stays off until the practice confirms it is current (CLAUDE.md)."
+                },
+                {
+                  "title": "Certified in Orthomolecular Medicine",
                   "detail": "Training in Salzburg, Austria",
                   "date": "2012–2014"
                 },
@@ -201,20 +209,7 @@
         "story": {
           "title": "From one woman to another",
           "body": [
-            "My path as a woman, a doctor, a mother and a partner has taken me through different countries, languages and stages of life. Changing countries more than once and adapting to new environments has made me a curious listener and compassionate doctor. New beginnings are part of who I am. They have shaped the way I see people and the changes in their lives.",
-            "My path as a doctor has been just as varied. General medicine, research and psycho-oncology are part of it, as are functional medicine, micronutrient therapy and acupuncture. Each of these fields gave me another way to understand people: their symptoms, but also their story and what truly moves them.",
-            "At 40, my own body began to change.",
-            "I gained weight, and within a short time, I needed glasses. Then came the diagnosis of Hashimoto’s. My hair grew weaker, and eczema appeared around my eyes. Food intolerances, digestive problems, tiredness and sleepless nights became part of those years. And then there were lumps in my breasts. It wasn’t one single change. It was so much, all at once.",
-            "All of this was now happening to me. My body. My sleep. My everyday life.",
-            "I was a doctor, and at the same time the woman living through these changes. My medical knowledge was with me, but experiencing it myself gave so much of it a different meaning. Premenopause, perimenopause, menopause and postmenopause became chapters of my own life. I also came to know hormone therapy through my own body.",
-            "While I was walking my own path through these stages, I cared for thousands of women, especially with hormonal concerns. Each one brought her own story: questions, hopes, worries and the wish to feel well again. I learned something from every one of them. Even after all these years, a single conversation can still widen my view and show me something I had never seen before.",
-            "Some of what my patients told me felt deeply familiar. Other stories showed me how differently each of us can experience this time. And so, over the years, my personal story and my medical experience have grown together.",
-            "This, for me, is what makes my work special: I bring my knowledge, the experience of caring for thousands of women, and my own experience as a woman.",
-            {
-              "heading": "Behind every lab result: a woman with her own story."
-            },
-            "When you tell me today that your body has changed and you no longer feel like yourself, I want to understand what that means for you. What you are missing. What weighs on you. And what you long to have back in your life.",
-            "Because behind every lab result is a woman with her own story. I want to make room for yours."
+            "My work is shaped by two perspectives: the doctor’s and the woman’s. As a doctor, my training spans general medicine, research, psycho-oncology, functional medicine, micronutrient therapy and acupuncture. As a woman, I lived through it myself: at 40 came weight gain, exhaustion, sleepless nights and the diagnosis of Hashimoto’s, an autoimmune condition, followed by perimenopause and menopause. I came to know hormone therapy through my own body. Since then, I have accompanied thousands of women through the same changes. That’s why I listen closely, take time for your whole story and look for the cause, not just the symptoms."
           ],
           "signature": "Dr. Isabella Wilden"
         },
@@ -223,15 +218,14 @@
         },
         "check_notes": [
           "Approved for publishing by the user on 2026-10-09; the points below were left as they are.",
+          "Story replaced on 2026-10-15 with Dr. Wilden’s revised, shortened text. Her headline reads “From a woman to another”; kept as “From one woman to another” (idiomatic English). Confirm.",
           "Mission: the sentence “I listen closely, having gone though these changes in I know from my own life I know how unsettling…” was garbled. Repaired to “I listen closely. Having gone through these changes myself, I know how unsettling…”. Confirm the wording.",
-          "Story: “endocrinology” removed from “General medicine, research, psycho-oncology and endocrinology are part of it”. CLAUDE.md: she must never be presented as an endocrinologist, and the build check rejects the word.",
-          "Story headline “From a woman to another” changed to “From one woman to another”. Confirm.",
           "Hormone Expert certification: 2017 in the key facts and milestones, 2018 under medical titles. Which is right?",
-          "2009 milestone lists her own practice in Regensburg twice (“…and her own practice in Regensburg” and “Opening of first medical practice in Regensburg”). Merge?",
-          "Titles: “Specialist in Orthomolecular Medicine” and “Specialist in Acupuncture” read as German specialist titles (Facharzt), which don’t exist for these fields. Legal check of the wording, and of “Dr. medic.”, before publishing.",
-          "Header titles (Hormone Expert · Specialist in Orthomolecular Medicine) differ from the CLAUDE.md title (Specialist in General Medicine with a focus on bioidentical hormone therapy), which the cards still use. Which one leads?",
-          "Claims (CLAUDE.md): “35+ years as a physician” and “cared for thousands of women” need a source before going live. The 1989 M.D. supports 35+ years.",
-          "HWG: the personal health story (Hashimoto’s, lumps in her breasts, hormone therapy “through my own body”) needs a legal read so it doesn’t read as a promised result.",
+          "2026-10-15 (user): practice founded 2009, fully online since 2023; certified in bioidentical hormone therapy and in orthomolecular medicine. “Specialist in Orthomolecular Medicine” became “Certified in Orthomolecular Medicine” (no such German specialist title exists), and the 2009 milestone no longer lists her Regensburg practice twice. Still needed: issuer and year of both certificates.",
+          "Titles: “Specialist in Acupuncture” may read as a German specialist title. Legal check of the wording, and of “Dr. medic.”, before publishing.",
+          "Header titles (Hormone Expert · Certified in Bioidentical Hormone Therapy · Certified in Orthomolecular Medicine) differ from the CLAUDE.md title (Specialist in General Medicine with a focus on bioidentical hormone therapy), which the cards still use. Which one leads?",
+          "Claims (CLAUDE.md): “35+ years as a physician” and “accompanied thousands of women” need a source before going live. The 1989 M.D. supports 35+ years.",
+          "HWG: the personal health story (Hashimoto’s, hormone therapy “through my own body”) needs a legal read so it doesn’t read as a promised result.",
           "Values strip: “I know many of these changes from many years of training added by my own life experiences” reads awkwardly. Reword?",
           "Photo: the doc asks for a professional portrait; the studio portrait from the 30 Sep 2026 shoot is used.",
           "Copy edits made: double spaces removed, “Private Practice” lower-cased, leading “·” dropped from the title line, mission heading split into eyebrow + title, CV lines split into title, detail and year."

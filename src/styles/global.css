@@ -862,6 +862,11 @@
     hyphenate-limit-chars: 7 3 3;
   }
 
+  /* `hyphens` inherits, so English fallback blocks (lang="en" on a de/el/ru page) switch it off again. */
+  :where(:lang(en)) {
+    hyphens: manual;
+  }
+
   /* Spans inside a heading match :lang() themselves, so they need the heading limit too. */
   :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6),
   :where(:lang(de), :lang(el), :lang(ru)) :where(h1, h2, h3, h4, h5, h6) *,

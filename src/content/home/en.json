@@ -51,7 +51,7 @@
   "approach": {
     "eyebrow": "Our Approach",
     "title": "Hormone Health Care that Takes Women Seriously.",
-    "body": "We take time to know you: your story, your life and what you have been carrying, not just your symptoms. Because hormones, metabolism and micronutrients are one connected system, we look at the whole picture. You leave understood, informed and hopeful.",
+    "body": "We take time to know you: your story, your life and what you have been carrying, not just your symptoms. Because hormones, metabolism and micronutrients are one connected system, we look at the whole picture. You leave understood, informed and empowered.",
     "cta": {
       "label": "Learn More",
       "href": "/our-approach"
@@ -64,8 +64,7 @@
     "logos": [
       {
         "name": "Jameda",
-        "logo": "jameda",
-        "needs_check": true
+        "logo": "jameda"
       },
       {
         "name": "ProvenExpert",
@@ -73,38 +72,27 @@
       },
       {
         "name": "Hormon Netzwerk",
-        "logo": "hormon-netzwerk",
-        "needs_check": true
+        "logo": "hormon-netzwerk"
       },
       {
         "name": "DÄGfA",
-        "logo": "daegfa",
-        "needs_check": true
+        "logo": "daegfa"
       },
       {
-        "name": "TODO: partner 1",
-        "logo": "partner-1",
-        "needs_check": true
+        "name": "Allvital",
+        "logo": "allvital"
       },
       {
-        "name": "TODO: partner 2",
-        "logo": "partner-2",
-        "needs_check": true
+        "name": "Biogena",
+        "logo": "biogena"
       },
       {
-        "name": "TODO: partner 3",
-        "logo": "partner-3",
-        "needs_check": true
+        "name": "Mitocare",
+        "logo": "mitocare"
       },
       {
-        "name": "TODO: partner 4",
-        "logo": "partner-4",
-        "needs_check": true
-      },
-      {
-        "name": "TODO: partner 5",
-        "logo": "partner-5",
-        "needs_check": true
+        "name": "Labor Rosler",
+        "logo": "rosler"
       }
     ]
   },
@@ -162,12 +150,12 @@
     "steps": [
       {
         "title": "Book an Appointment",
-        "body": "Schedule your appointment online at a time that suits you. Please submit relevant blood work and your completed medical history form at least 48 hours in advance of your initial consultation – both can be done easily via your patient portal.",
+        "body": "Choose a time that suits you and book online in just a few clicks. If you have recent blood work or would like to fill in your medical history form, you can share them beforehand in your patient portal.",
         "scene": ["Blood work", "Medical history"]
       },
       {
         "title": "Initial Video Consultation",
-        "body": "Your doctor will review your symptoms and laboratory results and discuss treatment options with you in detail. Where appropriate, prescribed medications can be delivered directly to you at home.",
+        "body": "Your doctor will review your symptoms and any lab results you already have, decide with you which tests are needed and discuss your treatment options in detail. Where appropriate, prescribed medications can be delivered directly to you at home.",
         "scene": ["Lab results"]
       },
       {
