@@ -20,7 +20,7 @@ export async function readContent(collection: string, lang: Locale): Promise<Jso
 }
 
 /** Published entries of one EmDash collection in one language. */
-async function entriesOf(collection: string, lang: Locale): Promise<Entry[]> {
+async function fetchEntries(collection: string, lang: Locale): Promise<Entry[]> {
   const { entries, error } = await getEmDashCollection(collection, {
     locale: lang,
     status: 'published',
@@ -34,23 +34,33 @@ async function entriesOf(collection: string, lang: Locale): Promise<Entry[]> {
 
 // A build reads every page's content many times; read each collection once per language. The dev
 // server reads afresh, so edits in the admin show on reload.
-const cache = new Map<string, Promise<Json | undefined>>();
+const cache = new Map<string, Promise<Entry[]>>();
 
-function readFromEmDash(name: string, lang: Locale): Promise<Json | undefined> {
-  const key = `${name}/${lang}`;
+function entriesOf(collection: string, lang: Locale): Promise<Entry[]> {
+  const key = `${collection}/${lang}`;
   const cached = cache.get(key);
   if (cached && !import.meta.env.DEV) return cached;
-  const result = (async () => {
-    const file = contentFile(name);
-    const [documents, ...lists] = await Promise.all([
-      entriesOf(file.collection, lang),
-      ...file.splits.map((split) => entriesOf(split.collection, lang)),
-    ]);
-    const entities = Object.fromEntries(
-      file.splits.map((split, index) => [split.collection, lists[index]]),
-    );
-    return decode(file, documents[0]?.data, entities, { translation: lang !== 'en' });
-  })();
+  const result = fetchEntries(collection, lang);
   cache.set(key, result);
   return result;
+}
+
+/** A content file's document entry and split-off items in one language. */
+async function entriesFor(name: string, lang: Locale) {
+  const file = contentFile(name);
+  const [documents, ...lists] = await Promise.all([
+    entriesOf(file.collection, lang),
+    ...file.splits.map((split) => entriesOf(split.collection, lang)),
+  ]);
+  const entities = Object.fromEntries(
+    file.splits.map((split, index) => [split.collection, lists[index]]),
+  );
+  return { file, document: documents[0]?.data, entities };
+}
+
+async function readFromEmDash(name: string, lang: Locale): Promise<Json | undefined> {
+  const { file, document, entities } = await entriesFor(name, lang);
+  if (lang === 'en') return decode(file, document, entities, { translation: false });
+  const english = await entriesFor(name, 'en');
+  return decode(file, document, entities, { translation: true, english });
 }

@@ -1,3 +1,4 @@
+import { isDeepStrictEqual } from 'node:util';
 import type { ContentFile, Split } from './model.ts';
 import { POSITION_FIELD } from './model.ts';
 import { isBlocks, itemSchema, planFields, type Plan } from './plan.ts';
@@ -92,6 +93,40 @@ function encodeFields(
 interface DecodeOptions {
   /** A translation: an empty list or rich text means "not translated", not "nothing". */
   translation: boolean;
+  /** For a translation, the English entries it was made from (see `withoutCopies`). */
+  english?: { document?: Json; entities: Record<string, Entry[]> };
+}
+
+/** A stored value without the keys EmDash gives list items and rich text blocks. */
+function comparable(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(comparable);
+  if (isObject(value)) {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([key]) => key !== '_key' && key !== '_version')
+        .map(([key, item]) => [key, comparable(item)]),
+    );
+  }
+  return value;
+}
+
+/**
+ * A translation made in the admin starts as a copy of the English entry. A field still identical
+ * to English isn't translated: leave it out, so the page falls back to English and marks it as
+ * English for screen readers, as it does for a field a translation file leaves out.
+ */
+function withoutCopies(plans: Plan[], data: Json, english: Json | undefined): Json {
+  if (!english) return data;
+  const result = { ...data };
+  for (const plan of plans) {
+    if (
+      result[plan.key] !== undefined &&
+      isDeepStrictEqual(comparable(result[plan.key]), comparable(english[plan.key]))
+    ) {
+      delete result[plan.key];
+    }
+  }
+  return result;
 }
 
 function decodeFields(plans: Plan[], data: Json, options: DecodeOptions): Json {
@@ -106,6 +141,8 @@ function decodeFields(plans: Plan[], data: Json, options: DecodeOptions): Json {
     if (plan.kind === 'scalar') {
       // Yes/no fields come back as 0 or 1 from some readers (the plugin's content API).
       value = plan.scalar.type === 'boolean' && (raw === 0 || raw === 1) ? raw === 1 : raw;
+      // English decides what is confirmed: a translation can hide an item, never show one.
+      if (options.translation && plan.path.at(-1) === 'needs_check' && value === false) continue;
     } else {
       if (!Array.isArray(raw)) continue;
       if (raw.length === 0) {
@@ -214,16 +251,34 @@ export function decode(
 ): Json | undefined {
   const hasItems = file.splits.some((split) => (entities[split.collection] ?? []).length > 0);
   if (!document && !hasItems) return undefined;
-  const result = document ? decodeFields(documentPlan(file), document, options) : {};
+  const english = options.translation ? options.english : undefined;
+  const documentPlans = documentPlan(file);
+  const result = document
+    ? decodeFields(
+        documentPlans,
+        withoutCopies(documentPlans, document, english?.document),
+        options,
+      )
+    : {};
 
   for (const split of file.splits) {
     const plans = entityPlan(file, split);
+    const englishItems = new Map(
+      (english?.entities[split.collection] ?? []).map((entry) => [entry.slug, entry.data]),
+    );
     const entries = [...(entities[split.collection] ?? [])].sort(
       (a, b) => Number(a.data[POSITION_FIELD] ?? 0) - Number(b.data[POSITION_FIELD] ?? 0),
     );
     const items = entries.map((entry) => ({
       parent: split.parentField ? String(entry.data[split.parentField] ?? '') : undefined,
-      item: { id: entry.slug, ...decodeFields(plans, entry.data, options) },
+      item: {
+        id: entry.slug,
+        ...decodeFields(
+          plans,
+          withoutCopies(plans, entry.data, englishItems.get(entry.slug)),
+          options,
+        ),
+      },
     }));
 
     const star = split.path.indexOf('*');

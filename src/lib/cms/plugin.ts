@@ -117,23 +117,35 @@ async function contentAfterPublish(
   locale: string,
   candidate: { collection: string; item: ContentItem },
 ): Promise<Json | undefined> {
-  const read = async (collection: string): Promise<Entry[]> => {
-    const items = await publishedEntries(ctx, collection, locale);
-    if (candidate.collection === collection && candidate.item.locale === locale) {
+  const read = async (collection: string, lang = locale): Promise<Entry[]> => {
+    const items = await publishedEntries(ctx, collection, lang);
+    if (candidate.collection === collection && candidate.item.locale === lang) {
       const index = items.findIndex((item) => item.id === candidate.item.id);
       if (index === -1) items.push(candidate.item);
       else items[index] = candidate.item;
     }
     return items.map((item) => ({ slug: item.slug ?? item.id, data: item.data }));
   };
-  const [documents, ...lists] = await Promise.all([
-    read(file.collection),
-    ...file.splits.map((split) => read(split.collection)),
-  ]);
-  const entities = Object.fromEntries(
-    file.splits.map((split, index) => [split.collection, lists[index]]),
-  );
-  return decode(file, documents[0]?.data, entities, { translation: locale !== 'en' });
+  const entriesIn = async (lang: string) => {
+    const [documents, ...lists] = await Promise.all([
+      read(file.collection, lang),
+      ...file.splits.map((split) => read(split.collection, lang)),
+    ]);
+    const entities = Object.fromEntries(
+      file.splits.map((split, index) => [split.collection, lists[index]]),
+    );
+    return { document: documents[0]?.data, entities };
+  };
+  const own = await entriesIn(locale);
+  if (locale === 'en') return decode(file, own.document, own.entities, { translation: false });
+  const english = await entriesIn('en');
+  return decode(file, own.document, own.entities, { translation: true, english });
+}
+
+/** What the editor calls the collection an entry is in, for messages: "FAQ questions". */
+function labelOf(file: ContentFile, collection: string): string {
+  const split = file.splits.find((item) => item.collection === collection);
+  return (split?.label ?? file.label).toLowerCase().replace(/^faq/, 'FAQ');
 }
 
 /** Why the page would no longer build, in a few lines, or undefined when it builds. */
@@ -147,7 +159,7 @@ async function pageProblem(
   // every language; a translation checks itself.
   const locales = locale === 'en' ? LOCALES : [locale as Locale];
   const english = await contentAfterPublish(ctx, file, 'en', candidate);
-  if (!english) return `The English ${file.label.toLowerCase()} has no content.`;
+  if (!english) return `The English ${labelOf(file, candidate.collection)} have no content.`;
   for (const lang of locales) {
     const translated =
       lang === 'en' ? undefined : await contentAfterPublish(ctx, file, lang, candidate);
@@ -158,7 +170,7 @@ async function pageProblem(
         .split('\n')
         .slice(1, 4)
         .join(' ');
-      return `The ${LANGUAGE_NAMES[lang] ?? lang} ${file.label.toLowerCase()} would no longer build: ${detail}`;
+      return `The ${LANGUAGE_NAMES[lang] ?? lang} ${labelOf(file, candidate.collection)} would no longer build: ${detail}`;
     }
   }
   return undefined;
