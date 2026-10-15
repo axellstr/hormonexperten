@@ -28,6 +28,8 @@ export interface Split {
   labelSingular: string;
   /** Field shown as the entry's title in the admin. */
   titleField: string;
+  /** The page an item is shown on (see `ContentFile.urlPattern`); `{slug}` is the item's id. */
+  urlPattern: string;
   /** For a list inside a list (FAQ questions in categories): the field naming the outer item. */
   parentField?: string;
   plan?: PlanOptions;
@@ -40,6 +42,11 @@ export interface ContentFile {
   collection: string;
   label: string;
   titleField: string;
+  /**
+   * The page these texts are shown on, without the language: the admin's "View" links. EmDash
+   * adds /de/, /el/ or /ru/ itself but never /en/; vercel.json forwards those English addresses.
+   */
+  urlPattern: string;
   plan?: PlanOptions;
   splits: Split[];
 }
@@ -54,6 +61,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'site',
     label: 'Menu, service cards and footer',
     titleField: 'footer__copyright',
+    urlPattern: '/',
     splits: [],
   },
   {
@@ -62,6 +70,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'home',
     label: 'Home page',
     titleField: 'meta__title',
+    urlPattern: '/',
     splits: [],
   },
   {
@@ -70,6 +79,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'faq_page',
     label: 'FAQ page',
     titleField: 'meta__title',
+    urlPattern: '/faq/',
     splits: [
       {
         path: ['categories', '*', 'items'],
@@ -77,6 +87,7 @@ export const CONTENT_FILES: ContentFile[] = [
         label: 'FAQ questions',
         labelSingular: 'FAQ question',
         titleField: 'question',
+        urlPattern: '/faq/',
         parentField: 'category',
       },
     ],
@@ -87,6 +98,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'team_page',
     label: 'Team page',
     titleField: 'meta__title',
+    urlPattern: '/team/',
     splits: [
       {
         path: ['members'],
@@ -94,6 +106,7 @@ export const CONTENT_FILES: ContentFile[] = [
         label: 'Team members',
         labelSingular: 'Team member',
         titleField: 'name',
+        urlPattern: '/team/{slug}/',
         plan: { rich: [{ path: ['profile', 'story', 'body'], rich: 'paragraphs' }] },
       },
     ],
@@ -104,6 +117,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'services_page',
     label: 'Services overview',
     titleField: 'meta__title',
+    urlPattern: '/services/',
     splits: [
       {
         path: ['pages'],
@@ -111,6 +125,7 @@ export const CONTENT_FILES: ContentFile[] = [
         label: 'Service pages',
         labelSingular: 'Service page',
         titleField: 'meta__title',
+        urlPattern: '/services/{slug}/',
       },
     ],
   },
@@ -120,6 +135,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'conditions_page',
     label: 'Conditions overview',
     titleField: 'meta__title',
+    urlPattern: '/conditions/',
     splits: [
       {
         path: ['pages'],
@@ -127,6 +143,7 @@ export const CONTENT_FILES: ContentFile[] = [
         label: 'Condition pages',
         labelSingular: 'Condition page',
         titleField: 'name',
+        urlPattern: '/conditions/{slug}/',
       },
     ],
   },
@@ -136,6 +153,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'approach',
     label: 'Our approach page',
     titleField: 'meta__title',
+    urlPattern: '/our-approach/',
     splits: [],
   },
   {
@@ -144,6 +162,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'contact',
     label: 'Contact page',
     titleField: 'meta__title',
+    urlPattern: '/contact/',
     splits: [],
   },
   {
@@ -152,6 +171,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'pricing',
     label: 'Pricing page',
     titleField: 'meta__title',
+    urlPattern: '/pricing/',
     splits: [],
   },
   {
@@ -160,6 +180,7 @@ export const CONTENT_FILES: ContentFile[] = [
     collection: 'legal_texts',
     label: 'Legal pages: shared labels',
     titleField: 'contents_label',
+    urlPattern: '/impressum/',
     splits: [
       {
         path: ['pages'],
@@ -167,6 +188,7 @@ export const CONTENT_FILES: ContentFile[] = [
         label: 'Legal pages',
         labelSingular: 'Legal page',
         titleField: 'title',
+        urlPattern: '/{slug}/',
         plan: { rich: [{ path: ['sections', '*', 'body'], rich: 'legal' }] },
       },
     ],

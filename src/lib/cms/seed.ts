@@ -107,7 +107,13 @@ function collectionOf(
   titleField: string,
   plans: Plan[],
   context: Omit<Context, 'collection'>,
-  extra: { fields?: Json[]; group?: string; sortOrder: number; listColumns?: string[] },
+  extra: {
+    fields?: Json[];
+    group?: string;
+    sortOrder: number;
+    listColumns?: string[];
+    urlPattern: string;
+  },
 ): Json {
   const withCollection = { ...context, collection: slug };
   return {
@@ -116,6 +122,7 @@ function collectionOf(
     labelSingular,
     supports: ['drafts', 'revisions'],
     titleField,
+    urlPattern: extra.urlPattern,
     sortOrder: extra.sortOrder,
     ...(extra.group ? { group: extra.group } : {}),
     admin: {
@@ -189,6 +196,7 @@ export function buildSeed(files: Record<string, Record<string, Json>>, locales: 
         {
           group: 'Page texts',
           sortOrder: 100 + index,
+          urlPattern: file.urlPattern,
         },
       ),
     );
@@ -204,6 +212,7 @@ export function buildSeed(files: Record<string, Record<string, Json>>, locales: 
           {
             fields: splitFields(split),
             sortOrder: 10 + index * 10 + splitIndex,
+            urlPattern: split.urlPattern,
             listColumns: [POSITION_FIELD, ...(split.parentField ? [split.parentField] : [])],
           },
         ),
