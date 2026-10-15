@@ -16,7 +16,8 @@ Marketing website for Hormonexperten, a private telemedicine practice (Dr. Isabe
 
 - Content can come from EmDash (`/_emdash/admin`): `CONTENT_SOURCE=emdash` makes pages read published entries instead of `src/content/`; JSON stays the default until go-live. Pages stay prerendered; only the admin runs on Vercel functions (Frankfurt). Publishing triggers a Vercel rebuild (deploy hook). Setup and status: `docs/emdash-setup.md`.
 - The EmDash content model is generated from the Zod schemas (`src/lib/cms/`); `.emdash/seed.json` is regenerated on every build. A schema change must still pass `npm run cms:check` (EmDash nests at most list → list). A field added after go-live also has to be added to the live database's schema (admin → Content Types).
-- Read content only through `src/lib/content.ts` (async). The site plugin (`src/lib/cms/plugin.ts`) refuses to publish entries that break `src/lib/content-rules.ts` or the schemas.
+- Read content only through `src/lib/content.ts` (async). The site plugin (`src/lib/cms/plugin.ts`) refuses to publish entries that break `src/lib/content-rules.ts` or the schemas, or that switch `needs_check` off unless the publisher's email is in `CONTENT_CONFIRMERS`.
+- On a deployed site, EmDash's setup wizard and Google sign-in stay locked until setup is complete, except with `EMDASH_SETUP_KEY` (`src/middleware.ts`): before the first admin exists, whoever finishes setup becomes admin.
 
 ## Design tokens
 

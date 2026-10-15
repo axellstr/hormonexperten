@@ -1,9 +1,9 @@
 import { waitUntil } from '@vercel/functions';
 import { CONTENT_CHECK } from 'astro:env/server';
 import { ContentSaveRejectedError, definePlugin } from 'emdash';
-import type { PluginContentItem as ContentItem, PluginContext } from 'emdash';
+import type { ActorInfo, PluginContentItem as ContentItem, PluginContext } from 'emdash';
 import { LOCALES, type Locale } from '../../config';
-import { parseContent, type Json } from '../content-parse.ts';
+import { hasId, isObject, parseContent, type Json } from '../content-parse.ts';
 import { STRAIGHT_QUOTE, TEXT_RULES } from '../content-rules.ts';
 import { decode, type Entry } from './codec.ts';
 import { CONTENT_FILES, type ContentFile } from './model.ts';
@@ -14,6 +14,8 @@ import { CONTENT_FILES, type ContentFile } from './model.ts';
  * - Before an entry is published, it checks the entry for copy that must never go live
  *   (content-rules.ts) and that the page it belongs to still builds in every language, the same
  *   checks the build runs. A failing entry stays unpublished and the editor sees why.
+ * - It keeps unconfirmed content off the site: only the people in CONTENT_CONFIRMERS may publish
+ *   a change that switches "Needs check" off.
  * - After anything is published, unpublished or deleted, it asks Vercel to rebuild the site
  *   (VERCEL_DEPLOY_HOOK_URL): the public pages are prebuilt from the published content.
  * - It keeps each page's texts to one entry per language.
@@ -107,19 +109,24 @@ async function publishedEntries(
   return items;
 }
 
+interface Candidate {
+  collection: string;
+  item: ContentItem;
+}
+
 /**
- * A content file in one language as it will be once `candidate` is published: the published
- * entries, with the candidate in place of its published version.
+ * A content file in one language as published, or, given a `candidate`, as it will be once that
+ * is published: the published entries, with the candidate in place of its published version.
  */
-async function contentAfterPublish(
+async function publishedContent(
   ctx: PluginContext,
   file: ContentFile,
   locale: string,
-  candidate: { collection: string; item: ContentItem },
+  candidate?: Candidate,
 ): Promise<Json | undefined> {
   const read = async (collection: string, lang = locale): Promise<Entry[]> => {
     const items = await publishedEntries(ctx, collection, lang);
-    if (candidate.collection === collection && candidate.item.locale === lang) {
+    if (candidate?.collection === collection && candidate.item.locale === lang) {
       const index = items.findIndex((item) => item.id === candidate.item.id);
       if (index === -1) items.push(candidate.item);
       else items[index] = candidate.item;
@@ -148,32 +155,96 @@ function labelOf(file: ContentFile, collection: string): string {
   return (split?.label ?? file.label).toLowerCase().replace(/^faq/, 'FAQ');
 }
 
-/** Why the page would no longer build, in a few lines, or undefined when it builds. */
-async function pageProblem(
+/**
+ * The first place `after` shows something `before` holds back with "Needs check", as a path of
+ * field names and item ids. Items with ids are matched by id, others by their place in the list.
+ */
+function unhidden(before: unknown, after: unknown, path: string[] = []): string[] | undefined {
+  if (Array.isArray(before) && Array.isArray(after)) {
+    for (const [index, item] of before.entries()) {
+      const match = hasId(item)
+        ? after.find((other) => hasId(other) && other.id === item.id)
+        : after[index];
+      const found = unhidden(item, match, [...path, hasId(item) ? item.id : String(index + 1)]);
+      if (found) return found;
+    }
+  } else if (isObject(before) && isObject(after)) {
+    if (before.needs_check === true && after.needs_check !== true) return path;
+    for (const [key, value] of Object.entries(before)) {
+      const found = unhidden(value, after[key], [...path, key]);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+type PageCheck = { problem: string } | { unhidden: string } | undefined;
+
+/**
+ * What publishing `candidate` would do to its page, in every language it reaches: break the build
+ * (`problem`, in a few lines), or show something held back with "Needs check" (`unhidden`, where).
+ */
+async function checkPage(
   ctx: PluginContext,
   file: ContentFile,
-  candidate: { collection: string; item: ContentItem },
-): Promise<string | undefined> {
+  candidate: Candidate,
+): Promise<PageCheck> {
+  const label = labelOf(file, candidate.collection);
   const locale = candidate.item.locale ?? 'en';
   // An English change can break a translation (an item it translates is gone), so English checks
   // every language; a translation checks itself.
   const locales = locale === 'en' ? LOCALES : [locale as Locale];
-  const english = await contentAfterPublish(ctx, file, 'en', candidate);
-  if (!english) return `The English ${labelOf(file, candidate.collection)} have no content.`;
+  const english = await publishedContent(ctx, file, 'en', candidate);
+  if (!english) return { problem: `The English ${label} have no content.` };
+  const englishBefore = await publishedContent(ctx, file, 'en');
   for (const lang of locales) {
+    const language = LANGUAGE_NAMES[lang] ?? lang;
     const translated =
-      lang === 'en' ? undefined : await contentAfterPublish(ctx, file, lang, candidate);
+      lang === 'en' ? undefined : await publishedContent(ctx, file, lang, candidate);
+    let after: unknown;
     try {
-      parseContent(file.name, file.schema, lang, english, translated);
+      after = parseContent(file.name, file.schema, lang, english, translated);
     } catch (error) {
       const detail = (error instanceof Error ? error.message : String(error))
         .split('\n')
         .slice(1, 4)
         .join(' ');
-      return `The ${LANGUAGE_NAMES[lang] ?? lang} ${labelOf(file, candidate.collection)} would no longer build: ${detail}`;
+      return { problem: `The ${language} ${label} would no longer build: ${detail}` };
+    }
+    // Nothing published yet (a new site): nothing can be revealed.
+    if (!englishBefore) continue;
+    let before: unknown;
+    try {
+      const translatedBefore = lang === 'en' ? undefined : await publishedContent(ctx, file, lang);
+      before = parseContent(file.name, file.schema, lang, englishBefore, translatedBefore);
+    } catch {
+      // The published page doesn't build either; there is nothing on the site to compare with.
+      continue;
+    }
+    const path = unhidden(before, after);
+    if (path) {
+      const where = path.map((segment) => segment.replaceAll('_', ' ')).join(' › ');
+      return { unhidden: `the ${language} ${label}${where ? `, at ${where}` : ''}` };
     }
   }
   return undefined;
+}
+
+/** Email addresses of the people who may confirm content (CONTENT_CONFIRMERS, comma-separated). */
+function confirmers(): Set<string> {
+  return new Set(
+    (process.env.CONTENT_CONFIRMERS ?? '')
+      .split(',')
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean),
+  );
+}
+
+/** Whether the person publishing may switch "Needs check" off. Scheduled publishing may not. */
+async function mayConfirm(ctx: PluginContext, actor: ActorInfo | undefined): Promise<boolean> {
+  if (!actor || !ctx.users) return false;
+  const user = await ctx.users.get(actor.id);
+  return Boolean(user && confirmers().has(user.email.toLowerCase()));
 }
 
 /** Asks Vercel to rebuild the site from the published content. */
@@ -199,7 +270,13 @@ export function createPlugin() {
   return definePlugin({
     id: PLUGIN_ID,
     version: VERSION,
-    capabilities: ['content:read', 'content:write', 'hooks.content-policy:register'],
+    capabilities: [
+      'content:read',
+      'content:write',
+      'hooks.content-policy:register',
+      // The publisher's email, for CONTENT_CONFIRMERS.
+      'users:read',
+    ],
     hooks: {
       'content:beforeSave': async (event, ctx) => {
         // A page's texts are one entry per language; another one would never show.
@@ -223,8 +300,18 @@ export function createPlugin() {
           if (!file) return;
           const broken = brokenRule(item.data ?? {});
           if (broken) return { cancel: true, reason: truncate(`Not published. ${broken}`) };
-          const problem = await pageProblem(ctx, file, { collection: event.collection, item });
-          if (problem) return { cancel: true, reason: truncate(`Not published. ${problem}`) };
+          const check = await checkPage(ctx, file, { collection: event.collection, item });
+          if (check && 'problem' in check) {
+            return { cancel: true, reason: truncate(`Not published. ${check.problem}`) };
+          }
+          if (check && !(await mayConfirm(ctx, event.actor))) {
+            return {
+              cancel: true,
+              reason: truncate(
+                `Not published. “Needs check” is switched off in ${check.unhidden}. That puts content on the site the practice hasn’t confirmed yet. Switch it back on, or ask the person who confirms content to publish it.`,
+              ),
+            };
+          }
         },
       },
       'content:afterPublish': async (event, ctx) => {

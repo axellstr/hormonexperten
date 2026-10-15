@@ -1,6 +1,6 @@
 # EmDash: what's built and what you do next
 
-Status 15 Oct 2026, branch `emdash-cms`. Read with `docs/emdash-plan.md` (the why).
+Status 15 Oct 2026, branch `emdash-cms` (going to production). Read with `docs/emdash-plan.md` (the why).
 
 ## What's built and tested
 
@@ -18,6 +18,12 @@ Status 15 Oct 2026, branch `emdash-cms`. Read with `docs/emdash-plan.md` (the wh
 - **Translations:** a field Yvonne leaves unchanged after pressing "Translate" counts as not
   translated, so it falls back to English and is marked as English for screen readers. A
   translation can hide an unconfirmed item but never show one English hides.
+- **Unconfirmed content stays off:** switching **Needs check** off (an unconfirmed testimonial,
+  claim or team member) is refused unless the person publishing is listed in
+  `CONTENT_CONFIRMERS`. Hiding something is always allowed.
+- **Setup is locked** on the deployed site: until the first admin account exists, EmDash would
+  make whoever finishes the setup wizard first the admin. The wizard (and Google sign-in during
+  setup) only opens with the setup key (`EMDASH_SETUP_KEY`).
 - **Logins** are stored in the Supabase database (no extra Redis account needed).
 
 ### Changes from the plan
@@ -31,9 +37,9 @@ Status 15 Oct 2026, branch `emdash-cms`. Read with `docs/emdash-plan.md` (the wh
 ### Sign in with Google (instead of a passkey)
 
 The admin offers **Sign in with Google** once a Google OAuth client is set up. Passkeys stay
-available, but you don't have to use them. EmDash only signs in Google accounts whose address it
-already knows (the first admin, created in the setup wizard, and people you invite), so a random
-Google account can't get in.
+available, but you don't have to use them. Once setup is done, EmDash only signs in Google accounts
+whose address it already knows (you, and people you invite), so a random Google account can't get
+in. Before setup, any Google account would become the admin, which is why setup needs the setup key.
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com), create a project
    `Hormonexperten admin`.
@@ -43,8 +49,9 @@ Google account can't get in.
    address and Yvonne's. (In Testing, only these accounts can sign in at all: a second lock.)
 4. **Clients → Create client → Web application.** Under **Authorized redirect URIs** add:
    - `http://localhost:4321/_emdash/api/auth/oauth/google/callback` (your computer)
-   - `https://<preview address>/_emdash/api/auth/oauth/google/callback` (the preview, step 3 below)
-   - `https://hormonexperten.de/_emdash/api/auth/oauth/google/callback` (later, the live site)
+   - `https://hormonexperten.vercel.app/_emdash/api/auth/oauth/google/callback` (production now)
+   - `https://hormonexperten.de/_emdash/api/auth/oauth/google/callback` (later, once the domain
+     moves to this project)
 5. Copy the **Client ID** and **Client secret** and set them as:
 
    | Name | Value |
@@ -63,19 +70,14 @@ Google account can't get in.
 To let Yvonne in: Users → **Invite user** with her Gmail address, copy the invite link, send it to
 her; she opens it and chooses **Google**.
 
-## What you do: test on a preview first
+## What you do: set up production
 
-You need about 20 minutes. Nothing here touches the live site.
+Production is `main`, served at **https://hormonexperten.vercel.app**. hormonexperten.de is still
+the old site on another project, so nothing here touches it. You need about 30 minutes.
 
-### 1. Push the branch
+### 1. Create the Supabase project
 
-```bash
-git push -u origin emdash-cms
-```
-
-### 2. Create a test Supabase project
-
-1. **New project** → name `hormonexperten-test`, region **Central EU (Frankfurt)**. Save the
+1. **New project** → name `hormonexperten-live`, region **Central EU (Frankfurt)**. Save the
    database password in your password manager.
 2. **Project Settings → Data API** → switch the Data API **off**. (EmDash keeps logins and drafts
    in the database; nothing should reach them through Supabase's public API.)
@@ -83,61 +85,78 @@ git push -u origin emdash-cms
    (`aws-…pooler.supabase.com`), **port** (`6543`), **database** (`postgres`) and **user**
    (`postgres.<something>`).
 
+### 2. Google sign-in
+
+In the Google Cloud client (see "Sign in with Google" above), add the redirect URI
+`https://hormonexperten.vercel.app/_emdash/api/auth/oauth/google/callback`.
+
 ### 3. Add environment variables in Vercel
 
-Project → **Settings → Environment Variables**. Add each for **Preview**, branch `emdash-cms`:
+Project → **Settings → Environment Variables**, each for **Production**:
 
 | Name | Value |
 |---|---|
-| `PGHOST` | the pooler host from step 2 |
+| `PGHOST` | the pooler host from step 1 |
 | `PGPORT` | `6543` |
 | `PGDATABASE` | `postgres` |
-| `PGUSER` | the pooler user from step 2 |
+| `PGUSER` | the pooler user from step 1 |
 | `PGPASSWORD` | the database password |
 | `PGSSLMODE` | `no-verify` |
-| `EMDASH_SITE_URL` | the branch's preview address, e.g. `https://hormonexperten-git-emdash-cms-<team>.vercel.app` (Deployments → the branch → Domains) |
+| `EMDASH_SITE_URL` | `https://hormonexperten.vercel.app` |
 | `EMDASH_ENCRYPTION_KEY` | run `npx emdash secrets generate` and paste the key. **Keep a copy in your password manager.** |
-| `CRON_SECRET` | any long random text (e.g. from your password manager's generator) |
-| `CONTENT_SOURCE` | `json` for now (step 5 switches it) |
+| `EMDASH_SETUP_KEY` | any long random text (e.g. `openssl rand -hex 24`). Opens the setup wizard; can be deleted once setup is done. |
+| `EMDASH_OAUTH_GOOGLE_CLIENT_ID` | the Google client ID (same as in `.env`) |
+| `EMDASH_OAUTH_GOOGLE_CLIENT_SECRET` | the Google client secret (same as in `.env`) |
+| `CONTENT_CONFIRMERS` | your admin email address. Only these people (comma-separated) may switch **Needs check** off. |
+| `CRON_SECRET` | any long random text |
+| `CONTENT_SOURCE` | `json` for now (step 6 switches it) |
 
-Keep `CONTENT_CHECK=warn` for Preview if it's already set: the booking link is still a TODO.
+Keep `CONTENT_CHECK=warn` if it's already set for Production: the booking link is still a TODO.
+Check **Settings → Functions → Function Region** is **Frankfurt (fra1)** (`vercel.json` asks for
+it).
 
-Also check **Settings → Functions → Function Region** is **Frankfurt (fra1)** (`vercel.json`
-asks for it).
+### 4. Deploy
 
-### 4. Deploy and run the setup wizard
+`main` gets the `emdash-cms` branch merged and pushed; Vercel builds production. The public
+pages stay exactly as they are (they still read the JSON files).
 
-1. Redeploy the branch (Deployments → … → Redeploy) so it picks up the variables.
-2. Open `<preview address>/_emdash/admin`. The setup wizard opens:
-   - Site title `Hormonexperten`, choose **Sample content**. (That's the real site content, not
-     demo posts.)
-   - Your email and name.
-   - **Google** (if you set it up, see "Sign in with Google" above), or **Create passkey**
-     (unlocked with your device PIN, password manager or fingerprint).
-3. You land on the dashboard. Look around: FAQ questions, Team members, Page texts…
+### 5. Run the setup wizard
 
-### 5. Switch the site to read from the CMS
+1. Open `https://hormonexperten.vercel.app/_emdash/admin/setup?setup_key=<EMDASH_SETUP_KEY>`.
+   The key is kept in a cookie for an hour and removed from the address bar. (Without it, the
+   wizard's steps answer "Setup is locked".)
+2. Site title `Hormonexperten`, choose **Sample content**. (That's the real site content, not
+   demo posts.)
+3. Your email (the Gmail address from Google's test users) and name, then **Google**.
+4. You land on the dashboard. Look around: FAQ questions, Team members, Home page…
 
-1. Set `CONTENT_SOURCE` to `emdash` (Preview).
-2. Settings → **Git → Deploy Hooks** → create a hook named `CMS publish` for branch `emdash-cms`.
-   Copy its URL into a new variable `VERCEL_DEPLOY_HOOK_URL` (Preview).
-3. Redeploy. The preview now shows the content from Supabase. It should look exactly as before.
+### 6. Switch the site to read from the CMS
 
-### 6. Try it
+1. Settings → **Git → Deploy Hooks** → create a hook named `CMS publish` for branch `main`. Copy
+   its URL into a new variable `VERCEL_DEPLOY_HOOK_URL` (Production).
+2. Set `CONTENT_SOURCE` to `emdash` (Production).
+3. Redeploy (Deployments → latest production → … → Redeploy). The site now shows the content
+   from Supabase. It should look exactly as before.
 
-1. Admin → FAQ questions → open one in German → change a word → **Publish**.
-2. Within a minute a new deployment appears in Vercel; when it's ready, the preview shows the change.
+### 7. Try it
+
+1. Admin → Home page → the German entry → change a word in **Hero › Title** → **Publish**.
+2. Within a minute a new deployment appears in Vercel; when it's ready, `/de/` shows the change.
 3. Try publishing "endocrinologist" in an answer: it's refused with the reason.
-4. Users → **Invite user** for Yvonne (role: Administrator). No email is set up, so copy the
-   invite link and send it to her; she signs in with Google (or a passkey).
+4. Switch **Needs check** off on a hidden FAQ question: refused, unless your email is in
+   `CONTENT_CONFIRMERS` (then switch it back on and publish again).
+5. Users → **Invite user** for Yvonne (role: Administrator). No email is set up, so copy the
+   invite link and send it to her; she signs in with Google (or a passkey). Don't add her to
+   `CONTENT_CONFIRMERS` unless she is the one confirming content.
 
 Tell me what you see. If anything looks off, send a screenshot.
 
-## Later: going live
+## Later: moving hormonexperten.de here
 
-Same steps against a second Supabase project `hormonexperten-live` with the variables set for
-**Production**, `EMDASH_SITE_URL=https://hormonexperten.de`, a deploy hook for `main`, then merge
-the branch. Before that we add the nightly backup (GitHub Action) and decide on Supabase Storage.
+When the domain moves to this project: set `EMDASH_SITE_URL=https://hormonexperten.de`, add the
+domain's Google redirect URI (above), redeploy. Passkeys made on the vercel.app address don't
+work on the new domain (Google sign-in does). Before that we add the nightly backup (GitHub
+Action).
 
 ## Notes
 
@@ -145,7 +164,9 @@ the branch. Before that we add the nightly backup (GitHub Action) and decide on 
   (`npm run cms:seed`). The setup wizard applies it once, to an empty database. After go-live the
   database is the source and the JSON files are retired.
 - **Local:** `npm run dev` also starts the admin at `http://localhost:4321/_emdash/admin` with a
-  local SQLite file in `.emdash/`. Pages read the JSON files unless `CONTENT_SOURCE=emdash`.
+  local SQLite file in `.emdash/`. Pages read the JSON files unless `CONTENT_SOURCE=emdash` (your
+  `.env` sets it, so local pages show the admin's content, not edits to `src/content/`). Locally
+  the setup wizard needs no key, and publishing doesn't rebuild: reload the page instead.
 - **Checks:** `npm run cms:check` converts every content file to CMS entries and back.
 - **npm audit** reports 3 "high" issues in `path-to-regexp`, pulled in by the Vercel adapter's
   build tools and EmDash's (disabled) MCP server; neither handles visitor input. We update when
