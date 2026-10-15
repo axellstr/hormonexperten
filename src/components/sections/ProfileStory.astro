@@ -1,7 +1,7 @@
 ---
 import Quote from '../../assets/icons/quote.svg';
 import { BOOKING_URL } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import type { Profile } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Panel from '../ui/Panel.astro';
@@ -28,7 +28,7 @@ const { story, image, imageAlt, cta } = Astro.props;
           <div class="relative size-24 shrink-0">
             <div class="rounded-full p-1.5 ring-1 ring-coral/50">
               <Photo
-                quality={PORTRAIT_QUALITY}
+                quality={IMAGE_QUALITY}
                 src={getImage(image)}
                 alt={imageAlt ?? ''}
                 widths={[96, 192]}

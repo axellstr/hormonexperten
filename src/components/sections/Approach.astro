@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Home } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
@@ -28,7 +28,7 @@ const { lang, approach } = Astro.props;
   <Panel frame class="grid gap-6 md:grid-cols-2 md:gap-12 xl:gap-16">
     <div class="unveil aspect-4/3 w-full overflow-hidden rounded-panel md:aspect-7/6 md:self-stretch">
       <Photo
-        quality={PORTRAIT_QUALITY}
+        quality={IMAGE_QUALITY}
         src={getImage(approach.image)}
         alt={approach.image_alt}
         widths={[480, 720, 960, 1300]}

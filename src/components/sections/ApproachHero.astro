@@ -1,6 +1,6 @@
 ---
 import { BOOKING_URL } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import { visible } from '../../lib/content';
 import type { ApproachPage } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
@@ -49,7 +49,7 @@ const photo = 'aspect-3/4 w-full rounded-panel object-cover object-top';
             <div class:list={[index === 1 && 'pt-10 sm:pt-16 xl:pt-24']}>
               {item.image ? (
                 <Photo
-                  quality={PORTRAIT_QUALITY}
+                  quality={IMAGE_QUALITY}
                   src={getImage(item.image)}
                   alt={item.image_alt}
                   widths={[240, 360, 480, 640]}

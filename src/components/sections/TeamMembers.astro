@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import { isVisible, memberLang, visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Team } from '../../lib/schemas';
@@ -48,7 +48,7 @@ const members = await Promise.all(
           >
             {member.image ? (
               <Photo
-                quality={PORTRAIT_QUALITY}
+                quality={IMAGE_QUALITY}
                 src={getImage(member.image)}
                 alt={member.image_alt ?? ''}
                 widths={[480, 720, 960, 1300]}

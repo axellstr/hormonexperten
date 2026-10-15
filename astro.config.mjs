@@ -1,6 +1,7 @@
 // @ts-check
 import { fileURLToPath } from 'node:url';
 import { defineConfig, envField, sessionDrivers } from 'astro/config';
+import { IMAGE_QUALITY } from './src/lib/image-quality.ts';
 
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
@@ -83,6 +84,18 @@ export default defineConfig({
         values: ['warn'],
         optional: true,
       }),
+    },
+  },
+  // Encoder defaults for any image that doesn't pass `quality`. The prop still wins, and it is
+  // the same number (src/lib/image-quality.ts). Effort stays at Sharp's default: at 90, a
+  // slower encode doesn't shrink the file.
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        avif: { quality: IMAGE_QUALITY },
+        webp: { quality: IMAGE_QUALITY },
+      },
     },
   },
   vite: {

@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import { Picture, type LocalImageProps } from 'astro:assets';
+import { IMAGE_QUALITY } from '../../lib/image-quality';
 
 // A content photo as AVIF with a WebP <img> fallback. Without `fallbackFormat`, Picture falls
 // back to the original's JPEG or PNG at its full size (up to 6240px, 2 MB a file), which no
@@ -17,6 +18,7 @@ const original: number = 'then' in src ? Infinity : (src.clone ?? src).width;
 
 <Picture
   {...Astro.props}
+  quality={Astro.props.quality ?? IMAGE_QUALITY}
   width={width ?? (widths && Math.min(Math.max(...widths), original))}
   formats={['avif']}
   fallbackFormat="webp"

@@ -1,10 +1,21 @@
 ---
-import ArrowEnd from '../../assets/icons/arrow-end.svg';
+import Connected from '../../assets/icons/connected.svg';
+import Flame from '../../assets/icons/flame.svg';
+import Thyroid from '../../assets/icons/thyroid.svg';
+import Venus from '../../assets/icons/venus.svg';
 import { BOOKING_URL } from '../../config';
 import type { Conditions } from '../../lib/schemas';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+
+// The same stroke icons as the landing, one per group. A down arrow read as a dropdown.
+const icons: Record<string, typeof Venus> = {
+  'hormones-cycle': Venus,
+  metabolism: Flame,
+  thyroid: Thyroid,
+  'chronic-autoimmune': Connected,
+};
 
 interface Props {
   conditions: Conditions;
@@ -45,23 +56,27 @@ const { conditions, groups, contentLang } = Astro.props;
         <!-- Jump links to the groups below, so the overview reads as an index. -->
         <nav aria-label={conditions.groups_label} class="lg:col-span-4">
           <ul class="grid gap-2">
-            {groups.map((group) => (
-              <li>
-                <a
-                  href={`#${group.id}`}
-                  class="group flex items-center gap-4 rounded-card bg-bg px-5 py-4 text-base font-medium text-ink ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow"
-                >
-                  <span lang={contentLang} class="grow">
-                    {group.title}
-                  </span>
-                  <span class="text-sm text-ink/70 tabular-nums">{group.count}</span>
-                  <ArrowEnd
-                    class="size-5 shrink-0 rotate-90 group-hover:translate-y-0.5 motion-safe:transition-transform"
-                    aria-hidden="true"
-                  />
-                </a>
-              </li>
-            ))}
+            {groups.map((group) => {
+              const Icon = icons[group.id];
+              return (
+                <li>
+                  <a
+                    href={`#${group.id}`}
+                    class="flex items-center gap-3 rounded-card bg-bg px-3 py-3 text-base font-medium text-ink ring-1 ring-ink/5 hover:ring-ink/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink motion-safe:transition-shadow"
+                  >
+                    {Icon && (
+                      <span class="grid size-12 shrink-0 place-items-center rounded-full bg-coral-tint text-ink">
+                        <Icon class="size-7" aria-hidden="true" />
+                      </span>
+                    )}
+                    <span lang={contentLang} class="grow">
+                      {group.title}
+                    </span>
+                    <span class="pe-1 text-sm text-ink/70 tabular-nums">{group.count}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

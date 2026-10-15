@@ -1,7 +1,7 @@
 ---
 import LinkedIn from '../../assets/icons/linkedin.svg';
 import { BOOKING_URL, type Locale } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import { localizeHref } from '../../lib/i18n';
 import type { Profile, Team, TeamMember } from '../../lib/schemas';
 import Breadcrumb from '../ui/Breadcrumb.astro';
@@ -45,7 +45,7 @@ const portrait =
         <div class="relative lg:order-last lg:col-span-5">
           {member.image ? (
             <Photo
-              quality={PORTRAIT_QUALITY}
+              quality={IMAGE_QUALITY}
               src={getImage(member.image)}
               alt={member.image_alt ?? ''}
               widths={[480, 720, 960, 1200]}

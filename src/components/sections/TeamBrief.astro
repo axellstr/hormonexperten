@@ -1,7 +1,7 @@
 ---
 import ArrowEnd from '../../assets/icons/arrow-end.svg';
 import type { Locale } from '../../config';
-import { PORTRAIT_QUALITY, getImage } from '../../lib/assets';
+import { IMAGE_QUALITY, getImage } from '../../lib/assets';
 import { isVisible, memberLang, visible } from '../../lib/content';
 import { localizeHref } from '../../lib/i18n';
 import type { Team } from '../../lib/schemas';
@@ -67,7 +67,7 @@ const photo = 'aspect-4/5 w-full object-cover object-top';
               <div class="overflow-hidden rounded-xl bg-surface sm:w-40 sm:shrink-0">
                 {member.image ? (
                   <Photo
-                    quality={PORTRAIT_QUALITY}
+                    quality={IMAGE_QUALITY}
                     src={getImage(member.image)}
                     alt={member.image_alt ?? ''}
                     widths={[160, 240, 320, 480]}

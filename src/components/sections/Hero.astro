@@ -8,7 +8,7 @@ import {
   HERO_IMAGE_SIZES,
   HERO_IMAGE_WIDTH,
   HERO_IMAGE_WIDTHS,
-  PORTRAIT_QUALITY,
+  IMAGE_QUALITY,
 } from '../../lib/assets';
 import { isVisible } from '../../lib/content';
 import { format } from '../../lib/i18n';
@@ -89,6 +89,7 @@ const affiliations = [
                     alt={item.alt}
                     width={image.width}
                     height={image.height}
+                    quality={IMAGE_QUALITY}
                     class="h-full w-auto object-contain opacity-70"
                   />
                 </li>
@@ -118,7 +119,7 @@ const affiliations = [
                   alt={slide.image_alt}
                   formats={['avif']}
                   fallbackFormat="webp"
-                  quality={PORTRAIT_QUALITY}
+                  quality={IMAGE_QUALITY}
                   widths={HERO_IMAGE_WIDTHS}
                   width={HERO_IMAGE_WIDTH}
                   height={HERO_IMAGE_HEIGHT}
