@@ -104,7 +104,8 @@ function decodeFields(plans: Plan[], data: Json, options: DecodeOptions): Json {
     if (raw === null || raw === undefined) continue;
     let value: unknown;
     if (plan.kind === 'scalar') {
-      value = raw;
+      // Yes/no fields come back as 0 or 1 from some readers (the plugin's content API).
+      value = plan.scalar.type === 'boolean' && (raw === 0 || raw === 1) ? raw === 1 : raw;
     } else {
       if (!Array.isArray(raw)) continue;
       if (raw.length === 0) {

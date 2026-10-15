@@ -469,9 +469,12 @@
         "drafts",
         "revisions"
       ],
-      "titleField": "skip_link",
+      "titleField": "footer__copyright",
       "sortOrder": 100,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "skip_link",
@@ -699,6 +702,9 @@
       "titleField": "meta__title",
       "sortOrder": 101,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -1280,6 +1286,9 @@
       "titleField": "meta__title",
       "sortOrder": 102,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -1440,6 +1449,9 @@
       "titleField": "meta__title",
       "sortOrder": 103,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -1760,6 +1772,9 @@
       "titleField": "meta__title",
       "sortOrder": 104,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -1970,6 +1985,9 @@
       "titleField": "meta__title",
       "sortOrder": 105,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -2261,6 +2279,9 @@
       "titleField": "meta__title",
       "sortOrder": 106,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -2443,6 +2464,9 @@
       "titleField": "meta__title",
       "sortOrder": 107,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -2683,6 +2707,9 @@
       "titleField": "meta__title",
       "sortOrder": 108,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "meta__title",
@@ -2807,9 +2834,12 @@
         "drafts",
         "revisions"
       ],
-      "titleField": "updated_label",
+      "titleField": "contents_label",
       "sortOrder": 109,
       "group": "Page texts",
+      "admin": {
+        "quickCreate": false
+      },
       "fields": [
         {
           "slug": "updated_label",

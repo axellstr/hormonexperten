@@ -1,4 +1,5 @@
 import { waitUntil } from '@vercel/functions';
+import { CONTENT_CHECK } from 'astro:env/server';
 import { ContentSaveRejectedError, definePlugin } from 'emdash';
 import type { PluginContentItem as ContentItem, PluginContext } from 'emdash';
 import { LOCALES, type Locale } from '../../config';
@@ -34,8 +35,18 @@ const UNRENDERED = new Set(['check_note', 'check_notes']);
 /** Fields allowed a TODO: the legal draft notice carries one on purpose, so unapproved text can't launch. */
 const TODO_ALLOWED = new Set(['draft_notice']);
 
+/**
+ * Before launch the site builds with CONTENT_CHECK=warn, which lets TODO markers through while
+ * content is still missing (scripts/check-content.mjs); publishing follows the same rule. The
+ * other rules always hold.
+ */
+const TODO_BLOCKS = CONTENT_CHECK !== 'warn';
+
 /** Keys of rich text internals rather than text. */
 const STRUCTURAL = new Set(['_type', '_key', '_version', 'style', 'listItem', 'marks', 'href']);
+
+/** Keys inside a field's value (repeater rows of plain text, rich text) that aren't field names. */
+const TRANSPARENT = new Set(['value', 'text', 'children', 'markDefs']);
 
 function fileOf(collection: string): ContentFile | undefined {
   return CONTENT_FILES.find(
@@ -55,7 +66,7 @@ function* texts(value: unknown, field = ''): Generator<{ field: string; text: st
     for (const [key, item] of Object.entries(value)) {
       if (STRUCTURAL.has(key)) continue;
       // Flattened fields (`focus__check_note`) and repeater rows name the field last.
-      const name = key === 'value' || key === 'text' ? field : (key.split('__').at(-1) ?? key);
+      const name = TRANSPARENT.has(key) ? field : (key.split('__').at(-1) ?? key);
       yield* texts(item, name);
     }
   }
@@ -66,7 +77,7 @@ function brokenRule(data: Json): string | undefined {
   for (const { field, text } of texts(data)) {
     if (UNRENDERED.has(field)) continue;
     for (const rule of [...TEXT_RULES, STRAIGHT_QUOTE]) {
-      if (rule.name.startsWith('TODO') && TODO_ALLOWED.has(field)) continue;
+      if (rule.name.startsWith('TODO') && (!TODO_BLOCKS || TODO_ALLOWED.has(field))) continue;
       const match = rule.pattern.exec(text);
       if (!match) continue;
       const start = Math.max(0, match.index - 30);

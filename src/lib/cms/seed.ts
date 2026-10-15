@@ -118,7 +118,11 @@ function collectionOf(
     titleField,
     sortOrder: extra.sortOrder,
     ...(extra.group ? { group: extra.group } : {}),
-    ...(extra.listColumns ? { admin: { listColumns: extra.listColumns } } : {}),
+    admin: {
+      ...(extra.listColumns ? { listColumns: extra.listColumns } : {}),
+      // A page's texts are one entry per language: nothing to create from the dashboard.
+      ...(extra.group ? { quickCreate: false } : {}),
+    },
     fields: [
       ...plans.map((plan) => fieldOf(plan, `${slug}.${plan.key}`, withCollection)),
       ...(extra.fields ?? []),

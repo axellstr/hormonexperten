@@ -53,7 +53,7 @@ export const CONTENT_FILES: ContentFile[] = [
     schema: siteSchema,
     collection: 'site',
     label: 'Menu, service cards and footer',
-    titleField: 'skip_link',
+    titleField: 'footer__copyright',
     splits: [],
   },
   {
@@ -159,7 +159,7 @@ export const CONTENT_FILES: ContentFile[] = [
     schema: legalSchema,
     collection: 'legal_texts',
     label: 'Legal pages: shared labels',
-    titleField: 'updated_label',
+    titleField: 'contents_label',
     splits: [
       {
         path: ['pages'],
