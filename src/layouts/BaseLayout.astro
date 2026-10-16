@@ -5,7 +5,8 @@ import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 import Footer from '../components/sections/Footer.astro';
 import Header from '../components/sections/Header.astro';
-import { DEFAULT_LOCALE, FONT_SUBSET, LOCALES, SITE_URL, type Locale } from '../config';
+import SeoHead from '../components/SeoHead.astro';
+import { FONT_SUBSET, type Locale } from '../config';
 import {
   HERO_IMAGE_HEIGHT,
   HERO_IMAGE_SIZES,
@@ -13,7 +14,7 @@ import {
   HERO_IMAGE_WIDTHS,
   IMAGE_QUALITY,
 } from '../lib/assets';
-import { switchLocale } from '../lib/i18n';
+import { siteGraph } from '../lib/schema';
 import type { Site } from '../lib/schemas';
 
 interface Props {
@@ -22,14 +23,16 @@ interface Props {
   title: string;
   description: string;
   preloadImage?: ImageMetadata;
+  /** Keep the page out of search results (and the sitemap). */
+  noindex?: boolean;
 }
 
-const { lang, site, title, description, preloadImage } = Astro.props;
+const { lang, site, title, description, preloadImage, noindex } = Astro.props;
 const path = Astro.url.pathname;
 // The analytics script exists only on Vercel's servers, so local builds leave it out. Preview
 // deployments build on Vercel too and include it.
 const analytics = import.meta.env.PROD && process.env.VERCEL === '1';
-const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
+const schema = await siteGraph(lang, site);
 const imagePreload = preloadImage
   ? await getImage({
       src: preloadImage,
@@ -49,13 +52,14 @@ const imagePreload = preloadImage
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={urlFor(lang)} />
-    {LOCALES.map((locale) => (
-      <link rel="alternate" hreflang={locale} href={urlFor(locale)} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={urlFor(DEFAULT_LOCALE)} />
+    <SeoHead
+      lang={lang}
+      title={title}
+      description={description}
+      path={path}
+      noindex={noindex}
+      schema={schema}
+    />
     <link
       rel="preload"
       href={`/fonts/manrope-${FONT_SUBSET[lang]}-wght-normal.woff2`}

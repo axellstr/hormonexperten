@@ -1,0 +1,50 @@
+---
+import { DEFAULT_LOCALE, LOCALES, SITE_URL, type Locale } from '../config';
+import { switchLocale } from '../lib/i18n';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  description: string;
+  /** The page's own path (Astro.url.pathname), which the other locales' addresses derive from. */
+  path: string;
+  /**
+   * Keep the page out of search results. Crawlers can only see this if robots.txt lets them in.
+   * Such a page names no canonical or alternates: it isn't a page to point search engines at.
+   */
+  noindex?: boolean;
+  /** JSON-LD, already serialised (src/lib/schema.ts). */
+  schema?: string;
+}
+
+const { lang, title, description, path, noindex = false, schema } = Astro.props;
+const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
+const canonical = urlFor(lang);
+const OG_LOCALE: Record<Locale, string> = { en: 'en_GB', de: 'de_DE', el: 'el_GR', ru: 'ru_RU' };
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
+{!noindex && (
+  <>
+    <link rel="canonical" href={canonical} />
+    {LOCALES.map((locale) => (
+      <link rel="alternate" hreflang={locale} href={urlFor(locale)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={urlFor(DEFAULT_LOCALE)} />
+  </>
+)}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Hormonexperten" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{!noindex && <meta property="og:url" content={canonical} />}
+<meta property="og:locale" content={OG_LOCALE[lang]} />
+{LOCALES.filter((locale) => locale !== lang).map((locale) => (
+  <meta property="og:locale:alternate" content={OG_LOCALE[locale]} />
+))}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{schema && <script type="application/ld+json" set:html={schema} />}
