@@ -23,3 +23,5 @@ Things only you can do or decide. The loop adds to this list; T99 rewrites it as
 
 ## Launch-day steps
 (collected in T99)
+- [ ] Vercel → Domains: redirect `www`, `.com` and `aerztin-regensburg.de` to `hormonexperten.de`. Check that Firewall bot protection doesn't block AI crawlers.
+- [ ] After the domain move, open `https://hormonexperten.vercel.app/en/` and check the response has `X-Robots-Tag: noindex, nofollow`, and `https://hormonexperten.de/en/` does not.
