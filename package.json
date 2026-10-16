@@ -5,13 +5,14 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/build-seed.ts && astro build && node scripts/prune-assets.mjs && node scripts/check-content.mjs",
+    "build": "node scripts/build-seed.ts && astro build && node scripts/prune-assets.mjs && node scripts/check-content.mjs && node scripts/seo-check.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier --write .",
     "astro": "astro",
     "cms:seed": "node scripts/build-seed.ts",
-    "cms:check": "node scripts/check-cms-roundtrip.ts"
+    "cms:check": "node scripts/check-cms-roundtrip.ts",
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.1",

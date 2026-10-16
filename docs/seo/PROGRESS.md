@@ -37,7 +37,7 @@ Branch: seo/launch-prep · Build: `npm run build` · Check: `npm run seo:check` 
 
 ## Tasks
 - [x] T00 Audit
-- [ ] T01 SEO check script: `scripts/seo-check.mjs` + `npm run seo:check`, reading `servedDir` (`scripts/output-dirs.mjs`). Skip the root redirect page (`noindex`). The legal drafts contain `TODO:` and will fail until they're `noindex` (T06) or filled; `#TODO-booking-url` has no colon and doesn't match `TODO:`. Hook it into `npm run build` after `check-content.mjs`.
+- [x] T01 SEO check script: `scripts/seo-check.mjs` + `npm run seo:check`, reading `servedDir` (`scripts/output-dirs.mjs`). Skip the root redirect page (`noindex`). The legal drafts contain `TODO:` and will fail until they're `noindex` (T06) or filled; `#TODO-booking-url` has no colon and doesn't match `TODO:`. Hook it into `npm run build` after `check-content.mjs`.
 - [ ] T02 Site config: `site` is already `https://hormonexperten.de` and the four locales are set; i18n stays `routing: 'manual'` (keep, it protects the admin). Left: `trailingSlash: 'always'`, checking that `/_emdash/…` and `/api/cron/housekeeping/` still work.
 - [ ] T03 Vercel config: `vercel.json` exists (trailing slash, `/` → `/en/` 302, legacy path redirects, cache and security headers, cron). Left: `noindex` header for `hormonexperten.vercel.app`, root redirect target (decision in NEEDS-ALEX), font cache could become immutable.
 - [ ] T04 Head component: `BaseLayout.astro` already renders title, description, canonical and hreflang (4 + `x-default`). Left: move that into `src/components/SeoHead.astro`, add Open Graph/Twitter, `translated`, `noindex` and `schema` props.
@@ -63,3 +63,4 @@ Branch: seo/launch-prep · Build: `npm run build` · Check: `npm run seo:check` 
 
 ## Log
 - 2026-10-16 T00: audited the repo (Astro 7 static on Vercel, EmDash live on production, JSON seed locally); wrote PROGRESS.md and NEEDS-ALEX.md; moved `docs/seo-loop-prompt.md` to `docs/seo/LOOP.md`. Verified: `astro build` ok (121 pages); `check-content.mjs` fails with 649 TODO markers on `main` already (booking URL, legal drafts); scanned the build for titles, descriptions, canonicals, hreflang, h1, images and internal links.
+- 2026-10-17 T01: `scripts/seo-check.mjs` + `npm run seo:check`, hooked into `npm run build` after `check-content.mjs`. Verified with `CONTENT_CHECK=warn npm run build`: runs over 121 pages and reports the known `TODO:` drafts plus 3 `endocrin` matches (Dr. Tuszing's thesis on endocrine disruptors in en/ru, the Russian PMOS condition name); the latter need an `ALLOWED` entry from Alex (NEEDS-ALEX).

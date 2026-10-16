@@ -3,7 +3,7 @@
 Things only you can do or decide. The loop adds to this list; T99 rewrites it as one clean list at the end.
 
 ## Setup
-- [ ] **The `seo/` folder wasn't copied.** The loop instructions were at `docs/seo-loop-prompt.md`; I moved them to `docs/seo/LOOP.md` and committed them on `seo/launch-prep`. Still missing: `docs/seo/seo-geo-plan.md` and `docs/seo/snippets/`. `docs/seo-geo-plan.md` is deleted in your working tree (not committed), so I read the plan from git (the 9 Oct audit). Copy the current plan and the snippets into `docs/seo/` if you have them. The snippets are first needed in T02. Without them I'll work from the plan and from the earlier, unmerged SEO commit on `origin/seo-geo`.
+- [x] (17 Oct) `docs/seo-geo-plan.md` moved to `docs/seo/seo-geo-plan.md`. `docs/seo/snippets/` doesn't exist; the loop works from the plan and `origin/seo-geo`. Original note: **The `seo/` folder wasn't copied.** The loop instructions were at `docs/seo-loop-prompt.md`; I moved them to `docs/seo/LOOP.md` and committed them on `seo/launch-prep`. Still missing: `docs/seo/seo-geo-plan.md` and `docs/seo/snippets/`. `docs/seo-geo-plan.md` is deleted in your working tree (not committed), so I read the plan from git (the 9 Oct audit). Copy the current plan and the snippets into `docs/seo/` if you have them. The snippets are first needed in T02. Without them I'll work from the plan and from the earlier, unmerged SEO commit on `origin/seo-geo`.
 
 ## Decisions
 - [ ] **How a pass counts as green.** `npm run build` already fails on `main` (649 `TODO` markers: the placeholder booking URL on every page and the draft legal texts). Until those are filled, I count a pass as green when `astro build` succeeds, the content check reports nothing but those `TODO` markers, and `seo:check` passes. OK? (Production builds with `CONTENT_CHECK=warn`, which also shows every `needs_check` item; `docs/launch-audit.md` says to unset it for launch.)
@@ -11,6 +11,8 @@ Things only you can do or decide. The loop adds to this list; T99 rewrites it as
 - [ ] **Dr. Yvonne Tuszing.** Her profile is built in all four locales (no `needs_check` in the team content), but CLAUDE.md and the loop rules say her credentials are unconfirmed. Are they confirmed now? Until you say so, I'll leave her out of JSON-LD and `llms.txt`.
 - [ ] **AI crawlers (before T08).** Allow training crawlers (GPTBot, ClaudeBot, Google-Extended, CCBot), or only search and answer crawlers (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot)? Plan section 5.
 - [ ] **Earlier SEO branch.** `origin/seo-geo` (9 Oct, never merged) already has a sitemap, structured data and robots.txt. I'll use it as reference code for T07–T12, not merge it. Say if you'd rather merge it or drop it.
+
+- [ ] **`endocrin` matches in the SEO check.** Three pages trip the rule legitimately: `/en/team/yvonne-tuszing/` and `/ru/team/yvonne-tuszing/` (“Thesis on endocrine disruptors and infertility”) and `/ru/conditions/pmos-pcos/` (the condition's name, “полиэндокринный…”). Neither is a title for Dr. Wilden. Approve an `ALLOWED` entry in `scripts/seo-check.mjs` for each, or reword; until then a strict build fails on them.
 
 ## Facts to supply
 - [ ] **Dr. Wilden's profile meta description is live on production** with an unconfirmed claim: “has worked as a physician for more than 35 years”. CLAUDE.md allows “35+ years” only with a source, and the plan notes the old site says 14 years. Confirm it with a source, or change it in the admin (team → profile → meta description) in all four languages.
