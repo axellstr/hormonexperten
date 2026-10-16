@@ -69,8 +69,8 @@ page sets a cookie or loads from a third party.
 | B3 | **The legal pages are drafts** | About 133 TODOs on screen, plus the draft notice on every legal page. The en/el/ru Impressum and Datenschutz are stubs. AGB § 3 lists Starter/Comfort/Premium at €380/490/590, while pricing has Basic €380 and Intensive €499. The remote-treatment terms are dated 15 Nov 2025 and still name Whereby. | The practice supplies the facts, then a lawyer or data protection adviser signs off. Then `approved` is set in the admin. See [Lawyer](#lawyer-or-data-protection-adviser). |
 | B4 | **Production shows unconfirmed content** | `CONTENT_CHECK=warn` on Production turns on `SHOW_UNCONFIRMED` (`src/config.ts:38`), so every `needs_check` item is live. While it's on, the CMS's "only confirmers may switch Needs check off" gate protects nothing. | The practice confirms or drops each item ([list below](#b4-what-is-unconfirmed-and-live-today)). Then you remove the variable, and the strict build fails until B1, B3 and every TODO in the admin are fixed. |
 | B5 | **Old URLs would 404** | 117 of 122 old sitemap URLs (`/kosten`, `/kontakt`, `/bioidentische-hormone`, all 68 blog posts). `/impressum` reaches the English stub through 3 hops, the last a temporary 307. | Decisions on the blog, the PDFs and the root language. Then tech: the map is drafted ([`domain-cutover.md`](domain-cutover.md)). |
-| B6 | **No sitemap, robots.txt or 404 page of our own** | EmDash serves an empty `/sitemap.xml` and a robots.txt whose sitemap line points at vercel.app. Unknown URLs get Astro's unbranded 404. | SEO loop, tasks T07, T08 and T17. |
-| B7 | **vercel.app is indexable today** | robots.txt allows everything and no page sends noindex, while draft legal pages and unconfirmed claims are live. | SEO loop T03 (`X-Robots-Tag: noindex` for the vercel.app host). Worth doing before the rest. |
+| B6 | **No sitemap, robots.txt or 404 page of our own** (done 17 Oct) | Now built: `sitemap.xml` (120 URLs, from the built pages), `robots.txt` and an English `404.html`. Still to do: the draft legal pages are in the sitemap until they're `noindex` or filled (T06), and the live database needs the `not_found` field for the 404 text. | Done, apart from those two. |
+| B7 | **vercel.app is indexable today** | robots.txt allows everything and no page sends noindex, while draft legal pages and unconfirmed claims are live. | Done 17 Oct (T03): `vercel.json` sends `X-Robots-Tag: noindex, nofollow` for `hormonexperten.vercel.app`. Check the header after the first deploy. |
 
 **Fix today in the admin** (both are live now):
 
@@ -263,8 +263,9 @@ professional answer.
       `lang="de"` rather than empty TODO headings. Drop them from hreflang and the sitemap.
 - [ ] Remove `CONTENT_CHECK` from Production once B1, B3 and B4 are done, and check the strict
       build passes. Keep `warn` on Preview only, if at all.
-- [ ] SEO loop: T03 (noindex on vercel.app, root redirect), T07 sitemap, T08 robots.txt, T17 404
-      page. T04 (Open Graph) and T09 (JSON-LD) should land before launch too.
+- [x] SEO, done 17 Oct: T01 check script, T03 noindex on vercel.app, T04 Open Graph, T07 sitemap,
+      T08 robots.txt, T09 JSON-LD, T17 404 page. Left in the loop: the root redirect (`/` → `/de/`
+      waits on your decision), T05 and T06 (metadata, fallback pages), T10–T16, T18–T22.
 - [ ] Merge the redirect map into `vercel.json` and test it ([`domain-cutover.md`](domain-cutover.md)).
 - [ ] The Approach CTA's "Learn More" has no descriptive accessible name (`Approach.astro:47`;
       the Team card already has one). Lighthouse SEO flags it.
@@ -281,9 +282,10 @@ professional answer.
 - [ ] Testimonials re-centre on every `resize` (`grab-scroll.ts:114`). Phones fire `resize` when the
       toolbar collapses, so a row the reader swiped jumps back. Touch swipes aren't tracked
       either (`:70`).
-- [ ] Update dependencies and retest: astro 7.4.0, emdash 1.3.0, @astrojs/react 7.1.0,
-      @astrojs/vercel 11.0.15. `Photo.astro` relies on a private `src.clone`, so check images
-      after the Astro bump.
+- [x] Dependencies updated 17 Oct (astro 7.4.0, @astrojs/react 7.1.0, @astrojs/vercel 11.0.15,
+      prettier): the build and `astro check` pass. Not done: emdash 1.3.0 (CMS left alone). Open
+      the pages with photos on production and check the images (`Photo.astro` relies on a private
+      `src.clone`).
 - [ ] Lighthouse on the production URL for every template (target 95+ on mobile). The last run was
       9 Oct, with 44 pages; there are 121 now. Home HTML has doubled to 48 KB brotli: 406 KB of the
       680 KB raw is 494 inline SVGs, including 300 identical stars. A shared `<symbol>` would remove

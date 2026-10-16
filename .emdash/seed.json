@@ -555,6 +555,21 @@
           "type": "string"
         },
         {
+          "slug": "not_found__title",
+          "label": "Not found › Title",
+          "type": "string"
+        },
+        {
+          "slug": "not_found__text",
+          "label": "Not found › Text",
+          "type": "text"
+        },
+        {
+          "slug": "not_found__home",
+          "label": "Not found › Home",
+          "type": "string"
+        },
+        {
           "slug": "services",
           "label": "Services",
           "type": "repeater",
@@ -2983,6 +2998,9 @@
           "nav__all_services": "View all services",
           "nav__language": "Language",
           "nav__socials": "Socials",
+          "not_found__title": "Page not found",
+          "not_found__text": "This page doesn’t exist or has moved. These links should help.",
+          "not_found__home": "Back to the home page",
           "services": [
             {
               "key": "hormone-therapy",
