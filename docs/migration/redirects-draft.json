@@ -1,0 +1,797 @@
+[
+  {
+    "source": "/",
+    "destination": "/de/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/bioidentical-hormones/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/hormonersatztherapie/",
+    "destination": "/de/services/hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/hormone-therapy/",
+    "destination": "/en/services/hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/hormontherapie-nach-rimkus/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/hormone-therapy-rimkus/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/kosten/",
+    "destination": "/de/pricing/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/treatment-costs/",
+    "destination": "/en/pricing/",
+    "statusCode": 301
+  },
+  {
+    "source": "/behandlungsablauf/",
+    "destination": "/de/our-approach/#how-it-works",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/treatment-process/",
+    "destination": "/en/our-approach/#how-it-works",
+    "statusCode": 301
+  },
+  {
+    "source": "/downloads/",
+    "destination": "/de/contact/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/downloads/",
+    "destination": "/en/contact/",
+    "statusCode": 302
+  },
+  {
+    "source": "/inhaltsrichtlinien/",
+    "destination": "/de/our-approach/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/content-guidelines/",
+    "destination": "/en/our-approach/",
+    "statusCode": 302
+  },
+  {
+    "source": "/impressum/",
+    "destination": "/de/impressum/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/legal-notice/",
+    "destination": "/en/impressum/",
+    "statusCode": 301
+  },
+  {
+    "source": "/kontakt/",
+    "destination": "/de/contact/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/terms-of-use-for-telemedical-treatment/",
+    "destination": "/en/remote-treatment-terms/",
+    "statusCode": 301
+  },
+  {
+    "source": "/ueber/dr-isabella-wilden/",
+    "destination": "/de/team/isabella-wilden/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/ueber/dr-isabella-wilden/",
+    "destination": "/en/team/isabella-wilden/",
+    "statusCode": 301
+  },
+  {
+    "source": "/ueber/yvonne-tuszing/",
+    "destination": "/de/team/yvonne-tuszing/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/ueber/yvonne-tuszing/",
+    "destination": "/en/team/yvonne-tuszing/",
+    "statusCode": 301
+  },
+  {
+    "source": "/ueber/ueber/",
+    "destination": "/de/our-approach/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/ueber/about/",
+    "destination": "/en/our-approach/",
+    "statusCode": 301
+  },
+  {
+    "source": "/ueber/",
+    "destination": "/de/our-approach/",
+    "statusCode": 301
+  },
+  {
+    "source": "/agb/",
+    "destination": "/de/terms/",
+    "statusCode": 301
+  },
+  {
+    "source": "/datenschutz/",
+    "destination": "/de/datenschutz/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/privacy-policy/",
+    "destination": "/en/datenschutz/",
+    "statusCode": 301
+  },
+  {
+    "source": "/cookies/",
+    "destination": "/de/datenschutz/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/cookies/",
+    "destination": "/en/datenschutz/",
+    "statusCode": 301
+  },
+  {
+    "source": "/nutzungsbedingungen-fr-fernbehandlung/",
+    "destination": "/de/remote-treatment-terms/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/",
+    "destination": "/de/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/",
+    "destination": "/en/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/termin-buchen/",
+    "destination": "/de/pricing/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/termin-buchen/",
+    "destination": "/en/pricing/",
+    "statusCode": 302
+  },
+  {
+    "source": "/termin-aendern/",
+    "destination": "/de/faq/#costs-booking",
+    "statusCode": 302
+  },
+  {
+    "source": "/termin-absagen/",
+    "destination": "/de/faq/#costs-booking",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/termin-aendern/",
+    "destination": "/en/faq/#costs-booking",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/termin-absagen/",
+    "destination": "/en/faq/#costs-booking",
+    "statusCode": 302
+  },
+  {
+    "source": "/quiz/:rest(.*)",
+    "destination": "/de/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/quiz/:rest(.*)",
+    "destination": "/en/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/blog/",
+    "destination": "/de/conditions/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/",
+    "destination": "/en/conditions/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/page/:n/",
+    "destination": "/de/conditions/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/page/:n/",
+    "destination": "/en/conditions/",
+    "statusCode": 302
+  },
+  {
+    "source": "/tag/wechseljahre/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/andropause/",
+    "destination": "/de/services/hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/andropause/",
+    "destination": "/en/services/hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/hormone/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/hormones/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/erkrankungen/",
+    "destination": "/de/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/medical-conditions/",
+    "destination": "/en/conditions/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/diaet-ernaehrung/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/diet-nutrition/",
+    "destination": "/en/services/weight-metabolic-health/",
+    "statusCode": 301
+  },
+  {
+    "source": "/tag/ankuendigungen/",
+    "destination": "/de/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/tag/announcements/",
+    "destination": "/en/",
+    "statusCode": 301
+  },
+  {
+    "source": "/blog/viszerales-fett/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/koerperzusammensetzung-und-bmi/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/insulinresistenz/",
+    "destination": "/de/conditions/insulin-resistance/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/insulin-resistance/",
+    "destination": "/en/conditions/insulin-resistance/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/polyzystischen-ovarialsyndroms/",
+    "destination": "/de/conditions/pmos-pcos/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/pcospmos/",
+    "destination": "/en/conditions/pmos-pcos/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/progesteronmangel-und-gewichtszunahme/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/progesterone-deficiency-and-weight-gain/",
+    "destination": "/en/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/akne-durch-hormone-ursachen/",
+    "destination": "/de/conditions/pmos-pcos/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/hormonal-acne-understanding-the-causes/",
+    "destination": "/en/conditions/pmos-pcos/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/eisenmangel-und-schilddruese-in-der-perimenopause/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/iron-deficiency-and-thyroid-function-during-perimenopause/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/tinnitus-in-den-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/tinnitus-during-menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/wie-haeufig-sind-beschwerden-in-den-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/how-common-are-menopausal-symptoms/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/testosteron-bei-der-frau/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/testosterone-in-women/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/scheidentrockenheit-behandeln-oestrogenmangel/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/treating-vaginal-dryness-when-estrogen-deficiency-is-the-cause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/fruchtbarkeit-verstehen-hormone-amh-und-kinderwunsch/",
+    "destination": "/de/conditions/amenorrhoea/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/understanding-fertility-hormones-amh-and-preparing-for-pregnancy/",
+    "destination": "/en/conditions/amenorrhoea/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-ab-60-sind-sie-noch-eine-option/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-for-people-over-60/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/das-schilddruesen-gesicht/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/the-thyroid-face/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/schilddruesenunterfunktion-erkennen/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/recognizing-hypothyroidism/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/kinderwunsch-nach-der-pille/",
+    "destination": "/de/conditions/amenorrhoea/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/interview-with-qs24-wanting-children-after-taking-the-pill/",
+    "destination": "/en/conditions/amenorrhoea/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/empfindliche-brustwarzen-in-den-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/sensitive-nipples-during-menopause-causes-symptoms-and-what-helps/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/spielt-die-wassermenge-bei-l-thyroxin-eine-rolle/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/does-water-matter-when-taking-l-thyroxine/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-krebs-zeit-fuer-klarheit/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-cancer-time-for-clarity/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/interview-hashimoto-jod-und-l-thyroxin/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/interview-with-qs24-focus-on-hashimoto-iodine-and-l-thyroxine/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/wichtige-information-zu-unserer-rezeptvergabe/",
+    "destination": "/de/faq/#online-care",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/important-information-regarding-our-prescription-policy/",
+    "destination": "/en/faq/#online-care",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/hormon-regulation-beim-mann--alternativen-zu-potenzmitteln/",
+    "destination": "/de/services/hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/hormone-regulation-in-men--alternatives-to-potency-enhancers/",
+    "destination": "/en/services/hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/brustschmerzen-und-knoten-whrend-der-wechseljahre/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/breast-pain-and-lumps-during-menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-bei-gewichtzunahme/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-for-weight-control/",
+    "destination": "/en/services/weight-metabolic-health/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/hormonmessung-methoden--genauigkeit/",
+    "destination": "/de/faq/#testing-treatment",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/hormone-measurement-methods--accuracy/",
+    "destination": "/en/faq/#testing-treatment",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/der-unterschied-zwischen-synthetischen-und-natrlichen-hormonen/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/the-difference-between-synthetic-and-natural-hormones/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-in-den-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-in-menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/mdigkeit-in-der-perimenopause-und-menopause/",
+    "destination": "/de/conditions/perimenopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/fatique-during-perimenopause-and-menopause/",
+    "destination": "/en/conditions/perimenopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-bei-haarausfall/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-for-hair-loss/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-bei-osteoporose-knochenschwund/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-for-osteoporosis-bone-loss/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-bei-hitzewallungen/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-for-hot-flashes/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-und-stress/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-and-stress/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/gelenkschmerzen-in-den-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/joint-pain-during-menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/bioidentische-hormone-und-hashimoto/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-and-hashimoto/",
+    "destination": "/en/conditions/thyroid/",
+    "statusCode": 302
+  },
+  {
+    "source": "/blog/mnnliche-wechseljahre--andropause/",
+    "destination": "/de/services/hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/en/blog/the-male-menopause-andropause/",
+    "destination": "/en/services/hormone-therapy/",
+    "statusCode": 302
+  },
+  {
+    "source": "/hormontherapie/",
+    "destination": "/de/services/hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentischen-hormone/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/wechseljahre/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/kontakt/",
+    "destination": "/en/contact/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/home/",
+    "destination": "/en/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-bei-haarausfall/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-bei-hitzewallungen/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-und-stress/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-und-hashimoto/",
+    "destination": "/de/conditions/thyroid/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-bei-gewichtzunahme/",
+    "destination": "/de/services/weight-metabolic-health/",
+    "statusCode": 301
+  },
+  {
+    "source": "/bioidentische-hormone-wechseljahren/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/gelenkschmerzen-wechseljahre/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/muedigkeit-wechseljahre/",
+    "destination": "/de/conditions/perimenopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/blog/muedigkeit-wechseljahre/",
+    "destination": "/de/conditions/perimenopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/unterschied-synthetische-natuerliche-hormone/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/hormonmessungen/",
+    "destination": "/de/faq/#testing-treatment",
+    "statusCode": 301
+  },
+  {
+    "source": "/naturidentische-hormone-rimkus/",
+    "destination": "/de/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/blog/bioidentische-hormone-osteoporose/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/blog/brustschmerzen-knoten-wechseljahre/",
+    "destination": "/de/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/ueber/isabella-wilden/",
+    "destination": "/de/team/isabella-wilden/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/ueber/isabella-wilden/",
+    "destination": "/en/team/isabella-wilden/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/ueber/about-us/",
+    "destination": "/en/our-approach/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/about/",
+    "destination": "/en/our-approach/",
+    "statusCode": 301
+  },
+  {
+    "source": "/nutzungsbedingungen-fernbehandlung/",
+    "destination": "/de/remote-treatment-terms/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-hot-flashes/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/bioidentical-hormones-stress/",
+    "destination": "/en/services/bioidentical-hormone-therapy/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/breast-pain-lumps-during-menopause/",
+    "destination": "/en/conditions/menopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/fatique-menopause/",
+    "destination": "/en/conditions/perimenopause/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/koerperzusammensetzung-und-bmi/",
+    "destination": "/en/services/weight-metabolic-health/",
+    "statusCode": 301
+  },
+  {
+    "source": "/en/blog/viszerales-fett/",
+    "destination": "/en/services/weight-metabolic-health/",
+    "statusCode": 301
+  },
+  {
+    "source": "/undefined/blog/:slug/",
+    "destination": "/blog/:slug/",
+    "statusCode": 301
+  },
+  {
+    "source": "/api/documents/file/:file",
+    "destination": "/downloads/:file",
+    "statusCode": 301
+  },
+  {
+    "source": "/:page(faq|team|services|conditions|our-approach|contact|pricing|terms|remote-treatment-terms)/:rest(.*)",
+    "destination": "/en/:page/:rest",
+    "permanent": false
+  }
+]

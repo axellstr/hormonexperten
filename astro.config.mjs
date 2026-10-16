@@ -102,7 +102,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
-    // Keep /*! licence notices in minified scripts (the glass helix is a port of MIT code).
+    // Keep /*! licence notices in minified scripts, as the licences of bundled packages ask.
     build: { rolldownOptions: { output: { comments: { legal: true } } } },
   },
 });
