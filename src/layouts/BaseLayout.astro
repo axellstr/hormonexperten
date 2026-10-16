@@ -26,7 +26,8 @@ interface Props {
 
 const { lang, site, title, description, preloadImage } = Astro.props;
 const path = Astro.url.pathname;
-// The analytics script exists only on Vercel's servers, so local and preview builds leave it out.
+// The analytics script exists only on Vercel's servers, so local builds leave it out. Preview
+// deployments build on Vercel too and include it.
 const analytics = import.meta.env.PROD && process.env.VERCEL === '1';
 const urlFor = (locale: Locale) => new URL(switchLocale(path, locale), SITE_URL).href;
 const imagePreload = preloadImage
@@ -89,22 +90,24 @@ const imagePreload = preloadImage
          when its element joins the page, so it waits in a template until a page Chromium
          prerenders on hover is shown: only real visits are counted. -->
     {analytics && (
-      <template id="analytics">
-        <Analytics />
-      </template>
-      <script is:inline>
-        (() => {
-          const load = () => {
-            const template = document.getElementById('analytics');
-            template.replaceWith(template.content);
-          };
-          if (document.prerendering) {
-            document.addEventListener('prerenderingchange', load, { once: true });
-          } else {
-            load();
-          }
-        })();
-      </script>
+      <>
+        <template id="analytics">
+          <Analytics />
+        </template>
+        <script is:inline>
+          (() => {
+            const load = () => {
+              const template = document.getElementById('analytics');
+              template.replaceWith(template.content);
+            };
+            if (document.prerendering) {
+              document.addEventListener('prerenderingchange', load, { once: true });
+            } else {
+              load();
+            }
+          })();
+        </script>
+      </>
     )}
   </head>
   <body class="bg-bg font-sans text-ink antialiased">

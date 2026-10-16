@@ -14,7 +14,7 @@ Marketing website for Hormonexperten, a private telemedicine practice (Dr. Isabe
 
 ## CMS (EmDash, live on production since 15 Oct 2026)
 
-- Content comes from EmDash (`/_emdash/admin`): `CONTENT_SOURCE=emdash` makes pages read published entries instead of `src/content/`. Production (https://hormonexperten.vercel.app, `main`) builds that way, so **edits to `src/content/*.json` don't reach production**; they only feed the seed. JSON stays the default for local builds without the variable. Pages stay prerendered; only the admin runs on Vercel functions (Frankfurt). Publishing triggers a Vercel rebuild (deploy hook). Setup, status and open items: `docs/emdash-setup.md`.
+- Content comes from EmDash (`/_emdash/admin`): `CONTENT_SOURCE=emdash` makes pages read published entries instead of `src/content/`. Production (https://hormonexperten.vercel.app, `main`) builds that way, so **edits to `src/content/*.json` don't reach production**; they only feed the seed. JSON stays the default for local builds without the variable. Pages stay prerendered; only the admin runs on Vercel functions (Frankfurt). Publishing triggers a Vercel rebuild (deploy hook). Until launch, Production also builds with `CONTENT_CHECK=warn`, which shows every `needs_check` item. Setup and CMS open items: `docs/emdash-setup.md`; launch status and blockers: `docs/launch-readiness.md`.
 - The EmDash content model is generated from the Zod schemas (`src/lib/cms/`); `.emdash/seed.json` is regenerated on every build. A schema change must still pass `npm run cms:check` (EmDash nests at most list → list). A field added after go-live also has to be added to the live database's schema (admin → Content Types).
 - Read content only through `src/lib/content.ts` (async). The site plugin (`src/lib/cms/plugin.ts`) refuses to publish entries that break `src/lib/content-rules.ts` or the schemas, or that switch `needs_check` off unless the publisher's email is in `CONTENT_CONFIRMERS`.
 - On a deployed site, EmDash's setup wizard and Google sign-in stay locked until setup is complete, except with `EMDASH_SETUP_KEY` (`src/middleware.ts`): before the first admin exists, whoever finishes setup becomes admin.
@@ -28,21 +28,21 @@ Define these once in the `@theme` block of `src/styles/global.css`. Tailwind tur
 
 | Token | Value | Use |
 |---|---|---|
-| `--color-coral` | `#EA8878` | Primary buttons, accents, the logo mark |
+| `--color-coral` | `#EB8C75` | Primary buttons, accents, the logo mark |
 | `--color-coral-tint` | `#FBE3DE` | Soft highlights, icon backgrounds |
 | `--color-ink` | `#100420` | Headings and primary text |
-| `--color-text-muted` | `#9B9B9B` (too light, see below) | Eyebrow labels ("How it Works", "Our Approach"), step numbers |
+| `--color-text-muted` | `#707070` | Eyebrow labels ("How it Works", "Our Approach"), step numbers |
 | `--color-surface` | `#FCF8F4` | Warm section panels, FAQ items, hero panel |
 | `--color-bg` | `#FFFFFF` | Page background |
 | `--color-placeholder` | `#EEEEEE` | Image placeholders only, never in production |
 | `--color-footer` | `#1A1A20` | Footer background |
 | `--color-on-dark` | `#FFFFFF` | Text on the footer |
 
-Values were sampled from a PNG export; confirm them against the Figma styles before treating them as final.
+Values were first sampled from a PNG export. Coral (13 Oct 2026, when the palette tester was removed) and the muted grey (the Figma value) are final. In the theme, `--color-coral-tint` is currently the surface value `#FCF8F4`, not `#FBE3DE`: an open question, not a rule.
 
-- **Contrast:** white text on `#EA8878` is 2.5:1, which fails WCAG AA even for large text (needs 3:1). On 9 Oct 2026 the user chose white labels (`text-on-dark`) on the current coral for primary buttons, accepting the contrast failure; a darker coral (`#C84732`) was tried and rejected as too dark. Don't revert either without being asked. Use white on coral only for button labels, never for running text.
-- The muted grey `#9B9B9B` is 2.8:1 on white and fails too. Darken it (about `#767676` reaches 4.5:1) for any text that has to be read.
-- Radii: large panels and images about 24px, cards about 20px, buttons and FAQ items fully rounded or 16px. Read the exact values from Figma and set them as `--radius-panel`, `--radius-card` and `--radius-field` in `@theme` (giving `rounded-panel` and so on). Use `rounded-full` for pills.
+- **Contrast:** white text on `#EB8C75` is 2.5:1, which fails WCAG AA even for large text (needs 3:1). On 9 Oct 2026 the user chose white labels (`text-on-dark`) on the current coral for primary buttons, accepting the contrast failure; a darker coral (`#C84732`) was tried and rejected as too dark. Don't revert either without being asked. Use white on coral only for button labels, never for running text.
+- The muted grey `#707070` is 4.9:1 on white and 4.6:1 on `surface`, so it passes AA for text. Don't lighten it.
+- Radii are tokens in `@theme`: `--radius-panel`, `--radius-card` and `--radius-field` (giving `rounded-panel` and so on), all 24px today. Use `rounded-full` for pills and buttons.
 - Spacing: Tailwind's default scale (`p-4` = 16px). Page rhythm (12 Oct 2026) is one token: every section sits `--spacing-section` (64 → 128px, fluid) below the one before it, the hero included. `Section` sets it as top padding only (`pt-section`), so neighbours never add up; there are no spacing variants and no `py-*!` overrides on a section. The footer docks at half that gap (`pb-footer` on `<main>`). Two blocks with their own H2 inside one section are separated by `mb-section`.
 
 ## Typography
@@ -109,7 +109,7 @@ The scale is clinical, not editorial (the user's call, 9 Oct 2026: the earlier 6
 ### Punctuation and spacing in content
 
 - Typographic marks only; the build check fails on straight `'` and `"` in `src/content/`. English: ’ “ ” and a spaced en dash ( – ). German: „ “ and a spaced en dash. Russian and Greek: « » ; Russian uses a spaced em dash ( — ). Ranges use an unspaced en dash (9:00–17:00, 1997–2000). Ellipsis is …, not three dots. Exception (the user's call, 12 Oct 2026): testimonial titles use English “ ” in every locale, German included.
-- Content files stay plain; `typeset()` in `src/lib/content.ts` adds non-breaking spaces as text loads: after Dr./Prof., inside "z. B."-style abbreviations (narrow), between a number and the word it counts, before a spaced dash, and (Russian) after one- and two-letter words. Don't type `&nbsp;` into content; extend `typeset()` instead.
+- Content files stay plain; `typeset()` in `src/lib/content-parse.ts` adds non-breaking spaces as text loads: after Dr./Prof., inside "z. B."-style abbreviations (narrow), between a number and the word it counts, before a spaced dash, and (Russian) after one- and two-letter words. Don't type `&nbsp;` into content; extend `typeset()` instead.
 - Sentence case for headings in new copy. Several mockup headings are Title Case ("Hormone Health Care that Takes Women Seriously"); keep whatever the approved copy says, but don't invent Title Case.
 
 ### Checking type
@@ -125,17 +125,17 @@ Before calling a page done, check it at 360px in Russian and German (longest wor
 
 ## Landing page sections (in order)
 
-1. **Header:** logo (mark + HORMONEXPERTEN wordmark, no "Dr. Wilden" line), nav (About Us, Services ▾, Our Team, Contact), language switcher (globe + code), "Book Now" button. Sticky on scroll, mobile menu below 1024px.
-2. **Hero:** warm panel. Trust line, H1, subline, primary CTA, three small icon features, image carousel on the right.
+1. **Header:** logo (mark + HORMONEXPERTEN wordmark, no "Dr. Wilden" line), nav (Our Approach, Services ▾, Conditions, Our Team, Pricing, Contact), language switcher, "Book Now" button. Sticky on scroll. The full nav shows from 1440px (`--breakpoint-header-desktop`, so German labels fit), the mobile menu below that.
+2. **Hero:** warm panel. Trust line, H1, subline, primary CTA, affiliation logos, image carousel on the right.
 3. **Services:** H2 (“Our services”) and a row of image cards with title and short text over a gradient at the bottom, one per entry in `site.services`. Each card links to its service page. The six services (14 Oct 2026, Services: Short Summaries doc) are Hormone therapy, Bioidentical hormone therapy, Weight & metabolic health, Micronutrient medicine, Digestive & gut health and Chronic condition care. Menopause and the Hormone Check-Up are no longer services; menopause is covered by Conditions.
-4. **Trust logos:** heading and logo marquee. If it animates, it must respect `prefers-reduced-motion` and pause on hover.
+4. **Trust logos:** heading and a logo row that cycles (`src/scripts/logo-cycler.ts`). If it animates, it must respect `prefers-reduced-motion` and pause on hover.
 5. **Our Approach:** warm panel, image left, eyebrow, H2, paragraph, secondary CTA.
-6. **How it Works:** eyebrow, H2, intro, three numbered steps alternating text/image in a warm panel, then an "Important information" note.
+6. **How it Works:** eyebrow, H2, intro, three numbered steps as a stacking deck of cards with illustrated scenes (`how-scenes/`), then an "Important information" note.
 7. **Team:** H2 and two doctor cards (photo, name, title line, "Learn More").
 8. **Testimonials:** two rows of review cards (stars, quote title, text, name/age/condition, source).
 9. **FAQ:** accordion on the left (5–6 questions), "Still have questions?" contact card on the right, stacking on mobile. Use `<details>`/`<summary>`, which needs no JavaScript.
-10. **Closing CTA:** warm panel with line-art illustration, H2, subline, CTA.
-11. **Footer:** dark (`bg-footer`) panel inside the content width with rounded top corners (`rounded-t-panel`), like the other panels; no wave edge (14 Oct 2026). Logo, blurb (`text-body`) and social icons, then the Contact, Services (the first four services, then “All services”; 14 Oct 2026), Company and Legal columns from `site.footer` in `src/content/site/`, then copyright and payment method icons. From 1440px the logo block sits beside the columns; below that it sits on top, with the columns four across from `lg`, 2×2 from phones up, and Contact full width on phones. Links to pages that don't exist yet carry `needs_check`.
+10. **Closing CTA:** warm panel with H2, subline and CTA.
+11. **Footer:** dark (`bg-footer`) panel inside the content width with rounded top corners (`rounded-t-panel`), like the other panels; no wave edge (14 Oct 2026). Logo, blurb (`text-body`) and social icons, then the Contact, Services (the first four services, then “All services”; 14 Oct 2026), Company and Legal columns from `site.footer` in `src/content/site/`, then copyright and payment method icons. From 1440px the logo block sits beside the columns; below that it sits on top, with the columns four across from `lg`, 2×2 from phones up. Links to pages that don't exist yet carry `needs_check`.
 
 Build each section as its own component in `src/components/sections/`, with shared primitives (`Container`, `Section`, `Button`, `Eyebrow`, `Panel`, `Card`, `Accordion`) in `src/components/ui/`.
 
@@ -166,7 +166,7 @@ Build each section as its own component in `src/components/sections/`, with shar
 - **Payment icons:** show only the methods the booking system actually accepts. On 14 Oct 2026 the user confirmed Visa, Mastercard, Diners Club, SEPA and Klarna; AGB § 4.3 names the same.
 - **Second doctor (Dr. Yvonne Tuszing):** credentials are unconfirmed. Keep her card behind a content flag until they are.
 - Brand name is written **Hormonexperten** in running text (not "Hormon Experten"). Use British English spelling in the English master (personalised, specialised, gynaecologist), as in the FAQ.
-- FAQ answers are the FAQ questions in the admin (seeded from `src/content/faq/{lang}.json`). Items with `needs_check: true` are not rendered.
+- FAQ answers are the FAQ questions in the admin (seeded from `src/content/faq/{lang}.json`). Items with `needs_check: true` are not rendered (outside `astro dev` and `CONTENT_CHECK=warn` builds).
 
 ## Privacy and third parties
 
@@ -174,7 +174,7 @@ Build each section as its own component in `src/components/sections/`, with shar
 - Analytics is Vercel Web Analytics (cookieless, first-party script, 14 Oct 2026), loaded only in Vercel builds and only once a prerendered page is shown. Nothing else; enable it in the Vercel project settings.
 - The practice address is the doctors’ home: it appears only in the Impressum and the Privacy Policy (practice’s request, 14 Oct 2026). Never on the contact page, footer, schema.org or meta.
 - Every page links Impressum and Datenschutz in the footer. Legal pages exist in German at minimum. There is no cookie banner or Cookie Settings page, because the site sets no cookies (14 Oct 2026). Anything that would need consent brings both back first.
-- Old site URLs are kept in `src/redirects` and must 301 to their new pages.
+- Old site URLs must 301 to their new pages, through `redirects` in `vercel.json` (draft map in `docs/migration/`, see `docs/domain-cutover.md`).
 
 ## Working agreements
 
@@ -185,7 +185,9 @@ Build each section as its own component in `src/components/sections/`, with shar
 
 ## Open questions (resolve before launch)
 
+The full pre-launch list, by owner, is `docs/launch-readiness.md`. These are the questions that shape the build.
+
 - Final booking URL (Pabau) and whether "Book Now" goes straight to booking or to a pricing page first.
-- Which trust logos and testimonials are real and approved.
-- Services: the six service pages (14 Oct 2026) have card summaries but no page copy yet (intro, about, meta). On condition pages, "Premium Hormone Package", "Female hormones" and "Thyroid therapy" still have no page to link to.
+- Partner logos: what each relationship is, and written permission to show it. (The testimonials are real and attributed to their platforms.)
+- On condition pages, "Premium Hormone Package", "Female hormones" and "Thyroid therapy" still have no page to link to.
 - Pricing (/{lang}/pricing): live since 14 Oct 2026 with the packages and prices of the old hormonexperten.de/kosten page (user’s call), replacing the Figma pricing frame. AGB § 3 still lists the older Starter/Comfort/Premium packages and must be aligned before the AGB are approved.
