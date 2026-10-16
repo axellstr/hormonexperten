@@ -37,6 +37,11 @@
     "language": "Language",
     "socials": "Socials"
   },
+  "not_found": {
+    "title": "Page not found",
+    "text": "This page doesn’t exist or has moved. These links should help.",
+    "home": "Back to the home page"
+  },
   "services": [
     {
       "id": "hormone-therapy",

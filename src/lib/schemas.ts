@@ -34,6 +34,11 @@ export const siteSchema = z.object({
     /** Eyebrow above the social icons in the mobile menu. */
     socials: z.string(),
   }),
+  /**
+   * The 404 page (one English page for the whole site). Optional: the page shows only links until
+   * the live database has the field (docs/emdash-setup.md).
+   */
+  not_found: z.object({ title: z.string(), text: z.string(), home: z.string() }).optional(),
   services: z.array(
     z
       .object({

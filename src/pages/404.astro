@@ -1,0 +1,39 @@
+---
+import Button from '../components/ui/Button.astro';
+import Section from '../components/ui/Section.astro';
+import { BOOKING_URL } from '../config';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSite } from '../lib/content';
+import { localizeHref } from '../lib/i18n';
+
+// One page for the whole site: Vercel serves a single 404.html for any address that doesn't exist,
+// so it can't follow the visitor's language. It is English, like the content fallback.
+const lang = 'en';
+const site = await getSite(lang);
+const { not_found: notFound, nav } = site;
+const services = nav.items.find((item) => item.submenu === 'services');
+---
+
+<BaseLayout
+  lang={lang}
+  site={site}
+  title={`${notFound?.title ?? '404'} | Hormonexperten`}
+  description={notFound?.text ?? ''}
+  noindex
+>
+  <Section>
+    <h1 class="text-display max-w-3xl text-ink">{notFound?.title ?? '404'}</h1>
+    {notFound && <p class="mt-heading max-w-measure text-lead text-ink/80">{notFound.text}</p>}
+    <div class="mt-action flex flex-wrap gap-4">
+      <Button variant="secondary" href={localizeHref('/', lang)}>
+        {notFound?.home ?? nav.home}
+      </Button>
+      {services && (
+        <Button variant="secondary" href={localizeHref(services.href, lang)}>
+          {services.label}
+        </Button>
+      )}
+      <Button href={BOOKING_URL}>{nav.book}</Button>
+    </div>
+  </Section>
+</BaseLayout>

@@ -12,7 +12,11 @@ Things only you can do or decide. The loop adds to this list; T99 rewrites it as
 - [ ] **AI crawlers (before T08).** Allow training crawlers (GPTBot, ClaudeBot, Google-Extended, CCBot), or only search and answer crawlers (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot)? Plan section 5.
 - [ ] **Earlier SEO branch.** `origin/seo-geo` (9 Oct, never merged) already has a sitemap, structured data and robots.txt. I'll use it as reference code for T07–T12, not merge it. Say if you'd rather merge it or drop it.
 
-- [ ] **`endocrin` matches in the SEO check.** Three pages trip the rule legitimately: `/en/team/yvonne-tuszing/` and `/ru/team/yvonne-tuszing/` (“Thesis on endocrine disruptors and infertility”) and `/ru/conditions/pmos-pcos/` (the condition's name, “полиэндокринный…”). Neither is a title for Dr. Wilden. Approve an `ALLOWED` entry in `scripts/seo-check.mjs` for each, or reword; until then a strict build fails on them.
+- [ ] **`endocrin` matches in the SEO check.** Eight pages trip the rule legitimately: `/{lang}/team/yvonne-tuszing/` (“Thesis on endocrine disruptors and infertility”) and `/{lang}/conditions/pmos-pcos/` (the condition's name, e.g. “полиэндокринный…”), in all four languages. Neither is a title for Dr. Wilden. Approve an `ALLOWED` entry in `scripts/seo-check.mjs` for each, or reword; until then a strict build fails on them.
+
+- [ ] **AI crawlers (T08 is done with “allow everyone”).** `robots.txt` blocks nothing except `/_emdash/`, as it is today. Say if training crawlers (GPTBot, ClaudeBot, Google-Extended, CCBot) should be turned away; it's one block in `src/pages/robots.txt.ts`.
+- [ ] **Social share image.** Pages have Open Graph tags but no `og:image`. Pick a 1200×630 image whose licence is cleared (the studio photos aren't yet).
+- [ ] **404 text in the live database.** I added an optional `not_found` field (title, text, home link) to the site texts. Add it under admin → Content Types → Site texts, then fill it in; until then the 404 page shows “404” and its links. (`src/content/site/en.json` has the English seed.)
 
 ## Facts to supply
 - [ ] **Dr. Wilden's profile meta description is live on production** with an unconfirmed claim: “has worked as a physician for more than 35 years”. CLAUDE.md allows “35+ years” only with a source, and the plan notes the old site says 14 years. Confirm it with a source, or change it in the admin (team → profile → meta description) in all four languages.
