@@ -1,0 +1,163 @@
+category	old_path	new_path	status	note
+page	/	/de/	301	German homepage; root decision (see FINDINGS §3)
+page	/en	(none)	-	No rule needed: trailing-slash 308 -> /en/ (exists)
+page	/bioidentische-hormone	/de/services/bioidentical-hormone-therapy/	301	Old topic hub (~1,800 words). New page is shorter; consider a dedicated hub page
+page	/en/bioidentical-hormones	/en/services/bioidentical-hormone-therapy/	301	
+page	/hormonersatztherapie	/de/services/hormone-therapy/	301	Keyword = HRT; content was bioidentical HRT. Alternative target: bioidentical-hormone-therapy
+page	/en/hormone-therapy	/en/services/hormone-therapy/	301	
+page	/hormontherapie-nach-rimkus	/de/services/bioidentical-hormone-therapy/	301	No Rimkus page allowed (CLAUDE.md); service mentions the method
+page	/en/hormone-therapy-rimkus	/en/services/bioidentical-hormone-therapy/	301	
+page	/kosten	/de/pricing/	301	
+page	/en/treatment-costs	/en/pricing/	301	
+page	/behandlungsablauf	/de/our-approach/#how-it-works	301	Process lives in the How-it-works section
+page	/en/treatment-process	/en/our-approach/#how-it-works	301	
+page	/downloads	/de/contact/	302	NO EQUIVALENT: patient forms. Build /{lang}/downloads/ then 301 there
+page	/en/downloads	/en/contact/	302	NO EQUIVALENT (see /downloads)
+page	/inhaltsrichtlinien	/de/our-approach/	302	NO EQUIVALENT: content guidelines (E-E-A-T). Migrate as a page, then 301
+page	/en/content-guidelines	/en/our-approach/	302	NO EQUIVALENT (see /inhaltsrichtlinien)
+legal	/impressum	/de/impressum/	301	Collides with the English View-link catch-all; must come first
+legal	/en/legal-notice	/en/impressum/	301	
+page	/kontakt	/de/contact/	301	
+page	/en/contact	(none)	-	No rule needed: same path exists (/en/contact/)
+legal	/en/terms	(none)	-	No rule needed: same path exists (/en/terms/)
+legal	/en/terms-of-use-for-telemedical-treatment	/en/remote-treatment-terms/	301	
+page	/ueber/dr-isabella-wilden	/de/team/isabella-wilden/	301	
+page	/en/ueber/dr-isabella-wilden	/en/team/isabella-wilden/	301	
+page	/ueber/yvonne-tuszing	/de/team/yvonne-tuszing/	301	If her profile is hidden again (content flag), point to /de/team/
+page	/en/ueber/yvonne-tuszing	/en/team/yvonne-tuszing/	301	See /ueber/yvonne-tuszing
+page	/ueber/ueber	/de/our-approach/	301	Old site sent this to a 404 (/en/ueber/about-us)
+page	/en/ueber/about	/en/our-approach/	301	
+page	/ueber	/de/our-approach/	301	Not in sitemap, indexable
+legal	/agb	/de/terms/	301	noindex on old site
+legal	/datenschutz	/de/datenschutz/	301	Collides with the English View-link catch-all; must come first
+legal	/en/privacy-policy	/en/datenschutz/	301	
+legal	/cookies	/de/datenschutz/	301	No cookie page any more (site sets no cookies)
+legal	/en/cookies	/en/datenschutz/	301	
+legal	/nutzungsbedingungen-fr-fernbehandlung	/de/remote-treatment-terms/	301	
+tag	/tag	/de/conditions/	301	Tag index, not in sitemap
+tag	/en/tag	/en/conditions/	301	
+booking	/termin-buchen	/de/pricing/	302	Old booking wizard. Point to the Pabau booking URL once final (BOOKING_URL)
+booking	/en/termin-buchen	/en/pricing/	302	See /termin-buchen
+booking	/termin-aendern	/de/faq/#costs-booking	302	LINKED FROM PATIENT EMAILS? Point to the booking system’s manage link
+booking	/termin-absagen	/de/faq/#costs-booking	302	See /termin-aendern
+booking	/en/termin-aendern	/en/faq/#costs-booking	302	See /termin-aendern
+booking	/en/termin-absagen	/en/faq/#costs-booking	302	See /termin-aendern
+quiz	/quiz/:rest(.*)	/de/conditions/	301	Hormone quiz (/quiz -> /quiz/ergebnis), noindex; no equivalent
+quiz	/en/quiz/:rest(.*)	/en/conditions/	301	See /quiz
+blog-index	/blog	/de/conditions/	302	Interim until the blog decision; with Option A -> /de/blog/
+blog-index	/en/blog	/en/conditions/	302	Interim; Option A -> /en/blog/
+blog-index	/blog/page/:n	/de/conditions/	302	Pagination 2–6 (7+ returned 500 on the old site)
+blog-index	/en/blog/page/:n	/en/conditions/	302	Pagination 2–6
+tag	/tag/wechseljahre	/de/conditions/menopause/	301	
+tag	/en/tag/menopause	/en/conditions/menopause/	301	
+tag	/tag/andropause	/de/services/hormone-therapy/	301	No men’s health page on the new site
+tag	/en/tag/andropause	/en/services/hormone-therapy/	301	No men’s health page on the new site
+tag	/tag/hormone	/de/services/bioidentical-hormone-therapy/	301	
+tag	/en/tag/hormones	/en/services/bioidentical-hormone-therapy/	301	
+tag	/tag/erkrankungen	/de/conditions/	301	
+tag	/en/tag/medical-conditions	/en/conditions/	301	
+tag	/tag/diaet-ernaehrung	/de/services/weight-metabolic-health/	301	
+tag	/en/tag/diet-nutrition	/en/services/weight-metabolic-health/	301	
+tag	/tag/ankuendigungen	/de/	301	Announcements: no topical equivalent, home is the honest target
+tag	/en/tag/announcements	/en/	301	Announcements: no topical equivalent, home is the honest target
+blog-post	/blog/viszerales-fett	/de/services/weight-metabolic-health/	302	DE only
+blog-post	/blog/koerperzusammensetzung-und-bmi	/de/services/weight-metabolic-health/	302	DE only
+blog-post	/blog/insulinresistenz	/de/conditions/insulin-resistance/	302	
+blog-post	/en/blog/insulin-resistance	/en/conditions/insulin-resistance/	302	
+blog-post	/blog/polyzystischen-ovarialsyndroms	/de/conditions/pmos-pcos/	302	
+blog-post	/en/blog/pcospmos	/en/conditions/pmos-pcos/	302	
+blog-post	/blog/progesteronmangel-und-gewichtszunahme	/de/services/weight-metabolic-health/	302	
+blog-post	/en/blog/progesterone-deficiency-and-weight-gain	/en/services/weight-metabolic-health/	302	
+blog-post	/blog/akne-durch-hormone-ursachen	/de/conditions/pmos-pcos/	302	PMOS page covers skin changes
+blog-post	/en/blog/hormonal-acne-understanding-the-causes	/en/conditions/pmos-pcos/	302	PMOS page covers skin changes
+blog-post	/blog/eisenmangel-und-schilddruese-in-der-perimenopause	/de/conditions/thyroid/	302	
+blog-post	/en/blog/iron-deficiency-and-thyroid-function-during-perimenopause	/en/conditions/thyroid/	302	
+blog-post	/blog/tinnitus-in-den-wechseljahren	/de/conditions/menopause/	302	
+blog-post	/en/blog/tinnitus-during-menopause	/en/conditions/menopause/	302	
+blog-post	/blog/wie-haeufig-sind-beschwerden-in-den-wechseljahren	/de/conditions/menopause/	302	
+blog-post	/en/blog/how-common-are-menopausal-symptoms	/en/conditions/menopause/	302	
+blog-post	/blog/testosteron-bei-der-frau	/de/services/bioidentical-hormone-therapy/	302	
+blog-post	/en/blog/testosterone-in-women	/en/services/bioidentical-hormone-therapy/	302	
+blog-post	/blog/scheidentrockenheit-behandeln-oestrogenmangel	/de/conditions/menopause/	302	FAQ #sexual-health also fits
+blog-post	/en/blog/treating-vaginal-dryness-when-estrogen-deficiency-is-the-cause	/en/conditions/menopause/	302	FAQ #sexual-health also fits
+blog-post	/blog/fruchtbarkeit-verstehen-hormone-amh-und-kinderwunsch	/de/conditions/amenorrhoea/	302	Only page mentioning fertility; weak match
+blog-post	/en/blog/understanding-fertility-hormones-amh-and-preparing-for-pregnancy	/en/conditions/amenorrhoea/	302	Only page mentioning fertility; weak match
+blog-post	/blog/bioidentische-hormone-ab-60-sind-sie-noch-eine-option	/de/services/bioidentical-hormone-therapy/	302	
+blog-post	/en/blog/bioidentical-hormones-for-people-over-60	/en/services/bioidentical-hormone-therapy/	302	
+blog-post	/blog/das-schilddruesen-gesicht	/de/conditions/thyroid/	302	
+blog-post	/en/blog/the-thyroid-face	/en/conditions/thyroid/	302	
+blog-post	/blog/schilddruesenunterfunktion-erkennen	/de/conditions/thyroid/	302	
+blog-post	/en/blog/recognizing-hypothyroidism	/en/conditions/thyroid/	302	
+blog-post	/blog/kinderwunsch-nach-der-pille	/de/conditions/amenorrhoea/	302	QS24 interview; post-pill amenorrhoea
+blog-post	/en/blog/interview-with-qs24-wanting-children-after-taking-the-pill	/en/conditions/amenorrhoea/	302	QS24 interview; post-pill amenorrhoea
+blog-post	/blog/empfindliche-brustwarzen-in-den-wechseljahren	/de/conditions/menopause/	302	
+blog-post	/en/blog/sensitive-nipples-during-menopause-causes-symptoms-and-what-helps	/en/conditions/menopause/	302	
+blog-post	/blog/spielt-die-wassermenge-bei-l-thyroxin-eine-rolle	/de/conditions/thyroid/	302	
+blog-post	/en/blog/does-water-matter-when-taking-l-thyroxine	/en/conditions/thyroid/	302	
+blog-post	/blog/bioidentische-hormone-krebs-zeit-fuer-klarheit	/de/services/bioidentical-hormone-therapy/	302	
+blog-post	/en/blog/bioidentical-hormones-cancer-time-for-clarity	/en/services/bioidentical-hormone-therapy/	302	
+blog-post	/blog/interview-hashimoto-jod-und-l-thyroxin	/de/conditions/thyroid/	302	QS24 interview
+blog-post	/en/blog/interview-with-qs24-focus-on-hashimoto-iodine-and-l-thyroxine	/en/conditions/thyroid/	302	QS24 interview
+blog-post	/blog/wichtige-information-zu-unserer-rezeptvergabe	/de/faq/#online-care	302	Practice notice; FAQ answers prescriptions
+blog-post	/en/blog/important-information-regarding-our-prescription-policy	/en/faq/#online-care	302	Practice notice; FAQ answers prescriptions
+blog-post	/blog/hormon-regulation-beim-mann--alternativen-zu-potenzmitteln	/de/services/hormone-therapy/	302	Men’s health: no equivalent
+blog-post	/en/blog/hormone-regulation-in-men--alternatives-to-potency-enhancers	/en/services/hormone-therapy/	302	Men’s health: no equivalent
+blog-post	/blog/brustschmerzen-und-knoten-whrend-der-wechseljahre	/de/conditions/menopause/	302	
+blog-post	/en/blog/breast-pain-and-lumps-during-menopause	/en/conditions/menopause/	302	
+blog-post	/blog/bioidentische-hormone-bei-gewichtzunahme	/de/services/weight-metabolic-health/	302	
+blog-post	/en/blog/bioidentical-hormones-for-weight-control	/en/services/weight-metabolic-health/	302	
+blog-post	/blog/hormonmessung-methoden--genauigkeit	/de/faq/#testing-treatment	302	FAQ: blood vs saliva tests
+blog-post	/en/blog/hormone-measurement-methods--accuracy	/en/faq/#testing-treatment	302	FAQ: blood vs saliva tests
+blog-post	/blog/der-unterschied-zwischen-synthetischen-und-natrlichen-hormonen	/de/services/bioidentical-hormone-therapy/	302	Service page has the comparison table
+blog-post	/en/blog/the-difference-between-synthetic-and-natural-hormones	/en/services/bioidentical-hormone-therapy/	302	Service page has the comparison table
+blog-post	/blog/bioidentische-hormone-in-den-wechseljahren	/de/conditions/menopause/	302	
+blog-post	/en/blog/bioidentical-hormones-in-menopause	/en/conditions/menopause/	302	
+blog-post	/blog/mdigkeit-in-der-perimenopause-und-menopause	/de/conditions/perimenopause/	302	
+blog-post	/en/blog/fatique-during-perimenopause-and-menopause	/en/conditions/perimenopause/	302	
+blog-post	/blog/bioidentische-hormone-bei-haarausfall	/de/conditions/menopause/	302	FAQ #hair-joints-body also fits
+blog-post	/en/blog/bioidentical-hormones-for-hair-loss	/en/conditions/menopause/	302	FAQ #hair-joints-body also fits
+blog-post	/blog/bioidentische-hormone-bei-osteoporose-knochenschwund	/de/conditions/menopause/	302	
+blog-post	/en/blog/bioidentical-hormones-for-osteoporosis-bone-loss	/en/conditions/menopause/	302	
+blog-post	/blog/bioidentische-hormone-bei-hitzewallungen	/de/conditions/menopause/	302	
+blog-post	/en/blog/bioidentical-hormones-for-hot-flashes	/en/conditions/menopause/	302	
+blog-post	/blog/bioidentische-hormone-und-stress	/de/services/bioidentical-hormone-therapy/	302	No stress/adrenal page
+blog-post	/en/blog/bioidentical-hormones-and-stress	/en/services/bioidentical-hormone-therapy/	302	No stress/adrenal page
+blog-post	/blog/gelenkschmerzen-in-den-wechseljahren	/de/conditions/menopause/	302	
+blog-post	/en/blog/joint-pain-during-menopause	/en/conditions/menopause/	302	
+blog-post	/blog/bioidentische-hormone-und-hashimoto	/de/conditions/thyroid/	302	
+blog-post	/en/blog/bioidentical-hormones-and-hashimoto	/en/conditions/thyroid/	302	
+blog-post	/blog/mnnliche-wechseljahre--andropause	/de/services/hormone-therapy/	302	Men’s health: no equivalent
+blog-post	/en/blog/the-male-menopause-andropause	/en/services/hormone-therapy/	302	Men’s health: no equivalent
+legacy	/hormontherapie	/de/services/hormone-therapy/	301	Old 301 -> /hormonersatztherapie; collapse the chain
+legacy	/bioidentischen-hormone	/de/services/bioidentical-hormone-therapy/	301	Old 308 -> /bioidentische-hormone
+legacy	/wechseljahre	/de/conditions/menopause/	301	Old 308 -> /tag/wechseljahre
+legacy	/en/kontakt	/en/contact/	301	Old 307 -> /en/contact
+legacy	/de	(none)	-	No rule needed: trailing slash -> /de/ (exists)
+legacy	/en/home	/en/	301	Old 308 -> /en
+legacy	/bioidentische-hormone-bei-haarausfall	/de/conditions/menopause/	301	Old WordPress root slug, old site -> /blog/…
+legacy	/bioidentische-hormone-bei-hitzewallungen	/de/conditions/menopause/	301	Old WordPress root slug
+legacy	/bioidentische-hormone-und-stress	/de/services/bioidentical-hormone-therapy/	301	Old WordPress root slug
+legacy	/bioidentische-hormone-und-hashimoto	/de/conditions/thyroid/	301	Old WordPress root slug
+legacy	/bioidentische-hormone-bei-gewichtzunahme	/de/services/weight-metabolic-health/	301	Old WordPress root slug
+legacy	/bioidentische-hormone-wechseljahren	/de/conditions/menopause/	301	Dead link on old site (404), still linked from posts
+legacy	/gelenkschmerzen-wechseljahre	/de/conditions/menopause/	301	Dead on old site
+legacy	/muedigkeit-wechseljahre	/de/conditions/perimenopause/	301	Dead on old site
+legacy	/blog/muedigkeit-wechseljahre	/de/conditions/perimenopause/	301	Dead on old site
+legacy	/unterschied-synthetische-natuerliche-hormone	/de/services/bioidentical-hormone-therapy/	301	Dead on old site
+legacy	/hormonmessungen	/de/faq/#testing-treatment	301	Dead on old site
+legacy	/naturidentische-hormone-rimkus	/de/services/bioidentical-hormone-therapy/	301	Dead on old site
+legacy	/blog/bioidentische-hormone-osteoporose	/de/conditions/menopause/	301	Dead on old site
+legacy	/blog/brustschmerzen-knoten-wechseljahre	/de/conditions/menopause/	301	Dead on old site
+legacy	/ueber/isabella-wilden	/de/team/isabella-wilden/	301	Dead on old site
+legacy	/en/ueber/isabella-wilden	/en/team/isabella-wilden/	301	Dead on old site
+legacy	/en/ueber/about-us	/en/our-approach/	301	Dead on old site (target of /ueber/ueber)
+legacy	/en/about	/en/our-approach/	301	Dead on old site, linked in its footer
+legacy	/nutzungsbedingungen-fernbehandlung	/de/remote-treatment-terms/	301	Dead on old site
+legacy	/en/blog/bioidentical-hormones-hot-flashes	/en/conditions/menopause/	301	Dead on old site
+legacy	/en/blog/bioidentical-hormones-stress	/en/services/bioidentical-hormone-therapy/	301	Dead on old site
+legacy	/en/blog/breast-pain-lumps-during-menopause	/en/conditions/menopause/	301	Dead on old site
+legacy	/en/blog/fatique-menopause	/en/conditions/perimenopause/	301	Dead on old site
+legacy	/en/blog/koerperzusammensetzung-und-bmi	/en/services/weight-metabolic-health/	301	Dead on old site (DE-only post linked from EN)
+legacy	/en/blog/viszerales-fett	/en/services/weight-metabolic-health/	301	Dead on old site (DE-only post linked from EN)
+legacy	/undefined/blog/:slug	/blog/:slug/	301	Old-site bug links; second hop via the post rule
+file	/api/documents/file/:file	/downloads/:file	301	REQUIRES the 9 PDFs in public/downloads/ (same file names) before launch

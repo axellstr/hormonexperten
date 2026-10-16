@@ -1,5 +1,7 @@
 # Design audit
 
+> **Archived 16 Oct 2026.** The design review of 11 Oct, kept for its method and the Chromium vs Safari notes. What is still open from it and from [`fixes.md`](fixes.md) is in [`../launch-readiness.md`](../launch-readiness.md) (“Earlier audits”).
+
 Head-of-design review of the whole site on 11 Oct 2026: visual quality, UX, the booking path, motion, and Chromium vs Safari (WebKit). It builds on [`launch-audit.md`](launch-audit.md) (9 Oct) and doesn't repeat its blockers unless they affect the design.
 
 ## How it was checked

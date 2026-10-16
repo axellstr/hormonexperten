@@ -1,5 +1,7 @@
 # Typography polish: brief for Fable 5.1
 
+> **Archived 16 Oct 2026.** A one-off brief for a typography pass (it moved here from `docs/prompts/`). Its references to `docs/design-audit.md` and `docs/fixes.md` now mean `docs/archive/`.
+
 Paste everything below the line into a fresh Claude Code session (model: Fable 5.1) opened in this repo.
 
 ---

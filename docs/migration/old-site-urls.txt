@@ -1,0 +1,199 @@
+# Old site (hormonexperten.de, Payload/Next.js) URL inventory, crawled 16 Oct 2026
+# Columns: category<TAB>lang<TAB>url<TAB>status<TAB>robots<TAB>last updated<TAB>title
+# Sources: /sitemap.xml index -> pages-sitemap.xml, posts-sitemap.xml, tags-sitemap.xml; plus links found on every crawled page.
+
+## Pages (in pages-sitemap.xml): 28
+page	de	https://hormonexperten.de/	200	index, follow		Ihr Weg zur Hormonbalance | Hormonexperten
+page	de	https://hormonexperten.de/behandlungsablauf	200	index, follow		Behandlungsablauf der Videosprechstunde | Hormonexperten
+page	en	https://hormonexperten.de/en/bioidentical-hormones	200	index, follow		Bioidentical Hormones - Hormon Expertes from Germany
+page	de	https://hormonexperten.de/bioidentische-hormone	200	index, follow		Bioidentische Hormone - Wirkung & mehr | Hormonexperten.de
+page	en	https://hormonexperten.de/en/contact	200	index, follow		Book Your Video Consultation | Hormon Expertes (Germany)
+page	en	https://hormonexperten.de/en/content-guidelines	200	index, follow		Our Content Guidelines | Hormon Expertes (Germany)
+page	de	https://hormonexperten.de/downloads	200	index, follow		Downloads & Formulare | Hormonexperten
+page	en	https://hormonexperten.de/en/downloads	200	index, follow		Downloads | Hormonexperten
+page	en	https://hormonexperten.de/en	200	index, follow		Your Path to Hormone Balance | Hormone Experts
+page	en	https://hormonexperten.de/en/hormone-therapy	200	index, follow		Bioidentical Hormone Therapy | Hormone Experts (Germany)
+page	en	https://hormonexperten.de/en/hormone-therapy-rimkus	200	index, follow		Rimkus® Therapy - Natural Hormone Therapy Explained!
+page	de	https://hormonexperten.de/hormonersatztherapie	200	index, follow		Bioidentische Hormonersatztherapie - Hormonexperten.de
+page	de	https://hormonexperten.de/hormontherapie-nach-rimkus	200	index, follow		Rimkus®-Therapie - Natürliche Hormontherapie erklärt!
+page	de	https://hormonexperten.de/impressum	200	index, follow		Impressum | Hormonexperten
+page	de	https://hormonexperten.de/inhaltsrichtlinien	200	index, follow		Inhaltsrichtlinien | Hormonexperten
+page	de	https://hormonexperten.de/kontakt	200	index, follow		Buchen Sie Ihre Videosprechstunde - hormonexperten.de
+page	de	https://hormonexperten.de/kosten	200	index, follow		Kosten für eine Videosprechstunde | Hormonexperten
+page	en	https://hormonexperten.de/en/legal-notice	200	index, follow		Legal Notice | Hormon Expertes (Germany)
+page	en	https://hormonexperten.de/en/terms	200	index, follow		General Terms and Conditions (GTC) | Hormonexperten
+page	en	https://hormonexperten.de/en/terms-of-use-for-telemedical-treatment	200	index, follow		Terms of Use for Telemedical Treatment
+page	en	https://hormonexperten.de/en/treatment-costs	200	index, follow		Costs for a Video Consultation | Hormone Experts
+page	en	https://hormonexperten.de/en/treatment-process	200	index, follow		Video Consultation Treatment Process | Hormone Experts
+page	en	https://hormonexperten.de/en/ueber/about	200	index, follow		Our story & How we help you - hormonexperten.de
+page	de	https://hormonexperten.de/ueber/dr-isabella-wilden	200	index, follow		Über: Dr. Isabella Wilden - Hormonexperten.de
+page	en	https://hormonexperten.de/en/ueber/dr-isabella-wilden	200	index, follow		About: Dr. Isabella Wilden | Hormone Experts (Germany)
+page	de	https://hormonexperten.de/ueber/ueber	307 -> /en/ueber/about-us			
+page	de	https://hormonexperten.de/ueber/yvonne-tuszing	200	index, follow		Lebenslauf von Yvonne Tuszing | Hormonexperten.de
+page	en	https://hormonexperten.de/en/ueber/yvonne-tuszing	200	index, follow		Yvonne Tuszing, MD | PCOS & Women's Hormonal Health
+
+## Blog index and pagination (in sitemaps): 12
+blog-index	de	https://hormonexperten.de/blog	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de
+blog-index	en	https://hormonexperten.de/en/blog	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts
+blog-index	de	https://hormonexperten.de/blog/page/2	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de - Seite 2
+blog-index	en	https://hormonexperten.de/en/blog/page/2	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts - Page 2
+blog-index	de	https://hormonexperten.de/blog/page/3	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de - Seite 3
+blog-index	en	https://hormonexperten.de/en/blog/page/3	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts - Page 3
+blog-index	de	https://hormonexperten.de/blog/page/4	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de - Seite 4
+blog-index	en	https://hormonexperten.de/en/blog/page/4	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts - Page 4
+blog-index	de	https://hormonexperten.de/blog/page/5	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de - Seite 5
+blog-index	en	https://hormonexperten.de/en/blog/page/5	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts - Page 5
+blog-index	de	https://hormonexperten.de/blog/page/6	200	index, follow		Blog: Bioidentische Hormone & Menopause - hormonexperten.de - Seite 6
+blog-index	en	https://hormonexperten.de/en/blog/page/6	200	index, follow		Blog: Bioidentical Hormones & Menopause | Hormon Experts - Page 6
+
+## Blog posts (posts-sitemap.xml): 68
+blog-post	de	https://hormonexperten.de/blog/akne-durch-hormone-ursachen	200	index, follow	2026-04-23	Akne durch Hormone verstehen und behandeln | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-and-hashimoto	200	index, follow	2026-04-01	Successfully Treat Hashimoto's with Bioidentical Hormones
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-and-stress	200	index, follow	2026-04-01	Bioidentical Hormones Against Stress | Hormone Experts
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-cancer-time-for-clarity	200	index, follow	2026-04-01	Bioidentical Hormones and Cancer Risk | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-for-hair-loss	200	index, follow	2026-04-01	Hormonal Hair Loss? We're here to help! | Hormone Experts
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-for-hot-flashes	200	index, follow	2026-03-20	Hitzewallungen effektiv behandeln - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-for-osteoporosis-bone-loss	200	index, follow	2026-04-01	Osteoporosis and Menopause - Hormone Experts (Germany)
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-for-people-over-60	200	index, follow	2026-04-01	Bioidentical Hormones for People over 60: Are They Still an Option?
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-for-weight-control	200	index, follow	2026-04-01	Weight Control through Hormonal Balance - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/bioidentical-hormones-in-menopause	200	index, follow	2026-04-01	Bioidentical Hormones: Relief for Menopausal Symptoms
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-ab-60-sind-sie-noch-eine-option	200	index, follow	2026-04-01	Bioidentische Hormone ab 60 – Therapie | Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-bei-gewichtzunahme	200	index, follow	2026-04-01	Gewichtskontrolle durch Hormonbalance - Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-bei-haarausfall	200	index, follow	2026-04-01	Hormoneller Haarausfall? Wir helfen! - Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-bei-hitzewallungen	200	index, follow	2026-03-20	Hitzewallungen effektiv behandeln - Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-bei-osteoporose-knochenschwund	200	index, follow	2026-04-01	Osteoporose und Wechseljahre - Lösung: Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-in-den-wechseljahren	200	index, follow	2026-04-01	Bioidentische Hormone: Linderung Wechseljahresbeschwerden
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-krebs-zeit-fuer-klarheit	200	index, follow	2026-04-01	Bioidentische Hormone und Krebs | Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-und-hashimoto	200	index, follow	2026-04-01	Hashimoto erfolgreich behandeln mit bioidentischen Hormonen
+blog-post	de	https://hormonexperten.de/blog/bioidentische-hormone-und-stress	200	index, follow	2026-04-01	Bioidentische Hormone gegen Stress - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/breast-pain-and-lumps-during-menopause	200	index, follow	2026-04-01	Breast Pain During Menopause | Hormone Experts (Germany)
+blog-post	de	https://hormonexperten.de/blog/brustschmerzen-und-knoten-whrend-der-wechseljahre	200	index, follow	2026-04-01	Brustschmerzen in den Wechseljahren - Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/das-schilddruesen-gesicht	200	index, follow	2026-03-20	Schilddrüsen-Gesicht erkennen und behandeln | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/der-unterschied-zwischen-synthetischen-und-natrlichen-hormonen	200	index, follow	2026-03-20	Natürliche vs. synthetische Hormone - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/does-water-matter-when-taking-l-thyroxine	200	index, follow	2026-04-01	Water Matter When Taking L-Thyroxine? | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/eisenmangel-und-schilddruese-in-der-perimenopause	200	index, follow	2026-09-21	Eisenmangel & Schilddrüse: Symptome und was wirklich hilft
+blog-post	de	https://hormonexperten.de/blog/empfindliche-brustwarzen-in-den-wechseljahren	200	index, follow	2026-03-20	Empfindliche Brustwarzen Wechseljahre | Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/fatique-during-perimenopause-and-menopause	200	index, follow	2026-03-20	Bioidentical Hormones for Fatigue During Perimenopause!
+blog-post	de	https://hormonexperten.de/blog/fruchtbarkeit-verstehen-hormone-amh-und-kinderwunsch	200	index, follow	2026-07-22	Fruchtbarkein verstehen - AMH & BIHT | Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/gelenkschmerzen-in-den-wechseljahren	200	index, follow	2026-04-01	Gelenkschmerzen in den Wechseljahren - Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/hormon-regulation-beim-mann--alternativen-zu-potenzmitteln	200	index, follow	2026-03-20	Ganzheitliche Alternativen zu Potenzmitteln | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/hormonal-acne-understanding-the-causes	200	index, follow	2026-04-23	Acne by Hormones: Understand and Treat | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/hormone-measurement-methods--accuracy	200	index, follow	2026-04-01	Hormone Measurement: Methods & Accuracy
+blog-post	en	https://hormonexperten.de/en/blog/hormone-regulation-in-men--alternatives-to-potency-enhancers	200	index, follow	2026-03-20	Hormone Regulation in Men – Alternative to Potency Enhancers
+blog-post	de	https://hormonexperten.de/blog/hormonmessung-methoden--genauigkeit	200	index, follow	2026-04-01	Hormonmessung: Methoden & Genauigkeit - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/how-common-are-menopausal-symptoms	200	index, follow	2026-04-10	Prevalence of Menopause Symptoms | Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/important-information-regarding-our-prescription-policy	200	index, follow	2026-04-01	Changes in our Prescription Policy | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/insulin-resistance	200	index, follow	2026-07-16	Insulin Resistance: Why Fasting Glucose Warns Too Late
+blog-post	de	https://hormonexperten.de/blog/insulinresistenz	200	index, follow	2026-07-16	Insulinresistenz: Warum der Nüchternblutzucker oft zu spät warnt
+blog-post	de	https://hormonexperten.de/blog/interview-hashimoto-jod-und-l-thyroxin	200	index, follow	2026-03-20	Hashimoto, Jod und L-Thyroxin im Fokus - Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/interview-with-qs24-focus-on-hashimoto-iodine-and-l-thyroxine	200	index, follow	2026-03-20	Interview with QS24: Focus on Hashimoto, Iodine and L-Thyroxine
+blog-post	en	https://hormonexperten.de/en/blog/interview-with-qs24-wanting-children-after-taking-the-pill	200	index, follow	2026-04-01	Wanting Children After Taking the Pill | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/iron-deficiency-and-thyroid-function-during-perimenopause	200	index, follow	2026-09-21	Iron Deficiency & Thyroid Function: Symptoms and What Helps
+blog-post	en	https://hormonexperten.de/en/blog/joint-pain-during-menopause	200	index, follow	2026-04-01	Joint pain during menopause
+blog-post	de	https://hormonexperten.de/blog/kinderwunsch-nach-der-pille	200	index, follow	2026-04-01	Kinderwunsch nach der Pille erfüllen | Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/koerperzusammensetzung-und-bmi	200	index, follow	2026-07-23	Körperzusammensetzung statt BMI: Was wirklich zählt
+blog-post	de	https://hormonexperten.de/blog/mdigkeit-in-der-perimenopause-und-menopause	200	index, follow	2026-03-20	Bioidentische Hormone gegen Müdigkeit in der Perimenopause!
+blog-post	de	https://hormonexperten.de/blog/mnnliche-wechseljahre--andropause	200	index, follow	2026-04-01	Andropause verstehen: Männliche Wechseljahre behandeln
+blog-post	en	https://hormonexperten.de/en/blog/pcospmos	200	index, follow	2026-07-16	PCOS/PMOS & Insulin Resistance: The Overlooked Cause
+blog-post	de	https://hormonexperten.de/blog/polyzystischen-ovarialsyndroms	200	index, follow	2026-07-16	PCOS/PMOS: Warum die wichtigste Ursache des Polyzystischen Ovarialsyndroms oft übersehen wird
+blog-post	en	https://hormonexperten.de/en/blog/progesterone-deficiency-and-weight-gain	200	index, follow	2026-09-21	Progesterone Deficiency & Weight: Understanding Belly Fat
+blog-post	de	https://hormonexperten.de/blog/progesteronmangel-und-gewichtszunahme	200	index, follow	2026-09-21	Progesteronmangel & Gewichtszunahme: Bauchfett verstehen
+blog-post	en	https://hormonexperten.de/en/blog/recognizing-hypothyroidism	200	index, follow	2026-04-01	Hypothyroidism Symptoms Despite Normal TSH | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/scheidentrockenheit-behandeln-oestrogenmangel	200	index, follow	2026-04-07	Scheidentrockenheit: Was hilft wirklich bei Östrogenmangel?
+blog-post	de	https://hormonexperten.de/blog/schilddruesenunterfunktion-erkennen	200	index, follow	2026-04-01	Schilddrüsenunterfunktion erkennen | Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/sensitive-nipples-during-menopause-causes-symptoms-and-what-helps	200	index, follow	2026-03-20	Sensitive Nipples During Menopause | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/spielt-die-wassermenge-bei-l-thyroxin-eine-rolle	200	index, follow	2026-04-01	Richtige Wassermenge bei L Thyroxin | Hormonexperten.de
+blog-post	de	https://hormonexperten.de/blog/testosteron-bei-der-frau	200	index, follow	2026-04-13	Testosteron bei der Frau erklärt | Hormonexperten.de
+blog-post	en	https://hormonexperten.de/en/blog/testosterone-in-women	200	index, follow	2026-04-13	Testosterone in Women: An Underestimated Hormone with Significant Impact
+blog-post	en	https://hormonexperten.de/en/blog/the-difference-between-synthetic-and-natural-hormones	200	index, follow	2026-03-20	Natural vs. Synthetic Hormones - Hormone-experts.com
+blog-post	en	https://hormonexperten.de/en/blog/the-male-menopause-andropause	200	index, follow	2026-04-01	Understanding Andropause: Treating Male Menopause
+blog-post	en	https://hormonexperten.de/en/blog/the-thyroid-face	200	index, follow	2026-03-20	Thyroid Face: Treat Hypothyroidism | Hormonexperten
+blog-post	en	https://hormonexperten.de/en/blog/tinnitus-during-menopause	200	index, follow	2026-09-15	Tinnitus During Menopause: Coincidence or a Hormonal Signal?
+blog-post	de	https://hormonexperten.de/blog/tinnitus-in-den-wechseljahren	200	index, follow	2026-09-15	Tinnitus in den Wechseljahren: Zufall oder ein hormonelles Signal?
+blog-post	en	https://hormonexperten.de/en/blog/treating-vaginal-dryness-when-estrogen-deficiency-is-the-cause	200	index, follow	2026-04-07	Vaginal Dryness: What Helps in Cases of Estrogen Deficiency?
+blog-post	en	https://hormonexperten.de/en/blog/understanding-fertility-hormones-amh-and-preparing-for-pregnancy	200	index, follow	2026-07-22	Understanding Fertility - AMH & Hormones | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/viszerales-fett	200	index, follow	2026-09-09	Viszerales Fett: Das versteckte Organ, das stille Entzündungen im Körper antreibt
+blog-post	de	https://hormonexperten.de/blog/wichtige-information-zu-unserer-rezeptvergabe	200	index, follow	2026-04-01	Information zu unserer Rezeptvergabe | Hormonexperten
+blog-post	de	https://hormonexperten.de/blog/wie-haeufig-sind-beschwerden-in-den-wechseljahren	200	index, follow	2026-04-10	Häufigkeit von Wechseljahresbeschwerden | Hormonexperten.de
+
+## Tag pages (tags-sitemap.xml): 12
+tag	de	https://hormonexperten.de/tag/andropause	200	index, follow		Kategorie: Andropause | hormonexperten.de
+tag	en	https://hormonexperten.de/en/tag/andropause	200	index, follow		Category: Andropause | Hormone Experts (Germany)
+tag	de	https://hormonexperten.de/tag/ankuendigungen	200	index, follow		Kategorie: Ankündigungen | Hormonexperten
+tag	en	https://hormonexperten.de/en/tag/announcements	200	index, follow		Announcements | Hormonexperten
+tag	de	https://hormonexperten.de/tag/diaet-ernaehrung	200	index, follow		Kategorie: Diät & Ernährung - Hormonexperten.de
+tag	en	https://hormonexperten.de/en/tag/diet-nutrition	200	index, follow		Category: Diet & Nutrition | Hormone Experts (Germany)
+tag	de	https://hormonexperten.de/tag/erkrankungen	200	index, follow		Kategorie: Erkrankungen | Hormonexperten.de
+tag	de	https://hormonexperten.de/tag/hormone	200	index, follow		Kategorie: Hormone | Hormonexperten.de
+tag	en	https://hormonexperten.de/en/tag/hormones	200	index, follow		Category: Hormones | Hormone Experts (Germany)
+tag	en	https://hormonexperten.de/en/tag/medical-conditions	200	index, follow		Category: Medical Conditions | Hormone Experts (Germany)
+tag	en	https://hormonexperten.de/en/tag/menopause	200	index, follow		Category: Menopause | Hormon Experts (Germany)
+tag	de	https://hormonexperten.de/tag/wechseljahre	200	index, follow		Kategorie: Wechseljahre | Hormonexperten
+
+## Live but not in any sitemap: 17 (+ /quiz, /en/quiz which redirect to …/ergebnis)
+unlisted	de	https://hormonexperten.de/agb	200	noindex, nofollow		Allgemeine Geschäftsbedingungen (AGB) | Hormonexperten
+unlisted	de	https://hormonexperten.de/cookies	200	noindex, nofollow		Cookie Settings | Hormone Experts
+unlisted	de	https://hormonexperten.de/datenschutz	200	noindex, nofollow		Datenschutzerklärung | Hormonexperten
+unlisted	en	https://hormonexperten.de/en/cookies	200	noindex, nofollow		Cookie Settings | Hormone Experts (Germany)
+unlisted	en	https://hormonexperten.de/en/privacy-policy	200	noindex, nofollow		Privacy-Policy | Hormon Expertes (Germany)
+unlisted	en	https://hormonexperten.de/en/quiz/ergebnis	200	noindex, nofollow, noarchive, nosnippet, noimageindex		Your hormone analysis | Hormonexperten
+unlisted	en	https://hormonexperten.de/en/tag	200	index, follow		Hormonexperten - Categories
+unlisted	en	https://hormonexperten.de/en/termin-absagen	200	noindex, nofollow, nocache		Termin absagen - Hormonexperten
+unlisted	en	https://hormonexperten.de/en/termin-aendern	200	noindex, nofollow, nocache		Termin ändern - Hormonexperten
+unlisted	en	https://hormonexperten.de/en/termin-buchen	200	noindex, nofollow, nocache		Termin buchen - Hormonexperten
+unlisted	de	https://hormonexperten.de/nutzungsbedingungen-fr-fernbehandlung	200	noindex, nofollow		Nutzungsbedingungen Fernbehandlung | Hormonexperten
+unlisted	de	https://hormonexperten.de/quiz/ergebnis	200	noindex, nofollow, noarchive, nosnippet, noimageindex		Ihre Hormonanalyse | Hormonexperten
+unlisted	de	https://hormonexperten.de/tag	200	index, follow		Hormonexperten - Kategorien
+unlisted	de	https://hormonexperten.de/termin-absagen	200	noindex, nofollow, nocache		Termin absagen - Hormonexperten
+unlisted	de	https://hormonexperten.de/termin-aendern	200	noindex, nofollow, nocache		Termin ändern - Hormonexperten
+unlisted	de	https://hormonexperten.de/termin-buchen	200	noindex, nofollow, nocache		Termin buchen - Hormonexperten
+unlisted	de	https://hormonexperten.de/ueber	200	index, follow		Unsere Geschichte & wie wir Ihnen helfen - hormonexperten.de
+unlisted	de	https://hormonexperten.de/quiz	308 -> /quiz/ergebnis			
+unlisted	en	https://hormonexperten.de/en/quiz	308 -> /en/quiz/ergebnis			
+
+## Legacy URLs (old site redirects them, or they 404 there but are still linked from its pages): 31
+legacy	de	https://hormonexperten.de/hormontherapie				Old 301 -> /hormonersatztherapie; collapse the chain
+legacy	de	https://hormonexperten.de/bioidentischen-hormone				Old 308 -> /bioidentische-hormone
+legacy	de	https://hormonexperten.de/wechseljahre				Old 308 -> /tag/wechseljahre
+legacy	en	https://hormonexperten.de/en/kontakt				Old 307 -> /en/contact
+legacy	de	https://hormonexperten.de/de				No rule needed: trailing slash -> /de/ (exists)
+legacy	en	https://hormonexperten.de/en/home				Old 308 -> /en
+legacy	de	https://hormonexperten.de/bioidentische-hormone-bei-haarausfall				Old WordPress root slug, old site -> /blog/…
+legacy	de	https://hormonexperten.de/bioidentische-hormone-bei-hitzewallungen				Old WordPress root slug
+legacy	de	https://hormonexperten.de/bioidentische-hormone-und-stress				Old WordPress root slug
+legacy	de	https://hormonexperten.de/bioidentische-hormone-und-hashimoto				Old WordPress root slug
+legacy	de	https://hormonexperten.de/bioidentische-hormone-bei-gewichtzunahme				Old WordPress root slug
+legacy	de	https://hormonexperten.de/bioidentische-hormone-wechseljahren				Dead link on old site (404), still linked from posts
+legacy	de	https://hormonexperten.de/gelenkschmerzen-wechseljahre				Dead on old site
+legacy	de	https://hormonexperten.de/muedigkeit-wechseljahre				Dead on old site
+legacy	de	https://hormonexperten.de/blog/muedigkeit-wechseljahre				Dead on old site
+legacy	de	https://hormonexperten.de/unterschied-synthetische-natuerliche-hormone				Dead on old site
+legacy	de	https://hormonexperten.de/hormonmessungen				Dead on old site
+legacy	de	https://hormonexperten.de/naturidentische-hormone-rimkus				Dead on old site
+legacy	de	https://hormonexperten.de/blog/bioidentische-hormone-osteoporose				Dead on old site
+legacy	de	https://hormonexperten.de/blog/brustschmerzen-knoten-wechseljahre				Dead on old site
+legacy	de	https://hormonexperten.de/ueber/isabella-wilden				Dead on old site
+legacy	en	https://hormonexperten.de/en/ueber/isabella-wilden				Dead on old site
+legacy	en	https://hormonexperten.de/en/ueber/about-us				Dead on old site (target of /ueber/ueber)
+legacy	en	https://hormonexperten.de/en/about				Dead on old site, linked in its footer
+legacy	de	https://hormonexperten.de/nutzungsbedingungen-fernbehandlung				Dead on old site
+legacy	en	https://hormonexperten.de/en/blog/bioidentical-hormones-hot-flashes				Dead on old site
+legacy	en	https://hormonexperten.de/en/blog/bioidentical-hormones-stress				Dead on old site
+legacy	en	https://hormonexperten.de/en/blog/breast-pain-lumps-during-menopause				Dead on old site
+legacy	en	https://hormonexperten.de/en/blog/fatique-menopause				Dead on old site
+legacy	en	https://hormonexperten.de/en/blog/koerperzusammensetzung-und-bmi				Dead on old site (DE-only post linked from EN)
+legacy	en	https://hormonexperten.de/en/blog/viszerales-fett				Dead on old site (DE-only post linked from EN)
+legacy	-	https://hormonexperten.de/undefined/blog/{slug}	404			68 broken links on old blog pages (old-site bug)
+
+## Files: 9 PDFs linked from /downloads and /en/downloads
+file	de	https://hormonexperten.de/api/documents/file/Aufklaerung-der-Behandlung-mit-bioidentischen-Hormonen-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/aufklaerung-terminvereinbarung-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/checkliste-menopause-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/checkliste-symptome-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/einwilligungserklaerung-fuer-die-durchfuehrung-einer-medizinischen-videosprechstunde-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/hinweise-fernbehandlung.pdf	200			
+file	en	https://hormonexperten.de/api/documents/file/medical-treatment-contract-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/wirtschaftliche-aufklaerung-honorar-aerztliche-taetigkeiten-2025.pdf	200			
+file	de	https://hormonexperten.de/api/documents/file/zusammenfassung-formulare-patienten-2025.pdf	200			
+file	-	https://hormonexperten.de/api/media/file/*	200			Images (logo, photos, blog thumbnails); not redirected
+admin	-	https://hormonexperten.de/admin	200			Payload admin (/wp-admin -> /admin); not redirected

@@ -1,5 +1,7 @@
 # Fixes to review
 
+> **Archived 16 Oct 2026.** Don’t tick boxes here any more: the status of every F-number on 16 Oct is in [`../launch-readiness.md`](../launch-readiness.md) (“Earlier audits”).
+
 The fix list from the design audit of 11 Oct 2026. The reasoning, test method and Chromium vs Safari notes are in [`design-audit.md`](design-audit.md); launch blockers (booking URL, legal pages, redirects) are in [`launch-audit.md`](launch-audit.md).
 
 How to review: tick the box to approve an item, or add a note under it (`> skip`, `> change: …`). Items are grouped by who can unblock them. Each has an ID so it can be referred to in conversation ("do F3 and F7").
@@ -111,7 +113,7 @@ How to review: tick the box to approve an item, or add a note under it (`> skip`
 - [ ] **F21. Replace the contact photo.** It shows Google Gemini, an AI chatbot, in French, greeting a stranger by name. On a doctor's "Get in touch" card it suggests AI answers patient questions.
   - Fix: a real photo of the practice or Dr. Wilden, or no image.
   - Where: `src/assets/images/contact.jpg`, used in `home/en.json:211`, `faq/en.json:10`, `about/en.json:13`
-  - ![Current contact photo](../src/assets/images/contact.jpg)
+  - (The photo, `contact.jpg`, has since been deleted.)
 
 - [ ] **F22. Photo shoot.** Dr. Wilden's photo appears 3 times on the home page; the second hero slide is a 683px stock portrait cropped to landscape; service images are 536px wide and generic. Shot list:
   1. Dr. Wilden portrait, landscape, plain warm background

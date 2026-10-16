@@ -1,6 +1,8 @@
 # Launch audit
 
-Pre-launch check of the working tree on 9 Oct 2026, about 23:40, with all uncommitted changes included. Another session was still editing the header (`RollText`) while this was written. The SEO and redirect work lives in [`seo-geo-plan.md`](seo-geo-plan.md); this file refers to it and doesn't repeat it.
+> **Archived 16 Oct 2026.** The pre-launch check of 9 Oct, kept for its reasoning and Lighthouse baseline. What is still open from it is in [`../launch-readiness.md`](../launch-readiness.md) (“Earlier audits”). `seo-geo-plan.md` is in `docs/` (it moves to `docs/seo/` with the SEO loop).
+
+Pre-launch check of the working tree on 9 Oct 2026, about 23:40, with all uncommitted changes included. Another session was still editing the header (`RollText`) while this was written. The SEO and redirect work lives in `seo-geo-plan.md` (see the note above); this file refers to it and doesn't repeat it.
 
 ## Verdict
 

@@ -50,7 +50,9 @@ admin under Content Types.
 5. **Local testing of “Needs check”:** add `CONTENT_CONFIRMERS=<your admin email>` to `.env`, then
    restart the dev server.
 6. **Before launch:** remove `CONTENT_CHECK=warn` (it shows unconfirmed content, e.g. “5,000+
-   patients treated”), add the nightly backup, and see “Later” below for the domain move.
+   patients treated”), add the nightly backup, and see “Later” below for the domain move. The full
+   launch list, including the CMS's known gaps, is in `docs/launch-readiness.md` (“CMS and
+   operations”); the domain move is in `docs/domain-cutover.md`.
 
 ## What's built and tested
 
@@ -234,8 +236,8 @@ Action).
   redirect sources use `:rest(.*)`, not `:rest*` (Vercel matches sources strictly; test new rules
   with `getTransformedRoutes` from `@vercel/routing-utils`).
 - **Local:** `npm run dev` also starts the admin at `http://localhost:4321/_emdash/admin` with a
-  local SQLite file in `.emdash/`. Pages read the JSON files unless `CONTENT_SOURCE=emdash` (your
-  `.env` sets it, so local pages show the admin's content, not edits to `src/content/`). Locally
+  local SQLite file in `.emdash/`. Pages read the JSON files unless `CONTENT_SOURCE=emdash` (set it
+  in `.env` to see the admin's content locally instead of `src/content/`). Locally
   the setup wizard needs no key, and publishing doesn't rebuild: reload the page instead.
 - **Checks:** `npm run cms:check` converts every content file to CMS entries and back.
 - **npm audit** reports 3 "high" issues in `path-to-regexp`, pulled in by the Vercel adapter's
